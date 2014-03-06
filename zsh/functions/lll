@@ -1,0 +1,2 @@
+# a wip for show the files and their fullpath
+lll() { ls -lrt -d -1 $PWD/{*,.*}; }

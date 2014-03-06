@@ -1,0 +1,58 @@
+# http://andxyz.com personal aliases
+
+### ls
+alias ls="ls -F"
+alias ll="ls -l"
+alias la='ls -A'
+
+### personal ~/bin
+alias addr='nocorrect addr'
+
+### andxyz random
+alias e="subl -n ./" #  a sublimetext github.com/bkeepers tip
+alias hhistory='history -99999 | cut -c 8-'
+alias cls='clear' # the only advantage cmd.exe has
+alias ls='gls --color' // remember to brew install coreutils
+alias pps="ps auwwx | perl -p -e 's/\n/\n\n/'"
+alias hhtop="htop --sort-key Command"
+alias hhtopcommand="htop --sort-key Command"
+alias hhtopcpu="htop --sort-key PERCENT_CPU"
+alias hhtopmem="htop --sort-key PERCENT_MEM"
+alias hhtoppid="htop --sort-key PID"
+
+### git
+alias gb='git branch -a -v'
+alias gs='git status'
+#alias ga='git add -A'
+alias gl='git branch -lav'
+alias gd='git diffks'
+alias gco='git checkout'
+
+### rails and ruby
+alias ttail='tail -f log/development.log'
+alias bi="bundle install --binstubs --path=vendor/gems --without=production "
+alias be="bundle exec"
+
+### node
+alias ni='npm install --silent > /dev/null 2>&1'
+
+### zsh correction headaches
+alias bower='nocorrect bower'
+alias grunt='nocorrect grunt'
+alias npm='nocorrect npm'
+alias node='nocorrect node'
+alias brew='nocorrect brew'
+
+# Mac OSX
+alias o='open .'
+alias screensaver='/System/Library/Frameworks/ScreenSaver.framework/Versions/A/Resources/ScreenSaverEngine.app/Contents/MacOS/ScreenSaverEngine'
+
+## silly stuff
+
+### test internet with speedtest
+##### maybe checkout https://github.com/sivel/speedtest-cli
+alias speedtest='echo "scale=2; `curl  --progress-bar -w "%{speed_download}" http://cachefly.cachefly.net/10mb.test -o test.zip ` / 131072" | bc | xargs -I {} echo {}Mb\/s'
+
+
+## top ten used commands line tools
+# 

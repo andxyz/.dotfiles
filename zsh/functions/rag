@@ -1,0 +1,3 @@
+function rag {
+  ag --ignore-dir './log' --ignore-dir './vendor' --ignore-dir './tmp' $1 .
+}
