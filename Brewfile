@@ -46,13 +46,15 @@ install 'imagemagick'
 
 
 ## LETS INSTALL SOME BINARIES
+# see https://github.com/phinze/homebrew-cask/tree/master/Casks for more
 
 tap 'phinze/cask'
 install 'brew-cask'
 
 ## coding
-cask install 'Sublimetext2'
-cask install 'Sublimetext3'
+cask install 'sublime-text'
+# cask install 'sublime-text2'
+# cask install 'sublime-text3'
 
 ## productivity?
 cask install 'geektool'
