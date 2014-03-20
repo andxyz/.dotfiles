@@ -12,7 +12,7 @@ alias addr='nocorrect addr'
 alias e="subl -n ./" #  a sublimetext github.com/bkeepers tip
 alias hhistory='history -99999 | cut -c 8-'
 alias cls='clear' # the only advantage cmd.exe has
-alias ls='gls --color' // remember to brew install coreutils
+alias ls='gls --color' # remember to brew install coreutils
 alias pps="ps auwwx | perl -p -e 's/\n/\n\n/'"
 alias hhtop="htop --sort-key Command"
 alias hhtopcommand="htop --sort-key Command"
@@ -22,7 +22,8 @@ alias hhtoppid="htop --sort-key PID"
 
 ### git
 alias gb='git branch -a -v'
-alias gs='git status'
+alias gs='git status --short --branch'
+
 #alias ga='git add -A'
 alias gl='git branch -lav'
 alias gd='git diffks'
@@ -61,9 +62,10 @@ alias nginx.logs.default-ssl.access='tail -250f /usr/local/etc/nginx/logs/defaul
 alias nginx.logs.phpmyadmin.error='tail -250f /usr/local/etc/nginx/logs/phpmyadmin.error.log'
 alias nginx.logs.phpmyadmin.access='tail -250f /usr/local/etc/nginx/logs/phpmyadmin.access.log'
 
-# Mac OSX
+## Mac OSX
 alias o='open .'
 alias screensaver='/System/Library/Frameworks/ScreenSaver.framework/Versions/A/Resources/ScreenSaverEngine.app/Contents/MacOS/ScreenSaverEngine'
+alias pports='lsof -Pni4 | grep LISTEN'
 
 ## silly stuff
 
@@ -73,4 +75,7 @@ alias speedtest='echo "scale=2; `curl  --progress-bar -w "%{speed_download}" htt
 
 
 ## top ten used commands line tools
-# 
+# history -99999 | awk '{print $2}' | sort | uniq -c | sort -rn | head -20 # ttopten1
+# fc -l -n 1 | sort | uniq -c | sort -rn | head -20 # ttopten2
+# history -99999 | tr -s ' ' | cut -d' ' -f3- | sort | uniq -c | sort -rn | head -20 # ttopten3
+
