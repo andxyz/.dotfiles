@@ -1,0 +1,11 @@
+com.sublimetext.2 public.plain-text all
+com.sublimetext.2 com.apple.applescript.text all
+
+com.sublimetext.2 public.html all
+
+com.sublimetext.2 public.shell-script all
+com.sublimetext.2 public.php-script all
+com.sublimetext.2 public.python-script all
+com.sublimetext.2 public.ruby-script all
+com.sublimetext.2 com.sun.java-source all
+com.sublimetext.2 com.netscape.javascript-source all
