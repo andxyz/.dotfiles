@@ -96,7 +96,10 @@ cask install 'transmission'
 cask install 'lastfm'
 
 ### image manipulation
-cash install 'xee'
+cask install 'xee'
+
+### text manipulation
+cask install 'calibre'
 
 ### OSX hacks
 cask install 'ukelele'
