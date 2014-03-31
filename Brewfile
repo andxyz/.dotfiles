@@ -52,7 +52,7 @@ cask install 'sublime-text'
 ##### `brew cask install 'sublimetext3'`
 
 ### vms
-cash install 'virtualbox'
+cask install 'virtualbox'
 
 ### productivity?
 cask install 'autoenv'
