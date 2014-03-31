@@ -1,0 +1,41 @@
+#!/usr/bin/env bash
+
+set -e
+
+## see https://github.com/sstephenson/rbenv/wiki/_pages
+git clone https://github.com/sstephenson/rbenv.git ~/.rbenv &&
+export PATH="$HOME/.rbenv/bin:$PATH" &&
+eval "$(rbenv init -)"
+
+# optional, but recommended:
+brew install openssl libyaml readline
+
+# required for building Ruby <= 1.9.3-p0:
+brew tap homebrew/dupes && brew install apple-gcc42
+
+## plugins ahoy, see https://github.com/sstephenson/rbenv/wiki/Plugins
+
+git clone https://github.com/sstephenson/ruby-build.git ~/.rbenv/plugins/ruby-build
+git clone https://github.com/sstephenson/rbenv-gem-rehash.git ~/.rbenv/plugins/rbenv-gem-rehash
+git clone https://github.com/rkh/rbenv-whatis.git ~/.rbenv/plugins/rbenv-whatis
+git clone git://github.com/tpope/rbenv-communal-gems.git ~/.rbenv/plugins/rbenv-communal-gems
+git clone https://github.com/sstephenson/rbenv-default-gems.git ~/.rbenv/plugins/rbenv-default-gems
+git clone https://github.com/rkh/rbenv-update.git ~/.rbenv/plugins/rbenv-update
+git clone https://github.com/chriseppstein/rbenv-each.git ~/.rbenv/plugins/rbenv-each
+# subl -n ~/.rbenv/default-gems
+brew install readline && git clone git://github.com/tpope/rbenv-readline.git ~/.rbenv/plugins/rbenv-readline
+ls "$(rbenv root)"/plugins
+
+## install some rubies with ruby-build, see https://github.com/sstephenson/ruby-build/wiki
+which ruby-build
+cd "$(rbenv root)"/plugins/ruby-build && git pull
+cd ~
+brew tap homebrew/dupes && brew install apple-gcc42
+# rbenv install 1.8.7-p375
+rbenv install 1.9.3-p545
+# rbenv install 2.1.0
+rbenv install 2.1.1
+
+
+
+exit 0

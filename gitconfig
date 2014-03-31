@@ -1,18 +1,18 @@
 [user]
-	name = Andrew Stevens
-	email = andxyz.stevens@gmail.com
+    name = Andrew Stevens
+    email = andxyz.stevens@gmail.com
 
 [core]
     pager = less -FRSX
     editor = subl -n -w
-	excludesfile = ~/.gitignore_global
-	autocrlf = input
+    excludesfile = ~/.gitignore_global
+    autocrlf = input
 
 [color]
     ui = auto
 
 [push]
-	default = current
+    default = current
 
 [alias]
     # andxyz logging
@@ -62,11 +62,11 @@
     diffpretty = !/Users/andxyz/bin/pretty-diff/pretty-diff.js
 
     # http://tbaggery.com/2011/08/08/effortless-ctags-with-git.html
-	ctags = !.git/hooks/ctags
+    ctags = !.git/hooks/ctags
 
     # searching git for stuff
     # http://travisjeffery.com/b/2012/02/search-a-git-repo-like-a-ninja/
-	g = grep --break --heading --line-number
+    g = grep --break --heading --line-number
 
 # perforce p4merge aint so great, just buy http://www.kaleidoscopeapp.com/
 # 
@@ -137,4 +137,4 @@
 [include]
     path            = ~/.gitconfig-private
 [url "ssh://git@github.com/"]
-	insteadOf = https://github.com/
+    insteadOf = https://github.com/

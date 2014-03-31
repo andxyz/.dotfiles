@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+
+set -e
+
+## see http://docs.oracle.com/javase/7/docs/webnotes/install/mac/mac-jdk.html
+echo "install java7 stuff goes here"
+
+exit 0

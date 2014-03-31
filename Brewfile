@@ -8,51 +8,43 @@
 update
 upgrade
 
+#### enable binary downloads see https://github.com/phinze/homebrew-cask/tree/master/Casks for more
+tap 'phinze/cask'
+install 'brew-cask'
+
 ## LETS COMPILE STUFF
 
-### db
-install 'redis'
-install 'mysql'
-install 'postgresql'
-
-### vcs
+### shell
+install 'zsh'
+### version control systems
 install 'git'
 install 'hub'
-install 'kaleidoscope'
+# cask install 'kaleidoscope' ## i've been doing it manually
+### db
+install 'mysql'
+install 'postgresql'
+install 'redis'
 ### other vcs
 install 'hg'
 install 'svn'
 
 ### gnu userland utils
-install 'coreutils findutils gnu-indent gnu-sed gnu-grep gnu-tar gawk'
+tap homebrew/dupes
+install 'coreutils'
+install 'findutils'
+install 'gnu-indent'
+install 'gnu-sed'
+install 'grep' # gnu grep is in homebrew/dupes
+install 'gnu-tar'
+install 'gawk'
 
 ### 3rd-party-toolkits
 install 'heroku'
 
 ### languages
-brew tap homebrew/dupes
-brew tap homebrew/versions
-brew tap josegonzalez/homebrew-php
-#### you should read the following for php
-##### `brew options php54`
-##### `brew install php54`
-##### `brew options php55`
-##### `brew info php55`
-##### `browser http://justinhileman.info/article/reinstalling-php-on-mac-os-x/`
-##### `browser blog.frd.mn/install-nginx-php-fpm-mysql-and-phpmyadmin-on-os-x-mavericks-using-homebrew/`
-
-brew install php54 --homebrew-apxs --with-fpm --with-homebrew-openssl --with-mysql --with-pgsql 
-
-
-
-### addons to the addons?
-install 'imagemagick'
+### see https://github.com/andxyz/.dotfiles/tree/master/languages
 
 ## LETS INSTALL SOME BINARIES
-#### see https://github.com/phinze/homebrew-cask/tree/master/Casks for more
-
-tap 'phinze/cask'
-install 'brew-cask'
 
 ### coding
 cask install 'sublime-text'
@@ -63,6 +55,7 @@ cask install 'sublime-text'
 cash install 'virtualbox'
 
 ### productivity?
+cask install 'autoenv'
 cask install 'geektool'
 cask install 'alfred'
 cask install 'fantastical'
@@ -112,3 +105,6 @@ cask alfred link
 
 ### some brew cleanup
 cleanup
+
+
+

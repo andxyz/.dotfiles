@@ -1,0 +1,65 @@
+## andxyz path stuff
+export PATH="/usr/local/bin:/usr/local/sbin:$HOME/bin:/usr/local/mysql/bin:/sbin:/bin:/usr/bin:/usr/sbin:$PATH"
+export MANPATH="/usr/local/man:/usr/local/mysql/man:/usr/local/git/man:$MANPATH"
+
+### language paths
+
+# python path stuff
+test -f "/usr/local/lib/python" &&
+export PYTHONPATH=/usr/local/lib/python:$PYTHONPATH
+
+# perl path stuff
+export PERL_LOCAL_LIB_ROOT="/Users/andxyz/perl5:$PERL_LOCAL_LIB_ROOT";
+export PERL_MB_OPT="--install_base "/Users/andxyz/perl5"";
+export PERL_MM_OPT="INSTALL_BASE=/Users/andxyz/perl5";
+export PERL5LIB="/Users/andxyz/perl5/lib/perl5:$PERL5LIB";
+export PATH="/Users/andxyz/perl5/bin:$PATH";
+
+# nodejs - creationix node version management (nvm)
+test -f "$HOME/.nvm/nvm.sh"
+source $HOME/.nvm/nvm.sh
+# example nvm commands (because I always forget)
+# nvm ls-remote
+# nvm install v0.11.7   
+# nvm alias default v0.11.7
+# nvm use v0.11.7
+#
+# export some NODE vars
+# export NODE_PATH="$NVM_PATH"
+# export NODE_BIN="$NVM_BIN"
+
+# add local npm packages to path
+export PATH="./node_modules/.bin:$PATH"
+
+# haskell uses cabal
+test -d "$HOME/.cabal/bin" &&
+export PATH="$HOME/.cabal/bin:$PATH"
+
+# subversion magic
+test -d "$PATH:/opt/subversion/bin" &&
+export PATH="$PATH:/opt/subversion/bin"
+
+# rbenv stuff https://github.com/sstephenson/rbenv#readme
+test -d $HOME/.rbenv/bin &&
+export PATH="$HOME/.rbenv/bin:$PATH" &&
+eval "$(rbenv init -)"
+### rbenv rails bundler path tricks
+# export PATH="./.bin:$PATH" # prev, was lazy hack from bkeeper
+# see also git://github.com/carsomyr/rbenv-bundler.git rbenv rehash
+# currently I use a "be=bundle exec" alias instead
+
+# homebrew php 5.4 stuff
+which php54 >> /dev/null 2>&1 &&
+export PATH="$(brew --prefix php54)/bin:$PATH"
+
+# brew info autoenv
+test -f "/usr/local/opt/autoenv/activate.sh" &&
+source /usr/local/opt/autoenv/activate.sh
+
+# android usb debug magic
+test -d "$HOME/Applications/adt-bundle-mac-x86_64-20130514/sdk/platform-tools" &&
+export PATH="$PATH:$HOME/Applications/adt-bundle-mac-x86_64-20130514/sdk/platform-tools"
+
+# brew grc stuff (not working on mavericks, python is failing and breaking ping, no time to fix)
+# source "`brew --prefix`/etc/grc.bashrc"
+

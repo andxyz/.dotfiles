@@ -1,0 +1,16 @@
+#!/bin/env bash
+
+set -e
+
+### see https://github.com/creationix/nvm
+git clone https://github.com/creationix/nvm.git ~/.nvm
+
+source $HOME/.nvm/nvm.sh
+
+nvm install v0.11.7
+nvm install v0.10.26
+
+nvm alias default v0.10.26
+nvm use v0.10.26
+
+exit 0
