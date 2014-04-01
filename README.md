@@ -16,10 +16,12 @@ git clone https://github.com/$MYUSERNAME/.dotfiles.git .dotfiles
 ### install homebrew stuff (lots of compiling)
 brew bundle
 
-### install my dotfiles (symlinking) should work now that homebrew stuff is installed
+### install my dotfiles (via symlinking) 
+### (this should work cleanly now that the homebrew stuff is installed)
 rake install
 
-### change my shell to zsh (we need become root for a second, to add an extra shell)
+### change my shell to zsh
+### (we need to become root for a second, to add an extra shell)
 brew install 'zsh'
 sudo su -
 echo /usr/local/bin/zsh >> /etc/shells
@@ -29,10 +31,10 @@ chsh -s /usr/local/bin/zsh $MYUSERNAME
 exit
 ```
 
-## Take a breath as zsh takes over
+### Take a breath as zsh takes over
 now I close the current shell and open a new one
 
-## Time to install some programming languages
+### Time to install some programming languages
 
 ```bash
 ### install other languages as needed
@@ -48,8 +50,8 @@ chmod +x ./languages/*
 ```
 
 
-## andxyz personal sublime text plugins
-
+### andxyz personal sublime text plugins
+see http://github.com/andxyz/sublime-text-2-configs
 ```
 git clone git@github.com:andxyz/sublime-text-2-configs.git ~/temp-sublime-text-2-configs
 mv ~/temp-sublime-text-2-configs/.git ~/Library/Application\ Support/Sublime\ Text\ 2/.git
@@ -57,7 +59,3 @@ rm -rf ~/temp-sublime-text-2-configs
 cd ~/Library/Application\ Support/Sublime\ Text\ 2/
 git checkout --force master
 ```
-
-
-
-
