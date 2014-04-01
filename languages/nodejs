@@ -1,16 +1,39 @@
-#!/bin/env bash
+#!/usr/bin/env bash
 
 set -e
 
 ### see https://github.com/creationix/nvm
+! test -d ~/.nvm &&
 git clone https://github.com/creationix/nvm.git ~/.nvm
 
 source $HOME/.nvm/nvm.sh
 
+# nvm ls-remote
 nvm install v0.11.7
 nvm install v0.10.26
+nvm install v0.10.25
 
-nvm alias default v0.10.26
-nvm use v0.10.26
+nvm alias default v0.10.25
+nvm use v0.10.25
+
+## install some decent global libraries on the default node
+npm install -g --silent bower &&
+npm install -g --silent component &&
+npm install -g --silent foreman &&
+npm install -g --silent forever &&
+npm install -g --silent grunt &&
+npm install -g --silent grunt-cli &&
+npm install -g --silent handlejars &&
+npm install -g --silent jshint &&
+npm install -g --silent less &&
+npm install -g --silent nodemon &&
+npm install -g --silent norman &&
+npm install -g --silent npm &&
+npm install -g --silent pageres &&
+npm install -g --silent supervisor
+
+## show off the whizbangs
+npm list --depth=0 -g
+nvm ls
 
 exit 0

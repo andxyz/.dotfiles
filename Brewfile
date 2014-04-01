@@ -44,6 +44,10 @@ install 'heroku'
 ### languages
 ### see https://github.com/andxyz/.dotfiles/tree/master/languages
 
+### language checkers
+install cppcheck
+# use `npm install -g jshint` later
+
 ## LETS INSTALL SOME BINARIES
 
 ### coding

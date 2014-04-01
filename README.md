@@ -44,6 +44,7 @@ chmod +x ./languages/*
 # ./languages/haskell todo
 # ./languages/java todo
 ./languages/nodejs
+# ./languages/perl todo
 ./languages/php
 # ./languages/python todo
 ./languages/ruby
