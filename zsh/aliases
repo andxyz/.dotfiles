@@ -14,6 +14,8 @@ alias hhistory='history -99999 | cut -c 8-'
 alias cls='clear' # the only advantage cmd.exe has
 alias ls='gls --color' # remember to brew install coreutils
 alias pps="ps auwwx | perl -p -e 's/\n/\n\n/'"
+alias hheader="http --header get"
+#### htop
 alias hhtop="htop --sort-key Command"
 alias hhtopcommand="htop --sort-key Command"
 alias hhtopcpu="htop --sort-key PERCENT_CPU"
