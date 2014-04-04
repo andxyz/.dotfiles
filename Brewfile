@@ -103,6 +103,19 @@ cask install 'ukelele'
 cask install 'pckeyboardhack'
 cask install 'rcdefaultapp'
 
+### OSX quicklook plugins
+cask install qlcolorcode
+cask install qlstephen
+cask install qlmarkdown
+cask install quicklook-json
+cask install qlprettypatch
+cask install betterzipql
+cask install webp-quicklook
+cask install suspicious-package
+cask install ipaql
+# see https://github.com/sindresorhus/quick-look-plugins
+# now run `defaults write com.apple.finder QLEnableTextSelection -bool true && killall Finder`
+
 ### link up the folder, so alfred can see the apps
 cask alfred link
 
