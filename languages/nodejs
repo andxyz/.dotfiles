@@ -13,27 +13,30 @@ nvm install v0.11.7
 nvm install v0.10.26
 nvm install v0.10.25
 
+## set our local defaults
+### for future shells
 nvm alias default v0.10.25
+### for this shell right now
 nvm use v0.10.25
 
 ## install some decent global libraries on the default node
-npm install -g --silent bower &&
-npm install -g --silent component &&
-npm install -g --silent foreman &&
-npm install -g --silent forever &&
-npm install -g --silent grunt &&
-npm install -g --silent grunt-cli &&
-npm install -g --silent handlejars &&
-npm install -g --silent jshint &&
-npm install -g --silent less &&
-npm install -g --silent nodemon &&
-npm install -g --silent norman &&
-npm install -g --silent npm &&
-npm install -g --silent pageres &&
-npm install -g --silent supervisor
+npm install -g npm --silent &&
+npm install -g bower --silent  &&
+npm install -g component --silent  &&
+npm install -g foreman --silent  &&
+npm install -g forever --silent  &&
+npm install -g grunt --silent  &&
+npm install -g grunt --silent -cli &&
+npm install -g handlebars --silent  &&
+npm install -g jshint --silent  &&
+npm install -g less --silent  &&
+npm install -g nodemon --silent  &&
+npm install -g norman --silent  &&
+npm install -g pageres --silent  &&
+npm install -g supervisor --silent 
 
 ## show off the whizbangs
-npm list --depth=0 -g
+npm list -g --depth=0
 nvm ls
 
 exit 0
