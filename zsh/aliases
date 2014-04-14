@@ -15,10 +15,17 @@ alias cls='clear' # the only advantage cmd.exe has
 alias ls='gls --color' # remember to brew install coreutils
 alias pps="ps auwwx | perl -p -e 's/\n/\n\n/'"
 alias hheader="http --header get"
+
+## Mac OSX
+alias o='open .'
+alias screensaver='/System/Library/Frameworks/ScreenSaver.framework/Versions/A/Resources/ScreenSaverEngine.app/Contents/MacOS/ScreenSaverEngine'
+alias pports='lsof -Pni4 | grep LISTEN'
+
 #### htop
 alias hhtop="htop --sort-key Command"
-alias hhtopcommand="htop --sort-key Command"
+alias hhcpu="htop --sort-key PERCENT_CPU"
 alias hhtopcpu="htop --sort-key PERCENT_CPU"
+alias hhtopcommand="htop --sort-key Command"
 alias hhtopmem="htop --sort-key PERCENT_MEM"
 alias hhtoppid="htop --sort-key PID"
 
@@ -37,7 +44,7 @@ alias bi="bundle install --binstubs --path=vendor/gems --without=production "
 alias be="bundle exec"
 
 ### node
-alias ni='npm install --silent > /dev/null 2>&1'
+alias ni='npm install --silent >> /dev/null 2>&1'
 
 ### zsh correction headaches
 alias bower='nocorrect bower'
@@ -63,11 +70,6 @@ alias nginx.logs.default.access='tail -250f /usr/local/etc/nginx/logs/default.ac
 alias nginx.logs.default-ssl.access='tail -250f /usr/local/etc/nginx/logs/default-ssl.access.log'
 alias nginx.logs.phpmyadmin.error='tail -250f /usr/local/etc/nginx/logs/phpmyadmin.error.log'
 alias nginx.logs.phpmyadmin.access='tail -250f /usr/local/etc/nginx/logs/phpmyadmin.access.log'
-
-## Mac OSX
-alias o='open .'
-alias screensaver='/System/Library/Frameworks/ScreenSaver.framework/Versions/A/Resources/ScreenSaverEngine.app/Contents/MacOS/ScreenSaverEngine'
-alias pports='lsof -Pni4 | grep LISTEN'
 
 ## silly stuff
 
