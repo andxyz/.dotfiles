@@ -4,7 +4,10 @@
 ### andxyz.com Brewfile https://github.com/andxyz/.dotfiles/blob/master/Brewfile
 ### I should get around to putting some of https://gist.github.com/9393431 in a cask
 
-### first off, update all brew installed crap
+### next is a list of current crap on my development machine
+###### antiword cscope ghc jbig2dec lynx phantomjs sqlite apple-gcc42 ctags ghostscript jpeg macvim php54 subversion autoconf dnsmasq git jq mad pkg-config texi2html autoenv duti glib lame maven pngquant the_silver_searcher automake exif gnu-indent libao mercurial popt tree bind exiftool gnu-sed libcue mongodb postgresql unixodbc brew-cask faac gnu-tar libexif mongoose python webkit2png browser faad2 go libffi mp4v2 qt wkhtmltopdf browsertime ffmpeg graphviz libogg multitail rbenv x264 chromedriver findutils grc libpng mysql rbenv-gem-rehash xvid cloc flac haskell-platform libsass nginx readline xz cmus freetype heroku-toolbelt libtiff openssl redis yasm composer gawk htop-osx libtool ossp-uuid ruby-build zlib coreutils gdbm hub libvorbis pcre sassc zsh cppcheck gettext imagemagick little-cms2 perl518 sitespeed.io zsh-completions
+
+### first off, update all brew installed crap we already have before going forward
 update
 upgrade
 
@@ -63,6 +66,9 @@ cask install 'autoenv'
 cask install 'geektool'
 cask install 'alfred'
 cask install 'fantastical'
+
+### text editing
+cask install texshop
 
 ### 3rd-party-plugins
 cask install 'silverlight'

@@ -54,13 +54,14 @@ alias node='nocorrect node'
 alias brew='nocorrect brew'
 
 ## webservers
-### thanks to blog.frd.mn/install-nginx-php-fpm-mysql-and-phpmyadmin-on-os-x-mavericks-using-homebrew/
+### tips thanks to http://blog.frd.mn/install-nginx-php-fpm-mysql-and-phpmyadmin-on-os-x-mavericks-using-homebrew/
 alias nginx.start='sudo launchctl load /Library/LaunchDaemons/homebrew.mxcl.nginx.plist'
 alias nginx.stop='sudo launchctl unload /Library/LaunchDaemons/homebrew.mxcl.nginx.plist'
 alias nginx.restart='nginx.stop && nginx.start'
 alias php-fpm.start="launchctl load -w ~/Library/LaunchAgents/homebrew-php.josegonzalez.php55.plist"
 alias php-fpm.stop="launchctl unload -w ~/Library/LaunchAgents/homebrew-php.josegonzalez.php55.plist"
 alias php-fpm.restart='php-fpm.stop && php-fpm.start'
+alias php-fpm.killall='pgrep php-fpm | xargs kill -9'
 alias mysql.start="launchctl load -w ~/Library/LaunchAgents/homebrew.mxcl.mysql.plist"
 alias mysql.stop="launchctl unload -w ~/Library/LaunchAgents/homebrew.mxcl.mysql.plist"
 alias mysql.restart='mysql.stop && mysql.start'
@@ -74,12 +75,11 @@ alias nginx.logs.phpmyadmin.access='tail -250f /usr/local/etc/nginx/logs/phpmyad
 ## silly stuff
 
 ### test internet with speedtest
-##### maybe checkout https://github.com/sivel/speedtest-cli
-alias speedtest='echo "scale=2; `curl  --progress-bar -w "%{speed_download}" http://cachefly.cachefly.net/10mb.test -o test.zip ` / 131072" | bc | xargs -I {} echo {}Mb\/s'
-
+##### python peeps checkout https://github.com/sivel/speedtest-cli
+##### tips thanks to http://fauxzen.com/speedtest-from-the-cli/
+alias sspeedtest='echo "scale=2; `curl  --progress-bar -w "%{speed_download}" http://cachefly.cachefly.net/10mb.test -o test.zip ` / 131072" | bc | xargs -I {} echo {}Mb\/s && rm -rf test.zip'
 
 ## top ten used commands line tools
-# history -99999 | awk '{print $2}' | sort | uniq -c | sort -rn | head -20 # ttopten1
-# fc -l -n 1 | sort | uniq -c | sort -rn | head -20 # ttopten2
-# history -99999 | tr -s ' ' | cut -d' ' -f3- | sort | uniq -c | sort -rn | head -20 # ttopten3
-
+alias ttopten1="history -99999 | gawk '{print $2}' | gsort | guniq -c | gsort -rn | ghead -20"
+alias ttopten2="fc -l -n 1 | gsort | guniq -c | gsort -rn | ghead -20"
+alias ttopten3="history -99999 | gtr -s ' ' | gcut -d' ' -f3- | gsort | guniq -c | gsort -rn | ghead -20"
