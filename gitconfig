@@ -55,9 +55,9 @@
     # apply-stash-to-dirty-working-tree = !git stash show -p | git apply && git stash drop
     
     # andxyz diff magic
-    diffks = difftool --tool=kaleidoscope
+    diffks = difftool --tool=Kaleidoscope
     diffp4 = difftool --tool=p4merge
-    mergeks = mergetool --tool=kaleidoscope
+    mergeks = mergetool --tool=Kaleidoscope
     # https://github.com/scottgonzalez/pretty-diff
     diffpretty = !/Users/andxyz/bin/pretty-diff/pretty-diff.js
 
@@ -75,34 +75,38 @@
 # the gist https://gist.github.com/toolbear/861192
 # you must have a ~/bin/p4merge file
 # 
-[merge]
-    tool = kaleidoscope
-    keepBackup = false
-    keepTemporaries = false
-    trustExitCode = false
-
 [mergetool "p4merge"]
     cmd = p4merge "$BASE" "$REMOTE" "$LOCAL" "$MERGED"
     keepTemporaries = false
     trustExitCode = false
     keepBackup = false
 
-[mergetool]
-    keepBackup = false
-    prompt = false
-
 [difftool "p4merge"]
     cmd = "p4merge $LOCAL $REMOTE"
+   
+[mergetool "Kaleidoscope"]
+    cmd = ksdiff --merge --output \"$MERGED\" --base \"$BASE\" -- \"$LOCAL\" --snapshot \"$REMOTE\" --snapshot
 
-[difftool "kaleidoscope"]
+[difftool "Kaleidoscope"]
     cmd = ksdiff --partial-changeset --relative-path \"$MERGED\" -- \"$LOCAL\" \"$REMOTE\"
 
-[difftool]
-    prompt = false
+[diff]
+    tool = Kaleidoscope
+    keepBackup = false
+    keepTemporaries = false
 
-[mergetool "kaleidoscope"]
-    cmd = ksdiff --merge --output \"$MERGED\" --base \"$BASE\" -- \"$LOCAL\" --snapshot \"$REMOTE\" --snapshot
+[merge]
+    tool = Kaleidoscope
+    keepBackup = false
+    keepTemporaries = false
     trustExitCode = false
+
+[mergetool]
+    tool = Kaleidoscope
+    keepBackup = false
+    keepTemporaries = false
+    trustExitCode = false
+    prompt = false
 
 # ctags are kind of a pain when they run wild
 # 
