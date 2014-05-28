@@ -14,6 +14,7 @@ cd $HOME
 git clone https://github.com/$MYUSERNAME/.dotfiles.git .dotfiles
 
 ### install homebrew stuff (lots of compiling)
+cd $HOME/.dotfiles/
 brew bundle
 
 ### install my dotfiles (via symlinking) 
