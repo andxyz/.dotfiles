@@ -9,31 +9,57 @@ git clone https://github.com/creationix/nvm.git ~/.nvm
 source $HOME/.nvm/nvm.sh
 
 # nvm ls-remote
-nvm install v0.11.7
+nvm install v0.11.13
+nvm install v0.11.12
+nvm install v0.10.28
 nvm install v0.10.26
 nvm install v0.10.25
 
 ## set our local defaults
 ### for future shells
-nvm alias default v0.10.25
+nvm alias default v0.10.28
 ### for this shell right now
-nvm use v0.10.25
+nvm use v0.10.28
 
 ## install some decent global libraries on the default node
-npm install -g npm --silent &&
+#### npm install -g npm --silent &&
+npm install -g node-inspector --silent &&
 npm install -g bower --silent  &&
 npm install -g component --silent  &&
 npm install -g foreman --silent  &&
 npm install -g forever --silent  &&
 npm install -g grunt --silent  &&
-npm install -g grunt --silent -cli &&
+npm install -g grunt-cli --silent &&
+npm install -g gulp --silent &&
 npm install -g handlebars --silent  &&
 npm install -g jshint --silent  &&
 npm install -g less --silent  &&
 npm install -g nodemon --silent  &&
 npm install -g norman --silent  &&
 npm install -g pageres --silent  &&
-npm install -g supervisor --silent 
+npm install -g supervisor --silent &&
+npm install -g watchify --silent
+
+### recursive-blame
+### bower
+### component
+### foreman
+### forever
+### gramework
+### grunt
+### grunt
+### gulp
+### handlebars
+### jshint
+### less
+### node
+### nodemon
+### norman
+### npm
+### pageres
+### recursive
+### supervisor
+### watchify
 
 ## show off the whizbangs
 npm list -g --depth=0
