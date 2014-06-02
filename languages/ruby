@@ -11,22 +11,22 @@ eval "$(rbenv init -)"
 brew install openssl libyaml readline
 
 ## plugins ahoy, see https://github.com/sstephenson/rbenv/wiki/Plugins
-
-git clone https://github.com/sstephenson/ruby-build.git ~/.rbenv/plugins/ruby-build
-git clone https://github.com/sstephenson/rbenv-gem-rehash.git ~/.rbenv/plugins/rbenv-gem-rehash
-git clone https://github.com/rkh/rbenv-whatis.git ~/.rbenv/plugins/rbenv-whatis
-git clone git://github.com/tpope/rbenv-communal-gems.git ~/.rbenv/plugins/rbenv-communal-gems
-git clone https://github.com/sstephenson/rbenv-default-gems.git ~/.rbenv/plugins/rbenv-default-gems
-git clone https://github.com/rkh/rbenv-update.git ~/.rbenv/plugins/rbenv-update
-git clone https://github.com/chriseppstein/rbenv-each.git ~/.rbenv/plugins/rbenv-each
+mkdir $HOME/.rbenv/plugins/
+git clone https://github.com/sstephenson/ruby-build.git $HOME/.rbenv/plugins/ruby-build
+git clone https://github.com/sstephenson/rbenv-gem-rehash.git $HOME/.rbenv/plugins/rbenv-gem-rehash
+git clone https://github.com/rkh/rbenv-whatis.git $HOME/.rbenv/plugins/rbenv-whatis
+git clone git://github.com/tpope/rbenv-communal-gems.git $HOME/.rbenv/plugins/rbenv-communal-gems
+git clone https://github.com/sstephenson/rbenv-default-gems.git $HOME/.rbenv/plugins/rbenv-default-gems
+git clone https://github.com/rkh/rbenv-update.git $HOME/.rbenv/plugins/rbenv-update
+git clone https://github.com/chriseppstein/rbenv-each.git $HOME/.rbenv/plugins/rbenv-each
 
 ## readline fixie, I loves my fixie
-brew install readline && git clone git://github.com/tpope/rbenv-readline.git ~/.rbenv/plugins/rbenv-readline
+brew install readline && git clone git://github.com/tpope/rbenv-readline.git $HOME/.rbenv/plugins/rbenv-readline
 ls "$(rbenv root)"/plugins
 
 ## prepare ruby-build, see https://github.com/sstephenson/ruby-build/wiki
 cd "$(rbenv root)"/plugins/ruby-build && git pull
-cd ~
+cd $HOME
 
 # required for building Ruby <= 1.9.3-p0:
 # brew tap homebrew/dupes && brew install apple-gcc42
@@ -51,7 +51,7 @@ rbenv rehash
 rbenv versions
 
 ## example use cases
-# subl -n ~/.rbenv/default-gems
+# subl -n $HOME/.rbenv/default-gems
 # rbenv whence rackup
 
 exit 0

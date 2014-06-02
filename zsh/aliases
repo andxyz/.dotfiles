@@ -9,17 +9,20 @@ alias la='ls -A'
 alias addr='nocorrect addr'
 
 ### andxyz random
-alias e="subl -n ./" #  a sublimetext github.com/bkeepers tip
+##### a sublimetext github.com/bkeepers tip
+alias e="subl -n ./" 
 alias hhistory='history -99999 | cut -c 8-'
-alias cls='clear' # the only advantage cmd.exe has
-alias ls='gls --color' # remember to brew install coreutils
+##### the only advantage cmd.exe has
+alias cls='clear'
+##### remember to brew install coreutils see
+alias ls='gls --color' 
 alias pps="ps auwwx | perl -p -e 's/\n/\n\n/'"
 alias hheader="http --header get"
 
 ## Mac OSX
-alias o='open .'
-alias screensaver='/System/Library/Frameworks/ScreenSaver.framework/Versions/A/Resources/ScreenSaverEngine.app/Contents/MacOS/ScreenSaverEngine'
-alias pports='lsof -Pni4 | grep LISTEN'
+alias oo='open .'
+alias sscreensaver='/System/Library/Frameworks/ScreenSaver.framework/Versions/A/Resources/ScreenSaverEngine.app/Contents/MacOS/ScreenSaverEngine'
+alias pports='sudo lsof -Pni4 | grep LISTEN'
 
 #### htop
 alias hhtop="htop --sort-key Command"
@@ -55,16 +58,31 @@ alias brew='nocorrect brew'
 
 ## webservers
 ### tips thanks to http://blog.frd.mn/install-nginx-php-fpm-mysql-and-phpmyadmin-on-os-x-mavericks-using-homebrew/
+### nginx
 alias nginx.start='sudo launchctl load /Library/LaunchDaemons/homebrew.mxcl.nginx.plist'
 alias nginx.stop='sudo launchctl unload /Library/LaunchDaemons/homebrew.mxcl.nginx.plist'
 alias nginx.restart='nginx.stop && nginx.start'
-alias php-fpm.start="launchctl load -w ~/Library/LaunchAgents/homebrew-php.josegonzalez.php55.plist"
-alias php-fpm.stop="launchctl unload -w ~/Library/LaunchAgents/homebrew-php.josegonzalez.php55.plist"
-alias php-fpm.restart='php-fpm.stop && php-fpm.start'
+
+### php55
+alias php54-fpm.wat="cat ~/Library/LaunchAgents/homebrew.mxcl.php55.plist"
+alias php55-fpm.start="launchctl load -w ~/Library/LaunchAgents/homebrew.mxcl.php55.plist"
+alias php55-fpm.stop="launchctl unload -w ~/Library/LaunchAgents/homebrew.mxcl.php55.plist"
+alias php55-fpm.restart='php55-fpm.stop && php55-fpm.start'
+
+### php54
+alias php54-fpm.wat="cat ~/Library/LaunchAgents/homebrew-php.josegonzalez.php54.plist"
+alias php54-fpm.start="launchctl load -w ~/Library/LaunchAgents/homebrew-php.josegonzalez.php54.plist"
+alias php54-fpm.stop="launchctl unload -w ~/Library/LaunchAgents/homebrew-php.josegonzalez.php54.plist"
+alias php54-fpm.restart='php55-fpm.stop && php55-fpm.start'
+### generic
 alias php-fpm.killall='pgrep php-fpm | xargs kill -9'
+
+### mysql
 alias mysql.start="launchctl load -w ~/Library/LaunchAgents/homebrew.mxcl.mysql.plist"
 alias mysql.stop="launchctl unload -w ~/Library/LaunchAgents/homebrew.mxcl.mysql.plist"
 alias mysql.restart='mysql.stop && mysql.start'
+
+### nginx logs
 alias nginx.logs.error='tail -250f /usr/local/etc/nginx/logs/error.log'
 alias nginx.logs.access='tail -250f /usr/local/etc/nginx/logs/access.log'
 alias nginx.logs.default.access='tail -250f /usr/local/etc/nginx/logs/default.access.log'

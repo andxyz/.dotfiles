@@ -20,7 +20,7 @@ install 'brew-cask'
 ### shell
 install 'zsh'
 ### version control systems
-install 'git'
+install 'git --with-pcre'
 install 'hub'
 # cask install 'kaleidoscope' ## i've been doing it manually
 ### db
