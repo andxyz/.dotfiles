@@ -15,30 +15,30 @@ nvm install v0.10.28
 nvm install v0.10.26
 nvm install v0.10.25
 
-## set our local defaults
+## set our dev machine defaults
 ### for future shells
 nvm alias default v0.10.28
-### for this shell right now
+### for this shell right now. now now? like now? yes, right now now.
 nvm use v0.10.28
 
 ## install some decent global libraries on the default node
 #### npm install -g npm --silent &&
-npm install -g node-inspector --silent &&
-npm install -g bower --silent  &&
-npm install -g component --silent  &&
-npm install -g foreman --silent  &&
-npm install -g forever --silent  &&
-npm install -g grunt --silent  &&
-npm install -g grunt-cli --silent &&
-npm install -g gulp --silent &&
-npm install -g handlebars --silent  &&
-npm install -g jshint --silent  &&
-npm install -g less --silent  &&
-npm install -g nodemon --silent  &&
-npm install -g norman --silent  &&
-npm install -g pageres --silent  &&
-npm install -g supervisor --silent &&
-npm install -g watchify --silent
+npm install -g --silent node-inspector &&
+npm install -g --silent bower  &&
+npm install -g --silent component  &&
+npm install -g --silent foreman  &&
+npm install -g --silent forever  &&
+npm install -g --silent grunt  &&
+npm install -g --silent grunt-cli &&
+npm install -g --silent gulp &&
+npm install -g --silent handlebars  &&
+npm install -g --silent jshint  &&
+npm install -g --silent less  &&
+npm install -g --silent nodemon  &&
+npm install -g --silent norman  &&
+npm install -g --silent pageres  &&
+npm install -g --silent supervisor &&
+npm install -g --silent watchify
 
 ### recursive-blame
 ### bower
