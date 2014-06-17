@@ -8,7 +8,7 @@ brew tap homebrew/versions
 brew tap josegonzalez/homebrew-php
 #### you should read the following for php
 ##### `brew options php54`
-##### `brew install php54`
+##### `brew info php54`
 ##### `brew options php55`
 ##### `brew info php55`
 ##### `browser http://justinhileman.info/article/reinstalling-php-on-mac-os-x/`
