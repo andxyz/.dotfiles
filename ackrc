@@ -1,0 +1,13 @@
+--ignore-dir=vendor/ruby
+--ignore-dir=vendor/bundle
+--ignore-dir=coverage
+--ignore-dir=docs
+--ignore-dir=doc
+--ignore-dir=log
+--ignore-dir=tmp
+--type-add=js=.js,.js.erb
+--type-add=ruby=.jbuilder,.rabl
+--type-add=html=.haml,.hamlc,.jade
+--type-add=css=.sass,.scss,.styl
+--type-set=coffee=.coffee
+--type-set=cucumber=.feature
