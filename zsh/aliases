@@ -47,6 +47,8 @@ alias be="bundle exec"
 
 ### node
 alias ni='npm install --silent >> /dev/null 2>&1'
+### grunt
+alias gg='grunt'
 
 ### zsh correction headaches
 alias bower='nocorrect bower'
