@@ -20,7 +20,7 @@ install 'brew-cask'
 ### shell
 install 'zsh'
 ### version control systems
-install 'git --with-pcre'
+install git --with-pcre
 install 'hub'
 # cask install 'kaleidoscope' ## i've been doing it manually
 ### db
@@ -62,7 +62,6 @@ cask install 'sublime-text'
 cask install 'virtualbox'
 
 ### productivity?
-cask install 'autoenv'
 cask install 'geektool'
 cask install 'alfred'
 cask install 'fantastical'
@@ -106,7 +105,7 @@ cask install 'calibre'
 
 ### OSX hacks
 cask install 'ukelele'
-cask install 'pckeyboardhack'
+## nope cask install 'pckeyboardhack'
 cask install 'rcdefaultapp'
 
 ### OSX quicklook plugins
