@@ -1,0 +1,6 @@
+### zsh correction headaches
+alias bower='nocorrect bower'
+alias grunt='nocorrect grunt'
+alias npm='nocorrect npm'
+alias node='nocorrect node'
+alias brew='nocorrect brew'

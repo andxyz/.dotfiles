@@ -50,13 +50,6 @@ alias ni='npm install --silent >> /dev/null 2>&1'
 ### grunt
 alias gg='grunt'
 
-### zsh correction headaches
-alias bower='nocorrect bower'
-alias grunt='nocorrect grunt'
-alias npm='nocorrect npm'
-alias node='nocorrect node'
-alias brew='nocorrect brew'
-
 ## webservers
 ### tips thanks to http://blog.frd.mn/install-nginx-php-fpm-mysql-and-phpmyadmin-on-os-x-mavericks-using-homebrew/
 ###
@@ -106,3 +99,4 @@ alias sspeedtest='echo "scale=2; `curl  --progress-bar -w "%{speed_download}" ht
 alias ttopten1="history -99999 | gawk '{print $2}' | gsort | guniq -c | gsort -rn | ghead -20"
 alias ttopten2="fc -l -n 1 | gsort | guniq -c | gsort -rn | ghead -20"
 alias ttopten3="history -99999 | gtr -s ' ' | gcut -d' ' -f3- | gsort | guniq -c | gsort -rn | ghead -20"
+

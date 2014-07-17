@@ -1,0 +1,4 @@
+# ~/code directory autocomplete
+function c { cd ~/code/$1; }
+
+alias rebash='. ~/.bash_profile'

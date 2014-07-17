@@ -1,7 +1,13 @@
 source ~/.shell/paths
-source ~/.zsh/config
-source ~/.zsh/aliases
-source ~/.zsh/completion
+
+source ~/.shell/config
+source ~/.shell/config_private
+source ~/.shell/aliases
+
+source ~/.zsh/config_zsh
+source ~/.zsh/aliases_zsh
+
+source ~/.zsh/completion_zsh
 
 # use .localrc for settings specific to one system
 [[ -f ~/.localrc ]] && . ~/.localrc

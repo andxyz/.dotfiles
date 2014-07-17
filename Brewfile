@@ -66,6 +66,10 @@ cask install 'geektool'
 cask install 'alfred'
 cask install 'fantastical'
 
+### archiving tools
+cask install keka
+cask install the-unarchiver
+
 ### text editing
 cask install texshop
 
