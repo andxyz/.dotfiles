@@ -54,9 +54,9 @@ install cppcheck
 ## LETS INSTALL SOME BINARIES
 
 ### coding
-cask install 'sublime-text'
-##### `brew cask install 'sublimetext2'`
-##### `brew cask install 'sublimetext3'`
+### `brew cask install 'sublime-text'`
+### `brew cask install 'sublimetext2'`
+### `brew cask install 'sublimetext3'`
 
 ### vms
 cask install 'virtualbox'

@@ -1,8 +1,9 @@
 source ~/.shell/paths
 
 source ~/.shell/config
-source ~/.shell/config_private
+[[ -f ~/.shell/config_private ]] && source ~/.shell/config_private
 source ~/.shell/aliases
+[[ -f ~/.shell/aliases_private ]] && source ~/.shell/aliases_private
 
 source ~/.zsh/config_zsh
 source ~/.zsh/aliases_zsh

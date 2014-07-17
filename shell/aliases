@@ -42,8 +42,9 @@ alias gco='git checkout'
 
 ### rails and ruby
 alias ttail='tail -f log/development.log'
-alias bi="bundle install --binstubs --path=vendor/gems --without=production "
-alias be="bundle exec"
+## alias bi="bundle install --binstubs --path=vendor/gems --without=production "
+alias bi='bundle install --binstubs --without=production ' 
+alias be='bundle exec'
 
 ### node
 alias ni='npm install --silent >> /dev/null 2>&1'
