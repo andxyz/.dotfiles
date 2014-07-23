@@ -59,7 +59,7 @@
     diffp4 = difftool --tool=p4merge
     mergeks = mergetool --tool=Kaleidoscope
     # https://github.com/scottgonzalez/pretty-diff
-    diffpretty = !/Users/andxyz/bin/pretty-diff/pretty-diff.js
+    diffpretty = !$HOME/bin/pretty-diff/pretty-diff.js
 
     # http://tbaggery.com/2011/08/08/effortless-ctags-with-git.html
     ctags = !.git/hooks/ctags
@@ -142,3 +142,6 @@
     path            = ~/.gitconfig-private
 [url "ssh://git@github.com/"]
     insteadOf = https://github.com/
+[filter "media"]
+	clean = git-media-clean %f
+	smudge = git-media-smudge %f
