@@ -1,0 +1,31 @@
+## echo 'fancy git prompt on my local machine _only_'
+if [[ -n $SSH_CONNECTION ]]; then
+  export PS1='%m:%3~$(git_info_for_prompt)$ '
+else
+  export PS1='%3~$(git_info_for_prompt)$ '
+fi
+
+# echo 'fuck that you have new mail shit'
+unset MAILCHECK
+test -f "$HOME/.hushlogin" &&
+touch $HOME/.hushlogin
+
+# disable the fucking core dumps
+ulimit -S -c 0
+
+# echo 'use sublime as default editor'
+export EDITOR='subl -w'
+
+# echo 'give me history you dogs of history'
+HISTFILE=~/.zsh_history
+HISTSIZE=9999
+SAVEHIST=999999
+REPORTTIME=10 # print elapsed time when more than 10 seconds
+
+# Increase memory allocated to Ruby
+# https://gist.github.com/1688857
+# export RUBY_GC_HEAP_INIT_SLOTS=1000000
+# export RUBY_HEAP_SLOTS_INCREMENT=1000000
+# export RUBY_HEAP_SLOTS_GROWTH_FACTOR=1
+# export RUBY_GC_MALLOC_LIMIT=1000000000
+# export RUBY_HEAP_FREE_MIN=500000
