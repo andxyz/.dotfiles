@@ -1,2 +1,2 @@
-export PS1="\w$ "
-export EDITOR="mate_wait"
+## shell specific history
+HISTFILE=$HOME/.bash_history

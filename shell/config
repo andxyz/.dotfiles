@@ -17,7 +17,7 @@ ulimit -S -c 0
 export EDITOR='subl -w'
 
 # echo 'give me history you dogs of history'
-HISTFILE=~/.zsh_history
+HISTFILE=$HOME/.history
 HISTSIZE=9999
 SAVEHIST=999999
 REPORTTIME=10 # print elapsed time when more than 10 seconds

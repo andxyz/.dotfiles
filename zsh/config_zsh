@@ -1,3 +1,6 @@
+## shell specific history
+HISTFILE=$HOME/.zsh_history
+
 ## echo 'zsh function nonsense'
 fpath=(~/.zsh/functions $fpath)
 autoload -U ~/.zsh/functions/*(:t)
