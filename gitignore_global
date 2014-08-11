@@ -1,6 +1,13 @@
 # see https://github.com/github/gitignore/
 
 ###
+## Languages
+###
+
+## Ruby stuff
+.bundle/
+
+###
 ## Text Editors
 ###
 
@@ -198,10 +205,13 @@ $RECYCLE.BIN/
 ## Sourcecode Tag Systems
 ###
 # Ignore tags created by etags, ctags, gtags (GNU global) and cscope
-.tags
-.tags_sorted_by_file
-/TAGS
+/.tags
 /tags
+/TAGS
+/.tags_sorted_by_file
+/tags_sorted_by_file
+/.gemtags
+/gemtags
 /!TAGS/
 /!tags/
 gtags.files

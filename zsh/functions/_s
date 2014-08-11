@@ -1,0 +1,2 @@
+#compdef s
+_files -W ~/score -/

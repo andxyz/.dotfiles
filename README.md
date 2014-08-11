@@ -61,3 +61,8 @@ rm -rf ~/temp-sublime-text-2-configs
 cd ~/Library/Application\ Support/Sublime\ Text\ 2/
 git checkout --force master
 ```
+
+
+### iterm2 tips
+
+see https://github.com/mbadolato/iTerm2-Color-Schemes#installation-instructions for importing color schemes

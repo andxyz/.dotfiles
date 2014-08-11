@@ -18,15 +18,21 @@
     # andxyz logging
     last = log -1 HEAD
     unstage = reset HEAD --
-    log1  = log -10 --color --all --graph --topo-order --stat=180,150 --pretty='format: %Cgreen%h%Creset%Cblue by %an, %ar%Creset  %s%Cred%d%Creset%n'
-    log2  = log -10 --color --all --graph --topo-order --pretty='format: %Cgreen%h%Creset %s%Cred%d%Creset%n'
+    log0  = log -10 --author-date-order --color -m --stat=180,150 --pretty='format: %Cgreen%h%Creset%Cblue by %an, %cr%Creset  %s%Cred%d%Creset%n'
+    log1  = log -10 --author-date-order --color --all --graph --stat=180,150 --pretty='format: %Cgreen%h%Creset%Cblue by %an, %cr%Creset  %s%Cred%d%Creset%n'
+    log2  = log -10 --author-date-order --color --all --graph --pretty='format: %Cgreen%h%Creset %s%Cred%d%Creset%n'
     log3 = log -p
-    log4  = log --color --all --graph --topo-order --pretty='format: %Cgreen%h%Creset %s%Cred%d%Creset%n'
-    log5 = log --graph --decorate --pretty=oneline --abbrev-commit
-    log6 = log --graph --decorate --pretty=oneline --abbrev-commit --all
+    log4  = log --author-date-order --color --all --graph --pretty='format: %Cgreen%h%Creset %s%Cred%d%Creset%n'
+    log5 = log --author-date-order -decorate --pretty=oneline --abbrev-commit
+    log6 = log --author-date-order --decorate --pretty=oneline --abbrev-commit --all
+    show0 = show --pretty="full" --stat
     show1 = show --stat=180,150 --pretty="oneline"
-    show2 = show --pretty="oneline" --name-only
-    show3 = show --pretty="full" --name-only
+    show2 = show --pretty="full" --name-only
+    show3 = show --pretty="oneline" --name-only
+    ## git formatting tips
+    # http://stackoverflow.com/questions/16286517/how-to-toggle-the-date-format-of-git-log-how-to-display-both-relative-and-abs
+    # http://stackoverflow.com/questions/8576503/how-can-i-make-git-log-order-based-on-authors-timestamp
+    #
     # More Fancy logging.
     # 
     # thanks to https://github.com/garybernhardt/dotfiles/blob/master/.gitconfig
@@ -36,21 +42,20 @@
     #   ra = recent commits, all reachable refs
     #   l = all commits, only current branch
     #   la = all commits, all reachable refs
-    head = !git l -1
-    h = !git head
-    hp = "!. ~/.githelpers && show_git_head"
-    r = !git l -30
-    ra = !git r --all
-    l = "!. ~/.githelpers && pretty_git_log"
-    la = !git l --all
-
+    #head = !git l -1
+    #h = !git head
+    #hp = "!. ~/.githelpers && show_git_head"
+    #r = !git l -30
+    #ra = !git r --all
+    #l = "!. ~/.githelpers && pretty_git_log"
+    #la = !git l --all
 
     # andxyz git shortcuts
     st = status
     br = branch
     co = checkout
     ls = ls-files
-    # dont really use but they are useful to look at
+    # not really used but they are useful to look at
     delete-remote-branch="git push origin --delete"
     # apply-stash-to-dirty-working-tree = !git stash show -p | git apply && git stash drop
     
