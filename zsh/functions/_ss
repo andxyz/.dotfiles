@@ -1,2 +1,2 @@
-#compdef s
+#compdef ss
 _files -W ~/score -/

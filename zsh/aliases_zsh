@@ -1,4 +1,5 @@
 ### zsh correction headaches
+alias bundle='nocorrect bundle'
 alias bower='nocorrect bower'
 alias grunt='nocorrect grunt'
 alias npm='nocorrect npm'
