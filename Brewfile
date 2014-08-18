@@ -1,8 +1,8 @@
-# run this file with 
+# run this file with
 ##### `cd ~/.dotfiles && brew bundle`
 
 ### andxyz.com Brewfile https://github.com/andxyz/.dotfiles/blob/master/Brewfile
-### I should get around to putting some of https://gist.github.com/9393431 in a cask
+### I should get around to putting some of https://gist.github.com/9393431 in cask
 
 ### next is a list of current crap on my development machine
 ###### antiword cscope ghc jbig2dec lynx phantomjs sqlite apple-gcc42 ctags ghostscript jpeg macvim php54 subversion autoconf dnsmasq git jq mad pkg-config texi2html autoenv duti glib lame maven pngquant the_silver_searcher automake exif gnu-indent libao mercurial popt tree bind exiftool gnu-sed libcue mongodb postgresql unixodbc brew-cask faac gnu-tar libexif mongoose python webkit2png browser faad2 go libffi mp4v2 qt wkhtmltopdf browsertime ffmpeg graphviz libogg multitail rbenv x264 chromedriver findutils grc libpng mysql rbenv-gem-rehash xvid cloc flac haskell-platform libsass nginx readline xz cmus freetype heroku-toolbelt libtiff openssl redis yasm composer gawk htop-osx libtool ossp-uuid ruby-build zlib coreutils gdbm hub libvorbis pcre sassc zsh cppcheck gettext imagemagick little-cms2 perl518 sitespeed.io zsh-completions
@@ -53,18 +53,15 @@ install cppcheck
 
 ## LETS INSTALL SOME BINARIES
 
-### coding
+### text editor
 ### `brew cask install 'sublime-text'`
 ### `brew cask install 'sublimetext2'`
 ### `brew cask install 'sublimetext3'`
+brew cask install 'clipmenu'
 
 ### vms
 cask install 'virtualbox'
-
-### productivity?
-cask install 'geektool'
-cask install 'alfred'
-cask install 'fantastical'
+cask install 'vagrant'
 
 ### archiving tools
 cask install keka
@@ -73,23 +70,49 @@ cask install the-unarchiver
 ### text editing
 cask install texshop
 
+### dev
+cask install 'viscosity'
+cask install 'android-studio'
+cask install 'gitx'
+cask install 'charles'
+cask install 'android-file-transfer'
+cask install 'Dash'
+
+### ios
+##### `brew cask install 'reveal'`
+##### `brew cask install 'reflector'`
+
 ### 3rd-party-plugins
 cask install 'silverlight'
 
 ### video chat
 cask install 'skype'
+cask install 'mumble'
 cask install 'google-hangouts'
 ### text chat
 cask install 'hipchat'
 ##### `brew cask install 'slack'`
 ##### `brew cask install 'propane'`
 
-### music
-cask install 'rdio'
+### playback
+cask install 'MPlayerX'
+cask install 'Vox'
 
-### ios
-##### `brew cask install 'reveal'`
-##### `brew cask install 'reflector'`
+### productivity?
+cask install 'geektool'
+cask install 'alfred'
+cask install 'fantastical'
+cask install 'dropbox'
+cask install 'transmit'
+
+### maths
+cask install 'speedcrunch'
+
+### music
+cask install 'soundcleod'
+cask install 'plug'
+cask install 'rdio'
+cask install 'spotify'
 
 ### freelance
 cask install 'harvest'
@@ -108,9 +131,13 @@ cask install 'xee'
 cask install 'calibre'
 
 ### OSX hacks
+cask install 'slimbatterymonitor'
+cask install 'coconutbattery'
 cask install 'ukelele'
-## nope cask install 'pckeyboardhack'
+cask install 'karabiner'
+cask install 'seil'
 cask install 'rcdefaultapp'
+cask install 'RightZoom'
 
 ### OSX quicklook plugins
 cask install qlcolorcode
@@ -127,7 +154,6 @@ cask install ipaql
 
 ### link up the folder, so alfred can see the apps
 cask alfred link
-
 
 ### some brew cleanup
 cleanup
