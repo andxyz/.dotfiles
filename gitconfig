@@ -5,8 +5,9 @@
 [core]
     pager = less -FRSX
     editor = subl -n -w
-    excludesfile = ~/.gitignore_global
+	excludesfile = /Users/andxyz/.gitignore_global
     autocrlf = input
+	whitespace = trailing-space,space-before-tab,indent-with-non-tab
 
 [color]
     ui = auto
@@ -34,7 +35,7 @@
     # http://stackoverflow.com/questions/8576503/how-can-i-make-git-log-order-based-on-authors-timestamp
     #
     # More Fancy logging.
-    # 
+    #
     # thanks to https://github.com/garybernhardt/dotfiles/blob/master/.gitconfig
     #   h = head
     #   hp = head with patch
@@ -58,7 +59,7 @@
     # not really used but they are useful to look at
     delete-remote-branch="git push origin --delete"
     # apply-stash-to-dirty-working-tree = !git stash show -p | git apply && git stash drop
-    
+
     # andxyz diff magic
     diffks = difftool --tool=Kaleidoscope
     diffp4 = difftool --tool=p4merge
@@ -74,12 +75,12 @@
     g = grep --break --heading --line-number
 
 # perforce p4merge aint so great, just buy http://www.kaleidoscopeapp.com/
-# 
+#
 # perforce p4merge setup as the mergetool
 # http://www.perforce.com/product/components/perforce-visual-merge-and-diff-tools
 # the gist https://gist.github.com/toolbear/861192
 # you must have a ~/bin/p4merge file
-# 
+#
 [mergetool "p4merge"]
     cmd = p4merge "$BASE" "$REMOTE" "$LOCAL" "$MERGED"
     keepTemporaries = false
@@ -88,7 +89,7 @@
 
 [difftool "p4merge"]
     cmd = "p4merge $LOCAL $REMOTE"
-   
+
 [mergetool "Kaleidoscope"]
     cmd = ksdiff --merge --output \"$MERGED\" --base \"$BASE\" -- \"$LOCAL\" --snapshot \"$REMOTE\" --snapshot
 
@@ -114,14 +115,14 @@
     prompt = false
 
 # ctags are kind of a pain when they run wild
-# 
+#
 # http://tbaggery.com/2011/08/08/effortless-ctags-with-git.html
 #[init]
 #    templatedir = ~/.git_template
 
 
 # better man pages for git, using the website git-scm.com
-# 
+#
 # Thanks to http://twitter.com/rtomayko/status/199572965434728448
 # https://gist.github.com/2601550#
 # example:
@@ -150,3 +151,10 @@
 [filter "media"]
 	clean = git-media-clean %f
 	smudge = git-media-smudge %f
+[difftool "sourcetree"]
+	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
+[mergetool "sourcetree"]
+	cmd = /Applications/SourceTree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
+	trustExitCode = true
+[apply]
+	whitespace = fix
