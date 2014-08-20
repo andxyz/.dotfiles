@@ -5,9 +5,9 @@
 [core]
     pager = less -FRSX
     editor = subl -n -w
-	excludesfile = /Users/andxyz/.gitignore_global
+    excludesfile = /Users/andxyz/.gitignore_global
     autocrlf = input
-	whitespace = trailing-space,space-before-tab,indent-with-non-tab
+    whitespace = trailing-space,space-before-tab,indent-with-non-tab
 
 [color]
     ui = auto
@@ -142,6 +142,7 @@
 # http://travisjeffery.com/b/2012/02/search-a-git-repo-like-a-ninja/
 [grep]
     lineNumber = true
+    extendRegexp = true
 
 # andxyz secret stuff (github auth tokens etc etc)
 [include]
@@ -149,12 +150,12 @@
 [url "ssh://git@github.com/"]
     insteadOf = https://github.com/
 [filter "media"]
-	clean = git-media-clean %f
-	smudge = git-media-smudge %f
+    clean = git-media-clean %f
+    smudge = git-media-smudge %f
 [difftool "sourcetree"]
-	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
+    cmd = opendiff \"$LOCAL\" \"$REMOTE\"
 [mergetool "sourcetree"]
-	cmd = /Applications/SourceTree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
-	trustExitCode = true
+    cmd = /Applications/SourceTree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
+    trustExitCode = true
 [apply]
-	whitespace = fix
+    whitespace = fix
