@@ -7,13 +7,19 @@
     editor = subl -n -w
     excludesfile = /Users/andxyz/.gitignore_global
     autocrlf = input
-    whitespace = trailing-space,space-before-tab,indent-with-non-tab
+    whitespace = trailing-space,space-before-tab,tab-in-indent
+
+[apply]
+    whitespace = error
 
 [color]
     ui = auto
 
 [push]
     default = current
+
+[url "ssh://git@github.com/"]
+    insteadOf = https://github.com/
 
 [alias]
     # andxyz logging
@@ -74,6 +80,7 @@
     # http://travisjeffery.com/b/2012/02/search-a-git-repo-like-a-ninja/
     g = grep --break --heading --line-number
 
+#
 # perforce p4merge aint so great, just buy http://www.kaleidoscopeapp.com/
 #
 # perforce p4merge setup as the mergetool
@@ -90,6 +97,9 @@
 [difftool "p4merge"]
     cmd = "p4merge $LOCAL $REMOTE"
 
+#
+# Kaleidoscope
+#
 [mergetool "Kaleidoscope"]
     cmd = ksdiff --merge --output \"$MERGED\" --base \"$BASE\" -- \"$LOCAL\" --snapshot \"$REMOTE\" --snapshot
 
@@ -114,13 +124,23 @@
     trustExitCode = false
     prompt = false
 
+#
+# sourcetree
+#
+[difftool "sourcetree"]
+    cmd = opendiff \"$LOCAL\" \"$REMOTE\"
+[mergetool "sourcetree"]
+    cmd = /Applications/SourceTree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
+    trustExitCode = true
+
+#
 # ctags are kind of a pain when they run wild
 #
 # http://tbaggery.com/2011/08/08/effortless-ctags-with-git.html
 #[init]
 #    templatedir = ~/.git_template
 
-
+#
 # better man pages for git, using the website git-scm.com
 #
 # Thanks to http://twitter.com/rtomayko/status/199572965434728448
@@ -138,24 +158,17 @@
     cmd = /bin/sh -c 'open http://git-scm.com/docs/$(basename $1 .html)' --
 [help]
     browser = gitscm
-
+#
+# git grep tips
+#
 # http://travisjeffery.com/b/2012/02/search-a-git-repo-like-a-ninja/
+#
 [grep]
     lineNumber = true
     extendRegexp = true
 
+#
 # andxyz secret stuff (github auth tokens etc etc)
+#
 [include]
     path            = ~/.gitconfig-private
-[url "ssh://git@github.com/"]
-    insteadOf = https://github.com/
-[filter "media"]
-    clean = git-media-clean %f
-    smudge = git-media-smudge %f
-[difftool "sourcetree"]
-    cmd = opendiff \"$LOCAL\" \"$REMOTE\"
-[mergetool "sourcetree"]
-    cmd = /Applications/SourceTree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
-    trustExitCode = true
-[apply]
-    whitespace = fix
