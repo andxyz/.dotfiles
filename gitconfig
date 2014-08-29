@@ -10,7 +10,7 @@
     whitespace = trailing-space,space-before-tab,tab-in-indent
 
 [apply]
-    whitespace = error
+    whitespace = warn
 
 [color]
     ui = auto
