@@ -17,7 +17,7 @@ git clone https://github.com/$MYUSERNAME/.dotfiles.git .dotfiles
 cd $HOME/.dotfiles/
 brew bundle
 
-### install my dotfiles (via symlinking) 
+### install my dotfiles (via symlinking)
 ### (this should work cleanly now that the homebrew stuff is installed)
 rake install
 
