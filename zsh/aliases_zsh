@@ -1,7 +1,10 @@
 ### zsh correction headaches
+alias brew='nocorrect brew'
+#### ruby
+alias rake='noglob rake'
 alias bundle='nocorrect bundle'
+#### node
 alias bower='nocorrect bower'
 alias grunt='nocorrect grunt'
 alias npm='nocorrect npm'
 alias node='nocorrect node'
-alias brew='nocorrect brew'
