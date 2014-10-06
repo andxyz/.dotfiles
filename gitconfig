@@ -16,7 +16,11 @@
     ui = auto
 
 [push]
-    default = current
+	default = current
+
+[branch]
+  autosetupmerge = always
+  # autosetuprebase = always
 
 [url "ssh://git@github.com/"]
     insteadOf = https://github.com/
@@ -27,6 +31,7 @@
     fm = fetch origin master:master
     # andxyz logging
     unstage = reset HEAD --
+    l = log --graph --pretty=format:'%Cred[%h]%Creset%Cgreen[%ci]%C(bold blue)[%an]%Creset%C(yellow)%d%Creset %s'
     log0  = log -10 --author-date-order --color -m --stat=180,150 --pretty='format: %Cgreen%h%Creset%Cblue by %an, %cr%Creset  %s%Cred%d%Creset%n'
     log1  = log -10 --author-date-order --color --all --graph --stat=180,150 --pretty='format: %Cgreen%h%Creset%Cblue by %an, %cr%Creset  %s%Cred%d%Creset%n'
     log2  = log -10 --author-date-order --color --all --graph --pretty='format: %Cgreen%h%Creset %s%Cred%d%Creset%n'
@@ -64,6 +69,15 @@
     # searching git for stuff
     # http://travisjeffery.com/b/2012/02/search-a-git-repo-like-a-ninja/
     g = grep --break --heading --line-number
+
+#
+# git grep tips
+#
+# http://travisjeffery.com/b/2012/02/search-a-git-repo-like-a-ninja/
+#
+[grep]
+    lineNumber = true
+    extendRegexp = true
 
 #
 # perforce p4merge aint so great, just buy http://www.kaleidoscopeapp.com/
@@ -143,20 +157,9 @@
     cmd = /bin/sh -c 'open http://git-scm.com/docs/$(basename $1 .html)' --
 [help]
     browser = gitscm
-#
-# git grep tips
-#
-# http://travisjeffery.com/b/2012/02/search-a-git-repo-like-a-ninja/
-#
-[grep]
-    lineNumber = true
-    extendRegexp = true
 
 #
 # andxyz secret stuff (github auth tokens etc etc)
 #
 [include]
     path            = ~/.gitconfig-private
-[filter "media"]
-	clean = git-media-clean %f
-	smudge = git-media-smudge %f
