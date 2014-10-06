@@ -48,9 +48,13 @@ eval "$(rbenv init -)"
 # see also git://github.com/carsomyr/rbenv-bundler.git rbenv rehash
 # currently I use a "be=bundle exec" alias instead
 
-# homebrew php 5.4 stuff
+# php stuff
 which php54 >> /dev/null 2>&1 &&
-export PATH="$(brew --prefix php54)/bin:$PATH"
+export PATH="$(brew --prefix homebrew/php/php54)/bin:$PATH"
+which php55 >> /dev/null 2>&1 &&
+export PATH="$(brew --prefix homebrew/php/php55)/bin:$PATH"
+which php56 >> /dev/null 2>&1 &&
+export PATH="$(brew --prefix homebrew/php/php56)/bin:$PATH"
 
 # brew info autoenv
 test -f "/usr/local/opt/autoenv/activate.sh" &&
