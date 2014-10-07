@@ -65,6 +65,7 @@ test -d "/Applications/Android-Studio.app/sdk/platform-tools" &&
 export PATH="$PATH:/Applications/Android-Studio.app/sdk/platform-tools"
 test -d "/Applications/Android-Studio.app/sdk/tools" &&
 export PATH="$PATH:/Applications/Android-Studio.app/sdk/tools"
+test -d "/Applications/Android-Studio.app/sdk/" &&
 export ANDROID_HOME=/Applications/Android-Studio.app/sdk/
 
 # brew grc stuff (not working on mavericks, python is failing and breaking ping, no time to fix)
