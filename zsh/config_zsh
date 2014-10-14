@@ -1,21 +1,21 @@
+# allow bash style comments
 setopt interactivecomments
-# bash style comments
 
-## echo 'fancy git prompt on my local machine _only_ and only with zsh'
+## shell specific history
+HISTFILE=$HOME/.zsh_history
+
+## zsh function nonsense
+fpath=(~/.zsh/functions $fpath)
+autoload -U ~/.zsh/functions/*(:t)
+
+## fancy git prompt on my local machine using a zsh function
 if [[ -n $SSH_CONNECTION ]]; then
   export PS1='%m:%3~$(git_info_for_prompt)$ '
 else
   export PS1='%3~$(git_info_for_prompt)$ '
 fi
 
-## shell specific history
-HISTFILE=$HOME/.zsh_history
-
-## echo 'zsh function nonsense'
-fpath=(~/.zsh/functions $fpath)
-autoload -U ~/.zsh/functions/*(:t)
-
-## echo 'force some ENV configs'
+## force some ENV configs
 setopt NO_BG_NICE # don't nice background tasks
 setopt NO_HUP
 setopt NO_LIST_BEEP
@@ -34,7 +34,7 @@ setopt INC_APPEND_HISTORY SHARE_HISTORY  # adds history incrementally and share 
 setopt HIST_IGNORE_ALL_DUPS  # don't record dupes in history
 setopt HIST_REDUCE_BLANKS
 
-## echo 'bind some key fixes for keyboards'
+## bind some key fixes for keyboards
 
 zle -N newtab
 
@@ -45,4 +45,3 @@ bindkey '^[[5C' end-of-line
 bindkey '^[[3~' delete-char
 bindkey '^[^N' newtab
 bindkey '^?' backward-delete-char
-

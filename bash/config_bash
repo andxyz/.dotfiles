@@ -1,2 +1,9 @@
 ## shell specific history
 HISTFILE=$HOME/.bash_history
+
+## fancy bash prompt
+if [[ -n $SSH_CONNECTION ]]; then
+  export PS1='$ '
+else
+  export PS1='$ '
+fi

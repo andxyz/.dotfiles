@@ -39,7 +39,7 @@ if [ -n "$g" ]; then
       fi
     fi
   fi
- 
+
   if [ -n "$1" ]; then
     printf "$1" "${b##refs/heads/}$r"
   else
