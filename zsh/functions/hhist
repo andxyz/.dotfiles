@@ -1,1 +1,1 @@
-hhist() { history -1000 | grep "$*"; }
+hhist() { history -9999 | grep "$1"; }
