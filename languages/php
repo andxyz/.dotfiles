@@ -13,8 +13,8 @@ brew tap josegonzalez/homebrew-php
 ##### `brew info php55`
 ##### `browser http://justinhileman.info/article/reinstalling-php-on-mac-os-x/`
 ##### `browser blog.frd.mn/install-nginx-php-fpm-mysql-and-phpmyadmin-on-os-x-mavericks-using-homebrew/`
-brew install php54 --homebrew-apxs --with-fpm --with-homebrew-openssl --with-mysql --with-pgsql
-brew install php55 --homebrew-apxs --with-fpm --with-homebrew-openssl --with-mysql --with-pgsql
+brew install php55 --with-homebrew-curl  --with-homebrew-openssl --with-fpm --with-mysql --with-pgsql
+brew install php56 --with-homebrew-curl  --with-homebrew-openssl --without-snmp --with-fpm --with-mysql --with-pgsql
 
 ### php addons to the addons
 ##### brew options imagemagick

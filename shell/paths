@@ -39,6 +39,9 @@ export PATH="$HOME/.cabal/bin:$PATH"
 test -d "$PATH:/opt/subversion/bin" &&
 export PATH="$PATH:/opt/subversion/bin"
 
+# java magic http://www.jenv.be/
+if which jenv > /dev/null; then eval "$(jenv init -)"; fi
+
 # rbenv stuff https://github.com/sstephenson/rbenv#readme
 test -d $HOME/.rbenv/bin &&
 export PATH="$HOME/.rbenv/bin:$PATH" &&
@@ -61,12 +64,12 @@ test -f "/usr/local/opt/autoenv/activate.sh" &&
 source /usr/local/opt/autoenv/activate.sh
 
 # android sdk magic
-test -d "/Applications/Android-Studio.app/sdk/platform-tools" &&
-export PATH="$PATH:/Applications/Android-Studio.app/sdk/platform-tools"
-test -d "/Applications/Android-Studio.app/sdk/tools" &&
-export PATH="$PATH:/Applications/Android-Studio.app/sdk/tools"
-test -d "/Applications/Android-Studio.app/sdk/" &&
-export ANDROID_HOME=/Applications/Android-Studio.app/sdk/
+test -d "/Applications/android-sdk-macosx/platform-tools" &&
+export PATH="$PATH:/Applications/android-sdk-macosx/platform-tools"
+test -d "/Applications/android-sdk-macosx/tools" &&
+export PATH="$PATH:/Applications/android-sdk-macosx/tools"
+test -d "/Applications/android-sdk-macosx/" &&
+export ANDROID_HOME=/Applications/android-sdk-macosx/
 
 # brew grc stuff (not working on mavericks, python is failing and breaking ping, no time to fix)
 # source "`brew --prefix`/etc/grc.bashrc"
