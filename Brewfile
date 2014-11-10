@@ -1,11 +1,19 @@
 # run this file with
-##### `cd ~/.dotfiles && brew bundle`
+##### `cd ~/code/andxyz-dotfiles && gem install brewdler && brewdler install`
 
 ### andxyz.com Brewfile https://github.com/andxyz/.dotfiles/blob/master/Brewfile
 ### I should get around to putting some of https://gist.github.com/9393431 in cask
 
-### next is a list of current crap on my development machine
-###### antiword cscope ghc jbig2dec lynx phantomjs sqlite apple-gcc42 ctags ghostscript jpeg macvim php54 subversion autoconf dnsmasq git jq mad pkg-config texi2html autoenv duti glib lame maven pngquant the_silver_searcher automake exif gnu-indent libao mercurial popt tree bind exiftool gnu-sed libcue mongodb postgresql unixodbc brew-cask faac gnu-tar libexif mongoose python webkit2png browser faad2 go libffi mp4v2 qt wkhtmltopdf browsertime ffmpeg graphviz libogg multitail rbenv x264 chromedriver findutils grc libpng mysql rbenv-gem-rehash xvid cloc flac haskell-platform libsass nginx readline xz cmus freetype heroku-toolbelt libtiff openssl redis yasm composer gawk htop-osx libtool ossp-uuid ruby-build zlib coreutils gdbm hub libvorbis pcre sassc zsh cppcheck gettext imagemagick little-cms2 perl518 sitespeed.io zsh-completions
+### old list of crap on my development machine
+###### antiword cscope ghc jbig2dec lynx phantomjs sqlite apple-gcc42 ctags ghostscript jpeg macvim php54 subversion autoconf dnsmasq
+###### git jq mad pkg-config texi2html autoenv duti glib lame maven pngquant the_silver_searcher automake exif gnu-indent
+###### libao mercurial popt tree bind exiftool gnu-sed libcue mongodb postgresql unixodbc brew-cask faac gnu-tar libexif
+###### mongoose python webkit2png browser faad2 go libffi mp4v2 qt wkhtmltopdf browsertime ffmpeg graphviz libogg
+###### multitail rbenv x264 chromedriver findutils grc libpng mysql rbenv-gem-rehash xvid cloc flac haskell-platform
+##### libsass nginx readline xz cmus freetype heroku-toolbelt libtiff openssl redis yasm composer gawk htop-osx libtool
+##### ossp-uuid ruby-build zlib coreutils gdbm hub libvorbis pcre sassc zsh cppcheck gettext imagemagick little-cms2 perl518 sitespeed.io zsh-completions
+
+##### brew install jpeg macvim dnsmasq autoenv lame maven pngquant gnu-indent gnu-sed postgresql exif mongoose graphviz multitail composer
 
 ### first off, update all brew installed crap we already have before going forward
 update
