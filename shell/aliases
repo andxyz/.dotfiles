@@ -25,8 +25,7 @@ alias sscreensaver='/System/Library/Frameworks/ScreenSaver.framework/Versions/A/
 alias pports='sudo lsof -Pni4 | grep LISTEN'
 
 #### htop
-alias hhtop="htop --sort-key Command"
-alias hhcpu="htop --sort-key PERCENT_CPU"
+alias hhtop="htop --sort-key PERCENT_CPU"
 alias hhtopcpu="htop --sort-key PERCENT_CPU"
 alias hhtopcommand="htop --sort-key Command"
 alias hhtopmem="htop --sort-key PERCENT_MEM"
