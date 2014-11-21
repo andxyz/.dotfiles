@@ -23,8 +23,8 @@
   # autosetuprebase = always
 
 # this is messing up cocoapod podspecs
-[url "ssh://git@github.com/"]
-    insteadOf = https://github.com/
+#  [url "ssh://git@github.com/"]
+#   insteadOf = https://github.com/
 
 [alias]
     p = pull
@@ -165,3 +165,5 @@
 #
 [include]
     path            = ~/.gitconfig-private
+[credential]
+	helper = store
