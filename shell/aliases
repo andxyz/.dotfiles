@@ -32,25 +32,23 @@ alias hhtopmem="htop --sort-key PERCENT_MEM"
 alias hhtoppid="htop --sort-key PID"
 
 ### git
-alias g='git'
 alias gg='git grep --break --heading --line-number'
 alias gball='git branch --all --verbose'
 alias gb='git branch --list --verbose'
 alias gs='git status --short --branch'
-alias ga='git add --all'
 alias gco='git checkout'
 
 ### rails and ruby
 alias ttail='tail -f log/development.log'
 ## alias bi="bundle install --binstubs --path=vendor/gems --without=production "
 alias bi='bundle install '
-alias be='bundle exec'
+alias be='bundle exec '
 
 ### node
 alias ni='npm install --silent >> /dev/null 2>&1'
 
 ### tools
-alias mitmproxy='mitmproxy --palette solarized_light'
+alias mmitmproxy='mitmproxy --palette solarized_light'
 
 ## webservers
 ### tips thanks to http://blog.frd.mn/install-nginx-php-fpm-mysql-and-phpmyadmin-on-os-x-mavericks-using-homebrew/

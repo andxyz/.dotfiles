@@ -16,11 +16,11 @@
     ui = auto
 
 [push]
-	default = current
+	default = simple
 
 [branch]
-  autosetupmerge = always
-  # autosetuprebase = always
+    autosetupmerge = always
+    autosetuprebase = always
 
 # this is messing up cocoapod podspecs
 #  [url "ssh://git@github.com/"]
@@ -51,26 +51,23 @@
 
     # andxyz git shortcuts
     st = status
-    br = branch
-    co = checkout
     ls = ls-files
     # not really used but they are useful to look at
     delete-remote-branch="git push origin --delete"
-    # apply-stash-to-dirty-working-tree = !git stash show -p | git apply && git stash drop
 
     # andxyz diff magic
     diffks = difftool --tool=Kaleidoscope
     diffp4 = difftool --tool=p4merge
     mergeks = mergetool --tool=Kaleidoscope
     # https://github.com/scottgonzalez/pretty-diff
-    diffpretty = !$HOME/bin/pretty-diff/pretty-diff.js
+    # diffpretty = !$HOME/bin/pretty-diff/pretty-diff.js
 
     # http://tbaggery.com/2011/08/08/effortless-ctags-with-git.html
-    ctags = !.git/hooks/ctags
+    # ctags = !.git/hooks/ctags
 
     # searching git for stuff
     # http://travisjeffery.com/b/2012/02/search-a-git-repo-like-a-ninja/
-    g = grep --break --heading --line-number
+    ggrep = grep --break --heading --line-number
 
 #
 # git grep tips
