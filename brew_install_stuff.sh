@@ -62,6 +62,7 @@ sudo chmod u+s `which htop`
 
 
 ### 3rd-party-toolkits
+brew install ical-buddy
 brew install 'heroku'
 
 ### languages
@@ -169,6 +170,7 @@ brew cask install betterzipql
 brew cask install webp-quicklook
 brew cask install suspicious-package
 brew cask install ipaql
+brew cask install cert-quicklook
 # see https://github.com/sindresorhus/quick-look-plugins
 # now run `defaults write com.apple.finder QLEnableTextSelection -bool true && killall Finder`
 
