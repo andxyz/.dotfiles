@@ -50,7 +50,6 @@
     # http://stackoverflow.com/questions/8576503/how-can-i-make-git-log-order-based-on-authors-timestamp
 
     # andxyz git shortcuts
-    st = status
     ls = ls-files
     # not really used but they are useful to look at
     delete-remote-branch="git push origin --delete"
