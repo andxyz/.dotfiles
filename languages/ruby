@@ -1,21 +1,28 @@
 #!/usr/bin/env bash
-
+# curl -fsSL https://github.com/andxyz/.dotfiles/raw/master/languages/ruby | bash
 set -e
 
 ## see https://github.com/sstephenson/rbenv/wiki/_pages
-git clone https://github.com/sstephenson/rbenv.git ~/.rbenv &&
+echo '## installing rbenv'
+git clone https://github.com/sstephenson/rbenv.git $HOME/.rbenv || true
 export PATH="$HOME/.rbenv/bin:$PATH" &&
 eval "$(rbenv init -)"
 
 # optional, but recommended:
-brew install openssl libyaml readline
+# https://github.com/sstephenson/ruby-build/wiki#suggested-build-environment
+echo '## installing recommended homebrew dependencies'
+brew update
+brew unlink libyaml || true
+brew install openssl libyaml libffi
+brew link libyaml || true
 
 ## plugins ahoy, see https://github.com/sstephenson/rbenv/wiki/Plugins
-mkdir $HOME/.rbenv/plugins/ &&
-git clone https://github.com/sstephenson/ruby-build.git $HOME/.rbenv/plugins/ruby-build &&
-git clone https://github.com/rkh/rbenv-update.git $HOME/.rbenv/plugins/rbenv-update &&
-git clone https://github.com/sstephenson/rbenv-gem-rehash.git $HOME/.rbenv/plugins/rbenv-gem-rehash &&
-git clone https://github.com/sstephenson/rbenv-default-gems.git $HOME/.rbenv/plugins/rbenv-default-gems
+echo '## installing rbenv plugins'
+mkdir $HOME/.rbenv/plugins/ || true
+git clone https://github.com/sstephenson/ruby-build.git $HOME/.rbenv/plugins/ruby-build || true
+git clone https://github.com/rkh/rbenv-update.git $HOME/.rbenv/plugins/rbenv-update || true
+git clone https://github.com/sstephenson/rbenv-gem-rehash.git $HOME/.rbenv/plugins/rbenv-gem-rehash || true
+git clone https://github.com/sstephenson/rbenv-default-gems.git $HOME/.rbenv/plugins/rbenv-default-gems || true
 
 ls "$(rbenv root)"/plugins
 
@@ -27,21 +34,23 @@ cd $HOME
 # brew tap homebrew/dupes && brew install apple-gcc42
 
 ## install some rubies
+echo '## installing rubies'
 #
-# rbenv install -l
+# rbenv install --list
 # rbenv install 1.8.7-p375
 # rbenv install 1.9.3-p448
 # rbenv install 2.0.0-p481
-rbenv install 1.9.3-p547
-rbenv install 2.1.2
-rbenv install 2.2.0
-#rbenv install jruby-1.7.16.1
+# #rbenv install jruby-1.7.16.1
+rbenv install --skip-existing --verbose 1.9.3-p547
+rbenv install --skip-existing --verbose 2.1.5
+rbenv install --skip-existing --verbose 2.2.0
 
 ## set my default rubies for new shells
 #
 # rbenv shell 1.9.3-p547
 # rbenv global 1.9.3-p547
-rbenv shell 2.2.0
+# rbenv shell 2.2.0
+echo '## setting default shell ruby to 2.2.0'
 rbenv global 2.2.0
 
 ## show off my new whiz bangs! you guys! We gots whiz-bangs!
