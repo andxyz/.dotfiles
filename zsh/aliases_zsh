@@ -2,7 +2,6 @@
 alias brew='nocorrect brew'
 
 #### ruby
-alias rake='noglob rake'
 alias bundle='nocorrect bundle'
 
 #### node
