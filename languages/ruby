@@ -17,10 +17,6 @@ git clone https://github.com/rkh/rbenv-update.git $HOME/.rbenv/plugins/rbenv-upd
 git clone https://github.com/sstephenson/rbenv-gem-rehash.git $HOME/.rbenv/plugins/rbenv-gem-rehash &&
 git clone https://github.com/sstephenson/rbenv-default-gems.git $HOME/.rbenv/plugins/rbenv-default-gems
 
-# git clone https://github.com/chriseppstein/rbenv-each.git $HOME/.rbenv/plugins/rbenv-each
-## readline fix???
-# brew install readline && git clone git://github.com/tpope/rbenv-readline.git $HOME/.rbenv/plugins/rbenv-readline
-
 ls "$(rbenv root)"/plugins
 
 ## prepare ruby-build, see https://github.com/sstephenson/ruby-build/wiki
@@ -38,14 +34,15 @@ cd $HOME
 # rbenv install 2.0.0-p481
 rbenv install 1.9.3-p547
 rbenv install 2.1.2
-rbenv install jruby-1.7.16.1
+rbenv install 2.2.0
+#rbenv install jruby-1.7.16.1
 
 ## set my default rubies for new shells
 #
 # rbenv shell 1.9.3-p547
 # rbenv global 1.9.3-p547
-rbenv shell 2.1.2
-rbenv global 2.1.2
+rbenv shell 2.2.0
+rbenv global 2.2.0
 
 ## show off my new whiz bangs! you guys! We gots whiz-bangs!
 rbenv rehash
@@ -54,8 +51,6 @@ rbenv versions
 ## example use cases of some of our plugins
 # rbenv update
 # echo "bundler\npry\nbcat" >> $HOME/.rbenv/default-gems
-# rbenv each gem install bundler
-# rbenv each gem install pry
 # rbenv whence bundler
 
 exit 0
