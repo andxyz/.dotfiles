@@ -1,5 +1,13 @@
+# See https://github.com/pry/pry/wiki/Customization-and-configuration
+# load this file please
+Pry.config.should_load_rc = true
+
+# config hist
+Pry.config.history.file = "~/.irb_history"
+
 # config editor
 Pry.config.editor = "subl -w"
 
-# require "awesome_print"
-# AwesomePrint.pry!
+# nicer printing
+require "awesome_print"
+AwesomePrint.pry!
