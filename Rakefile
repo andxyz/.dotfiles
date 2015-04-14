@@ -5,8 +5,9 @@ desc "install the dot files into user's home directory"
 task :install do
   replace_all = false
   Dir['*'].each do |file|
-    next if %w[Rakefile README.rdoc LICENSE].include? file
-    
+    exclude_list = %w[Rakefile README.rdoc LICENSE andxyz.mit-license.org.json bin brew_install_stuff.sh cheatsheets.md duti languages README-notes.md README.md]
+    next if exclude_list.include? file
+
     if File.exist?(File.join(ENV['HOME'], ".#{file.sub('.erb', '')}"))
       if File.identical? file, File.join(ENV['HOME'], ".#{file.sub('.erb', '')}")
         puts "identical ~/.#{file.sub('.erb', '')}"
