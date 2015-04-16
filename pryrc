@@ -3,7 +3,7 @@
 Pry.config.should_load_rc = true
 
 # config hist
-Pry.config.history.file = "~/.irb_history"
+Pry.config.history.file = "#{ENV['HOME']}/.irb_history"
 
 # config editor
 Pry.config.editor = "subl -w"
