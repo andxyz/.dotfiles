@@ -43,15 +43,15 @@ echo '## installing rubies'
 # #rbenv install jruby-1.7.16.1
 rbenv install --skip-existing --verbose 1.9.3-p547
 rbenv install --skip-existing --verbose 2.1.5
-rbenv install --skip-existing --verbose 2.2.0
+rbenv install --skip-existing --verbose 2.2.1
 
 ## set my default rubies for new shells
 #
 # rbenv shell 1.9.3-p547
 # rbenv global 1.9.3-p547
 # rbenv shell 2.2.0
-echo '## setting default shell ruby to 2.2.0'
-rbenv global 2.2.0
+echo '## setting default shell ruby to 2.2.1'
+rbenv global 2.2.1
 
 ## show off my new whiz bangs! you guys! We gots whiz-bangs!
 rbenv rehash
