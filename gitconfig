@@ -35,11 +35,11 @@
     l = log --graph --pretty=format:'%Cred[%h]%Creset%Cgreen[%ci]%C(bold blue)[%an]%Creset%C(yellow)%d%Creset %s'
     log0  = log -10 --author-date-order --color -m --stat=180,150 --pretty='format: %Cgreen%h%Creset%Cblue by %an, %cr%Creset  %s%Cred%d%Creset%n'
     log1  = log -10 --author-date-order --color --all --graph --stat=180,150 --pretty='format: %Cgreen%h%Creset%Cblue by %an, %cr%Creset  %s%Cred%d%Creset%n'
-    log2  = log -10 --author-date-order --color --all --graph --pretty='format: %Cgreen%h%Creset %s%Cred%d%Creset%n'
+    log2 = log --author-date-order --decorate --pretty=oneline --abbrev-commit --all
     log3 = log -p
     log4  = log --author-date-order --color --all --graph --pretty='format: %Cgreen%h%Creset %s%Cred%d%Creset%n'
     log5 = log --author-date-order -decorate --pretty=oneline --abbrev-commit
-    log6 = log --author-date-order --decorate --pretty=oneline --abbrev-commit --all
+    log6  = log -10 --author-date-order --color --all --graph --pretty='format: %Cgreen%h%Creset %s%Cred%d%Creset%n'
     show0 = show --pretty="full" --stat
     show1 = show --stat=180,150 --pretty="oneline"
     show2 = show --pretty="full" --name-only
