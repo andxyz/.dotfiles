@@ -2,18 +2,28 @@
 export PATH="/usr/local/bin:/usr/local/sbin:$HOME/bin:/usr/local/mysql/bin:/sbin:/bin:/usr/bin:/usr/sbin:$PATH"
 export MANPATH="/usr/local/man:/usr/local/mysql/man:/usr/local/git/man:$MANPATH"
 
-### language paths
+# autoenv stuff
+# brew info autoenv
+test -f "/usr/local/opt/autoenv/activate.sh" &&
+source /usr/local/opt/autoenv/activate.sh
 
-# python path stuff
-test -f "/usr/local/lib/python" &&
-export PYTHONPATH=/usr/local/lib/python:$PYTHONPATH
+# subversion stuff
+test -d "$PATH:/opt/subversion/bin" &&
+export PATH="$PATH:/opt/subversion/bin"
 
-# perl path stuff
-export PERL_LOCAL_LIB_ROOT="/Users/andxyz/perl5:$PERL_LOCAL_LIB_ROOT";
-export PERL_MB_OPT="--install_base "/Users/andxyz/perl5"";
-export PERL_MM_OPT="INSTALL_BASE=/Users/andxyz/perl5";
-export PERL5LIB="/Users/andxyz/perl5/lib/perl5:$PERL5LIB";
-export PATH="/Users/andxyz/perl5/bin:$PATH";
+### language setup stuff
+
+# android sdk magic
+test -d "/Applications/android-sdk-macosx/platform-tools" &&
+export PATH="$PATH:/Applications/android-sdk-macosx/platform-tools"
+test -d "/Applications/android-sdk-macosx/tools" &&
+export PATH="$PATH:/Applications/android-sdk-macosx/tools"
+test -d "/Applications/android-sdk-macosx/" &&
+export ANDROID_HOME=/Applications/android-sdk-macosx/
+
+# haskell uses cabal
+test -d "$HOME/.cabal/bin" &&
+export PATH="$HOME/.cabal/bin:$PATH"
 
 # nodejs - creationix node version management (nvm)
 test -f "$HOME/.nvm/nvm.sh"
@@ -31,25 +41,15 @@ source $HOME/.nvm/nvm.sh
 # add local npm packages to path
 export PATH="./node_modules/.bin:$PATH"
 
-# haskell uses cabal
-test -d "$HOME/.cabal/bin" &&
-export PATH="$HOME/.cabal/bin:$PATH"
-
-# subversion magic
-test -d "$PATH:/opt/subversion/bin" &&
-export PATH="$PATH:/opt/subversion/bin"
-
-# java magic http://www.jenv.be/
+# java stuff http://www.jenv.be/
 if which jenv > /dev/null; then eval "$(jenv init -)"; fi
 
-# rbenv stuff https://github.com/sstephenson/rbenv#readme
-test -d $HOME/.rbenv/bin &&
-export PATH="$HOME/.rbenv/bin:$PATH" &&
-eval "$(rbenv init -)"
-### rbenv rails bundler path tricks
-# export PATH="./.bin:$PATH" # prev, was lazy hack from bkeeper
-# see also git://github.com/carsomyr/rbenv-bundler.git rbenv rehash
-# currently I use a "be=bundle exec" alias instead
+# perl path stuff
+export PERL_LOCAL_LIB_ROOT="/Users/andxyz/perl5:$PERL_LOCAL_LIB_ROOT";
+export PERL_MB_OPT="--install_base "/Users/andxyz/perl5"";
+export PERL_MM_OPT="INSTALL_BASE=/Users/andxyz/perl5";
+export PERL5LIB="/Users/andxyz/perl5/lib/perl5:$PERL5LIB";
+export PATH="/Users/andxyz/perl5/bin:$PATH";
 
 # php stuff
 which php54 >> /dev/null 2>&1 &&
@@ -59,18 +59,12 @@ export PATH="$(brew --prefix homebrew/php/php55)/bin:$PATH"
 which php56 >> /dev/null 2>&1 &&
 export PATH="$(brew --prefix homebrew/php/php56)/bin:$PATH"
 
-# brew info autoenv
-test -f "/usr/local/opt/autoenv/activate.sh" &&
-source /usr/local/opt/autoenv/activate.sh
+# python path stuff
+test -f "/usr/local/lib/python" &&
+export PYTHONPATH=/usr/local/lib/python:$PYTHONPATH
 
-# android sdk magic
-test -d "/Applications/android-sdk-macosx/platform-tools" &&
-export PATH="$PATH:/Applications/android-sdk-macosx/platform-tools"
-test -d "/Applications/android-sdk-macosx/tools" &&
-export PATH="$PATH:/Applications/android-sdk-macosx/tools"
-test -d "/Applications/android-sdk-macosx/" &&
-export ANDROID_HOME=/Applications/android-sdk-macosx/
-
-# brew grc stuff (not working on mavericks, python is failing and breaking ping, no time to fix)
-# source "`brew --prefix`/etc/grc.bashrc"
-
+# rbenv stuff https://github.com/sstephenson/rbenv#readme
+# note currently I use a "be=bundle exec" alias
+test -d $HOME/.rbenv/bin &&
+export PATH="$HOME/.rbenv/bin:$PATH" &&
+eval "$(rbenv init -)"
