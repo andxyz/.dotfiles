@@ -11,8 +11,7 @@ source ~/.shell/paths
 ## bash specific
 source ~/.bash/config_bash
 source ~/.bash/aliases_bash
+source /usr/local/etc/bash_completion
 
-source ~/.bash/completions_bash
-
-# use .localrc for settings specific to one system
+## use .localrc for settings specific to one system
 [[ -f ~/.localrc ]] && . ~/.localrc
