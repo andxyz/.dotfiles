@@ -3,35 +3,40 @@
 # run this file with
 ##### `cd ~/code/andxyz-dotfiles && ./brew_install_stuff.sh`
 
-### I should get around to putting some of https://gist.github.com/9393431 in cask
+### I should get around to putting some of https://gist.github.com/9393431 in here
 
-### `brew list` old list of crap on my development machine
-###### antiword cscope ghc jbig2dec lynx phantomjs sqlite apple-gcc42 ctags ghostscript jpeg macvim php54 subversion autoconf dnsmasq
-###### git jq mad pkg-config texi2html autoenv duti glib lame maven pngquant the_silver_searcher automake exif gnu-indent
-###### libao mercurial popt tree bind exiftool gnu-sed libcue mongodb postgresql unixodbc brew-cask faac gnu-tar libexif
-###### mongoose python webkit2png browser faad2 go libffi mp4v2 qt wkhtmltopdf browsertime ffmpeg graphviz libogg
-###### multitail rbenv x264 chromedriver findutils grc libpng mysql rbenv-gem-rehash xvid cloc flac haskell-platform
-###### libsass nginx readline xz cmus freetype heroku-toolbelt libtiff openssl redis yasm composer gawk htop-osx libtool
-###### ossp-uuid ruby-build zlib coreutils gdbm hub libvorbis pcre sassc zsh cppcheck gettext imagemagick little-cms2 perl518 sitespeed.io zsh-completions
-### `brew list` old list of crap on my other development machine
-###### ab      coreutils   findutils   gnu-indent    hub     libpng      mysql     pidcat      redis     unixodbc
-###### ack     cppcheck    freetype    gnu-sed     icu4c     libtiff     nginx     pkg-config    s3cmd     v8
-###### apr     cscope      gawk      gnu-tar     imagemagick   libtool     openssl     postgresql    sqlite      x264
-###### apr-util    ctags     gdbm      gradle      jenv      libyaml     ossp-uuid   psgrep      subversion    xvid
-###### beanstalk   curl      gettext     grep      jpeg      macvim      pandoc      pstree      the_silver_searcher xz
-###### bfg     elasticsearch   gifsicle    heroku-toolbelt   jq      memcached   pcre      python      tldr      zlib
-###### bison     faac      git     htop-osx    lame      mercurial   phantomjs   readline    transmission    zsh
-###### brew-cask   ffmpeg      gmp     httpie      libevent    mitmproxy   php56     recoverjpeg   tree      zsh-completions
+### current list of crap on my dev machine
+### $ brew list
+# ab      bison     ffmpeg      gnu-indent    imagemagick   macvim      pcre      readline    vagrant-completion
+# ack     brew-cask   findutils   gnu-sed     jenv      maven-completion  phantomjs   recoverjpeg   wget
+# ansible     bundler-completion  freetype    gnu-tar     jpeg      memcached   php56     redis     x264
+# apr     cargo-completion  gawk      gradle      jq      mercurial   pidcat      s3cmd     xvid
+# apr-util    cmake     gdbm      grep      lame      mitmproxy   pip-completion    sqlite      xz
+# autoconf    coreutils   gem-completion    grunt-completion  libevent    mongoose    pkg-config    subversion    zlib
+# automake    cppcheck    geoip     heroku-toolbelt   libffi      mysql     postgresql    the_silver_searcher zsh
+# awscli      cscope      geoipupdate   htop-osx    libpng      nginx     psgrep      tldr      zsh-completions
+# bash-completion   ctags     gettext     httpie      libtiff     openssh     pstree      transmission
+# bash-git-prompt   curl      gifsicle    hub     libtool     openssl     python      tree
+# beanstalk   elasticsearch   git     ical-buddy    libvo-aacenc    ossp-uuid   rails-completion  unixodbc
+# bfg     faac      gmp     icu4c     libyaml     pandoc      rake-completion   v8
 
 ### first off, update all brew installed crap we already have before going forward
 brew update
 brew upgrade
 
-#### enable binary downloads see https://github.com/phinze/homebrew-cask/tree/master/Casks for more
-brew tap 'phinze/cask'
-brew install 'brew-cask'
+#### enable binary downloads see https://github.com/phinze/homebrew-cask/ for more
+brew install caskroom/cask/brew-cask
+brew tap homebrew/completions
+brew tap homebrew/dupes
+brew tap homebrew/php
+brew tap homebrew/science
+brew tap homebrew/versions
+brew tap josegonzalez/php
 
 ## LETS COMPILE STUFF
+
+### shared libs
+brew install 'openssl'
 
 ### shell
 brew install 'zsh'
@@ -39,6 +44,7 @@ brew install 'zsh'
 brew install git --with-pcre
 brew install 'hub'
 # brew cask install 'kaleidoscope' ## i've been doing it manually
+
 ### db
 brew install 'mysql'
 brew install 'postgresql'
@@ -59,7 +65,6 @@ brew install 'gawk'
 brew install htop
 sudo chown root:wheel `which htop`
 sudo chmod u+s `which htop`
-
 
 ### 3rd-party-toolkits
 brew install ical-buddy
@@ -93,10 +98,10 @@ brew cask install texshop
 
 ### dev
 brew cask install 'viscosity'
-brew cask install 'android-studio'
+# brew cask install 'android-studio'
 brew cask install 'gitx'
 brew cask install 'charles'
-brew cask install 'android-file-transfer'
+# brew cask install 'android-file-transfer'
 brew cask install 'Dash'
 
 ### ios
@@ -139,7 +144,7 @@ brew cask install 'spotify'
 brew cask install 'harvest'
 
 ### video manipulation
-brew cask install 'miro-video-converter'
+# brew cask install 'miro-video-converter'
 
 ### theinternet
 brew cask install 'transmission'
