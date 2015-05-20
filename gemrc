@@ -1,10 +1,10 @@
 ---
-:backtrace: false
-:benchmark: false
-:bulk_threshold: 1000
-:update_sources: true
-:verbose: true
 gem: --no-ri --no-rdoc
+backtrace: true
+benchmark: false
+bulk_threshold: 1000
+update_sources: true
+verbose: true
 :sources:
 - https://rubygems.org
 - http://gems.opscode.com
