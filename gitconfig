@@ -40,6 +40,7 @@
     log4  = log --author-date-order --color --all --graph --pretty='format: %Cgreen%h%Creset %s%Cred%d%Creset%n'
     log5 = log --author-date-order -decorate --pretty=oneline --abbrev-commit
     log6  = log -10 --author-date-order --color --all --graph --pretty='format: %Cgreen%h%Creset %s%Cred%d%Creset%n'
+    logpr = log --graph --oneline --decorate --no-merges --topo-order --boundary origin/master...
     show0 = show --pretty="full" --stat
     show1 = show --stat=180,150 --pretty="oneline"
     show2 = show --pretty="full" --name-only
@@ -67,6 +68,7 @@
     # searching git for stuff
     # http://travisjeffery.com/b/2012/02/search-a-git-repo-like-a-ninja/
     ggrep = grep --break --heading --line-number
+	alias = config --get-regexp ^alias\\.
 
 #
 # git grep tips
