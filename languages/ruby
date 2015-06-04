@@ -59,7 +59,9 @@ rbenv versions
 
 ## example use cases of some of our plugins
 # rbenv update
-# echo "bundler\npry\nbcat" >> $HOME/.rbenv/default-gems
+# echo "bundler" >> $HOME/.rbenv/default-gems
+# echo "pry" >> $HOME/.rbenv/default-gems
+# echo "bcat" >> $HOME/.rbenv/default-gems
 # rbenv whence bundler
 
 exit 0
