@@ -27,10 +27,11 @@
 #   insteadOf = https://github.com/
 
 [alias]
+    # andxyz git shortcuts
     p = pull
     f = fetch --all
     fm = fetch origin master:master
-    # andxyz logging
+    ls = ls-files
     unstage = reset HEAD --
     l = log --topo-order --graph --pretty=format:'%Cred[%h]%Creset%Cgreen[%ci]%C(bold blue)[%an]%Creset%C(yellow)%d%Creset %s'
     log0 = log --topo-order --color -m --stat=180,150 --pretty='format: %Cgreen%h%Creset%Cblue by %an, %ci%Creset  %s%Cred%d%Creset%n'
@@ -48,12 +49,12 @@
     show2 = show --pretty="full" --name-only
     show3 = show --pretty="oneline" --name-only
     tagsbydate = log --tags --simplify-by-decoration --pretty='format:%ai %d by %an'
+    branchesbydate = for-each-ref --sort='-committerdate' --format='%(committerdate:iso8601) %(authoremail) %(refname)'
     ## git formatting tips
     # http://stackoverflow.com/questions/16286517/how-to-toggle-the-date-format-of-git-log-how-to-display-both-relative-and-abs
     # http://stackoverflow.com/questions/8576503/how-can-i-make-git-log-order-based-on-authors-timestamp
+    # http://git-scm.com/docs/git-for-each-ref
 
-    # andxyz git shortcuts
-    ls = ls-files
     # not really used but they are useful to look at
     delete-remote-branch="git push origin --delete"
 
