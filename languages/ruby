@@ -37,21 +37,28 @@ cd $HOME
 echo '## installing rubies'
 #
 # rbenv install --list
-# rbenv install 1.8.7-p375
-# rbenv install 1.9.3-p448
-# rbenv install 2.0.0-p481
-# #rbenv install jruby-1.7.16.1
-rbenv install --skip-existing --verbose 1.9.3-p547
+# rbenv install --skip-existing --verbose 1.8.7-p375
+# rbenv install --skip-existing --verbose 1.9.3-p448
+# rbenv install --skip-existing --verbose 2.0.0-p481
+# rbenv install --skip-existing --verbose jruby-1.7.16.1
+# rbenv install --skip-existing --verbose jruby-1.7.20
+rbenv install --skip-existing --verbose 1.9.3-p551
 rbenv install --skip-existing --verbose 2.1.5
 rbenv install --skip-existing --verbose 2.2.1
+rbenv install --skip-existing --verbose 2.2.2
+
+## use to bump rubygems and bundler (in the future)
+# rbenv each gem update --system
+# rbenv each gem uninstall bundler
+# rbenv each gem install bundler
 
 ## set my default rubies for new shells
 #
 # rbenv shell 1.9.3-p547
 # rbenv global 1.9.3-p547
 # rbenv shell 2.2.0
-echo '## setting default shell ruby to 2.2.1'
-rbenv global 2.2.1
+echo '## setting default shell ruby to 2.2.2'
+rbenv global 2.2.2
 
 ## show off my new whiz bangs! you guys! We gots whiz-bangs!
 rbenv rehash
@@ -63,5 +70,6 @@ rbenv versions
 # echo "pry" >> $HOME/.rbenv/default-gems
 # echo "bcat" >> $HOME/.rbenv/default-gems
 # rbenv whence bundler
+#
 
 exit 0
