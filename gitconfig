@@ -60,6 +60,8 @@
 
     # andxyz diff magic
     diffks = difftool --tool=Kaleidoscope
+    diffvim = difftool --tool=use_vim_diff
+    diffmvim = difftool --tool=use_mvim_diff
     diffp4 = difftool --tool=p4merge
     mergeks = mergetool --tool=Kaleidoscope
     # https://github.com/scottgonzalez/pretty-diff
@@ -98,6 +100,21 @@
 
 [difftool "p4merge"]
     cmd = "p4merge $LOCAL $REMOTE"
+
+#
+# Vim and its variants difftool setups
+#
+[difftool "use_vim_diff"]
+    cmd = vim -d "$LOCAL" "$REMOTE"
+    prompt = false
+    keepBackup = false
+    keepTemporaries = false
+
+[difftool "use_mvim_diff"]
+    cmd = mvim -d -f "$LOCAL" "$REMOTE"
+    prompt = false
+    keepBackup = false
+    keepTemporaries = false
 
 #
 # Kaleidoscope
