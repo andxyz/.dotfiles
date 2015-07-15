@@ -1,1 +1,2 @@
 cd ~/code/$1;
+sset $1;
