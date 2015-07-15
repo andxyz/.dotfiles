@@ -166,7 +166,9 @@ brew cask install 'rcdefaultapp'
 brew cask install 'RightZoom'
 
 ### OSX quicklook plugins
+# see https://github.com/sindresorhus/quick-look-plugins
 brew cask install qlcolorcode
+brew cask install qlimagesize
 brew cask install qlstephen
 brew cask install qlmarkdown
 brew cask install quicklook-json
@@ -175,8 +177,11 @@ brew cask install betterzipql
 brew cask install webp-quicklook
 brew cask install suspicious-package
 brew cask install ipaql
-brew cask install cert-quicklook
-# see https://github.com/sindresorhus/quick-look-plugins
+brew cask install provisionql
+### manual quicklook plugins
+# https://github.com/jaketmp/ePub-quicklook
+# https://code.google.com/p/cert-quicklook/downloads/list
+
 # now run `defaults write com.apple.finder QLEnableTextSelection -bool true && killall Finder`
 
 ### link up the folder, so alfred can see the apps
