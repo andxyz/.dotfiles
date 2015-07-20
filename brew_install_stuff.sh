@@ -135,6 +135,7 @@ brew cask install 'transmit'
 brew cask install 'speedcrunch'
 
 ### music
+# https://github.com/thebitguru/play-button-itunes-patch
 brew cask install 'soundcleod'
 brew cask install 'plug'
 brew cask install 'rdio'
