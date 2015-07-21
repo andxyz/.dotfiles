@@ -1,3 +1,4 @@
+#!/usr/bin/env bash
 ## andxyz path stuff
 export PATH="/usr/local/bin:/usr/local/sbin:$HOME/bin:/usr/local/mysql/bin:/sbin:/bin:/usr/bin:/usr/sbin:$PATH"
 export MANPATH="/usr/local/man:/usr/local/mysql/man:/usr/local/git/man:$MANPATH"

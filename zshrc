@@ -1,3 +1,5 @@
+#!/usr/bin/env zsh
+
 source ~/.shell/paths
 
 ## generic shell configs

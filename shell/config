@@ -1,3 +1,4 @@
+#!/usr/bin/env bash
 # echo 'fuck that you have new mail shit'
 unset MAILCHECK
 test -f "$HOME/.hushlogin" &&

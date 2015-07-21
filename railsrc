@@ -1,4 +1,5 @@
-#!/usr/bin/ruby
+#!/usr/bin/env ruby
+
 ## https://github.com/travisjeffery/dotfiles/blob/master/.railsrc
 require 'logger'
 
