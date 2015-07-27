@@ -1,3 +1,4 @@
+#!/usr/bin/env bash
 ## shell specific history
 HISTFILE=$HOME/.bash_history
 
@@ -5,7 +6,7 @@ source ~/.git-prompt.sh
 ## http://git-prompt.sh/
 ## fancy git prompt on my local machine using a function
 if [[ -n $SSH_CONNECTION ]]; then
-  export PS1='\h \w$(__git_ps1 " (%s)")\$ '
+  export -- PS1='\h \w$(__git_ps1 " (%s)")\$ '
 else
-  export PS1='\w$(__git_ps1 " (%s)")\$ '
+  export -- PS1='\w$(__git_ps1 " (%s)")\$ '
 fi

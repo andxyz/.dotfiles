@@ -9,7 +9,7 @@ The following is what I type on a new machine to get up and running (after I cop
 
 ```bash
 ### prepare to max out the cpu
-export env MYUSERNAME=andxyz
+export -- MYUSERNAME=andxyz
 cd $HOME
 git clone https://github.com/$MYUSERNAME/.dotfiles.git .dotfiles
 

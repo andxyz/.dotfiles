@@ -8,7 +8,7 @@ touch $HOME/.hushlogin
 ulimit -S -c 0
 
 # echo 'use sublimetext3 as default editor'
-export EDITOR='subl -w'
+export -- EDITOR='subl -w'
 
 # echo 'give me history you dogs of history'
 HISTFILE=$HOME/.history

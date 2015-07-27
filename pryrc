@@ -11,5 +11,9 @@ Pry.config.history.file = "#{ENV['HOME']}/.irb_history"
 Pry.config.editor = "subl -w"
 
 # nicer printing
-require "awesome_print"
-AwesomePrint.pry!
+begin
+  require `rbenv exec gem which awesome_print`.chomp
+  Pry.config.print = proc { |output, value| Pry::Helpers::BaseHelpers.stagger_output("=> #{value.ai}", output) }
+rescue Exception => e
+  # puts "no awesome_print available for this version of ruby. try gem install awesome_print"
+end
