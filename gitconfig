@@ -33,7 +33,7 @@
     fm = fetch origin master:master
     ls = ls-files
     unstage = reset HEAD --
-    l = log --topo-order --graph --pretty=format:'%Cred[%h]%Creset%Cgreen[%ci]%C(bold blue)[%an]%Creset%C(yellow)%d%Creset %s'
+    llog = log --topo-order --graph --pretty=format:'%Cred[%h]%Creset%Cgreen[%ci]%C(bold blue)[%an]%Creset%C(yellow)%d%Creset %s'
     log0 = log --topo-order --color -m --stat=180,150 --pretty='format: %Cgreen%h%Creset%Cblue by %an, %ci%Creset  %s%Cred%d%Creset%n'
     log1 = log --topo-order --color --all --graph --stat=180,150 --pretty='format: %Cgreen%h%Creset%Cblue by %an, %ci%Creset  %s%Cred%d%Creset%n'
     log2 = log --topo-order --decorate --pretty=oneline --abbrev-commit --all
@@ -41,8 +41,8 @@
     log4 = log --topo-order --graph --color --all --pretty='format: %Cgreen%h%Creset %s%Cred%d%Creset%n'
     log5 = log --topo-order --decorate --pretty=oneline --abbrev-commit
     log6 = log --topo-order --graph --all --color --pretty='format: %Cgreen%h%Creset %s%Cred%d%Creset%n'
-    logpr = log --graph --oneline --decorate --no-merges --topo-order --boundary origin/master...
-    logpr0 = log --graph --decorate --no-merges --topo-order --boundary origin/master... --pretty=format:'%Cred[%h]%Creset%Cgreen[%ai]%C(bold blue)[%an]%Creset%C(yellow)%d%Creset %s'
+    logpr  = log --graph --decorate --no-merges --topo-order --boundary origin/master... --pretty=format:'%Cred %h %Creset%Cgreen[%ai]%C(bold blue)[%an]%Creset%C(yellow)%d%Creset %s'
+    logpr0 = log --graph --decorate --no-merges --topo-order --boundary origin/master... --oneline
     logpr1 = log --graph --decorate --no-merges --topo-order --boundary origin/master... --pretty=format:'%Cred[%h]%Creset%Cgreen[%ai]%C(bold blue)[%an]%Creset%C(yellow)%d%Creset %s'
     show0 = show --pretty="full" --stat
     show1 = show --stat=180,150 --pretty="oneline"
