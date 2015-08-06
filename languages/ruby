@@ -71,6 +71,7 @@ rbenv versions
 # echo "bundler" >> $HOME/.rbenv/default-gems
 # echo "pry" >> $HOME/.rbenv/default-gems
 # echo "bcat" >> $HOME/.rbenv/default-gems
+# echo "octodown" >> $HOME/.rbenv/default-gems
 
 ### check which rubies have a gem installed for it
 # rbenv whence bundler
