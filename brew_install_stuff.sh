@@ -3,6 +3,8 @@
 # run this file with
 ##### `cd ~/code/andxyz-dotfiles && ./brew_install_stuff.sh`
 
+set -e
+
 ### I should get around to putting some of https://gist.github.com/9393431 in here
 
 ### current list of crap on my dev machine
