@@ -9,6 +9,7 @@ test -f "/usr/local/opt/autoenv/activate.sh" &&
 source /usr/local/opt/autoenv/activate.sh
 
 # subversion stuff
+# brew info subversion
 test -d "$PATH:/opt/subversion/bin" &&
 export -- PATH="$PATH:/opt/subversion/bin"
 

@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-source ~/.shell/paths
+[[ -f ~/.shell/paths ]]             && source ~/.shell/paths
 
 ## generic shell configs
 [[ -f ~/.shell/config ]]            && source ~/.shell/config
@@ -11,9 +11,9 @@ source ~/.shell/paths
 [[ -f ~/.shell/functions_private ]] && source ~/.shell/functions_private
 
 ## bash specific
-source ~/.bash/config_bash
-source ~/.bash/aliases_bash
-source /usr/local/etc/bash_completion
+[[ -f ~/.bash/config_bash ]]        && source ~/.bash/config_bash
+[[ -f ~/.bash/aliases_bash ]]       && source ~/.bash/aliases_bash
+[[ -f /usr/local/etc/bash_completion ]] && source /usr/local/etc/bash_completion
 
 ## use .localrc for settings specific to one system
-[[ -f ~/.localrc ]] && . ~/.localrc
+[[ -f ~/.localrc ]]                 && . ~/.localrc

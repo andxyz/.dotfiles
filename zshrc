@@ -11,9 +11,9 @@ source ~/.shell/paths
 [[ -f ~/.shell/functions_private ]] && source ~/.shell/functions_private
 
 ## zsh specific
-source ~/.zsh/config_zsh
-source ~/.zsh/aliases_zsh
-source ~/.zsh/completion_zsh
+[[ -f ~/.zsh/config_zsh ]]          && source ~/.zsh/config_zsh
+[[ -f ~/.zsh/aliases_zsh ]]         && source ~/.zsh/aliases_zsh
+[[ -f ~/.zsh/completion_zsh ]]      && source ~/.zsh/completion_zsh
 
 ## use .localrc for settings specific to one system
 [[ -f ~/.localrc ]] && . ~/.localrc
