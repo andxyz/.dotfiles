@@ -12,9 +12,10 @@ brew install jenv
 if which jenv > /dev/null; then eval "$(jenv init -)"; fi
 jenv add /System/Library/Java/JavaVirtualMachines/1.6.0.jdk/Contents/Home/
 jenv add /Library/Java/JavaVirtualMachines/jdk1.8.0_11.jdk/Contents/Home/
+jenv add /Library/Java/JavaVirtualMachines/jdk1.8.0_31.jdk/Contents/Home/
 
 jenv versions
-jenv global oracle64-1.6.0.39
-# jenv local oracle64-1.6.0.39
+jenv global oracle64-1.8.0.31
+# jenv local oracle64-1.8.0.31
 
 exit 0
