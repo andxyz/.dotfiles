@@ -3,7 +3,7 @@
 # run this file with
 ##### `cd ~/code/andxyz-dotfiles && ./brew_install_stuff.sh`
 
-set -e
+set -xe
 
 ### I should get around to putting some of https://gist.github.com/9393431 in here
 
@@ -37,13 +37,16 @@ brew tap josegonzalez/php
 
 ## LETS COMPILE STUFF
 
-### shared libs
+### shared libs and build stuff
+brew install 'cmake'
 brew install 'openssl'
+brew install 'pkg-config'
+brew install 'icu4c'
 
 ### shell
 brew install 'zsh'
 ### version control systems
-brew install git --with-pcre
+brew install 'git' --with-pcre
 brew install 'hub'
 # brew cask install 'kaleidoscope' ## i've been doing it manually
 
@@ -56,7 +59,7 @@ brew install 'hg'
 brew install 'svn'
 
 ### gnu userland utils
-tap homebrew/dupes
+brew tap homebrew/dupes
 brew install 'coreutils'
 brew install 'findutils'
 brew install 'gnu-indent'
@@ -64,19 +67,19 @@ brew install 'gnu-sed'
 brew install 'grep' # gnu grep is in homebrew/dupes
 brew install 'gnu-tar'
 brew install 'gawk'
-brew install htop
+brew install 'htop'
 sudo chown root:wheel `which htop`
 sudo chmod u+s `which htop`
 
 ### 3rd-party-toolkits
-brew install ical-buddy
+brew install 'ical-buddy'
 brew install 'heroku'
 
 ### languages
 ### see https://github.com/andxyz/.dotfiles/tree/master/languages
 
 ### language checkers
-brew install cppcheck
+brew install 'cppcheck'
 # use npm install -g jshint
 
 ## LETS INSTALL SOME BINARIES
@@ -92,19 +95,19 @@ brew cask install 'virtualbox'
 brew cask install 'vagrant'
 
 ### archiving tools
-brew cask install keka
-brew cask install the-unarchiver
+brew cask install 'keka'
+brew cask install 'the-unarchiver'
 
 ### text editing
-brew cask install texshop
+brew cask install 'texshop'
 
 ### dev
 brew cask install 'viscosity'
 # brew cask install 'android-studio'
 brew cask install 'gitx'
 brew cask install 'charles'
-# brew cask install 'android-file-transfer'
-brew cask install 'Dash'
+brew cask install 'android-file-transfer'
+brew cask install 'Dash3'
 
 ### ios
 ##### brew cask install 'reveal'
@@ -166,21 +169,21 @@ brew cask install 'ukelele'
 brew cask install 'karabiner'
 brew cask install 'seil'
 brew cask install 'rcdefaultapp'
-brew cask install 'RightZoom'
+# brew cask install 'RightZoom'
 
 ### OSX quicklook plugins
 # see https://github.com/sindresorhus/quick-look-plugins
-brew cask install qlcolorcode
-brew cask install qlimagesize
-brew cask install qlstephen
-brew cask install qlmarkdown
-brew cask install quicklook-json
-brew cask install qlprettypatch
-brew cask install betterzipql
-brew cask install webp-quicklook
-brew cask install suspicious-package
-brew cask install ipaql
-brew cask install provisionql
+brew cask install 'qlcolorcode'
+brew cask install 'qlstephen'
+brew cask install 'qlmarkdown'
+brew cask install 'quicklook-json'
+brew cask install 'qlprettypatch'
+brew cask install 'betterzipql'
+brew cask install 'webp-quicklook'
+brew cask install 'suspicious-package'
+brew cask install 'ipaql'
+brew cask install 'provisionql'
+brew cask install 'qlimagesize'
 ### manual quicklook plugins
 # https://github.com/jaketmp/ePub-quicklook
 # https://code.google.com/p/cert-quicklook/downloads/list
@@ -191,4 +194,5 @@ brew cask install provisionql
 brew cask alfred link
 
 ### some brew cleanup
-brew cleanup
+brew cleanup && brew prune
+brew doctor

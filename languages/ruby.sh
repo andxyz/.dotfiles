@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# curl -fsSL https://github.com/andxyz/.dotfiles/raw/master/languages/ruby | bash
+# curl -fsSL https://github.com/andxyz/.dotfiles/raw/master/languages/ruby.sh | bash
 set -xe
 
 ## see https://github.com/sstephenson/rbenv/wiki/_pages
@@ -43,9 +43,8 @@ echo '## installing rubies'
 # rbenv install --skip-existing --verbose 2.0.0-p481
 # rbenv install --skip-existing --verbose jruby-1.7.16.1
 # rbenv install --skip-existing --verbose jruby-1.7.20
-rbenv install --skip-existing --verbose 1.9.3-p551
-rbenv install --skip-existing --verbose 2.1.5
-rbenv install --skip-existing --verbose 2.2.1
+# rbenv install --skip-existing --verbose 1.9.3-p551
+# rbenv install --skip-existing --verbose 2.1.5
 rbenv install --skip-existing --verbose 2.2.2
 
 ## set my default rubies for new shells
@@ -53,6 +52,7 @@ rbenv install --skip-existing --verbose 2.2.2
 # rbenv shell 1.9.3-p547
 # rbenv global 1.9.3-p547
 # rbenv shell 2.2.0
+# rbenv global 2.0.0-p247
 echo '## setting default shell ruby to 2.2.2'
 rbenv global 2.2.2
 
@@ -65,6 +65,7 @@ rbenv versions
 ### update all your rubygems and bundlers on all your rubies
 # rbenv update
 # rbenv each gem update --system
+# rbenv each gem install bundler
 # rbenv each gem update bundler
 
 ### add some default gems for new ruby installs
@@ -72,6 +73,7 @@ rbenv versions
 # echo "pry" >> $HOME/.rbenv/default-gems
 # echo "bcat" >> $HOME/.rbenv/default-gems
 # echo "octodown" >> $HOME/.rbenv/default-gems
+# cat $HOME/.rbenv/default-gems
 
 ### check which rubies have a gem installed for it
 # rbenv whence bundler
