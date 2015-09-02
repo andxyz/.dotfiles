@@ -184,6 +184,7 @@ brew cask install 'suspicious-package'
 brew cask install 'ipaql'
 brew cask install 'provisionql'
 brew cask install 'qlimagesize'
+# brew cask install provisioning
 ### manual quicklook plugins
 # https://github.com/jaketmp/ePub-quicklook
 # https://code.google.com/p/cert-quicklook/downloads/list
