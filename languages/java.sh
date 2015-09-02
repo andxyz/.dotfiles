@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-set -e
+set -ex
 
 echo "install java stuff goes here"
 ## see http://docs.oracle.com/javase/7/docs/webnotes/install/mac/mac-jdk.html
