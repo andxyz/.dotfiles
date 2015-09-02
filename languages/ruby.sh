@@ -46,6 +46,7 @@ echo '## installing rubies'
 # rbenv install --skip-existing --verbose 1.9.3-p551
 # rbenv install --skip-existing --verbose 2.1.5
 rbenv install --skip-existing --verbose 2.2.2
+rbenv install --skip-existing --verbose 2.2.3
 
 ## set my default rubies for new shells
 #
