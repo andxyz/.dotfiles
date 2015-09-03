@@ -19,8 +19,8 @@ SAVEHIST=999999
 # print elapsed time when more than 10 seconds
 REPORTTIME=10
 
-# homebrew openssh
-eval $(ssh-agent)
+# homebrew "open ssh-agent"
+eval $(ssh-agent) 2>&1 > /dev/null
 
 function cleanup_openssh {
   echo "Killing SSH-Agent"
