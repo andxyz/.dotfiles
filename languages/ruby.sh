@@ -12,9 +12,16 @@ eval "$(rbenv init -)"
 # https://github.com/sstephenson/ruby-build/wiki#suggested-build-environment
 echo '## installing recommended homebrew dependencies'
 brew update
+
+brew unlink openssl || true
+brew unlink libffi || true
 brew unlink libyaml || true
+
 brew install openssl libyaml libffi
-brew link libyaml || true
+
+brew link openssl --force || true
+brew link libffi --force || true
+brew link libyaml --force || true
 
 ## plugins ahoy, see https://github.com/sstephenson/rbenv/wiki/Plugins
 echo '## installing rbenv plugins'
@@ -45,6 +52,7 @@ echo '## installing rubies'
 # rbenv install --skip-existing --verbose jruby-1.7.20
 # rbenv install --skip-existing --verbose 1.9.3-p551
 # rbenv install --skip-existing --verbose 2.1.5
+export -- RUBY_CONFIGURE_OPTS="--with-lib-dir=$(brew --prefix openssl)/lib --with-include-dir=$(brew --prefix openssl)/include"
 rbenv install --skip-existing --verbose 2.2.2
 rbenv install --skip-existing --verbose 2.2.3
 
@@ -72,8 +80,12 @@ rbenv versions
 ### add some default gems for new ruby installs
 # echo "bundler" >> $HOME/.rbenv/default-gems
 # echo "pry" >> $HOME/.rbenv/default-gems
+# echo "pry-byebug" >> $HOME/.rbenv/default-gems
 # echo "bcat" >> $HOME/.rbenv/default-gems
 # echo "octodown" >> $HOME/.rbenv/default-gems
+# echo "faraday" >> $HOME/.rbenv/default-gems
+# echo "rest-client" >> $HOME/.rbenv/default-gems
+#
 # cat $HOME/.rbenv/default-gems
 
 ### check which rubies have a gem installed for it
