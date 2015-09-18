@@ -48,8 +48,8 @@
     show1 = show --stat=180,150 --pretty="oneline"
     show2 = show --pretty="full" --name-only
     show3 = show --pretty="oneline" --name-only
-    tagsbydate = log --tags --simplify-by-decoration --pretty='format:%ai %d by %an'
-    branchesbydate = for-each-ref --sort='-committerdate' --format='%(committerdate:iso8601) %(authoremail) %(refname)'
+    tag-list-by-date = log --tags --simplify-by-decoration --pretty='format:%ai %d by %an'
+    branch-list-by-date = for-each-ref --sort='-committerdate' --format='%(committerdate:iso8601) %(authoremail) %(refname)'
     ## git formatting tips
     # http://stackoverflow.com/questions/16286517/how-to-toggle-the-date-format-of-git-log-how-to-display-both-relative-and-abs
     # http://stackoverflow.com/questions/8576503/how-can-i-make-git-log-order-based-on-authors-timestamp
