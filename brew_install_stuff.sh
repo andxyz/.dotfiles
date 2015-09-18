@@ -42,6 +42,7 @@ brew install 'cmake'
 brew install 'openssl'
 brew install 'pkg-config'
 brew install 'icu4c'
+brew install 'openssh'
 
 ### shell
 brew install 'zsh'
