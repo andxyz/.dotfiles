@@ -7,9 +7,15 @@ touch $HOME/.hushlogin
 # disable the fucking core dumps
 ulimit -S -c 0
 
-# echo 'use sublimetext3 as default editor'
-export -- EDITOR='subl -w'
-export -- VISUAL='subl -w'
+# echo 'use sublimetext3 (with '-w' wait for close of file) as default editor'
+# http://unix.stackexchange.com/questions/4859/visual-vs-editor-whats-the-difference
+# http://stackoverflow.com/questions/8299610/zsh-command-not-found-for-editor
+# ~/ $ cat ~/bin/EDITOR
+# #!/bin/sh
+# #open -Wn -- "$@"
+# subl -w -- "$@"
+export -- EDITOR="$HOME/bin/EDITOR"
+export -- VISUAL="$HOME/bin/EDITOR"
 
 # echo 'give me history you dogs of history'
 HISTFILE=$HOME/.history
