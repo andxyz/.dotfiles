@@ -5,36 +5,39 @@ desc "install the dot files into user's home directory"
 task :install do
   replace_all = false
   Dir['*'].each do |file|
-    exclude_list = %w[Rakefile README.rdoc LICENSE andxyz.mit-license.org.json bin brew_install_stuff.sh cheatsheets.md duti languages README-notes.md README.md]
+    exclude_list = %w[Rakefile README.rdoc README-notes.md README.md LICENSE andxyz.mit-license.org.json brew_install_stuff.sh cheatsheets.md duti bin languages]
     next if exclude_list.include? file
 
-    if File.exist?(File.join(ENV['HOME'], ".#{file.sub('.erb', '')}"))
-      if File.identical? file, File.join(ENV['HOME'], ".#{file.sub('.erb', '')}")
-        puts "identical ~/.#{file.sub('.erb', '')}"
-      elsif replace_all
-        replace_file(file)
-      else
-        print "overwrite ~/.#{file.sub('.erb', '')}? [ynaq] "
-        case $stdin.gets.chomp
-        when 'a'
-          replace_all = true
-          replace_file(file)
-        when 'y'
-          replace_file(file)
-        when 'q'
-          exit
-        else
-          puts "skipping ~/.#{file.sub('.erb', '')}"
-        end
-      end
+    if replace_all
+      replace_file(file)
     else
-      link_file(file)
+      if File.exist?(File.join(ENV['HOME'], ".#{file.sub('.erb', '')}"))
+        if File.identical? file, File.join(ENV['HOME'], ".#{file.sub('.erb', '')}")
+          puts "identical ~/.#{file.sub('.erb', '')}"
+        else
+          print "overwrite ~/.#{file.sub('.erb', '')}? [ynaq] "
+          case $stdin.gets.chomp
+          when 'a'
+            replace_all = true
+            replace_file(file)
+          when 'y'
+            replace_file(file)
+          when 'q'
+            exit
+          else
+            puts "skipping ~/.#{file.sub('.erb', '')}"
+          end
+        end
+      else
+        link_file(file)
+      end
     end
   end
 end
 
 def replace_file(file)
-  system %Q{rm -rf "$HOME/.#{file.sub('.erb', '')}"}
+  puts "$HOME/.#{file.sub('.erb', '')}"
+  system %x{rm -rf "$HOME/.#{file.sub('.erb', '')}"}
   link_file(file)
 end
 
