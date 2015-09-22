@@ -1,6 +1,8 @@
 #!/usr/bin/env bash
 ## andxyz path stuff
-export -- PATH="/usr/local/bin:/usr/local/sbin:$HOME/bin:/usr/local/mysql/bin:/sbin:/bin:/usr/bin:/usr/sbin:$PATH"
+echo "exportting path"
+echo "$PATH"
+export -- PATH="$HOME/bin:/usr/local/mysql/bin:$PATH"
 export -- MANPATH="/usr/local/man:/usr/local/mysql/man:/usr/local/git/man:$MANPATH"
 export -- MANPATH="/usr/local/opt/coreutils/libexec/gnuman:$MANPATH"
 
@@ -34,9 +36,9 @@ test -f "$HOME/.nvm/nvm.sh"
 source $HOME/.nvm/nvm.sh
 # example nvm commands (because I always forget)
 # nvm ls-remote
-# nvm install v0.11.7
-# nvm alias default v0.11.7
-# nvm use v0.11.7
+# nvm install v4.1.0
+# nvm alias default v4.1.0
+# nvm use v4.1.0
 #
 # export some NODE vars
 # export -- NODE_PATH="$NVM_PATH"
@@ -49,11 +51,12 @@ export -- PATH="./node_modules/.bin:$PATH"
 if which jenv > /dev/null; then eval "$(jenv init -)"; fi
 
 # perl path stuff
+# ~/perl5/
 export -- PERL_LOCAL_LIB_ROOT="/Users/andxyz/perl5:$PERL_LOCAL_LIB_ROOT";
 export -- PERL_MB_OPT="--install_base "/Users/andxyz/perl5"";
 export -- PERL_MM_OPT="INSTALL_BASE=/Users/andxyz/perl5";
 export -- PERL5LIB="/Users/andxyz/perl5/lib/perl5:$PERL5LIB";
-export -- PATH="/Users/andxyz/perl5/bin:$PATH";
+export -- PATH="/Users/andxyz/perl5/bin:/Users/andxyz/perl5/perlbrew/bin::$PATH";
 
 # php stuff
 which php54 >> /dev/null 2>&1 &&

@@ -1,6 +1,7 @@
 #!/usr/bin/env zsh
 
 source ~/.shell/paths
+source ~/.zsh/paths
 
 ## generic shell configs
 [[ -f ~/.shell/config ]]            && source ~/.shell/config
