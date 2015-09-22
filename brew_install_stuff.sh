@@ -1,32 +1,31 @@
 #!/usr/bin/env bash
 #
-# run this file with
-##### `cd ~/code/andxyz-dotfiles && ./brew_install_stuff.sh`
+# run this file with:
+# `cd ~/code/andxyz-dotfiles && ./brew_install_stuff.sh`
 
 set -xe
 
 ### I should get around to putting some of https://gist.github.com/9393431 in here
 
 ### current list of crap on my dev machine
-### $ brew list
-# ab      bison     ffmpeg      gnu-indent    imagemagick   macvim      pcre      readline    vagrant-completion
-# ack     brew-cask   findutils   gnu-sed     jenv      maven-completion  phantomjs   recoverjpeg   wget
-# ansible     bundler-completion  freetype    gnu-tar     jpeg      memcached   php56     redis     x264
-# apr     cargo-completion  gawk      gradle      jq      mercurial   pidcat      s3cmd     xvid
-# apr-util    cmake     gdbm      grep      lame      mitmproxy   pip-completion    sqlite      xz
-# autoconf    coreutils   gem-completion    grunt-completion  libevent    mongoose    pkg-config    subversion    zlib
-# automake    cppcheck    geoip     heroku-toolbelt   libffi      mysql     postgresql    the_silver_searcher zsh
-# awscli      cscope      geoipupdate   htop-osx    libpng      nginx     psgrep      tldr      zsh-completions
-# bash-completion   ctags     gettext     httpie      libtiff     openssh     pstree      transmission
-# bash-git-prompt   curl      gifsicle    hub     libtool     openssl     python      tree
-# beanstalk   elasticsearch   git     ical-buddy    libvo-aacenc    ossp-uuid   rails-completion  unixodbc
-# bfg     faac      gmp     icu4c     libyaml     pandoc      rake-completion   v8
+### $ brew leaves
+# ack ansible apr-util autoenv awscli bash bash-completion bash-git-prompt beanstalk bfg
+# caskroom/cask/brew-cask homebrew/completions/bundler-completion homebrew/completions/cargo-completion
+# coreutils cppcheck ctags faac ffmpeg findutils gawk homebrew/completions/gem-completion geoip gifsicle
+# git gnu-indent gnu-sed gnu-tar gradle graphviz homebrew/dupes/grep homebrew/completions/grunt-completion
+# heroku-toolbelt htop-osx httpie hub ical-buddy iftop imagemagick iperf jenv jq libtiff homebrew/versions/llvm35
+# macvim man2html homebrew/completions/maven-completion memcached mercurial mitmproxy mongoose
+# mysql nginx nmap homebrew/dupes/openssh raggi/ale/openssl-osx-ca ossp-uuid pandoc phantomjs
+# homebrew/php/php56 pidcat homebrew/completions/pip-completion postgresql psgrep pstree python
+# homebrew/completions/rails-completion homebrew/completions/rake-completion recoverjpeg redis s3cmd
+# speedtest_cli subversion the_silver_searcher thefuck tig tldr-pages/tldr/tldr transmission tree v8
+# homebrew/completions/vagrant-completion wget xctool youtube-dl homebrew/dupes/zlib zsh zsh-completions
 
 ### first off, update all brew installed crap we already have before going forward
 brew update
 brew upgrade
 
-#### enable binary downloads see https://github.com/phinze/homebrew-cask/ for more
+### enable binary downloads see https://github.com/phinze/homebrew-cask/ for more
 brew install caskroom/cask/brew-cask
 brew tap homebrew/completions
 brew tap homebrew/dupes
@@ -48,6 +47,7 @@ brew install 'openssh'
 brew install 'zsh'
 ### version control systems
 brew install 'git' --with-pcre
+# brew upgrade 'git' --with-pcre
 brew install 'hub'
 # brew cask install 'kaleidoscope' ## i've been doing it manually
 
@@ -68,7 +68,7 @@ brew install 'gnu-sed'
 brew install 'grep' # gnu grep is in homebrew/dupes
 brew install 'gnu-tar'
 brew install 'gawk'
-brew install 'htop'
+brew install 'htop' # brew upgrade 'htop'
 sudo chown root:wheel `which htop`
 sudo chmod u+s `which htop`
 
