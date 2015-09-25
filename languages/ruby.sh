@@ -16,12 +16,14 @@ brew update
 brew unlink openssl || true
 brew unlink libffi || true
 brew unlink libyaml || true
+brew unlink readline || true
 
-brew install openssl libyaml libffi
+brew install openssl libyaml libffi readline
 
 brew link openssl --force || true
 brew link libffi --force || true
 brew link libyaml --force || true
+brew link readline --force || true
 
 ## plugins ahoy, see https://github.com/sstephenson/rbenv/wiki/Plugins
 echo '## installing rbenv plugins'
@@ -52,9 +54,15 @@ echo '## installing rubies'
 # rbenv install --skip-existing --verbose jruby-1.7.20
 # rbenv install --skip-existing --verbose 1.9.3-p551
 # rbenv install --skip-existing --verbose 2.1.5
-export -- RUBY_CONFIGURE_OPTS="--with-lib-dir=$(brew --prefix openssl)/lib --with-include-dir=$(brew --prefix openssl)/include"
+export -- MAKE_OPT='-j8'
+export -- CFLAGS='-g2 -ggdb -O2'
+export -- RUBY_CONFIGURE_OPTS="--with-openssl-dir=$(brew --prefix openssl)  --with-readline-dir=$(brew --prefix readline)"
 rbenv install --skip-existing --verbose 2.2.2
 rbenv install --skip-existing --verbose 2.2.3
+
+# installer files cleanup
+brew cleanup && brew prune
+brew doctor
 
 ## set my default rubies for new shells
 #
@@ -68,6 +76,7 @@ rbenv global 2.2.2
 ## show off my new whiz bangs! you guys! We gots whiz-bangs!
 rbenv rehash
 rbenv versions
+
 
 ## example use cases of some of our plugins
 

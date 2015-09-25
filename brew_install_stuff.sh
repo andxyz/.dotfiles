@@ -34,6 +34,12 @@ brew tap homebrew/science
 brew tap homebrew/versions
 brew tap josegonzalez/php
 
+## house cleaning
+brew update
+brew upgrade brew-cask
+brew cleanup
+brew cask cleanup
+
 ## LETS COMPILE STUFF
 
 ### shared libs and build stuff
@@ -174,21 +180,24 @@ brew cask install 'rcdefaultapp'
 
 ### OSX quicklook plugins
 # see https://github.com/sindresorhus/quick-look-plugins
-brew cask install 'qlcolorcode'
-brew cask install 'qlstephen'
-brew cask install 'qlmarkdown'
-brew cask install 'quicklook-json'
-brew cask install 'qlprettypatch'
-brew cask install 'betterzipql'
-brew cask install 'webp-quicklook'
-brew cask install 'suspicious-package'
-brew cask install 'ipaql'
-brew cask install 'provisionql'
-brew cask install 'qlimagesize'
+brew cask install 'qlcolorcode' --force
+brew cask install 'qlstephen' --force
+brew cask install 'qlmarkdown' --force
+brew cask install 'quicklook-json' --force
+brew cask install 'qlprettypatch' --force
+brew cask install 'betterzipql' --force
+brew cask install 'webpquicklook' --force
+brew cask install 'suspicious-package' --force
+brew cask install 'ipaql' --force
+brew cask install 'provisionql' --force
+brew cask install 'qlimagesize' --force
 # brew cask install provisioning
 ### manual quicklook plugins
 # https://github.com/jaketmp/ePub-quicklook
 # https://code.google.com/p/cert-quicklook/downloads/list
+#
+## refresh quicklook plugins
+# qlmanage -r
 
 # now run `defaults write com.apple.finder QLEnableTextSelection -bool true && killall Finder`
 
