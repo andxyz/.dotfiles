@@ -1,3 +1,9 @@
+#!/usr/bin/env zsh
+
 function aag {
-  ag --ignore-dir './log' --ignore-dir './vendor' --ignore-dir './tmp' $1 .
+  ag --ignore-dir './log' --ignore-dir './vendor' --ignore-dir './tmp' "${@}" .;
+}
+
+function aack {
+  ack -i "${@}" .;
 }

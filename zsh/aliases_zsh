@@ -1,3 +1,5 @@
+#!/usr/bin/env zsh
+
 ### zsh correction headaches
 alias brew='nocorrect brew'
 

@@ -1,2 +1,4 @@
+#!/usr/bin/env zsh
+
 #compdef cc
 _files -W ~/code -/

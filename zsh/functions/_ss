@@ -1,2 +1,4 @@
+#!/usr/bin/env zsh
+
 #compdef ss
 _files -W ~/score -/

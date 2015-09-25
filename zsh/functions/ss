@@ -1,2 +1,4 @@
+#!/usr/bin/env zsh
+
 cd ~/score/$1;
 sset $1;
