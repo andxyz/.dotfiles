@@ -90,6 +90,10 @@ brew install 'cppcheck'
 # use npm install -g jshint
 
 ## LETS INSTALL SOME BINARIES
+#
+brew upgrade brew-cask
+brew cleanup
+brew cask cleanup
 
 ### text editor
 ### brew cask install 'sublime-text'
@@ -177,6 +181,12 @@ brew cask install 'karabiner'
 brew cask install 'seil'
 brew cask install 'rcdefaultapp'
 # brew cask install 'RightZoom'
+
+# color pickers
+brew cask install colorpicker-developer --force
+brew cask install colorpicker-propicker --force
+brew cask install colorpicker-hex --force
+brew cask install icolors --force
 
 ### OSX quicklook plugins
 # see https://github.com/sindresorhus/quick-look-plugins
