@@ -1,6 +1,7 @@
 #!/usr/bin/env bash
 
 [[ -f ~/.shell/paths ]]             && source ~/.shell/paths
+[[ -f ~/.shell/paths_private ]]     && source ~/.shell/paths_private
 
 ## generic shell configs
 [[ -f ~/.shell/config ]]            && source ~/.shell/config

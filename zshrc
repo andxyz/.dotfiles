@@ -1,6 +1,7 @@
 #!/usr/bin/env zsh
 
-source ~/.shell/paths
+[[ -f ~/.shell/paths ]]             && source ~/.shell/paths
+[[ -f ~/.shell/paths_private ]]     && source ~/.shell/paths_private
 source ~/.zsh/paths
 
 ## generic shell configs
