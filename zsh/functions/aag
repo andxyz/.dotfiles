@@ -3,7 +3,3 @@
 function aag {
   ag --ignore-dir './log' --ignore-dir './vendor' --ignore-dir './tmp' "${@}" .;
 }
-
-function aack {
-  ack -i "${@}" .;
-}
