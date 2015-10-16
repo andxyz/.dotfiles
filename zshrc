@@ -11,6 +11,7 @@ source ~/.zsh/paths
 [[ -f ~/.shell/aliases_private ]]   && source ~/.shell/aliases_private
 [[ -f ~/.shell/functions ]]         && source ~/.shell/functions
 [[ -f ~/.shell/functions_private ]] && source ~/.shell/functions_private
+[[ -f ~/.shell/zsh_functions_private ]] && source ~/.shell/zsh_functions_private
 
 ## zsh specific
 [[ -f ~/.zsh/config_zsh ]]          && source ~/.zsh/config_zsh
