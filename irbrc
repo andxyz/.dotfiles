@@ -10,7 +10,9 @@
 # IRB.conf[:AUTO_INDENT] = true
 
 # Use Pry everywhere
-require "rubygems"
+require 'rubygems'
+require 'interactive_editor'
+require 'awesome_print'
 require 'pry'
 Pry.start
 exit

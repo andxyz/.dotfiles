@@ -56,9 +56,8 @@ echo '## installing rubies'
 # rbenv install --skip-existing --verbose 2.1.5
 export -- MAKE_OPT='-j8'
 export -- CFLAGS='-g2 -ggdb -O2'
-export -- RUBY_CONFIGURE_OPTS="--with-openssl-dir=$(brew --prefix openssl)  --with-readline-dir=$(brew --prefix readline)"
-rbenv install --skip-existing --verbose 2.2.2
-rbenv install --skip-existing --verbose 2.2.3
+RUBY_CONFIGURE_OPTS="--with-openssl-dir=$(brew --prefix openssl)  --with-readline-dir=$(brew --prefix readline)" rbenv install --skip-existing --verbose 2.2.2
+RUBY_CONFIGURE_OPTS="--with-openssl-dir=$(brew --prefix openssl)  --with-readline-dir=$(brew --prefix readline)" rbenv install --skip-existing --verbose 2.2.3
 
 # installer files cleanup
 brew cleanup && brew prune
@@ -77,7 +76,6 @@ rbenv global 2.2.2
 rbenv rehash
 rbenv versions
 
-
 ## example use cases of some of our plugins
 
 ### update all your rubygems and bundlers on all your rubies
@@ -90,8 +88,11 @@ rbenv versions
 # echo "bundler" >> $HOME/.rbenv/default-gems
 # echo "pry" >> $HOME/.rbenv/default-gems
 # echo "pry-byebug" >> $HOME/.rbenv/default-gems
+# echo "interactive_editor" >> $HOME/.rbenv/default-gems
+# echo "awesome_print" >> $HOME/.rbenv/default-gems
 # echo "bcat" >> $HOME/.rbenv/default-gems
 # echo "octodown" >> $HOME/.rbenv/default-gems
+# echo "octokit" >> $HOME/.rbenv/default-gems
 # echo "faraday" >> $HOME/.rbenv/default-gems
 # echo "rest-client" >> $HOME/.rbenv/default-gems
 #

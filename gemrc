@@ -1,5 +1,6 @@
 ---
-gem: --no-ri --no-rdoc
+gem: --no-rdoc --no-ri --env-shebang
+update: --no-rdoc --no-ri
 :backtrace: true
 :benchmark: false
 :bulk_threshold: 1000

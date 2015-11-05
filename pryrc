@@ -4,7 +4,7 @@
 # load this file please
 Pry.config.should_load_rc = true
 
-# config hist
+# config history file
 Pry.config.history.file = "#{ENV['HOME']}/.irb_history"
 
 # config editor
@@ -12,8 +12,17 @@ Pry.config.editor = "subl -w"
 
 # nicer printing
 begin
-  require `rbenv exec gem which awesome_print`.chomp
   Pry.config.print = proc { |output, value| Pry::Helpers::BaseHelpers.stagger_output("=> #{value.ai}", output) }
 rescue Exception => e
-  # puts "no awesome_print available for this version of ruby. try gem install awesome_print"
+  puts e
+end
+
+# https://github.com/pry/pry/wiki/FAQ#hirb
+require 'hirb'
+
+Hirb.enable
+
+old_print = Pry.config.print
+Pry.config.print = proc do |*args|
+  Hirb::View.view_or_page_output(args[1]) || old_print.call(*args)
 end

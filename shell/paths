@@ -17,13 +17,14 @@ export -- PATH="$PATH:/opt/subversion/bin"
 ### language setup stuff
 
 # android sdk magic
+export -- ANDROID_HOME=/Applications/android-sdk-macosx/
+export -- STUDIO_JDK=/Library/Java/JavaVirtualMachines/jdk1.8.0_31.jdk
 test -d "/Applications/android-sdk-macosx/platform-tools" &&
 export -- PATH="$PATH:/Applications/android-sdk-macosx/platform-tools"
 test -d "/Applications/android-sdk-macosx/tools" &&
 export -- PATH="$PATH:/Applications/android-sdk-macosx/tools"
 test -d "/Applications/android-sdk-macosx/" &&
-export -- ANDROID_HOME=/Applications/android-sdk-macosx/
-export -- STUDIO_JDK=/Library/Java/JavaVirtualMachines/jdk1.8.0_31.jdk
+
 
 # haskell uses cabal
 test -d "$HOME/.cabal/bin" &&
