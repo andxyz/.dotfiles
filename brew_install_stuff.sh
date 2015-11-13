@@ -201,13 +201,22 @@ brew cask install 'suspicious-package' --force
 brew cask install 'ipaql' --force
 brew cask install 'provisionql' --force
 brew cask install 'qlimagesize' --force
+brew cask install 'quicknfo' --force
+
 # brew cask install provisioning
 ### manual quicklook plugins
 # https://github.com/jaketmp/ePub-quicklook
 # https://code.google.com/p/cert-quicklook/downloads/list
 #
 ## refresh quicklook plugins
-# qlmanage -r
+# `cd ~/Library/QuickLook/ && qlmanage -r`
+
+## https://github.com/sindresorhus/quick-look-plugins
+## see https://gist.github.com/andxyz/9393431 see _extensions-quicklooks
+# preview WebP images: https://github.com/dchest/webp-quicklook
+# preview plain text files without an extension: http://whomwah.github.io/qlstephen/
+# preview NFO files: https://github.com/planbnet/QuickNFO
+# preview code: https://code.google.com/p/qlcolorcode/
 
 # now run `defaults write com.apple.finder QLEnableTextSelection -bool true && killall Finder`
 
