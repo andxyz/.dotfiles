@@ -2,5 +2,9 @@
 
 function httpless {
     # `httpless example.org'
-    http --pretty=all --print=hb "$@" | less -R;
+    http --pretty=all --print=HBhb "$@" | less -R;
+}
+
+function sscreencapture-in-2-seconds-send-to-desktop {
+  screencapture -T2 -S -x "$HOME/Desktop/screenshot-$(date +%Y-%m-%d__%H_%M_%S).png"
 }
