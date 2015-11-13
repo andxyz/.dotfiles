@@ -3,15 +3,11 @@
 set -ex
 
 chflags nohidden ~/Library/
+defaults write com.apple.screencapture name "screenshot"
+mkdir $HOME/Pictures/_screenshots/
+defaults write com.apple.screencapture location $HOME/Pictures/_screenshots/
 
 # https://github.com/mathiasbynens/dotfiles
-# https://github.com/mathiasbynens/dotfiles/issues/276
-# goto https://gist.github.com/andxyz/9393431 see _extensions-quicklooks
-# preview WebP images: https://github.com/dchest/webp-quicklook
-# preview plain text files without an extension: http://whomwah.github.io/qlstephen/
-# preview NFO files: https://github.com/planbnet/QuickNFO
-# preview code: https://code.google.com/p/qlcolorcode/
-# `cd ~/Library/QuickLook/ && qlmanage -r`
+# https://github.com/sindresorhus/quick-look-plugins
 
 exit 0
-
