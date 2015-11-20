@@ -185,3 +185,5 @@
     path            = ~/.gitconfig-private
 [credential]
 	helper = store
+[init]
+	templatedir = ~/.git-template

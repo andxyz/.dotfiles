@@ -1,3 +1,20 @@
 #!/usr/bin/env bash
-set completion-ignore-case on
+$include /etc/inputrc
+$include /usr/local/etc/inputrc
+
 set show-all-if-ambiguous on
+set completion-ignore-case on
+
+set bell-style none
+
+"\e[1;3D": backward-word ### Alt left
+"\e[1;3C": forward-word ### Alt right
+
+"\e[1~": beginning-of-line
+"\e[4~": end-of-line
+"\e[7~": beginning-of-line
+"\e[8~": end-of-line
+"\eOH": beginning-of-line
+"\eOF": end-of-line
+"\e[H": beginning-of-line
+"\e[F": end-of-line

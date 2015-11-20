@@ -8,18 +8,31 @@ set -xe
 ### I should get around to putting some of https://gist.github.com/9393431 in here
 
 ### current list of crap on my dev machine
-### $ brew leaves
-# ack ansible apr-util autoenv awscli bash bash-completion bash-git-prompt beanstalk bfg
-# caskroom/cask/brew-cask homebrew/completions/bundler-completion homebrew/completions/cargo-completion
-# coreutils cppcheck ctags faac ffmpeg findutils gawk homebrew/completions/gem-completion geoip gifsicle
-# git gnu-indent gnu-sed gnu-tar gradle graphviz homebrew/dupes/grep homebrew/completions/grunt-completion
-# heroku-toolbelt htop-osx httpie hub ical-buddy iftop imagemagick iperf jenv jq libtiff homebrew/versions/llvm35
-# macvim man2html homebrew/completions/maven-completion memcached mercurial mitmproxy mongoose
-# mysql nginx nmap homebrew/dupes/openssh raggi/ale/openssl-osx-ca ossp-uuid pandoc phantomjs
-# homebrew/php/php56 pidcat homebrew/completions/pip-completion postgresql psgrep pstree python
-# homebrew/completions/rails-completion homebrew/completions/rake-completion recoverjpeg redis s3cmd
-# speedtest_cli subversion the_silver_searcher thefuck tig tldr-pages/tldr/tldr transmission tree v8
-# homebrew/completions/vagrant-completion wget xctool youtube-dl homebrew/dupes/zlib zsh zsh-completions
+### $ brew leaves | paste - - - -
+# ack ansible apr-util  autoenv
+# awscli  bash  bash-completion bash-git-prompt
+# beanstalk bfg caskroom/cask/brew-cask homebrew/completions/bundler-completion
+# homebrew/dupes/bzip2  homebrew/completions/cargo-completion carthage  coreutils
+# cppcheck  ctags faac  ffmpeg
+# findutils gawk  homebrew/completions/gem-completion geoip
+# gifsicle  git gnu-indent  gnu-sed
+# gnu-tar gradle  graphviz  homebrew/dupes/grep
+# homebrew/completions/grunt-completion heroku-toolbelt htop-osx  httpie
+# hub ical-buddy  iftop imagemagick
+# ios-webkit-debug-proxy  iperf jenv  jq
+# homebrew/versions/llvm35  macvim  man2html  homebrew/completions/maven-completion
+# memcached mercurial mitmproxy mongoose
+# mysql nginx nmap  opam
+# homebrew/dupes/openssh  raggi/ale/openssl-osx-ca  ossp-uuid pandoc
+# parallel  phantomjs josegonzalez/php/php56  pidcat
+# homebrew/completions/pip-completion postgresql  psgrep  pstree
+# homebrew/completions/rails-completion homebrew/completions/rake-completion  recoverjpeg redis
+# s3cmd samba speedtest_cli subversion
+# tcpflow the_silver_searcher thefuck tig
+# tldr-pages/tldr/tldr  transmission  tree  universal-ctags/universal-ctags/universal-ctags
+# v8  homebrew/completions/vagrant-completion homebrew/science/vips watchman
+# wget  xctool  youtube-dl  homebrew/dupes/zlib
+# zsh zsh-completions
 
 ### first off, update all brew installed crap we already have before going forward
 brew update
@@ -27,12 +40,15 @@ brew upgrade
 
 ### enable binary downloads see https://github.com/phinze/homebrew-cask/ for more
 brew install caskroom/cask/brew-cask
-brew tap homebrew/completions
-brew tap homebrew/dupes
-brew tap homebrew/php
-brew tap homebrew/science
-brew tap homebrew/versions
-brew tap josegonzalez/php
+brew tap 'homebrew/completions'
+brew tap 'homebrew/dupes'
+brew tap 'homebrew/php'
+brew tap 'homebrew/science'
+brew tap 'homebrew/versions'
+brew tap 'homebrew/bundle'
+brew tap 'homebrew/services'
+brew tap 'universal-ctags/universal-ctags'
+brew tap 'josegonzalez/php'
 
 ## house cleaning
 brew update
@@ -47,19 +63,31 @@ brew install 'cmake'
 brew install 'openssl'
 brew install 'pkg-config'
 brew install 'icu4c'
+brew install 'carthage'
 brew install 'openssh'
+brew install 'openssl'
+brew install 'libyaml'
+brew install 'libffi'
+brew install 'readline'
+brew link openssl --force || true
+brew link libffi --force || true
+brew link libyaml --force || true
+brew link readline --force || true
 
 ### shell
 brew install 'zsh'
+
 ### version control systems
 brew install 'git' --with-pcre
 # brew upgrade 'git' --with-pcre
 brew install 'hub'
-# brew cask install 'kaleidoscope' ## i've been doing it manually
+# brew cask install 'kaleidoscope'
+## I've been doing it manually you have to click things to install the commandline tools anyway
 
 ### db
 brew install 'mysql'
 brew install 'postgresql'
+brew install 'memcached'
 brew install 'redis'
 ### other vcs
 brew install 'hg'
@@ -69,6 +97,8 @@ brew install 'svn'
 brew tap homebrew/dupes
 brew install 'coreutils'
 brew install 'findutils'
+brew isntall 'ag'
+brew isntall 'ack'
 brew install 'gnu-indent'
 brew install 'gnu-sed'
 brew install 'grep' # gnu grep is in homebrew/dupes
@@ -98,7 +128,12 @@ brew cask cleanup
 ### text editor
 ### brew cask install 'sublime-text'
 ### brew cask install 'sublimetext2'
-### brew cask install 'sublimetext3'
+### brew cask install 'sublimetext3''
+brew install --HEAD 'universal-ctags/universal-ctags/universal-ctags'
+brew install 'tmux'
+brew install 'reattach-to-user-namespace'
+brew install 'vim'
+brew install 'mvim'
 brew cask install 'clipmenu'
 
 ### vms

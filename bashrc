@@ -10,6 +10,7 @@
 [[ -f ~/.shell/aliases_private ]]   && source ~/.shell/aliases_private
 [[ -f ~/.shell/functions ]]         && source ~/.shell/functions
 [[ -f ~/.shell/functions_private ]] && source ~/.shell/functions_private
+[[ -f ~/.shell/ruby_rails_tricks.sh ]] && source ~/.shell/ruby_rails_tricks.sh
 
 ## bash specific
 [[ -f ~/.bash/config_bash ]]        && source ~/.bash/config_bash
