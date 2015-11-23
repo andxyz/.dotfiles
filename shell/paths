@@ -25,6 +25,13 @@ test -d "/Applications/android-sdk-macosx/tools" &&
 export -- PATH="$PATH:/Applications/android-sdk-macosx/tools"
 test -d "/Applications/android-sdk-macosx/" &&
 
+# golang https://golang.org/doc/install or `brew install go`
+export -- PATH=$PATH:/usr/local/go/bin
+export -- GOPATH=$HOME/code/gowork
+## Note: GOROOT must be set only when installing to a custom location.
+#export GOROOT=$HOME/go
+#export PATH=$PATH:$GOROOT/bin
+
 
 # haskell uses cabal
 test -d "$HOME/.cabal/bin" &&
