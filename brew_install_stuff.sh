@@ -167,9 +167,9 @@ brew cask install 'skype'
 brew cask install 'mumble'
 brew cask install 'google-hangouts'
 ### text chat
-brew cask install 'hipchat'
-##### brew cask install 'slack'
-##### brew cask install 'propane'
+# brew cask install 'hipchat'
+brew cask install 'slack'
+# brew cask install 'propane'
 
 ### playback
 brew cask install 'MPlayerX'
