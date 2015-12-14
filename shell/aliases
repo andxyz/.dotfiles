@@ -40,7 +40,7 @@ alias gco='git checkout'
 
 ### rails and ruby
 ## alias bi="bundle install --binstubs --without=production"
-alias bi='bundle install --binstubs'
+alias bi='bundle install'
 alias be='bundle exec '
 alias ttail='tail -f log/development.log'
 ### ruby rails zsh settings
