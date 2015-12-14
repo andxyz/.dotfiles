@@ -3,7 +3,8 @@
 # run this file with:
 # `cd ~/code/andxyz-dotfiles && ./brew_install_stuff.sh`
 
-set -xe
+set -x
+set -e
 
 ### I should get around to putting some of https://gist.github.com/9393431 in here
 
@@ -17,7 +18,7 @@ set -xe
 # findutils gawk  homebrew/completions/gem-completion geoip
 # gifsicle  git gnu-indent  gnu-sed
 # gnu-tar gradle  graphviz  homebrew/dupes/grep
-# homebrew/completions/grunt-completion heroku-toolbelt htop-osx  httpie
+# homebrew/completions/grunt-completion heroku-toolbelt htop-osx httpie
 # hub ical-buddy  iftop imagemagick
 # ios-webkit-debug-proxy  iperf jenv  jq
 # homebrew/versions/llvm35  macvim  man2html  homebrew/completions/maven-completion
@@ -36,10 +37,12 @@ set -xe
 
 ### first off, update all brew installed crap we already have before going forward
 brew update
+brew outdated
 brew upgrade
 
 ### enable binary downloads see https://github.com/phinze/homebrew-cask/ for more
 brew install caskroom/cask/brew-cask
+brew tap 'homebrew/apache'
 brew tap 'homebrew/completions'
 brew tap 'homebrew/dupes'
 brew tap 'homebrew/php'
@@ -73,6 +76,20 @@ brew link openssl --force || true
 brew link libffi --force || true
 brew link libyaml --force || true
 brew link readline --force || true
+
+# brew upgrade 'openssh'
+# brew upgrade 'openssl'
+# brew upgrade 'libyaml'
+# brew upgrade 'libffi'
+# brew upgrade 'readline'
+# brew link openssl --force || true
+# brew link libffi --force || true
+# brew link libyaml --force || true
+# brew link readline --force || true
+# brew upgrade 'cmake'
+# brew upgrade 'pkg-config'
+# brew upgrade 'icu4c'
+# brew upgrade 'carthage'
 
 ### shell
 brew install 'zsh'
@@ -135,6 +152,10 @@ brew install 'reattach-to-user-namespace'
 brew install 'vim'
 brew install 'mvim'
 brew cask install 'clipmenu'
+
+### tools
+brew install 'httpie'
+brew install 'homebrew/apache/ab'
 
 ### vms
 brew cask install 'virtualbox'
