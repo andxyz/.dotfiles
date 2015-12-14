@@ -51,13 +51,15 @@
     show3 = show --pretty="oneline" --name-only
     tag-list-by-date = log --tags --simplify-by-decoration --pretty='format:%ai %d by %an'
     branch-list-by-date = for-each-ref --sort='-committerdate' --format='%(committerdate:iso8601) %(authoremail) %(refname)'
+
+    # not really used but they are useful to look at
+    delete-remote-branch = push origin --delete
+    delete-local-branch = branch -D
+
     ## git formatting tips
     # http://stackoverflow.com/questions/16286517/how-to-toggle-the-date-format-of-git-log-how-to-display-both-relative-and-abs
     # http://stackoverflow.com/questions/8576503/how-can-i-make-git-log-order-based-on-authors-timestamp
     # http://git-scm.com/docs/git-for-each-ref
-
-    # not really used but they are useful to look at
-    delete-remote-branch="git push origin --delete"
 
     # andxyz diff magic
     diffks = difftool --tool=Kaleidoscope
