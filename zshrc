@@ -2,7 +2,6 @@
 
 [[ -f ~/.shell/paths ]]             && source ~/.shell/paths
 [[ -f ~/.shell/paths_private ]]     && source ~/.shell/paths_private
-source ~/.zsh/paths
 
 ## generic shell configs
 [[ -f ~/.shell/config ]]            && source ~/.shell/config
@@ -17,6 +16,7 @@ source ~/.zsh/paths
 ## zsh specific
 [[ -f ~/.zsh/config_zsh ]]          && source ~/.zsh/config_zsh
 [[ -f ~/.zsh/completion_zsh ]]      && source ~/.zsh/completion_zsh
+[[ -f ~/.shell/paths_zsh ]]         && source ~/.zsh/paths_zsh
 
 ## use .localrc for settings specific to one system
 [[ -f ~/.localrc ]] && . ~/.localrc
