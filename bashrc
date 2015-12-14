@@ -16,6 +16,7 @@
 [[ -f ~/.bash/config_bash ]]        && source ~/.bash/config_bash
 [[ -f ~/.bash/aliases_bash ]]       && source ~/.bash/aliases_bash
 [[ -f /usr/local/etc/bash_completion ]] && source /usr/local/etc/bash_completion
+[[ -r $NVM_DIR/bash_completion ]]       && source $NVM_DIR/bash_completion
 
 ## use .localrc for settings specific to one system
-[[ -f ~/.localrc ]]                 && . ~/.localrc
+[[ -f ~/.localrc ]]                 && source ~/.localrc
