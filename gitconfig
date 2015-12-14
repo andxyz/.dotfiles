@@ -16,7 +16,7 @@
     ui = auto
 
 [push]
-	default = simple
+    default = simple
 
 [branch]
     autosetupmerge = always
@@ -74,7 +74,7 @@
     # searching git for stuff
     # http://travisjeffery.com/b/2012/02/search-a-git-repo-like-a-ninja/
     ggrep = grep --break --heading --line-number
-	alias = config --get-regexp ^alias\\.
+    alias = config --get-regexp ^alias\\.
 
 #
 # git grep tips
@@ -185,6 +185,12 @@
 [include]
     path            = ~/.gitconfig-private
 [credential]
-	helper = store
+    helper = store
 [init]
-	templatedir = ~/.git-template
+    templatedir = ~/.git-template
+# fixes peoples emails
+# try `git shortlog -sne`
+[log]
+    mailmap = true
+[mailmap]
+    file = ~/.mailmap-private
