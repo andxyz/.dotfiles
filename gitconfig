@@ -31,9 +31,11 @@
     p = pull
     f = fetch --all
     fm = fetch origin master:master
+    r = rebase -i master
+    ac = !git add --all && git commit
     ls = ls-files
     unstage = reset HEAD --
-    llog = log --topo-order --graph --pretty=format:'%Cred[%h]%Creset%Cgreen[%ci]%C(bold blue)[%an]%Creset%C(yellow)%d%Creset %s'
+    log = log --topo-order --graph --pretty=format:'%Cred[%h]%Creset%Cgreen[%ci]%C(bold blue)[%an]%Creset%C(yellow)%d%Creset %s'
     log0 = log --topo-order --color -m --stat=180,150 --pretty='format: %Cgreen%h%Creset%Cblue by %an, %ci%Creset  %s%Cred%d%Creset%n'
     log1 = log --topo-order --color --all --graph --stat=180,150 --pretty='format: %Cgreen%h%Creset%Cblue by %an, %ci%Creset  %s%Cred%d%Creset%n'
     log2 = log --topo-order --decorate --pretty=oneline --abbrev-commit --all
@@ -49,8 +51,6 @@
     show1 = show --stat=180,150 --pretty="oneline"
     show2 = show --pretty="full" --name-only
     show3 = show --pretty="oneline" --name-only
-    tag-list-by-date = log --tags --simplify-by-decoration --pretty='format:%ai %d by %an'
-    branch-list-by-date = for-each-ref --sort='-committerdate' --format='%(committerdate:iso8601) %(authoremail) %(refname)'
 
     # not really used but they are useful to look at
     delete-remote-branch = push origin --delete

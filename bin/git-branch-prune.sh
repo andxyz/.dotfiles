@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/usr/bin/env bash
 # Usage: git-branch-prune
 # Delete all merged branches.
 
