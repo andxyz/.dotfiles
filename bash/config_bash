@@ -2,7 +2,12 @@
 ## shell specific history
 HISTFILE=$HOME/.bash_history
 
-source ~/.git-prompt.sh
+if test -f /usr/local/etc/bash_completion.d/git-prompt.sh; then
+  source /usr/local/etc/bash_completion.d/git-prompt.sh
+else
+  source $HOME/.git-prompt.sh
+fi
+
 ## http://git-prompt.sh/
 ## fancy git prompt on my local machine using a function
 if [[ -n $SSH_CONNECTION ]]; then

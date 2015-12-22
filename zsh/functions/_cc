@@ -1,11 +1,4 @@
 #!/usr/local/bin/zsh
 
 #compdef cc
-_cc() {
-  local curcontext="$curcontext" state line
-  typeset -A opt_args
-
-  _files ~/code -/
-}
-
-_cc "$@"
+_files -W ~/code -/
