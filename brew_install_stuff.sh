@@ -217,6 +217,11 @@ brew cask install 'spotify'
 brew cask install 'harvest'
 
 ### video manipulation
+brew install ffmpeg --with-fdk-aac --with-ffplay --with-freetype --with-frei0r \
+--with-libass --with-libvo-aacenc --with-libvorbis --with-libvpx \
+--with-opencore-amr --with-openjpeg --with-opus \
+--with-rtmpdump --with-speex --with-theora --with-tools \
+--with-libvorbis --with-theora
 # brew cask install 'miro-video-converter'
 
 ### theinternet
