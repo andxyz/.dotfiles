@@ -52,6 +52,7 @@ brew tap 'homebrew/bundle'
 brew tap 'homebrew/services'
 brew tap 'universal-ctags/universal-ctags'
 brew tap 'josegonzalez/php'
+brew tap 'samdmarshall/formulae'
 
 ## house cleaning
 brew update
@@ -62,6 +63,10 @@ brew cask cleanup
 ## LETS COMPILE STUFF
 
 ### shared libs and build stuff
+brew install 'vbindiff'
+brew install 'binutils'
+brew install 'automake'
+brew install 'autoconf'
 brew install 'cmake'
 brew install 'openssl'
 brew install 'pkg-config'
@@ -134,6 +139,7 @@ brew install 'heroku'
 
 ### language checkers
 brew install 'cppcheck'
+brew install 'clang-format'
 # use npm install -g jshint
 
 ## LETS INSTALL SOME BINARIES
@@ -176,7 +182,11 @@ brew cask install 'charles'
 brew cask install 'android-file-transfer'
 brew cask install 'Dash3'
 
-### ios
+### splunk
+brew install 'samdmarshall/formulae/aosd'
+brew cask install '0xed'
+brew cask install 'hex-fiend'
+brew cask install 'synalyze-it-pro'
 ##### brew cask install 'reveal'
 ##### brew cask install 'reflector'
 

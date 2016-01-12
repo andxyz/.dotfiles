@@ -8,6 +8,8 @@ brew install python
 ### brew install python3
 pip install --upgrade pip
 pip install --upgrade virtualenv
-#pip install mitmproxy
+pip install --upgrade paramiko
+pip install --upgrade machobot
+pip install --upgrade mitmproxy
 
 exit 0
