@@ -1,10 +1,6 @@
 # https://github.com/mislav/dotfiles/blob/755ebe6fa8a9ec066f50f3f55bb6eb96aad13462/shrc/ruby.sh
 # ruby tricks
 
-export -- RUBY_GC_MALLOC_LIMIT=60000000
-export -- RUBY_GC_HEAP_FREE_SLOTS=200000
-export -- RUBY_FREE_MIN="${RUBY_GC_HEAP_FREE_SLOTS}"
-
 # rails console
 function mmconsole() {
   if [ -f config/environment.rb ] && which pry >/dev/null; then

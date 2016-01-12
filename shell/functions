@@ -8,3 +8,23 @@ function httpless {
 function sscreencapture-in-2-seconds-send-to-desktop {
   screencapture -T2 -S -x "$HOME/Desktop/screenshot-$(date +%Y-%m-%d__%H_%M_%S).png"
 }
+
+function startpostgres {
+  local pidfile="/usr/local/var/postgres/postmaster.pid"
+  if [ -s $pidfile ] && kill -0 $(cat $pidfile | head -n 1) > /dev/null 2>&1; then
+    echo "Already running"
+  else
+    pg_ctl -D /usr/local/var/postgres -l /usr/local/var/postgres/server.log start
+  fi
+}
+
+function stoppostgres {
+  pg_ctl -D /usr/local/var/postgres stop
+}
+
+function serve {
+  local port=${1:-8000}
+  local ip=$(ipconfig getifaddr en0)
+  echo "Serving on ${ip}:${port} ..."
+  python -m SimpleHTTPServer ${port}
+}

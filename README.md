@@ -41,14 +41,14 @@ now I close the current shell and open a new one
 ### install other languages as needed
 cd ~/.dotfiles/
 chmod +x ./languages/*
-# ./languages/go todo
-# ./languages/haskell todo
-# ./languages/java todo
-./languages/nodejs
-# ./languages/perl todo
-./languages/php
-# ./languages/python todo
-./languages/ruby
+# ./languages/go.sh todo
+# ./languages/haskell.sh todo
+./languages/java.sh
+./languages/nodejs.sh
+./languages/perl.sh
+./languages/php.sh
+./languages/python.sh
+./languages/ruby.sh
 ```
 
 
