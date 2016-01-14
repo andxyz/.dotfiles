@@ -56,8 +56,8 @@ echo '## installing rubies'
 # rbenv install --skip-existing --verbose 2.1.5
 export -- MAKE_OPT='-j8'
 export -- CFLAGS='-g2 -ggdb -O2'
-RUBY_CONFIGURE_OPTS="--with-openssl-dir=$(brew --prefix openssl)  --with-readline-dir=$(brew --prefix readline)" rbenv install --skip-existing --verbose 2.2.2
-RUBY_CONFIGURE_OPTS="--with-openssl-dir=$(brew --prefix openssl)  --with-readline-dir=$(brew --prefix readline)" rbenv install --skip-existing --verbose 2.2.3
+RUBY_CONFIGURE_OPTS="--with-openssl-dir=$(brew --prefix openssl)  --with-readline-dir=$(brew --prefix readline) --disable-install-doc --disable-install-rdoc --disable-install-capi" rbenv install --skip-existing --verbose 2.2.2
+RUBY_CONFIGURE_OPTS="--with-openssl-dir=$(brew --prefix openssl)  --with-readline-dir=$(brew --prefix readline) --disable-install-doc --disable-install-rdoc --disable-install-capi" rbenv install --skip-existing --verbose 2.2.3
 
 # installer files cleanup
 brew cleanup && brew prune
@@ -70,7 +70,7 @@ brew doctor
 # rbenv shell 2.2.0
 # rbenv global 2.0.0-p247
 echo '## setting default shell ruby to 2.2.2'
-rbenv global 2.2.2
+rbenv global 2.2.3
 
 ## show off my new whiz bangs! you guys! We gots whiz-bangs!
 rbenv rehash
