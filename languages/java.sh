@@ -3,11 +3,14 @@
 set -e
 set -x
 
-echo "install java stuff goes here"
+echo "maybe checkout http://sdkman.io/"
+
 ## see http://docs.oracle.com/javase/7/docs/webnotes/install/mac/mac-jdk.html
 ## see https://docs.oracle.com/javase/8/docs/technotes/guides/install/mac_jdk.html#CHDBADCG
 ## downloads http://www.oracle.com/technetwork/java/javase/downloads/index.html
 ## see http://www.jenv.be/
+
+echo "below we install and use jenv"
 
 # download some version of java
 curl -L \

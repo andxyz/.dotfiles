@@ -82,6 +82,10 @@ test -d $HOME/.rbenv/bin &&
 export -- PATH="$HOME/.rbenv/bin:$PATH" &&
 eval "$(rbenv init -)"
 
+# java sdkman http://sdkman.io/
+export SDKMAN_DIR="/Users/andxyz/.sdkman"
+[[ -s "/Users/andxyz/.sdkman/bin/sdkman-init.sh" ]] && source "/Users/andxyz/.sdkman/bin/sdkman-init.sh"
+
 echo \
 """export -- PATH=
 $PATH"""
