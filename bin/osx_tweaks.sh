@@ -7,7 +7,7 @@ defaults write com.apple.screencapture name "screenshot"
 mkdir $HOME/Pictures/_screenshots/
 defaults write com.apple.screencapture location $HOME/Pictures/_screenshots/
 
-# https://github.com/mathiasbynens/dotfiles
-# https://github.com/sindresorhus/quick-look-plugins
+# see https://github.com/mathiasbynens/dotfiles
+# see https://github.com/sindresorhus/quick-look-plugins
 
 exit 0

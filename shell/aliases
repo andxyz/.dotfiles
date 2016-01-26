@@ -34,7 +34,7 @@ alias hhtoppid="htop --sort-key PID"
 ### git
 alias gg='git grep --break --heading --line-number'
 alias gball='git branch --all --verbose'
-alias gbb='git branch-list-by-commit-date.sh'
+alias gbb='git branch-list-by-date.sh'
 alias gb='git branch --list --verbose'
 alias gs='git status --short --branch'
 alias gco='git checkout'
