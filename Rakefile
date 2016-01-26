@@ -5,7 +5,7 @@ desc "install the dot files into user's home directory"
 task :install do
   replace_all = false
   Dir['*'].each do |file|
-    exclude_list = %w[Rakefile README.rdoc README-notes.md README.md LICENSE andxyz.mit-license.org.json brew_install_stuff.sh cheatsheets.md duti bin languages xcode_install_stuff.sh]
+    exclude_list = %w[Rakefile README.rdoc README-notes.md README.md README-notes.md cheatsheets.md LICENSE andxyz.mit-license.org.json brew_install_stuff.sh cheatsheets.md duti bin languages xcode_install_stuff.sh git-prompt.sh]
     next if exclude_list.include? file
 
     if replace_all
