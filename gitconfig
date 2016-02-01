@@ -19,8 +19,12 @@
     default = simple
 
 [branch]
+    # git help -w git-config # see branch.autosetuprebase
     autosetupmerge = always
     autosetuprebase = always
+
+[merge]
+    ff = false
 
 # this is messing up cocoapod podspecs
 #  [url "ssh://git@github.com/"]
