@@ -154,6 +154,8 @@ brew install 'heroku'
 
 ### languages
 ### see https://github.com/andxyz/.dotfiles/tree/master/languages
+brew install 'rust'
+brew link 'rust' --force --overwrite || true
 
 ### language checkers
 brew install 'cppcheck'
