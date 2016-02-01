@@ -86,6 +86,11 @@ eval "$(rbenv init -)"
 export SDKMAN_DIR="/Users/andxyz/.sdkman"
 [[ -s "/Users/andxyz/.sdkman/bin/sdkman-init.sh" ]] && source "/Users/andxyz/.sdkman/bin/sdkman-init.sh"
 
+## Cross-platform, Python-agnostic binary package manager https://github.com/conda/conda
+export PATH="$PATH:$HOME/anaconda3/bin"
+
 echo \
 """export -- PATH=
 $PATH"""
+
+

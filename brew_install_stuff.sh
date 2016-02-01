@@ -41,18 +41,25 @@ brew outdated
 brew upgrade
 
 ### enable binary downloads see https://github.com/phinze/homebrew-cask/ for more
-brew install caskroom/cask/brew-cask
+brew install 'caskroom/cask/brew-cask'
+brew tap 'homebrew/aliases'
 brew tap 'homebrew/apache'
-brew tap 'homebrew/completions'
-brew tap 'homebrew/dupes'
-brew tap 'homebrew/php'
-brew tap 'homebrew/science'
-brew tap 'homebrew/versions'
+brew tap 'homebrew/binary'
 brew tap 'homebrew/bundle'
+brew tap 'homebrew/completions'
+brew tap 'homebrew/dev-tools'
+brew tap 'homebrew/dupes'
+brew tap 'homebrew/fuse'
+brew tap 'homebrew/php'
+brew tap 'homebrew/python'
+brew tap 'homebrew/nginx'
+brew tap 'homebrew/science'
 brew tap 'homebrew/services'
+brew tap 'homebrew/tex'
+brew tap 'homebrew/versions'
 brew tap 'universal-ctags/universal-ctags'
-brew tap 'josegonzalez/php'
 brew tap 'samdmarshall/formulae'
+brew utap 'josegonzalez/php'
 
 ## house cleaning
 brew update
@@ -60,7 +67,7 @@ brew upgrade brew-cask
 brew cleanup
 brew cask cleanup
 
-## LETS COMPILE STUFF
+## LET US COMPILE STUFF
 
 ### shared libs and build stuff
 brew install 'vbindiff'
@@ -68,29 +75,40 @@ brew install 'binutils'
 brew install 'automake'
 brew install 'autoconf'
 brew install 'cmake'
-brew install 'openssl'
 brew install 'pkg-config'
 brew install 'icu4c'
-brew install 'carthage'
+## link it up my dearest
 brew install 'openssh'
+brew link openssh --force || true
 brew install 'openssl'
-brew install 'libyaml'
-brew install 'libffi'
-brew install 'readline'
 brew link openssl --force || true
-brew link libffi --force || true
+brew install 'gettext'
+brew link gettext --force || true
+brew install 'openssl'
+brew link openssl --force || true
+brew install 'libyaml'
 brew link libyaml --force || true
+brew install 'libffi'
+brew link libffi --force || true
+brew install 'readline'
 brew link readline --force || true
+brew install 'gcc'
+brew link gcc --force || true
+## ios
+brew install 'carthage'
 
 # brew upgrade 'openssh'
 # brew upgrade 'openssl'
 # brew upgrade 'libyaml'
 # brew upgrade 'libffi'
 # brew upgrade 'readline'
+# brew upgrade 'gettext'
+# brew link openssh --force || true
 # brew link openssl --force || true
 # brew link libffi --force || true
 # brew link libyaml --force || true
 # brew link readline --force || true
+# brew link gettext --force || true
 # brew upgrade 'cmake'
 # brew upgrade 'pkg-config'
 # brew upgrade 'icu4c'
@@ -163,6 +181,12 @@ brew cask install 'clipmenu'
 brew install 'httpie'
 brew install 'homebrew/apache/ab'
 
+### web servers
+## nginx
+#brew options nginx-full
+#brew info nginx-full
+#brew install nginx-full --with-upload-module
+
 ### vms
 brew cask install 'virtualbox'
 brew cask install 'vagrant'
@@ -190,6 +214,47 @@ brew cask install 'synalyze-it-pro'
 ##### brew cask install 'reveal'
 ##### brew cask install 'reflector'
 
+## crazy data science
+## the following will install python2 python3 R julia and lua
+brew install python3
+brew cask install xquartz
+brew cask install anaconda
+brew cask install r
+## example cool bundler command: R -e 'chooseCRANmirror(graphics=FALSE, ind=87);library(rbundler);bundle()'
+## see http://stackoverflow.com/questions/11488174/how-to-select-a-cran-mirror-in-r
+## and choose from https://cran.r-project.org/mirrors.html
+hash -r
+R -e 'install.packages("Rserve", repos="http://cran.utstat.utoronto.ca/", type="source")' && \
+R -e 'install.packages("ggplot2", repos="http://cran.utstat.utoronto.ca/", type="source")' && \
+R -e 'install.packages("devtools", repos="http://cran.utstat.utoronto.ca/", type="source")' && \
+R -e 'install.packages("RCurl", repos="http://cran.utstat.utoronto.ca/", type="source")' && \
+R -e 'install.packages("RJSONIO", repos="http://cran.utstat.utoronto.ca/", type="source")' && \
+R -e 'install.packages("jpeg", repos="http://cran.utstat.utoronto.ca/", type="source")' && \
+R -e 'install.packages("png", repos="http://cran.utstat.utoronto.ca/", type="source")' && \
+R -e 'install.packages("base64enc", repos="http://cran.utstat.utoronto.ca/", type="source")'
+brew install zeromq
+### julia
+brew cask install julia
+hash -r
+### lua
+brew install lua
+brew install luajit
+luarocks install luajson
+### conda things
+conda create -n py3k python=3 anaconda
+conda install pyzmq --yes
+
+### try beaker
+brew cask install beaker
+
+## try jupyter
+conda install jupyter --yes
+conda update jupyter --yes
+conda install ipython
+conda install -c ipython-notebook --yes
+conda install -c r r-irkernel --yes
+conda install -c r r-irkernel --yes
+
 ### 3rd-party-plugins
 brew cask install 'silverlight'
 
@@ -216,8 +281,26 @@ brew cask install 'transmit'
 ### maths
 brew cask install 'speedcrunch'
 
+## debug
+brew tap 'homebrew/x11/'
+cd /usr/local/Library/Taps/homebrew/homebrew-x11/
+git remote set-url origin git@github.com:Homebrew/homebrew-x11/.git
+cd -
+brew install 'homebrew/dev-tools/brew-pry'
+brew install 'gdb'
+brew cask install 'macgdbp'
+brew install 'homebrew/x11/ddd'
+brew install 'ios-webkit-debug-proxy'
+brew install 'iperf'
+
+## filesystems
+brew cask install 'osxfuse'
+brew install 'homebrew/fuse/s3fs'
+brew install 'homebrew/fuse/ntfs-3g'
+
 ### music
 # https://github.com/thebitguru/play-button-itunes-patch
+brew install 'homebrew/binary/libspotify'
 brew cask install 'soundcleod'
 brew cask install 'plug'
 brew cask install 'rdio'
@@ -294,6 +377,11 @@ brew cask install 'quicknfo' --force
 ### link up the folder, so alfred can see the apps
 brew cask alfred link
 
+## brew aliases
+brew alias status='!git status'
+brew alias bump=upgrade
+
 ### some brew cleanup
 brew cleanup && brew prune
 brew doctor
+
