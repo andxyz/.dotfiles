@@ -201,8 +201,9 @@
 	helper = osxkeychain
 [init]
     templatedir = ~/.git-template
-# fixes peoples emails
-# try `git shortlog -sne`
+
+## mailmap fixes peoples emails
+## try `git shortlog -sne`
 [log]
     mailmap = true
 [mailmap]
