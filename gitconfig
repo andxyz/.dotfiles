@@ -23,9 +23,6 @@
     autosetupmerge = always
     autosetuprebase = always
 
-[merge]
-    ff = false
-
 # this is messing up cocoapod podspecs
 #  [url "ssh://git@github.com/"]
 #   insteadOf = https://github.com/
