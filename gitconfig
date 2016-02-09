@@ -52,10 +52,10 @@
     logpgraphoneliner = log --topo-order --graph --color --all --pretty='format: %Cgreen%h%Creset %s%Cred%d%Creset%n'
 
     ## git log commands used on a github flow feature branch PR
-    logprpatch   = log --topo-order --decorate=full --no-merges --boundary origin/master... --patch
     logpr        = log --topo-order --graph --decorate --boundary origin/master... --pretty=format:'%Cred %h %Creset%Cgreen[%ai]%C(bold blue)[%an]%Creset%C(yellow)%d%Creset %s'
-    logproneline = log --topo-order --graph --decorate --boundary origin/master... --oneline
-    logpr2       = log --topo-order --graph --decorate --boundary origin/master... --pretty=format:'%Cred[%h]%Creset%Cgreen[%ai]%C(bold blue)[%an]%Creset%C(yellow)%d%Creset %s'
+    logprpatch   = log --topo-order --decorate=full --no-merges --boundary origin/master... --patch
+    logprshowrefs = log --topo-order --graph --decorate --boundary origin/master... --oneline
+    logprsimple  = log --topo-order --graph --decorate --boundary origin/master... --pretty=format:'%Cred[%h]%Creset%Cgreen[%ai]%C(bold blue)[%an]%Creset %s'
 
     ## git show views
     show0 = show --pretty="full" --stat
