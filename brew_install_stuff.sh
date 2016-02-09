@@ -78,10 +78,10 @@ brew install 'cmake'
 brew install 'pkg-config'
 brew install 'icu4c'
 ## link it up my dearest
-brew install 'openssh'
-brew link openssh --force || true
 brew install 'openssl'
 brew link openssl --force || true
+brew install 'openssh' --with-brewed-openssl --with-keychain-support
+brew link openssh --force || true
 brew install 'gettext'
 brew link gettext --force || true
 brew install 'openssl'
