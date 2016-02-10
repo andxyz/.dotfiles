@@ -10,13 +10,17 @@ Pry.config.history.file = "#{ENV['HOME']}/.irb_history"
 # config editor
 Pry.config.editor = "subl -w"
 
+Pry.commands.alias_command 'c', 'continue'
+Pry.commands.alias_command 's', 'step'
+Pry.commands.alias_command 'n', 'next'
+
 # nicer table printing
 if ENV['RAILS_USE_HIRB_GEM'] && defined?(::Rails) && Rails.env
   begin
     require 'hirb'
     Hirb.enable({:width => 120, :height => 500,
       output: {
-        "Hockey::Player": { options: { fields: %w{id first_name last_name updated_at} } }
+        "Hockey::Player" => { options: { fields: %w{id first_name last_name updated_at} } }
       }
     })
 
@@ -25,7 +29,8 @@ if ENV['RAILS_USE_HIRB_GEM'] && defined?(::Rails) && Rails.env
       Hirb::View.view_or_page_output(args[1]) || old_print.call(*args)
     end
   rescue Exception => e
-    ##oh well
-    #puts e
+    # oh well
+    puts e.inspect
+    puts e.backtrace
   end
 end
