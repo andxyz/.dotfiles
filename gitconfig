@@ -68,6 +68,12 @@
     show2 = show --pretty="full" --name-only
     show3 = show --pretty="oneline" --name-only
 
+    ## depends on hub
+    githubpulls = "!hub browse -- pulls/"
+    githubmypulls = "!browse -- pulls/andxyz"
+    ## pengwynn tricks
+    wip = "!$EDITOR $(git ls-files -m)"
+
     ## not really used aliasaes but they are useful to look at when hunting for a git command
     delete-remote-branch = push origin --delete
     delete-local-branch = branch -D
