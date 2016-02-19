@@ -50,7 +50,7 @@
     logpatchcodeonly = log --topo-order --no-merges --patch
     logponeline      = log --topo-order --decorate --pretty=oneline --abbrev-commit
     logpstat         = log --topo-order --color --stat=180,150 --pretty='format: %Cgreen%h%Creset%Cblue by %an, %ci%Creset  %s%Cred%d%Creset%n'
-    logpmerges       = log --topo-order --merges --decorate --pretty=oneline --abbrev-commit
+    logpmerges       = log --topo-order --merges --decorate --pretty=format:'%Cred %h %Creset%Cgreen[%ai]%C(bold blue)[%an]%Creset %s%C(yellow)%d%Creset'
 
     # graphing
     logpgraphstat     = log --topo-order --color --stat=180,150 --pretty='format: %Cgreen%h%Creset%Cblue by %an, %ci%Creset  %s%Cred%d%Creset%n' --graph
@@ -69,10 +69,11 @@
     show3 = show --pretty="oneline" --name-only
 
     ## depends on hub
-    githubpulls = "!hub browse -- pulls/"
-    githubmypulls = "!browse -- pulls/andxyz"
+    github-pulls = "!hub browse -- pulls/"
+    github-mypulls = "!hub browse -- pulls/andxyz"
+    github-open-pull-request = "!hub pull-request"
     ## pengwynn tricks
-    wip = "!$EDITOR $(git ls-files -m)"
+    wip = "!$EDITOR_USING_CURRENT_PROJECT $(git ls-files -m)"
 
     ## not really used aliasaes but they are useful to look at when hunting for a git command
     delete-remote-branch = push origin --delete

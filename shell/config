@@ -14,8 +14,9 @@ ulimit -S -c 0
 # #!/bin/sh
 # #open -Wn -- "$@"
 # subl -w -- "$@"
-export -- EDITOR="$HOME/bin/EDITOR"
-export -- VISUAL="$HOME/bin/EDITOR"
+export -- EDITOR="subl -w -n -- ${@}"
+export -- EDITOR_USING_CURRENT_PROJECT="subl -- ${@}"
+export -- VISUAL="${EDITOR}"
 
 # echo 'give me history you dogs of history'
 export -- HISTFILE=$HOME/.history
