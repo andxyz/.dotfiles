@@ -64,11 +64,16 @@ export -- RUBY_GC_MALLOC_LIMIT_MAX=9999999999
 # print elapsed time when more than 10 seconds
 REPORTTIME=10
 
-## new solution to using homebrew "ssh-agent"
+## homebrew solution to using homebrew "ssh-agent"
+### more info here https://www.stormacq.com/mac-os-x-makes-handling-ssh-keys-easier/
 # launchctl unload /System/Library/LaunchAgents/org.openbsd.ssh-agent.plist
 # brew install openssh --with-brewed-openssl --with-keychain-support
 # brew install Caskroom/cask/lunchy --force
 # lunchy install /System/Library/LaunchAgents/org.openbsd.ssh-agent.plist
+lunchy start org.openbsd.ssh-agent > /dev/null 2>&1
+
+## test my ssh-agent setup with github
+# unset SSH_AUTH_SOCK && unset SSH_AGENT_PID && ssh -Tv git@github.com
 
 ## old solution
 ## http://www.dctrwatson.com/2013/07/how-to-update-openssh-on-mac-os-x/
