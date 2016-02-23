@@ -257,6 +257,10 @@ conda install -c ipython-notebook --yes
 conda install -c r r-irkernel --yes
 conda install -c r r-irkernel --yes
 
+## try python3 with anaconda
+brew cask install anaconda
+conda create -n py3k python=3 anaconda
+
 ### 3rd-party-plugins
 brew cask install 'silverlight'
 
@@ -381,7 +385,7 @@ brew cask alfred link
 
 ## brew aliases
 brew alias status='!git status'
-brew alias bump=upgrade
+brew alias bump='upgrade'
 
 ### some brew cleanup
 brew cleanup && brew prune
