@@ -9,7 +9,7 @@ function sscreencapture-in-2-seconds-send-to-desktop {
   screencapture -T2 -S -x "$HOME/Desktop/screenshot-$(date +%Y-%m-%d__%H_%M_%S).png"
 }
 
-function startpostgres {
+function postgresstart {
   local pidfile="/usr/local/var/postgres/postmaster.pid"
   if [ -s $pidfile ] && kill -0 $(cat $pidfile | head -n 1) > /dev/null 2>&1; then
     echo "Already running"
@@ -18,11 +18,11 @@ function startpostgres {
   fi
 }
 
-function stoppostgres {
+function postgresstop {
   pg_ctl -D /usr/local/var/postgres stop
 }
 
-function serve {
+function mongoose-http-server {
   local port=${1:-8000}
   local ip=$(ipconfig getifaddr en0)
   echo "Serving on ${ip}:${port} ..."
