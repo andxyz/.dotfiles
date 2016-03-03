@@ -42,12 +42,12 @@ alias gco='git checkout'
 ### rails and ruby
 ## alias bi="bundle install --binstubs --without=production"
 alias bi='bundle install'
-alias be='bundle exec '
+alias be='bundle exec'
 alias ttail='tail -f log/development.log'
 ### ruby rails zsh settings
 if which noglob >/dev/null; then
-  alias bundle='nocorrect bundle'
-  alias rake='noglob rake' # allows square brackets for rake task invocation
+  # alias bundle='nocorrect bundle'
+  # alias rake='nocorrect rake' # allows square brackets for rake task invocation
 fi
 
 ### node
