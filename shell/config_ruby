@@ -1,0 +1,35 @@
+#!/usr/bin/env bash
+
+# Increase memory allocated to Ruby
+# https://github.com/ruby/ruby/blob/ruby_2_3/gc.c#L7287
+# https://github.com/ruby/ruby/blob/ruby_2_3/gc.c#ruby_gc_set_params
+export -- RUBY_GC_HEAP_INIT_SLOTS=1000000
+export -- RUBY_GC_HEAP_FREE_SLOTS
+# - Prepare at least this amount of slots after GC.
+# - Allocate slots if there are not enough slots.
+export -- RUBY_GC_HEAP_GROWTH_FACTOR=1
+# (new from 2.1)
+# - Allocate slots by this factor.
+# - (next slots number) = (current slots number) * (this factor)
+export -- RUBY_GC_HEAP_GROWTH_MAX_SLOTS
+# (new from 2.1)
+# - Allocation rate is limited to this number of slots.
+export -- RUBY_GC_HEAP_OLDOBJECT_LIMIT_FACTOR
+# (new from 2.1.1)
+# - Do full GC when the number of old objects is more than R * N
+#   where R is this factor and
+#         N is the number of old objects just after last full GC.
+#  obsolete
+#  * RUBY_FREE_MIN       -> RUBY_GC_HEAP_FREE_SLOTS (from 2.1)
+#  * RUBY_HEAP_MIN_SLOTS -> RUBY_GC_HEAP_INIT_SLOTS (from 2.1)
+export -- RUBY_GC_MALLOC_LIMIT=1000000000
+export -- RUBY_GC_MALLOC_LIMIT_MAX=9999999999
+ # (new from 2.1)
+ export -- RUBY_GC_MALLOC_LIMIT_GROWTH_FACTOR=1
+ # (new from 2.1)
+ export -- RUBY_GC_OLDMALLOC_LIMIT="${RUBY_GC_MALLOC_LIMIT}"
+ # (new from 2.1)
+ export -- RUBY_GC_OLDMALLOC_LIMIT_MAX="${RUBY_GC_MALLOC_LIMIT_MAX}"
+ # (new from 2.1)
+ export -- RUBY_GC_OLDMALLOC_LIMIT_GROWTH_FACTOR="${RUBY_GC_MALLOC_LIMIT_GROWTH_FACTOR}"
+# (new from 2.1)

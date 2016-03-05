@@ -2,19 +2,73 @@
 $include /etc/inputrc
 $include /usr/local/etc/inputrc
 
-set show-all-if-ambiguous on
-set completion-ignore-case on
+### Notes on possible settings
+## bell-style - Possible values are audible (the default), visible, or none. This controls what happens when the Readline function wants to ring the bell.
+## comment-begin - The default is #. This defines the string that will be inserted at the start of the line when the insert-comment command if received.
+## completion-ignore-case
+## completion-query-items
+## convert-meta - If on (the default), characters are converted to the ASC seven bit character set.
+## disable-completion
+## editing mode - May be set to emacs or vi
+## enable-keyboard
+## expand-tilde
+## horizontal-scroll-mode
+## input-meta - If set to on, eight bit input is enabled. If off (the default) it only passes seven bits of any character.
+## isearch-terminators
+## keymap
+## mark-directories
+## mark-modified-lines
+## output-meta
+## print-completions-horizontally
+## show-all-if-ambiguous
+## visible-stats
+## The following sequences are used to help define keys:
+#
+## \C- = Control
+## \M- = Meta
+## \e = escape character
+## \\ = backslach
 
 set bell-style none
 
-"\e[1;3D": backward-word ### Alt left
-"\e[1;3C": forward-word ### Alt right
+set show-all-if-ambiguous on
+set completion-ignore-case on
 
-"\e[1~": beginning-of-line
-"\e[4~": end-of-line
-"\e[7~": beginning-of-line
-"\e[8~": end-of-line
-"\eOH": beginning-of-line
-"\eOF": end-of-line
-"\e[H": beginning-of-line
-"\e[F": end-of-line
+# vi mode in everything that uses readline
+# set -o vi
+# set editing-mode vi
+# set editing-mode emacs
+# set keymap vi-command
+
+# Be 8 bit clean
+# see http://www.comptechdoc.org/os/linux/howlinuxworks/linux_hlkeyprogs.html
+set meta-flag on
+set input-meta on
+set output-meta on
+set convert-meta off
+set enable-meta-key on
+
+# osx setup
+# see http://superuser.com/questions/357355/how-can-i-get-controlleft-arrow-to-go-back-one-word-in-iterm2
+# alt-left-arrow and alt-right-arrow for jumping to word-beginnings on the commandline
+"\e[1;9D": backward-word
+"\e[1;9C": forward-word
+
+# "\e[1;9D":backward-word
+# "\e[1;3D":backward-word
+# "\e[1;5D":backward-word
+
+# "\e[1;9C":forward-word
+# "\e[1;5C":forward-word
+# "\e[1;3C":forward-word
+
+## use Ctrl <- and Ctrl -> for jumping to word-beginnings on the CL
+# bindkey "^[[1;5D" backward-word
+# bindkey "^[[1;5C" forward-word
+#
+## the same for alt-left-arrow and alt-right-arrow
+# bindkey '^[[1;3D' backward-word
+# bindkey '^[[1;3C' forward-word
+#
+## Delete key
+# "\e[3~":delete-char

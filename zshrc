@@ -5,6 +5,8 @@
 
 ## generic shell configs
 [[ -f ~/.shell/config ]]            && source ~/.shell/config
+[[ -f ~/.shell/config_ssh_agent ]]  && source ~/.shell/config_ssh_agent
+[[ -f ~/.shell/config_ruby ]]       && source ~/.shell/config_ruby
 [[ -f ~/.shell/config_private ]]    && source ~/.shell/config_private
 [[ -f ~/.shell/aliases ]]           && source ~/.shell/aliases
 [[ -f ~/.shell/aliases_private ]]   && source ~/.shell/aliases_private
