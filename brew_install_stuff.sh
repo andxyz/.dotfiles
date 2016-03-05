@@ -6,39 +6,13 @@
 set -x
 set -e
 
-### I should get around to putting some of https://gist.github.com/9393431 in here
-
-### current list of crap on my dev machine
-### $ brew leaves | paste - - - -
-# ack ansible apr-util  autoenv
-# awscli  bash  bash-completion bash-git-prompt
-# beanstalk bfg caskroom/cask/brew-cask homebrew/completions/bundler-completion
-# homebrew/dupes/bzip2  homebrew/completions/cargo-completion carthage  coreutils
-# cppcheck  ctags faac  ffmpeg
-# findutils gawk  homebrew/completions/gem-completion geoip
-# gifsicle  git gnu-indent  gnu-sed
-# gnu-tar gradle  graphviz  homebrew/dupes/grep
-# homebrew/completions/grunt-completion heroku-toolbelt htop-osx httpie
-# hub ical-buddy  iftop imagemagick
-# ios-webkit-debug-proxy  iperf jenv  jq
-# homebrew/versions/llvm35  macvim  man2html  homebrew/completions/maven-completion
-# memcached mercurial mitmproxy mongoose
-# mysql nginx nmap  opam
-# homebrew/dupes/openssh  raggi/ale/openssl-osx-ca  ossp-uuid pandoc
-# parallel  phantomjs josegonzalez/php/php56  pidcat
-# homebrew/completions/pip-completion postgresql  psgrep  pstree
-# homebrew/completions/rails-completion homebrew/completions/rake-completion  recoverjpeg redis
-# s3cmd samba speedtest_cli subversion
-# tcpflow the_silver_searcher thefuck tig
-# tldr-pages/tldr/tldr  transmission  tree  universal-ctags/universal-ctags/universal-ctags
-# v8  homebrew/completions/vagrant-completion homebrew/science/vips watchman
-# wget  xctool  youtube-dl  homebrew/dupes/zlib
-# zsh zsh-completions
-
 ### first off, update all brew installed crap we already have before going forward
+## house cleaning round 1
 brew update
+brew upgrade brew-cask
+brew cleanup
+brew cask cleanup
 brew outdated
-brew upgrade
 
 ### enable binary downloads see https://github.com/phinze/homebrew-cask/ for more
 brew install 'caskroom/cask/brew-cask'
@@ -59,9 +33,9 @@ brew tap 'homebrew/tex'
 brew tap 'homebrew/versions'
 brew tap 'universal-ctags/universal-ctags'
 brew tap 'samdmarshall/formulae'
-brew utap 'josegonzalez/php'
+brew untap 'josegonzalez/php'
 
-## house cleaning
+## house cleaning round 2
 brew update
 brew upgrade brew-cask
 brew cleanup
@@ -179,9 +153,10 @@ brew install 'vim'
 brew install 'mvim'
 brew cask install 'clipmenu'
 
-### tools
+### http tools
 brew install 'httpie'
 brew install 'homebrew/apache/ab'
+brew install 'jq'
 
 ### web servers
 ## nginx
@@ -288,10 +263,9 @@ brew cask install 'transmit'
 brew cask install 'speedcrunch'
 
 ## debug
-brew tap 'homebrew/x11/'
-cd /usr/local/Library/Taps/homebrew/homebrew-x11/
-git remote set-url origin git@github.com:Homebrew/homebrew-x11/.git
-cd -
+# brew tap 'homebrew/x11/'
+# cd /usr/local/Library/Taps/homebrew/homebrew-x11/
+# git remote set-url origin git@github.com:Homebrew/homebrew-x11/.git
 brew install 'homebrew/dev-tools/brew-pry'
 brew install 'gdb'
 brew cask install 'macgdbp'
@@ -391,3 +365,35 @@ brew alias bump='upgrade'
 brew cleanup && brew prune
 brew doctor
 
+### I should get around to putting some of https://gist.github.com/9393431 in here
+
+### current list of crap on my dev machine
+# ~/code/andxyz-dotfiles[master]$ brew leaves | sort | paste - - - -
+# homebrew/apache/ab  ack ansible autoenv
+# awscli  bash  bash-completion bash-git-prompt
+# beanstalk bfg caskroom/cask/brew-cask homebrew/completions/bundler-completion
+# homebrew/dupes/bzip2  homebrew/completions/cargo-completion carthage  coreutils
+# cppcheck  ctags curl  homebrew/x11/ddd
+# ffmpeg  findutils flow  gawk
+# gcc gdb homebrew/completions/gem-completion geoip
+# gifsicle  git gnu-indent  gnu-sed
+# gnu-tar gnupg gnupg2  gradle
+# graphviz  homebrew/dupes/grep homebrew/completions/grunt-completion heroku-toolbelt
+# htop-osx  httpie  hub ical-buddy
+# iftop imagemagick ios-webkit-debug-proxy  iperf
+# jenv  jq  libav homebrew/versions/llvm35
+# lua luajit  mackup  macvim
+# man2html  homebrew/completions/maven-completion memcached mercurial
+# mitmproxy mongoose  mysql nginx
+# nmap  homebrew/fuse/ntfs-3g opam  homebrew/dupes/openssh
+# ossp-uuid pandoc  parallel  phantomjs
+# homebrew/php/php56  pidcat  homebrew/completions/pip-completion postgresql
+# psgrep  pstree  pv  python3
+# homebrew/science/r  homebrew/completions/rails-completion homebrew/completions/rake-completion  recoverjpeg
+# redis rust  s3cmd homebrew/fuse/s3fs
+# samba sdl speedtest_cli subversion
+# tcpflow the_silver_searcher thefuck tig
+# transmission  tree  uncrustify  v8
+# homebrew/completions/vagrant-completion homebrew/science/vips watchman  wget
+# xctool  youtube-dl  zeromq  homebrew/dupes/zlib
+# zsh zsh-completions
