@@ -11,8 +11,8 @@ Pry.config.history.file = "#{ENV['HOME']}/.irb_history"
 Pry.config.editor = "subl -w"
 
 Pry.commands.alias_command 'c', 'continue'
-Pry.commands.alias_command 's', 'step'
-Pry.commands.alias_command 'n', 'next'
+# Pry.commands.alias_command 's', 'step'
+# Pry.commands.alias_command 'n', 'next'
 
 # nicer table printing
 if ENV['RAILS_USE_HIRB_GEM'] && defined?(::Rails) && Rails.env
