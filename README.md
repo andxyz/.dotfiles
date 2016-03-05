@@ -41,6 +41,7 @@ now I close the current shell and open a new one
 ### install other languages as needed
 cd ~/.dotfiles/
 chmod +x ./languages/*
+# ./languages/clojure.sh todo
 # ./languages/go.sh todo
 # ./languages/haskell.sh todo
 ./languages/java.sh
@@ -51,9 +52,9 @@ chmod +x ./languages/*
 ./languages/ruby.sh
 ```
 
-
 #### andxyz personal sublime text plugins
 
+#todo http://github.com/andxyz/sublime-text-3-configs
 see http://github.com/andxyz/sublime-text-2-configs
 
 ```
@@ -64,6 +65,7 @@ cd ~/Library/Application\ Support/Sublime\ Text\ 2/
 git checkout --force master
 ```
 
-### iterm2 tips
+#### iterm2 notes
 
-see https://github.com/mbadolato/iTerm2-Color-Schemes#installation-instructions for importing color schemes
+- https://github.com/mbadolato/iTerm2-Color-Schemes#installation-instructions for importing color schemes
+- `/Users/andxyz/code/andxyz-dotfiles/inputrc`
