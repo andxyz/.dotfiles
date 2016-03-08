@@ -83,8 +83,9 @@ export -- PATH="$HOME/.rbenv/bin:$PATH" &&
 eval "$(rbenv init -)"
 
 # java sdkman http://sdkman.io/
-export SDKMAN_DIR="/Users/andxyz/.sdkman"
-[[ -s "/Users/andxyz/.sdkman/bin/sdkman-init.sh" ]] && source "/Users/andxyz/.sdkman/bin/sdkman-init.sh"
+# this stupid thing curl calls all the time
+# export SDKMAN_DIR="/Users/andxyz/.sdkman"
+# [[ -s "/Users/andxyz/.sdkman/bin/sdkman-init.sh" ]] && source "/Users/andxyz/.sdkman/bin/sdkman-init.sh"
 
 ## Cross-platform, Python-agnostic binary package manager https://github.com/conda/conda
 export PATH="$PATH:$HOME/anaconda3/bin"
@@ -92,5 +93,3 @@ export PATH="$PATH:$HOME/anaconda3/bin"
 echo \
 """export -- PATH=
 $PATH"""
-
-
