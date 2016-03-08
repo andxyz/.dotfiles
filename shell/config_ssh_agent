@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
 
+unset SSH_AUTH_SOCK && unset SSH_AGENT_PID
+
 ## homebrew solution to using homebrew "ssh-agent"
 ### more info here https://www.stormacq.com/mac-os-x-makes-handling-ssh-keys-easier/
 # launchctl unload /System/Library/LaunchAgents/org.openbsd.ssh-agent.plist

@@ -1,4 +1,5 @@
 #!/usr/bin/env bash
+# set -x
 
 [[ -f ~/.shell/paths ]]             && source ~/.shell/paths
 [[ -f ~/.shell/paths_private ]]     && source ~/.shell/paths_private
