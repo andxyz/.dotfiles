@@ -68,13 +68,15 @@
     show2 = show --pretty="full" --name-only
     show3 = show --pretty="oneline" --name-only
 
+    ## code review
+    code-review-reset-and-unstage-to = !bash -c 'git reset --soft ${1} && git reset HEAD -- ' -
+    openunstaged = "!$EDITOR_USING_CURRENT_PROJECT $(git diff --name-only)"
+    openstaged = "!$EDITOR_USING_CURRENT_PROJECT $(git diff --name-only --cached)"
+
     ## depends on hub
     github-pulls = "!hub browse -- pulls/"
     github-mypulls = "!hub browse -- pulls/andxyz"
     github-open-pull-request = "!hub pull-request"
-    ## pengwynn tricks
-    openwip = "!$EDITOR_USING_CURRENT_PROJECT $(git diff --name-only)"
-    openstaged = "!$EDITOR_USING_CURRENT_PROJECT $(git diff --name-only --cached)"
 
     ## not really used aliasaes but they are useful to look at when hunting for a git command
     delete-remote-branch = push origin --delete
