@@ -79,7 +79,6 @@ com_crashlytics_export_strings.xml
 *.pydevproject
 .metadata
 .gradle
-bin/
 tmp/
 *.tmp
 *.bak
