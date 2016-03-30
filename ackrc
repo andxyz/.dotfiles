@@ -1,4 +1,4 @@
---type-add=ruby=.rake,.rsel,.builder,Gemfile,Fastfile
+--type-add=ruby=.rake,.rsel,.builder,.erb,.erb.html,.haml,Gemfile,Rakefile,Capfile,Fastfile
 --type-add=html=.erb,.haml,.slim
 --type-add=js=.js.erb,.json
 --type-add=css=.sass,.less,.scss
@@ -7,8 +7,17 @@
 --type-set=markdown=.markdown,.mdown,.md,.mkd,.mkdn,.txt
 --type-set=handlebars=.handlebars,.hbs
 
+--type-add=objc=.pch
+--type-set=xcode=.pbxproj,.pbxuser,.perspectivev3
+--type-set=nib=.xib
+--type-set=plist=.plist
+
+--nonib
+--noxcode
+
 --ignore-dir=.bundle
 --ignore-dir=coverage
+--ignore-dir=spec/reports
 --ignore-dir=doc
 --ignore-dir=log
 --ignore-dir=tmp
