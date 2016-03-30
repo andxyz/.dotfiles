@@ -40,6 +40,10 @@ ls "$(rbenv root)"/plugins
 cd "$(rbenv root)"/plugins/ruby-build && git pull
 cd $HOME
 
+## make sure rbenv is uptodate
+rbenv update
+rbenv each gem update --system
+
 # required for building Ruby <= 1.9.3-p0:
 # brew tap homebrew/dupes && brew install apple-gcc42
 
@@ -56,8 +60,8 @@ echo '## installing rubies'
 # rbenv install --skip-existing --verbose 2.1.5
 export -- MAKE_OPT='-j8'
 export -- CFLAGS='-g2 -ggdb -O2'
-RUBY_CONFIGURE_OPTS="--with-openssl-dir=$(brew --prefix openssl)  --with-readline-dir=$(brew --prefix readline) --disable-install-doc --disable-install-rdoc --disable-install-capi" rbenv install --skip-existing --verbose 2.2.2
 RUBY_CONFIGURE_OPTS="--with-openssl-dir=$(brew --prefix openssl)  --with-readline-dir=$(brew --prefix readline) --disable-install-doc --disable-install-rdoc --disable-install-capi" rbenv install --skip-existing --verbose 2.2.3
+RUBY_CONFIGURE_OPTS="--with-openssl-dir=$(brew --prefix openssl)  --with-readline-dir=$(brew --prefix readline) --disable-install-doc --disable-install-rdoc --disable-install-capi" rbenv install --skip-existing --verbose 2.2.4
 RUBY_CONFIGURE_OPTS="--with-openssl-dir=$(brew --prefix openssl)  --with-readline-dir=$(brew --prefix readline) --disable-install-doc --disable-install-rdoc --disable-install-capi" rbenv install --skip-existing --verbose 2.3.0
 
 # installer files cleanup
