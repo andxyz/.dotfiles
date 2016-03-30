@@ -1,19 +1,25 @@
 #!/usr/bin/env bash
 
-unset SSH_AUTH_SOCK && unset SSH_AGENT_PID
-
+# unset SSH_AUTH_SOCK && unset SSH_AGENT_PID
+#
 ## homebrew solution to using homebrew "ssh-agent"
 ### more info here https://www.stormacq.com/mac-os-x-makes-handling-ssh-keys-easier/
+#
 # launchctl unload /System/Library/LaunchAgents/org.openbsd.ssh-agent.plist
 # brew install openssh --with-brewed-openssl --with-keychain-support
 # brew install Caskroom/cask/lunchy --force
-# lunchy scan homebrew
-## aka `lunchy scan /usr/local/Cellar`
+# lunchy scan /usr/local/Cellar
+# lunchy list
 # lunchy install /System/Library/LaunchAgents/org.openbsd.ssh-agent.plist
+#
 lunchy start org.openbsd.ssh-agent > /dev/null 2>&1
+export -- SSH_AUTH_SOCK=$(launchctl getenv SSH_AUTH_SOCK)
 
 ## test my ssh-agent setup with github
-# unset SSH_AUTH_SOCK && unset SSH_AGENT_PID && ssh -Tv git@github.com
+# unset SSH_AUTH_SOCK
+# unset SSH_AGENT_PID
+# export -- SSH_AUTH_SOCK=$(launchctl getenv SSH_AUTH_SOCK)
+# ssh -Tv git@github.com
 
 ## old solution
 ## http://www.dctrwatson.com/2013/07/how-to-update-openssh-on-mac-os-x/
@@ -31,4 +37,8 @@ lunchy start org.openbsd.ssh-agent > /dev/null 2>&1
 ##   kill -9 $SSH_AGENT_PID
 ## }
 #
+#
 ## trap cleanup_openssh EXIT
+
+echo "SSH_AUTH_SOCK=${SSH_AUTH_SOCK}"
+echo "SSH_AGENT_PID=${SSH_AGENT_PID}"

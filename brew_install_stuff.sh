@@ -54,7 +54,7 @@ brew install 'icu4c'
 ## link it up my dearest
 brew install 'openssl'
 brew link openssl --force || true
-brew install 'openssh' --with-brewed-openssl --with-keychain-support
+brew install 'openssh' --with-brewed-openssl
 brew link openssh --force || true
 brew install 'gettext'
 brew link gettext --force || true
