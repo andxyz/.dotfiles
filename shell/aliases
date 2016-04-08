@@ -53,12 +53,12 @@ fi
 ### node
 alias ni='npm install --silent >> /dev/null 2>&1'
 ### node zsh settings
-if which noglob >/dev/null; then
-  alias bower='nocorrect bower'
-  alias grunt='nocorrect grunt' # troubles? try `npm install -g npm &&  npm install -g grunt-cli`
-  alias npm='nocorrect npm'
-  alias node='nocorrect node'
-fi
+# if which noglob >/dev/null; then
+#   alias bower='nocorrect bower'
+#   alias grunt='nocorrect grunt' # troubles? try `npm install -g npm &&  npm install -g grunt-cli`
+#   alias npm='nocorrect npm'
+#   alias node='nocorrect node'
+# fi
 
 ### tools
 alias mmitmproxy='mitmproxy --palette solarized_light'
