@@ -13,7 +13,8 @@
 # lunchy install /System/Library/LaunchAgents/org.openbsd.ssh-agent.plist
 #
 lunchy start org.openbsd.ssh-agent > /dev/null 2>&1
-export -- SSH_AUTH_SOCK=$(launchctl getenv SSH_AUTH_SOCK)
+unset SSH_AUTH_SOCK
+unset SSH_AGENT_PID
 
 ## test my ssh-agent setup with github
 # unset SSH_AUTH_SOCK
@@ -39,6 +40,4 @@ export -- SSH_AUTH_SOCK=$(launchctl getenv SSH_AUTH_SOCK)
 #
 #
 ## trap cleanup_openssh EXIT
-
-echo "SSH_AUTH_SOCK=${SSH_AUTH_SOCK}"
-echo "SSH_AGENT_PID=${SSH_AGENT_PID}"
+#
