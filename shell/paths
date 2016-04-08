@@ -32,8 +32,9 @@ export -- GOPATH=$HOME/code/gowork
 #export GOROOT=$HOME/go
 #export PATH=$PATH:$GOROOT/bin
 
-
-# haskell uses cabal
+## haskell uses cabal
+#https://github.com/andxyz/.dotfiles/blob/master/languages/haskell.sh
+#cabal update
 test -d "$HOME/.cabal/bin" &&
 export -- PATH="$HOME/.cabal/bin:$PATH"
 
@@ -49,8 +50,8 @@ source $HOME/.nvm/nvm.sh
 # export some NODE vars
 # export -- NODE_PATH="$NVM_PATH"
 # export -- NODE_BIN="$NVM_BIN"
-
-# add local npm packages to path
+#
+## add local npm packages to path
 export -- PATH="./node_modules/.bin:$PATH"
 
 # java stuff http://www.jenv.be/
@@ -77,17 +78,19 @@ test -f "/usr/local/lib/python" &&
 export -- PYTHONPATH=/usr/local/lib/python:$PYTHONPATH
 
 # rbenv stuff https://github.com/sstephenson/rbenv#readme
+# see https://github.com/andxyz/.dotfiles/raw/master/languages/ruby.sh
 # note currently I use a "be=bundle exec" alias
 test -d $HOME/.rbenv/bin &&
 export -- PATH="$HOME/.rbenv/bin:$PATH" &&
 eval "$(rbenv init -)"
 
-# java sdkman http://sdkman.io/
+## java sdkman http://sdkman.io/
 # this stupid thing curl calls all the time
-# export SDKMAN_DIR="/Users/andxyz/.sdkman"
-# [[ -s "/Users/andxyz/.sdkman/bin/sdkman-init.sh" ]] && source "/Users/andxyz/.sdkman/bin/sdkman-init.sh"
+#export SDKMAN_DIR="/Users/andxyz/.sdkman"
+#test -s "/Users/andxyz/.sdkman/bin/sdkman-init.sh" &&
+#source "/Users/andxyz/.sdkman/bin/sdkman-init.sh"
 
-## Cross-platform, Python-agnostic binary package manager https://github.com/conda/conda
+## OS-agnostic, system-level binary package manager and ecosystem http://conda.pydata.org
 export PATH="$PATH:$HOME/anaconda3/bin"
 
 echo \
