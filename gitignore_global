@@ -1,6 +1,8 @@
 # see https://github.com/github/gitignore/
 
+## my place to dump info on usage
 /README*secrets.md
+**/README*secrets.md
 
 ###
 ## Languages
@@ -95,7 +97,7 @@ local.properties
 .cproject
 # PDT-specific
 .buildpath
-# sbteclipse plugin 
+# sbteclipse plugin
 .target
 # TeXlipse plugin
 .texlipse
