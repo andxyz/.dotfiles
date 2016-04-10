@@ -11,6 +11,9 @@
 ## Ruby stuff
 .bundle/
 
+## Python stuff
+**/venv/
+
 ###
 ## Text Editors
 ###
