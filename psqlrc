@@ -37,5 +37,8 @@
 -- no less/more pager
 \pset pager off
 
---set noisyness back to normal
+-- http://serverfault.com/questions/34741/postgres-equivalent-to-mysqls-g
+\set G '\\set QUIET 1\\x\\g\\x\\set QUIET 0'
+
+-- set noisyness back to normal
 \unset QUIET
