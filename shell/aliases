@@ -117,6 +117,8 @@ alias php-fpm.killall='pgrep php-fpm | xargs kill -9'
 alias sspeedtest='echo "scale=2; `curl  --progress-bar -w "%{speed_download}" http://cachefly.cachefly.net/10mb.test -o test.zip ` / 131072" | bc | xargs -I {} echo {}Mb\/s && rm -rf test.zip'
 
 ## top ten used commands line tools
+alias ttopten='ttopten() { fc -l -n 1 | cut -d" " -f1-1 | gsort | guniq -c | gsort -rn | ghead -10 }; ttopten;'
 alias ttopten1="history -99999 | gawk '{print $2}' | gsort | guniq -c | gsort -rn | ghead -20"
 alias ttopten2="fc -l -n 1 | gsort | guniq -c | gsort -rn | ghead -20"
 alias ttopten3="history -99999 | gtr -s ' ' | gcut -d' ' -f3- | gsort | guniq -c | gsort -rn | ghead -20"
+alias ttopten_maryan_bash='f() { history|cut -d\  -f4-5|sort|uniq -c|sort -rn|head -${1:-30}; }; f'
