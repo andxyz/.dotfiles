@@ -58,11 +58,21 @@ echo '## installing rubies'
 # rbenv install --skip-existing --verbose jruby-1.7.20
 # rbenv install --skip-existing --verbose 1.9.3-p551
 # rbenv install --skip-existing --verbose 2.1.5
+## config.status: creating ruby-2.3.pc
+##   CC = clang
+##   LD = ld
+##   LDSHARED = clang -dynamic -bundle
+##   CFLAGS = -g2 -ggdb -O2 -O3 -Wno-error=shorten-64-to-32  -pipe
+##   XCFLAGS = -D_FORTIFY_SOURCE=2 -fstack-protector -fno-strict-overflow -fvisibility=hidden -DRUBY_EXPORT
+##   CPPFLAGS = -I/Users/andxyz/.rbenv/versions/2.3.1/include  -D_XOPEN_SOURCE -D_DARWIN_C_SOURCE -D_DARWIN_UNLIMITED_SELECT -D_REENTRANT   -I. -I.ext/include/x86_64-darwin14 -I./include -I.
+##   DLDFLAGS = -Wl,-undefined,dynamic_lookup -Wl,-multiply_defined,suppress -fstack-protector -Wl,-u,_objc_msgSend -framework CoreFoundation
+##   SOLIBS = -lgmp
 export -- MAKE_OPT='-j8'
 export -- CFLAGS='-g2 -ggdb -O2'
 RUBY_CONFIGURE_OPTS="--with-openssl-dir=$(brew --prefix openssl)  --with-readline-dir=$(brew --prefix readline) --disable-install-doc --disable-install-rdoc --disable-install-capi" rbenv install --skip-existing --verbose 2.2.3
 RUBY_CONFIGURE_OPTS="--with-openssl-dir=$(brew --prefix openssl)  --with-readline-dir=$(brew --prefix readline) --disable-install-doc --disable-install-rdoc --disable-install-capi" rbenv install --skip-existing --verbose 2.2.4
 RUBY_CONFIGURE_OPTS="--with-openssl-dir=$(brew --prefix openssl)  --with-readline-dir=$(brew --prefix readline) --disable-install-doc --disable-install-rdoc --disable-install-capi" rbenv install --skip-existing --verbose 2.3.0
+RUBY_CONFIGURE_OPTS="--with-openssl-dir=$(brew --prefix openssl)  --with-readline-dir=$(brew --prefix readline) --disable-install-doc --disable-install-rdoc --disable-install-capi" rbenv install --skip-existing --verbose 2.3.1
 
 # installer files cleanup
 brew cleanup && brew prune
