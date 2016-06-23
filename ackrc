@@ -10,7 +10,7 @@
 --rust
 --shell
 --sql
---type-add=css=.sass
+--yaml
 --type-add=css=.sass,.less,.scss
 --type-add=html=.erb,.haml,.slim
 --type-add=js=.coffee
@@ -28,6 +28,9 @@
 --type-set=plist=.plist
 --type-set=rdoc=.rdoc
 --type-set=xcode=.pbxproj,.pbxuser,.perspectivev3
+
+--type-set=config=.conf
+--type-set=template=.tpl,.ctmpl
 
 --nonib
 --noxcode
