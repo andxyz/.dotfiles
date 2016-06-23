@@ -90,14 +90,16 @@ rbenv global 2.2.3
 ## show off my new whiz bangs! you guys! We gots whiz-bangs!
 rbenv rehash
 rbenv versions
-
 ## example use cases of some of our plugins
 
 ### update all your rubygems and bundlers on all your rubies
-# rbenv update
-# rbenv each gem update --system
-# rbenv each gem install bundler
-# rbenv each gem update bundler
+function update_ruby_stuff() {
+  rbenv update
+  rbenv each gem update --system
+  rbenv each gem install bundler
+  rbenv each gem update bundler
+}
+# update_ruby_stuff()
 
 ### add some default gems for new ruby installs
 # echo "bundler" >> $HOME/.rbenv/default-gems
