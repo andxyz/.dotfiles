@@ -22,12 +22,8 @@ $include /usr/local/etc/inputrc
 ## print-completions-horizontally
 ## show-all-if-ambiguous
 ## visible-stats
-## The following sequences are used to help define keys:
-#
-## \C- = Control
-## \M- = Meta
-## \e = escape character
-## \\ = backslach
+
+# for andxyz and zsh see https://github.com/andxyz/.dotfiles/blob/ff027cc6fac5d519deda3ba166968d1883f4246d/zsh/config_zsh#L39
 
 set bell-style none
 
@@ -48,9 +44,17 @@ set output-meta on
 set convert-meta off
 set enable-meta-key on
 
+## The following sequences are used to help define keys:
+#
+## \C- = Control
+## \M- = Meta
+## \e = escape character
+## \\ = backslach
+
 # osx setup
 # see http://superuser.com/questions/357355/how-can-i-get-controlleft-arrow-to-go-back-one-word-in-iterm2
 # alt-left-arrow and alt-right-arrow for jumping to word-beginnings on the commandline
+
 "\e[1;9D": backward-word
 "\e[1;9C": forward-word
 

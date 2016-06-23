@@ -17,6 +17,7 @@
 [[ -f ~/.shell/zsh_functions_private ]] && source ~/.shell/zsh_functions_private
 
 ## zsh specific
+[[ -f ~/.zsh/inputrc ]]             && source ~/.zsh/inputrc
 [[ -f ~/.zsh/config_zsh ]]          && source ~/.zsh/config_zsh
 [[ -f ~/.zsh/completion_zsh ]]      && source ~/.zsh/completion_zsh
 [[ -f ~/.shell/paths_zsh ]]         && source ~/.zsh/paths_zsh
