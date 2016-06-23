@@ -1,10 +1,11 @@
 ---
-:update_sources: true
-:sources:
+update_sources: true
+sources:
 - https://rubygems.org
-:backtrace: true
-:benchmark: false
-:bulk_threshold: 1000
-:verbose: true
-gem: --no-rdoc --no-ri --env-shebang
-update: --no-rdoc --no-ri
+backtrace: true
+benchmark: false
+bulk_threshold: 1000
+verbose: true
+gem: --no-rdoc --no-ri --no-doc --env-shebang
+install: --no-rdoc --no-ri --no-doc --env-shebang
+update: --no-rdoc --no-ri --no-doc --env-shebang
