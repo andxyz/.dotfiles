@@ -44,6 +44,10 @@ bindkey -e
 bindkey '^[[1;9C' forward-word
 bindkey '^[[1;9D' backward-word
 
+autoload -z edit-command-line
+zle -N edit-command-line
+bindkey "^X^E" edit-command-line
+
 # bindkey '^[^[[D' backward-word
 # bindkey '^[^[[C' forward-word
 # bindkey '^[[5D' beginning-of-line
