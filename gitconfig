@@ -32,9 +32,8 @@
     p = pull
     f = fetch --all
     fm = fetch origin master:master
-    r = rebase -i master
-    ac = !git add --all && git commit
     ls = ls-files
+    diffc = diff --cached
     unstage = reset HEAD --
 
     ## branch hunting
