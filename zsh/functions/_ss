@@ -1,4 +1,9 @@
 #!/usr/bin/env zsh
 
 #compdef ss
-_files -W ~/score -/
+
+_ss() {
+  _files -W $HOME/thescore  -/
+}
+
+_ss "$@"
