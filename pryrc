@@ -14,6 +14,10 @@ Pry.commands.alias_command 'c', 'continue'
 # Pry.commands.alias_command 's', 'step'
 # Pry.commands.alias_command 'n', 'next'
 
+if defined?(::Rails) && Rails.env
+  ActiveRecord::Base.logger = Logger.new(STDOUT)
+end
+
 # nicer table printing
 if ENV['RAILS_USE_HIRB_GEM'] && defined?(::Rails) && Rails.env
   begin
