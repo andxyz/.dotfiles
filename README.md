@@ -54,14 +54,13 @@ chmod +x ./languages/*
 
 #### andxyz personal sublime text plugins
 
-#todo http://github.com/andxyz/sublime-text-3-configs
-see http://github.com/andxyz/sublime-text-2-configs
+see http://github.com/andxyz/sublime-text-3-configs
 
 ```
-git clone git@github.com:andxyz/sublime-text-2-configs.git ~/temp-sublime-text-2-configs
-mv ~/temp-sublime-text-2-configs/.git ~/Library/Application\ Support/Sublime\ Text\ 2/.git
-rm -rf ~/temp-sublime-text-2-configs
-cd ~/Library/Application\ Support/Sublime\ Text\ 2/
+git clone git@github.com:andxyz/sublime-text-3-configs.git ~/temp-sublime-text-3-configs
+mv ~/temp-sublime-text-3-configs/.git ~/Library/Application\ Support/Sublime\ Text\ 3/.git
+rm -rf ~/temp-sublime-text-3-configs
+cd ~/Library/Application\ Support/Sublime\ Text\ 3/
 git checkout --force master
 ```
 
