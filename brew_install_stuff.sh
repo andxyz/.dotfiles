@@ -369,31 +369,33 @@ brew doctor
 
 ### current list of crap on my dev machine
 # ~/code/andxyz-dotfiles[master]$ brew leaves | sort | paste - - - -
-# homebrew/apache/ab  ack ansible autoenv
-# awscli  bash  bash-completion bash-git-prompt
-# beanstalk bfg caskroom/cask/brew-cask homebrew/completions/bundler-completion
-# homebrew/dupes/bzip2  homebrew/completions/cargo-completion carthage  coreutils
-# cppcheck  ctags curl  homebrew/x11/ddd
-# ffmpeg  findutils flow  gawk
-# gcc gdb homebrew/completions/gem-completion geoip
-# gifsicle  git gnu-indent  gnu-sed
-# gnu-tar gnupg gnupg2  gradle
-# graphviz  homebrew/dupes/grep homebrew/completions/grunt-completion heroku-toolbelt
+# ack ansible autoenv awscli
+# bash  bash-completion bash-git-prompt beanstalkd
+# bfg carthage  coreutils cppcheck
+# ctags curl  elm ffmpeg
+# findutils flow  gawk  gcc
+# gdb geoip gifsicle  git
+# gnu-indent  gnu-sed gnu-tar gnu-which
+# gnupg gnupg2  gradle  graphviz
+# haskell-stack heroku  homebrew/apache/ab  homebrew/completions/bundler-completion
+# homebrew/completions/cargo-completion homebrew/completions/gem-completion homebrew/completions/grunt-completion homebrew/completions/maven-completion
+# homebrew/completions/pip-completion homebrew/completions/rails-completion homebrew/completions/rake-completion  homebrew/completions/vagrant-completion
+# homebrew/dupes/bzip2  homebrew/dupes/grep homebrew/dupes/gzip homebrew/dupes/openssh
+# homebrew/dupes/zlib homebrew/fuse/ntfs-3g homebrew/fuse/s3fs  homebrew/php/composer
+# homebrew/php/php56  homebrew/science/r  homebrew/science/vips homebrew/versions/llvm35
 # htop-osx  httpie  hub ical-buddy
 # iftop imagemagick ios-webkit-debug-proxy  iperf
-# jenv  jq  libav homebrew/versions/llvm35
-# lua luajit  mackup  macvim
-# man2html  homebrew/completions/maven-completion memcached mercurial
-# mitmproxy mongoose  mysql nginx
-# nmap  homebrew/fuse/ntfs-3g opam  homebrew/dupes/openssh
-# ossp-uuid pandoc  parallel  phantomjs
-# homebrew/php/php56  pidcat  homebrew/completions/pip-completion postgresql
-# psgrep  pstree  pv  python3
-# homebrew/science/r  homebrew/completions/rails-completion homebrew/completions/rake-completion  recoverjpeg
-# redis rust  s3cmd homebrew/fuse/s3fs
-# samba sdl speedtest_cli subversion
-# tcpflow the_silver_searcher thefuck tig
-# transmission  tree  uncrustify  v8
-# homebrew/completions/vagrant-completion homebrew/science/vips watchman  wget
-# xctool  youtube-dl  zeromq  homebrew/dupes/zlib
-# zsh zsh-completions
+# jenv  jq  jsonpp  leiningen
+# libav libvo-aacenc  libxslt lua
+# luajit  macvim  man2html  memcached
+# mercurial mitmproxy mongoose  multitail
+# mysql nginx nmap  nsq
+# opam  ossp-uuid pandoc  parallel
+# pbzip2  phantomjs pidcat  postgrest
+# proctools psgrep  pstree  pv
+# python3 recoverjpeg redis rust
+# s3cmd samba sdl speedtest_cli
+# subversion  tcpflow the_silver_searcher tig
+# transmission  tree  uncrustify  universal-ctags/universal-ctags/universal-ctags
+# v8  watchman  wget  xctool
+# youtube-dl  zsh zsh-completions
