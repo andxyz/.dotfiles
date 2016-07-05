@@ -29,6 +29,8 @@ test -d "/Applications/android-sdk-macosx/" &&
 export -- GOPATH=$HOME/code/gowork
 export -- PATH=$PATH:/usr/local/go/bin
 export -- PATH=${PATH}:${GOPATH}/bin
+## show what is installed in gowork folder
+## tree -L 3 $HOME/code/gowork
 ## Note: GOROOT must be set only when installing to a custom location.
 #export GOROOT=$HOME/go
 #export PATH=$PATH:$GOROOT/bin
