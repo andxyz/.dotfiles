@@ -19,11 +19,15 @@ brew unlink libyaml || true
 brew unlink readline || true
 
 brew install openssl libyaml libffi readline
+brew install libxml2 --with-xml2-config
+brew install libxslt
 
 brew link openssl --force || true
 brew link libffi --force || true
 brew link libyaml --force || true
 brew link readline --force || true
+brew link libxml2 --force || true
+brew link libxslt --force || true
 
 ## plugins ahoy, see https://github.com/sstephenson/rbenv/wiki/Plugins
 echo '## installing rbenv plugins'
@@ -42,7 +46,6 @@ cd $HOME
 
 ## make sure rbenv is uptodate
 rbenv update
-rbenv each gem update --system
 
 # required for building Ruby <= 1.9.3-p0:
 # brew tap homebrew/dupes && brew install apple-gcc42
@@ -51,13 +54,6 @@ rbenv each gem update --system
 echo '## installing rubies'
 #
 # rbenv install --list
-# rbenv install --skip-existing --verbose 1.8.7-p375
-# rbenv install --skip-existing --verbose 1.9.3-p448
-# rbenv install --skip-existing --verbose 2.0.0-p481
-# rbenv install --skip-existing --verbose jruby-1.7.16.1
-# rbenv install --skip-existing --verbose jruby-1.7.20
-# rbenv install --skip-existing --verbose 1.9.3-p551
-# rbenv install --skip-existing --verbose 2.1.5
 ## config.status: creating ruby-2.3.pc
 ##   CC = clang
 ##   LD = ld
@@ -69,9 +65,8 @@ echo '## installing rubies'
 ##   SOLIBS = -lgmp
 export -- MAKE_OPT='-j8'
 export -- CFLAGS='-g2 -ggdb -O2'
-RUBY_CONFIGURE_OPTS="--with-openssl-dir=$(brew --prefix openssl)  --with-readline-dir=$(brew --prefix readline) --disable-install-doc --disable-install-rdoc --disable-install-capi" rbenv install --skip-existing --verbose 2.2.3
-RUBY_CONFIGURE_OPTS="--with-openssl-dir=$(brew --prefix openssl)  --with-readline-dir=$(brew --prefix readline) --disable-install-doc --disable-install-rdoc --disable-install-capi" rbenv install --skip-existing --verbose 2.2.4
-RUBY_CONFIGURE_OPTS="--with-openssl-dir=$(brew --prefix openssl)  --with-readline-dir=$(brew --prefix readline) --disable-install-doc --disable-install-rdoc --disable-install-capi" rbenv install --skip-existing --verbose 2.3.0
+RUBY_CONFIGURE_OPTS="--with-openssl-dir=$(brew --prefix openssl)  --with-readline-dir=$(brew --prefix readline) --disable-install-doc --disable-install-rdoc --disable-install-capi" rbenv install --skip-existing --verbose 1.9.3-p551
+RUBY_CONFIGURE_OPTS="--with-openssl-dir=$(brew --prefix openssl)  --with-readline-dir=$(brew --prefix readline) --disable-install-doc --disable-install-rdoc --disable-install-capi" rbenv install --skip-existing --verbose 2.2.5
 RUBY_CONFIGURE_OPTS="--with-openssl-dir=$(brew --prefix openssl)  --with-readline-dir=$(brew --prefix readline) --disable-install-doc --disable-install-rdoc --disable-install-capi" rbenv install --skip-existing --verbose 2.3.1
 
 # installer files cleanup
@@ -82,10 +77,11 @@ brew doctor
 #
 # rbenv shell 1.9.3-p547
 # rbenv global 1.9.3-p547
-# rbenv shell 2.2.0
-# rbenv global 2.0.0-p247
-echo '## setting default shell ruby to 2.2.2'
-rbenv global 2.2.3
+# rbenv shell 2.2.4
+# rbenv global 2.2.4
+echo '## setting default shell ruby to 2.3.1'
+rbenv shell  2.3.1
+rbenv global 2.3.1
 
 ## show off my new whiz bangs! you guys! We gots whiz-bangs!
 rbenv rehash
@@ -99,7 +95,7 @@ function update_ruby_stuff() {
   rbenv each gem install bundler
   rbenv each gem update bundler
 }
-# update_ruby_stuff()
+update_ruby_stuff()
 
 ### add some default gems for new ruby installs
 # echo "bundler" >> $HOME/.rbenv/default-gems
