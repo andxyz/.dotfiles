@@ -41,9 +41,9 @@ now I close the current shell and open a new one
 ### install other languages as needed
 cd ~/.dotfiles/
 chmod +x ./languages/*
-# ./languages/clojure.sh todo
-# ./languages/go.sh todo
-# ./languages/haskell.sh todo
+./languages/clojure.sh
+./languages/go.sh
+./languages/haskell.sh
 ./languages/java.sh
 ./languages/nodejs.sh
 ./languages/perl.sh
