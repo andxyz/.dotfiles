@@ -69,8 +69,8 @@
 
     ## code review
     code-review-reset-and-unstage-to = !bash -c 'git reset --soft ${1} && git reset HEAD -- ' -
-    openunstaged = "!$EDITOR_USING_CURRENT_PROJECT $(git diff --name-only)"
-    openstaged = "!$EDITOR_USING_CURRENT_PROJECT $(git diff --name-only --cached)"
+    openunstaged = "!$EDITOR_USING_CURRENT_PROJECT $(git diff --diff-filter AM --name-only)"
+    openstaged = "!$EDITOR_USING_CURRENT_PROJECT $(git diff --diff-filter AM --name-only --cached)"
 
     ## depends on hub
     github-pulls = "!hub browse -- pulls/"
