@@ -1,4 +1,4 @@
 #!/usr/local/bin/zsh
 
-cd ~/code/$1;
+cd $HOME/code/$1;
 sset $1;

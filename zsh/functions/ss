@@ -1,4 +1,4 @@
-#!/usr/bin/env zsh
+#!/usr/local/bin/zsh
 
-cd ~/thescore/$1;
+cd $HOME/thescore/$1;
 sset $1;
