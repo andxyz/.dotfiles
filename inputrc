@@ -3,25 +3,15 @@ $include /etc/inputrc
 $include /usr/local/etc/inputrc
 
 ### Notes on possible settings
-## bell-style - Possible values are audible (the default), visible, or none. This controls what happens when the Readline function wants to ring the bell.
-## comment-begin - The default is #. This defines the string that will be inserted at the start of the line when the insert-comment command if received.
+## see https://www.gnu.org/software/bash/manual/html_node/Readline-Init-File-Syntax.html
+## bell-style - Possible values are audible (the default), visible, or none.
 ## completion-ignore-case
-## completion-query-items
 ## convert-meta - If on (the default), characters are converted to the ASC seven bit character set.
 ## disable-completion
 ## editing mode - May be set to emacs or vi
 ## enable-keyboard
 ## expand-tilde
-## horizontal-scroll-mode
 ## input-meta - If set to on, eight bit input is enabled. If off (the default) it only passes seven bits of any character.
-## isearch-terminators
-## keymap
-## mark-directories
-## mark-modified-lines
-## output-meta
-## print-completions-horizontally
-## show-all-if-ambiguous
-## visible-stats
 
 # for andxyz and zsh see https://github.com/andxyz/.dotfiles/blob/ff027cc6fac5d519deda3ba166968d1883f4246d/zsh/config_zsh#L39
 
@@ -38,8 +28,8 @@ set completion-ignore-case on
 
 # Be 8 bit clean
 # see http://www.comptechdoc.org/os/linux/howlinuxworks/linux_hlkeyprogs.html
-set meta-flag on
 set input-meta on
+set meta-flag on
 set output-meta on
 set convert-meta off
 set enable-meta-key on
@@ -55,6 +45,8 @@ set enable-meta-key on
 # see http://superuser.com/questions/357355/how-can-i-get-controlleft-arrow-to-go-back-one-word-in-iterm2
 # alt-left-arrow and alt-right-arrow for jumping to word-beginnings on the commandline
 
+"\e[1;5D": backward-word
+"\e[1;5C": forward-word
 "\e[1;9D": backward-word
 "\e[1;9C": forward-word
 

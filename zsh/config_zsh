@@ -41,9 +41,18 @@ setopt HIST_REDUCE_BLANKS
 zle -N newtab
 
 bindkey -e
+
+## see http://superuser.com/questions/357355/how-can-i-get-controlleft-arrow-to-go-back-one-word-in-iterm2
+
+## ctrl-left ctrl-right
+bindkey "\e[1;5C" forward-word
+bindkey "\e[1;5D" backward-word
+
+## alt-left alt-right
 bindkey '^[[1;9C' forward-word
 bindkey '^[[1;9D' backward-word
 
+# see http://stackoverflow.com/questions/890620/unable-to-have-bash-like-c-x-e-in-zsh
 autoload -z edit-command-line
 zle -N edit-command-line
 bindkey "^X^E" edit-command-line
