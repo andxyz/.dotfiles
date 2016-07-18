@@ -87,11 +87,11 @@
     # http://git-scm.com/docs/git-for-each-ref
 
     # andxyz diff magic
-    diffks = difftool --tool=Kaleidoscope
+    diffks = difftool --tool=kaleidoscope_diff
     diffvim = difftool --tool=use_vim_diff
     diffmvim = difftool --tool=use_mvim_diff
-    diffp4 = difftool --tool=p4merge
-    mergeks = mergetool --tool=Kaleidoscope
+    diffp4 = difftool --tool=p4merge_diff
+    mergeks = mergetool --tool=kaleidoscope_merge
     # https://github.com/scottgonzalez/pretty-diff
     # diffpretty = !$HOME/bin/pretty-diff/pretty-diff.js
 
@@ -120,13 +120,13 @@
 # the gist https://gist.github.com/toolbear/861192
 # you must have a ~/bin/p4merge file
 #
-[mergetool "p4merge"]
+[mergetool "p4merge_merge"]
     cmd = p4merge "$BASE" "$REMOTE" "$LOCAL" "$MERGED"
     keepTemporaries = false
     trustExitCode = false
     keepBackup = false
 
-[difftool "p4merge"]
+[difftool "p4merge_diff"]
     cmd = "p4merge $LOCAL $REMOTE"
 
 #
@@ -147,25 +147,29 @@
 #
 # Kaleidoscope
 #
-[mergetool "Kaleidoscope"]
+[mergetool "kaleidoscope_merge"]
     cmd = ksdiff --merge --output \"$MERGED\" --base \"$BASE\" -- \"$LOCAL\" --snapshot \"$REMOTE\" --snapshot
+    keepBackup = false
+    keepTemporaries = false
 
-[difftool "Kaleidoscope"]
+[difftool "kaleidoscope_diff"]
     cmd = ksdiff --partial-changeset --relative-path \"$MERGED\" -- \"$LOCAL\" \"$REMOTE\"
+    keepBackup = false
+    keepTemporaries = false
 
 [diff]
-    tool = Kaleidoscope
+    tool = kaleidoscope_diff
     keepBackup = false
     keepTemporaries = false
 
 [merge]
-    tool = Kaleidoscope
+    tool = kaleidoscope_merge
     keepBackup = false
     keepTemporaries = false
     trustExitCode = false
 
 [mergetool]
-    tool = Kaleidoscope
+    tool = kaleidoscope_merge
     keepBackup = false
     keepTemporaries = false
     trustExitCode = false
