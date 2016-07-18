@@ -1,13 +1,15 @@
-#!/bin/sh
+#!/usr/bin/env bash
 set -e
+set -x
 
-tagfile="${GIT_DIR:-.git}/tags.$$"
-trap "rm -f $tagfile" EXIT
+# man ctags
+# https://manned.org/ctags-exuberant/05e759a0
 
-if [ -x script/ctags ]; then
-  script/ctags -f "$tagfile"
-else
-  ctags --tag-relative -Rf "$tagfile" --exclude=.git --languages=-javascript,sql
-fi
+PATH="/usr/local/bin:$PATH"
+dir="`git rev-parse --git-dir`"
+trap 'rm -f "$dir/$$.tags"' EXIT
 
-mv "$tagfile" "${tagfile%.$$}"
+git ls-files | \
+ctags -R --tag-relative --languages=+ruby,-javascript,sql --exclude=.git -f"$dir/$$.tags"
+
+mv "$dir/$$.tags" "$dir/tags"
