@@ -10,9 +10,9 @@ Pry.config.history.file = "#{ENV['HOME']}/.irb_history"
 # config editor
 Pry.config.editor = "subl -w"
 
-Pry.commands.alias_command 'c', 'continue'
-# Pry.commands.alias_command 's', 'step'
-# Pry.commands.alias_command 'n', 'next'
+Pry.commands.alias_command 'cc', 'continue'
+# Pry.commands.alias_command 'ss', 'step'
+# Pry.commands.alias_command 'nn', 'next'
 
 if defined?(::Rails) && Rails.env
   ActiveRecord::Base.logger = Logger.new(STDOUT)
@@ -32,9 +32,10 @@ if ENV['RAILS_USE_HIRB_GEM'] && defined?(::Rails) && Rails.env
     Pry.config.print = proc do |*args|
       Hirb::View.view_or_page_output(args[1]) || old_print.call(*args)
     end
-  rescue Exception => e
+  rescue StandardError => e
     # oh well
-    puts e.inspect
-    puts e.backtrace
+    puts e.message if e.message
+    puts e.cause if e.cause
+    puts e.backtrace if e.backtrace
   end
 end
