@@ -1,4 +1,0 @@
-#!/usr/bin/env zsh
-
-cd ~/thescore/$1;
-sset $1;
