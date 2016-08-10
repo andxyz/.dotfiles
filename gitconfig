@@ -112,6 +112,12 @@
     lineNumber = true
     extendRegexp = true
 
+# git rerere discussion
+#
+# https://git-scm.com/blog/2010/03/08/rerere.html
+[rerere]
+    enabled = true
+
 #
 # perforce p4merge aint so great, just buy http://www.kaleidoscopeapp.com/
 #
