@@ -9,13 +9,18 @@ set -e
 ### first off, update all brew installed crap we already have before going forward
 ## house cleaning round 1
 brew update
-brew upgrade brew-cask
 brew cleanup
-brew cask cleanup
+# brew cask tricks
+# mv /opt/homebrew-cask/Caskroom /usr/local/Caskroom
+# find ~/Applications -lname '/opt/*' -exec sh -c 'ln -sf "$(readlink "$0" | sed s:^/opt/homebrew\-cask/:/usr/local/:g)" "$0"' {} \;
+# read up https://github.com/caskroom/homebrew-cask/issues/9685
+brew prune
 brew outdated
 
+# brew deps homebrew/apache/ab
+# brew uses --installed apr
+
 ### enable binary downloads see https://github.com/phinze/homebrew-cask/ for more
-brew install 'caskroom/cask/brew-cask'
 brew tap 'homebrew/aliases'
 brew tap 'homebrew/apache'
 brew tap 'homebrew/binary'
