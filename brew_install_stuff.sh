@@ -9,7 +9,7 @@ set -e
 ### first off, update all brew installed crap we already have before going forward
 ## house cleaning round 1
 brew update
-brew cleanup
+brew cleanup -s
 # brew cask tricks
 # mv /opt/homebrew-cask/Caskroom /usr/local/Caskroom
 # find ~/Applications -lname '/opt/*' -exec sh -c 'ln -sf "$(readlink "$0" | sed s:^/opt/homebrew\-cask/:/usr/local/:g)" "$0"' {} \;
@@ -17,6 +17,8 @@ brew cleanup
 brew prune
 brew outdated
 
+# tips for dependency checking
+# brew deps --installed --tree | less -i ab
 # brew deps homebrew/apache/ab
 # brew uses --installed apr
 
@@ -97,8 +99,9 @@ brew install 'carthage'
 brew install 'zsh'
 
 ### version control systems
-brew install 'git' --with-pcre
-# brew upgrade 'git' --with-pcre
+# brew options git
+brew install 'git' --with-pcre --with-brewed-curl --with-brewed-openssl
+#brew upgrade 'git' --with-pcre --with-brewed-curl --with-brewed-openssl
 brew install 'hub'
 # brew cask install 'kaleidoscope'
 ## I've been doing it manually you have to click things to install the commandline tools anyway
@@ -363,44 +366,44 @@ brew cask install 'quicknfo' --force
 brew cask alfred link
 
 ## brew aliases
-brew alias status='!git status'
-brew alias bump='upgrade'
+# brew alias status='!git status'
+# brew alias bump='upgrade'
 
 ### some brew cleanup
-brew cleanup && brew prune
+brew cleanup -s && brew prune
 brew doctor
 
 ### I should get around to putting some of https://gist.github.com/9393431 in here
 
 ### current list of crap on my dev machine
 # ~/code/andxyz-dotfiles[master]$ brew leaves | sort | paste - - - -
-# ack ansible autoenv awscli
-# bash  bash-completion bash-git-prompt beanstalkd
-# bfg carthage  coreutils cppcheck
+# ack autoenv awscli  bash
+# bash-completion bash-git-prompt beanstalkd  bfg
+# carthage  coreutils cppcheck
 # ctags curl  elm ffmpeg
 # findutils flow  gawk  gcc
 # gdb geoip gifsicle  git
 # gnu-indent  gnu-sed gnu-tar gnu-which
 # gnupg gnupg2  gradle  graphviz
-# haskell-stack heroku  homebrew/apache/ab  homebrew/completions/bundler-completion
-# homebrew/completions/cargo-completion homebrew/completions/gem-completion homebrew/completions/grunt-completion homebrew/completions/maven-completion
-# homebrew/completions/pip-completion homebrew/completions/rails-completion homebrew/completions/rake-completion  homebrew/completions/vagrant-completion
-# homebrew/dupes/bzip2  homebrew/dupes/grep homebrew/dupes/gzip homebrew/dupes/openssh
-# homebrew/dupes/zlib homebrew/fuse/ntfs-3g homebrew/fuse/s3fs  homebrew/php/composer
-# homebrew/php/php56  homebrew/science/r  homebrew/science/vips homebrew/versions/llvm35
-# htop-osx  httpie  hub ical-buddy
-# iftop imagemagick ios-webkit-debug-proxy  iperf
-# jenv  jq  jsonpp  leiningen
-# libav libvo-aacenc  libxslt lua
-# luajit  macvim  man2html  memcached
-# mercurial mitmproxy mongoose  multitail
-# mysql nginx nmap  nsq
-# opam  ossp-uuid pandoc  parallel
-# pbzip2  phantomjs pidcat  postgrest
-# proctools psgrep  pstree  pv
-# python3 recoverjpeg redis rust
-# s3cmd samba sdl speedtest_cli
-# subversion  tcpflow the_silver_searcher tig
-# transmission  tree  uncrustify  universal-ctags/universal-ctags/universal-ctags
+# haskell-stack heroku  highlight homebrew/apache/ab
+# homebrew/boneyard/samba homebrew/completions/bundler-completion homebrew/completions/cargo-completion homebrew/completions/gem-completion
+# homebrew/completions/grunt-completion homebrew/completions/maven-completion homebrew/completions/pip-completion homebrew/completions/rails-completion
+# homebrew/completions/rake-completion  homebrew/completions/vagrant-completion homebrew/dupes/bzip2  homebrew/dupes/grep
+# homebrew/dupes/gzip homebrew/dupes/openssh  homebrew/dupes/zlib homebrew/fuse/ntfs-3g
+# homebrew/fuse/s3fs  homebrew/php/composer homebrew/php/php56  homebrew/science/r
+# homebrew/science/vips homebrew/versions/llvm35  htop-osx  httpie
+# hub ical-buddy  iftop imagemagick
+# ios-webkit-debug-proxy  iperf jenv  jq
+# jsonpp  leiningen libav libvo-aacenc
+# libxslt libyaml luajit  macvim
+# man2html  memcached mercurial mitmproxy
+# mongoose  multitail nginx nmap
+# nsq opam  ossp-uuid parallel
+# pbzip2  phantomjs pidcat  proctools
+# psgrep  pstree  pv  python3
+# recoverjpeg rust  s3cmd sdl
+# speedtest_cli subversion  swig  tcpflow
+# the_silver_searcher tig transmission  trash
+# tree  uncrustify  universal-ctags/universal-ctags/universal-ctags unrar
 # v8  watchman  wget  xctool
-# youtube-dl  zsh zsh-completions
+# youtube-dl  zsh zsh-completions zsh-syntax-highlighting
