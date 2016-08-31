@@ -70,6 +70,10 @@ RUBY_CONFIGURE_OPTS="--with-openssl-dir=$(brew --prefix openssl)  --with-readlin
 RUBY_CONFIGURE_OPTS="--with-openssl-dir=$(brew --prefix openssl)  --with-readline-dir=$(brew --prefix readline) --disable-install-doc --disable-install-rdoc --disable-install-capi" rbenv install --skip-existing --verbose 2.3.1
 
 # installer files cleanup
+# cd /usr/local
+# git checkout master
+# git fetch origin
+# git reset --hard origin/master
 brew cleanup && brew prune
 brew doctor
 
@@ -95,7 +99,7 @@ function update_ruby_stuff() {
   rbenv each gem install bundler
   rbenv each gem update bundler
 }
-update_ruby_stuff()
+update_ruby_stuff;
 
 ### add some default gems for new ruby installs
 # echo "bundler" >> $HOME/.rbenv/default-gems
