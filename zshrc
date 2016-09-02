@@ -23,4 +23,4 @@
 [[ -f ~/.shell/paths_zsh ]]         && source ~/.zsh/paths_zsh
 
 ## use .localrc for settings specific to one system
-[[ -f ~/.localrc ]] && . ~/.localrc
+[[ -f ~/.localrc ]]                 && source ~/.localrc
