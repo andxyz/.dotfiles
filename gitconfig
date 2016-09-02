@@ -31,6 +31,7 @@
     ## andxyz favorite git shortcuts
     p = pull
     f = fetch --all
+    fs = fetch origin staging:staging
     fm = fetch origin master:master
     ls = ls-files
     diffc = diff --cached
