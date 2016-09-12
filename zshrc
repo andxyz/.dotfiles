@@ -1,6 +1,8 @@
 #!/usr/bin/env zsh
 # set -x
 
+export -- ANDXYZ_ZSH_ENV_LOADED="loaded"
+
 [[ -f ~/.shell/paths ]]             && source ~/.shell/paths
 [[ -f ~/.shell/paths_private ]]     && source ~/.shell/paths_private
 

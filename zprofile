@@ -1,5 +1,4 @@
 #!/usr/bin/env zsh
 
-if [ -f ~/.zshrc ]; then
-  source ~/.zshrc
-fi
+test -z "${ANDXYZ_ZSH_ENV_LOADED}" &&
+source ~/.zshrc
