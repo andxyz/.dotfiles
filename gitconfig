@@ -168,12 +168,17 @@
     tool = kaleidoscope_diff
     keepBackup = false
     keepTemporaries = false
+    algorithm = minimal
+    compactionHeuristic = true
 
 [merge]
     tool = kaleidoscope_merge
     keepBackup = false
     keepTemporaries = false
     trustExitCode = false
+    strategy = recursive
+    algorithm = minimal
+    compactionHeuristic = true
 
 [mergetool]
     tool = kaleidoscope_merge
