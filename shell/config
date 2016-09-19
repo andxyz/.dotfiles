@@ -23,9 +23,10 @@ export -- HISTFILE=$HOME/.history
 export -- HISTSIZE=999999
 export -- SAVEHIST=999999
 
-# Encoding problems
-export -- LC_ALL="en_US.UTF-8"
-export -- LANG="en_US.UTF-8"
+# set lang to avoid encoding problems
+export -- LC_ALL='en_US.UTF-8'
+export -- LANG='en_US.UTF-8'
+export -- LANGUAGE='en_US.UTF-8'
 
 # print elapsed time when more than 10 seconds
 REPORTTIME=10
