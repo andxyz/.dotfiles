@@ -2,6 +2,10 @@
 # set -x
 # set -e
 
+# forcing paths on a mac
+export -- PATH=/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/opt/X11/bin
+[[ -f ~/.shell/path_envs ]]         && source ~/.shell/path_envs
+
 ## for interactive shell
 [[ -f ~/.shell/config_interactive_shell ]]   && source ~/.shell/config_interactive_shell
 [[ -f ~/.shell/config_interactive_private ]] && source ~/.shell/config_interactive_private
@@ -16,3 +20,7 @@
 [[ -f ~/.zsh/zsh_interactive ]]     && source ~/.zsh/zsh_interactive
 [[ -f ~/.zsh/zsh_completion ]]      && source ~/.zsh/zsh_completion
 [[ -f ~/.zsh/zsh_functions_private ]] && source ~/.zsh/zsh_functions_private
+
+echo \
+"""export -- PATH=
+$PATH"""

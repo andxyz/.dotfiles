@@ -90,7 +90,3 @@ eval "$(rbenv init -)"
 
 ## OS-agnostic, system-level binary package manager and ecosystem http://conda.pydata.org
 export PATH="$PATH:$HOME/anaconda3/bin"
-
-echo \
-"""export -- PATH=
-$PATH"""
