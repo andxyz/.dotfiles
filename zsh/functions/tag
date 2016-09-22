@@ -1,0 +1,8 @@
+#!/usr/bin/env zsh
+
+# https://github.com/aykamko/tag
+export -- TAG_CMD_FMT_STRING="${EDITOR_USING_CURRENT_PROJECT} {{.Filename}}:{{.LineNumber}}"
+if (( $+commands[tag] )); then
+  function tag() { command tag --ignore-dir './log' --ignore-dir './vendor' --ignore-dir './tmp' "${@}"; source ${TAG_ALIAS_FILE:-/tmp/tag_aliases} 2>/dev/null }
+  alias ag=tag
+fi

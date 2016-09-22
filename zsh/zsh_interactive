@@ -3,19 +3,19 @@
 # allow bash style comments
 setopt interactivecomments
 
-## shell specific history
-HISTFILE=$HOME/.zsh_history
-
 ## zsh function nonsense
 fpath=(~/.zsh/functions $fpath)
 autoload -U ~/.zsh/functions/*(:t)
 
 ## fancy git prompt on my local machine using a zsh function
 if [[ -n $SSH_CONNECTION ]]; then
-  export -- PS1='%m:%3~$(git_info_for_prompt)$ '
+  export -- PS1=$'%m:%3~$(git_info_for_prompt)\n$ '
 else
-  export -- PS1='%3~$(git_info_for_prompt)$ '
+  export -- PS1=$'%3~$(git_info_for_prompt)\n$ '
 fi
+
+## shell specific history
+export -- HISTFILE=$HOME/.zsh_history
 
 ## force some ENV configs
 setopt NO_BG_NICE # don't nice background tasks

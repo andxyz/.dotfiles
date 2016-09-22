@@ -4,11 +4,6 @@ export -- PATH="$HOME/bin:/usr/local/sbin:/usr/local/bin:$PATH"
 export -- MANPATH="/usr/local/share/man:$MANPATH"
 export -- MANPATH="/usr/local/opt/coreutils/libexec/gnuman:$MANPATH"
 
-# autoenv stuff
-# brew info autoenv
-test -f "/usr/local/opt/autoenv/activate.sh" &&
-source /usr/local/opt/autoenv/activate.sh
-
 # subversion stuff
 # brew info subversion
 test -d "$PATH:/opt/subversion/bin" &&

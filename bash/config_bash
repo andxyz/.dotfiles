@@ -1,7 +1,9 @@
 #!/usr/bin/env bash
-## shell specific history
-HISTFILE=$HOME/.bash_history
 
+## shell specific history
+export -- HISTFILE=$HOME/.bash_history
+
+# use the homebrew git prompt script else use and old one
 if test -f /usr/local/etc/bash_completion.d/git-prompt.sh; then
   source /usr/local/etc/bash_completion.d/git-prompt.sh
 else

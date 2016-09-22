@@ -1,28 +1,18 @@
 #!/usr/bin/env zsh
 # set -x
+# set -e
 
-export -- ANDXYZ_ZSH_ENV_LOADED="loaded"
-
-[[ -f ~/.shell/paths ]]             && source ~/.shell/paths
-[[ -f ~/.shell/paths_private ]]     && source ~/.shell/paths_private
-
-## generic shell configs
-[[ -f ~/.shell/config ]]            && source ~/.shell/config
+## for interactive shell
+[[ -f ~/.shell/config_interactive_shell ]]   && source ~/.shell/config_interactive_shell
+[[ -f ~/.shell/config_interactive_private ]] && source ~/.shell/config_interactive_private
 [[ -f ~/.shell/config_ssh_agent ]]  && source ~/.shell/config_ssh_agent
-[[ -f ~/.shell/config_ruby ]]       && source ~/.shell/config_ruby
-[[ -f ~/.shell/config_private ]]    && source ~/.shell/config_private
 [[ -f ~/.shell/aliases ]]           && source ~/.shell/aliases
 [[ -f ~/.shell/aliases_private ]]   && source ~/.shell/aliases_private
 [[ -f ~/.shell/functions ]]         && source ~/.shell/functions
 [[ -f ~/.shell/functions_private ]] && source ~/.shell/functions_private
 [[ -f ~/.shell/ruby_rails_tricks.sh ]] && source ~/.shell/ruby_rails_tricks.sh
-[[ -f ~/.shell/zsh_functions_private ]] && source ~/.shell/zsh_functions_private
 
-## zsh specific
-[[ -f ~/.zsh/inputrc ]]             && source ~/.zsh/inputrc
-[[ -f ~/.zsh/config_zsh ]]          && source ~/.zsh/config_zsh
-[[ -f ~/.zsh/completion_zsh ]]      && source ~/.zsh/completion_zsh
-[[ -f ~/.shell/paths_zsh ]]         && source ~/.zsh/paths_zsh
-
-## use .localrc for settings specific to one system
-[[ -f ~/.localrc ]]                 && source ~/.localrc
+## for zsh interactive specific
+[[ -f ~/.zsh/zsh_interactive ]]     && source ~/.zsh/zsh_interactive
+[[ -f ~/.zsh/zsh_completion ]]      && source ~/.zsh/zsh_completion
+[[ -f ~/.zsh/zsh_functions_private ]] && source ~/.zsh/zsh_functions_private
