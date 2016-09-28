@@ -61,7 +61,7 @@ export -- PERL_LOCAL_LIB_ROOT="/Users/andxyz/perl5:$PERL_LOCAL_LIB_ROOT";
 export -- PERL_MB_OPT="--install_base "/Users/andxyz/perl5"";
 export -- PERL_MM_OPT="INSTALL_BASE=/Users/andxyz/perl5";
 export -- PERL5LIB="/Users/andxyz/perl5/lib/perl5:$PERL5LIB";
-export -- PATH="/Users/andxyz/perl5/bin:/Users/andxyz/perl5/perlbrew/bin::$PATH";
+export -- PATH="/Users/andxyz/perl5/bin:/Users/andxyz/perl5/perlbrew/bin:$PATH";
 
 # php stuff
 which php54 >> /dev/null 2>&1 &&
