@@ -77,6 +77,9 @@
     github-pulls = "!hub browse -- pulls/"
     github-mypulls = "!hub browse -- pulls/andxyz"
     github-open-pull-request = "!hub pull-request"
+    gopenpr = "!hub pull-request"
+    gmypulls = "!hub browse -- pulls/andxyz"
+    gpulls = "!hub browse -- pulls"
 
     ## not really used aliasaes but they are useful to look at when hunting for a git command
     delete-remote-branch = push origin --delete
