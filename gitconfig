@@ -189,6 +189,9 @@
     keepTemporaries = false
     trustExitCode = false
     prompt = false
+    strategy = recursive
+    algorithm = minimal
+    compactionHeuristic = true
 
 #
 # sourcetree
