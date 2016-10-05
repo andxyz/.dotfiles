@@ -42,12 +42,10 @@
 
     ## personal git log opinions
     log      = log --topo-order --graph --pretty=format:'%Cred[%h]%Creset%Cgreen[%ci]%C(bold blue)[%aN]%Creset%C(yellow)%d%Creset %s'
-    logpatch = log --decorate=full --no-merges --topo-order --patch
-
     logpnopager = --no-pager log
 
     # commit investigation
-    logpatchcodeonly = log --topo-order --no-merges --patch
+    logpatch = log --decorate=full --no-merges --topo-order --patch
     logponeline      = log --topo-order --decorate --abbrev-commit --pretty=format:'%Cred %h %Creset%Cgreen[%ai]%C(bold blue)[%aN]%Creset %s%C(yellow)%d%Creset'
     logpstat         = log --topo-order --color --stat=180,150 --pretty='format: %Cgreen%h%Creset%Cblue by %aN, %ci%Creset  %s%Cred%d%Creset%n'
     logpmerges       = log --topo-order --merges --decorate --pretty=format:'%Cred %h %Creset%Cgreen[%ai]%C(bold blue)[%aN]%Creset %s%C(yellow)%d%Creset'
@@ -62,14 +60,14 @@
     logprshowrefs = "!fgit3() { git log --topo-order --graph --decorate --boundary origin/${1:-master}... --oneline; }; fgit3"
     logprsimple   = "!fgit4() { git log --topo-order --graph --decorate --boundary origin/${1:-master}... --pretty=format:'%Cred[%h]%Creset%Cgreen[%ai]%C(bold blue)[%aN]%Creset %s'; }; fgit4"
 
-    ## git show views
-    show0 = show --pretty="full" --stat
-    show1 = show --stat=180,150 --pretty="oneline"
-    show2 = show --pretty="full" --name-only
-    show3 = show --pretty="oneline" --name-only
+    ## git show alternatives
+    showpretty = show --pretty="full" --stat
+    showpstat = show --stat=180,150 --pretty="oneline"
+    showpnameonly = show --pretty="full" --name-only
+    showponline = show --pretty="oneline" --name-only
 
     ## code review
-    code-review-reset-and-unstage-to = !bash -c 'git reset --soft ${1} && git reset HEAD -- ' -
+    resetcodereviewto = !bash -c 'git reset --soft ${1} && git reset HEAD -- ' -
     openunstaged = "!$EDITOR_USING_CURRENT_PROJECT $(git diff --diff-filter AM --name-only)"
     openstaged = "!$EDITOR_USING_CURRENT_PROJECT $(git diff --diff-filter AM --name-only --cached)"
 
