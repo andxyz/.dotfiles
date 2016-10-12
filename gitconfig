@@ -59,6 +59,7 @@
     logprpatch    = "!fgit2() { git log --topo-order --decorate=full --no-merges --boundary origin/${1:-master}... --patch; }; fgit2"
     logprshowrefs = "!fgit3() { git log --topo-order --graph --decorate --boundary origin/${1:-master}... --oneline; }; fgit3"
     logprsimple   = "!fgit4() { git log --topo-order --graph --decorate --boundary origin/${1:-master}... --pretty=format:'%Cred[%h]%Creset%Cgreen[%ai]%C(bold blue)[%aN]%Creset %s'; }; fgit4"
+    logprstat     = "!fgit5() { git log --topo-order --boundary origin/${1:-master}... --stat; }; fgit5"
 
     ## git show alternatives
     showpretty = show --pretty="full" --stat
