@@ -7,14 +7,13 @@
 #
 # launchctl unload /System/Library/LaunchAgents/org.openbsd.ssh-agent.plist
 # brew install openssh --with-brewed-openssl --with-keychain-support
-# brew install Caskroom/cask/lunchy --force
+# brew cask install lunchy --force
 # lunchy scan /usr/local/Cellar
 # lunchy list
 # lunchy install /System/Library/LaunchAgents/org.openbsd.ssh-agent.plist
 #
-lunchy start org.openbsd.ssh-agent > /dev/null 2>&1
-unset SSH_AUTH_SOCK
-unset SSH_AGENT_PID
+# lunchy remove /System/Library/LaunchAgents/org.openbsd.ssh-agent.plist
+#
 
 ## test my ssh-agent setup with github
 # unset SSH_AUTH_SOCK
@@ -22,22 +21,18 @@ unset SSH_AGENT_PID
 # export -- SSH_AUTH_SOCK=$(launchctl getenv SSH_AUTH_SOCK)
 # ssh -Tv git@github.com
 
-## old solution
+## old solutions
 ## http://www.dctrwatson.com/2013/07/how-to-update-openssh-on-mac-os-x/
 ## http://superuser.com/questions/141044/sharing-the-same-ssh-agent-among-multiple-login-sessions
-## ssh_agent_tricks() {
-##     eval "$(brew --prefix)/bin/ssh-agent"
-##     unset SSH_AUTH_SOCK
-##     export -- SSH_AUTH_SOCK=$(launchctl getenv SSH_AUTH_SOCK)
-## }
+
+## other notes
+## http://rabexc.org/posts/pitfalls-of-ssh-agents
+
+# ssh_agent_setup() {
+#   unset SSH_AUTH_SOCK
+#   unset SSH_AGENT_PID
+#   lunchy start org.openbsd.ssh-agent > /dev/null 2>&1
+#   export -- SSH_AUTH_SOCK=$(launchctl getenv SSH_AUTH_SOCK)
+# }
 #
-## ssh_agent_tricks
-#
-## function cleanup_openssh {
-##   echo "Killing SSH-Agent"
-##   kill -9 $SSH_AGENT_PID
-## }
-#
-#
-## trap cleanup_openssh EXIT
-#
+# ssh_agent_setup
