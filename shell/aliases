@@ -44,6 +44,7 @@ alias gco='git checkout'
 alias bi='bundle check || bundle install'
 alias be='bundle exec'
 alias ttail='tail -f log/development.log'
+alias serve="ruby -run -e httpd -- -p 8000 ."
 ### ruby rails zsh settings
 if which noglob >/dev/null; then
   : # This is the shell equivalent of a "NOP"
