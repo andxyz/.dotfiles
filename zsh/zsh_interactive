@@ -41,6 +41,7 @@ setopt HIST_REDUCE_BLANKS
 zle -N newtab
 
 bindkey -e
+bindkey '^R' history-incremental-pattern-search-backward
 
 ## see http://superuser.com/questions/357355/how-can-i-get-controlleft-arrow-to-go-back-one-word-in-iterm2
 
