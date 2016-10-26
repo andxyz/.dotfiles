@@ -1,8 +1,9 @@
 #!/usr/bin/env bash
 
-set -ex
+set -e
+set -x
 
-# echo "install perl stuff goes here"
+echo "install perl stuff goes here"
 # The default perlbrew root directory is ~/perl5/perlbrew, which can be changed by setting PERLBREW_ROOT
 open -b com.google.chrome http://perlbrew.pl/
 curl -L http://install.perlbrew.pl | bash

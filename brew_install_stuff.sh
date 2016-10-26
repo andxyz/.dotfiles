@@ -201,7 +201,7 @@ brew cask install 'synalyze-it-pro'
 
 ## crazy data science
 ## the following will install python2 python3 R julia and lua
-brew install python3
+brew install python3 --framework
 brew cask install xquartz
 brew cask install anaconda
 brew cask install r
@@ -363,7 +363,7 @@ brew cask install 'quicknfo' --force
 # now run `defaults write com.apple.finder QLEnableTextSelection -bool true && killall Finder`
 
 ### link up the folder, so alfred can see the apps
-brew cask alfred link
+# brew cask alfred link # no longer needed see https://github.com/caskroom/homebrew-cask/issues/8052#issuecomment-69560606
 
 ## brew aliases
 # brew alias status='!git status'
@@ -373,37 +373,39 @@ brew cask alfred link
 brew cleanup -s && brew prune
 brew doctor
 
-### I should get around to putting some of https://gist.github.com/9393431 in here
+### I should get around talking about installing things on your machine
 
 ### current list of crap on my dev machine
 # ~/code/andxyz-dotfiles[master]$ brew leaves | sort | paste - - - -
-# ack autoenv awscli  bash
-# bash-completion bash-git-prompt beanstalkd  bfg
-# carthage  coreutils cppcheck
-# ctags curl  elm ffmpeg
-# findutils flow  gawk  gcc
-# gdb geoip gifsicle  git
-# gnu-indent  gnu-sed gnu-tar gnu-which
-# gnupg gnupg2  gradle  graphviz
-# haskell-stack heroku  highlight homebrew/apache/ab
-# homebrew/boneyard/samba homebrew/completions/bundler-completion homebrew/completions/cargo-completion homebrew/completions/gem-completion
-# homebrew/completions/grunt-completion homebrew/completions/maven-completion homebrew/completions/pip-completion homebrew/completions/rails-completion
-# homebrew/completions/rake-completion  homebrew/completions/vagrant-completion homebrew/dupes/bzip2  homebrew/dupes/grep
-# homebrew/dupes/gzip homebrew/dupes/openssh  homebrew/dupes/zlib homebrew/fuse/ntfs-3g
-# homebrew/fuse/s3fs  homebrew/php/composer homebrew/php/php56  homebrew/science/r
-# homebrew/science/vips homebrew/versions/llvm35  htop-osx  httpie
-# hub ical-buddy  iftop imagemagick
+# ack autoenv awscli  aykamko/tag-ag/tag-ag
+# bash  bash-completion bash-git-prompt bfg
+# carthage  coreutils cppcheck  ctags
+# curl  elm ffmpeg  findutils
+# flow  gawk  gcc gdb
+# geoip gifsicle  git gnu-indent
+# gnu-sed gnu-tar gnu-which gnupg
+# gnupg2  gradle  graphviz  haskell-stack
+# heroku  highlight homebrew/apache/ab  homebrew/boneyard/samba
+# homebrew/completions/bundler-completion homebrew/completions/cargo-completion homebrew/completions/gem-completion homebrew/completions/grunt-completion
+# homebrew/completions/maven-completion homebrew/completions/pip-completion homebrew/completions/rails-completion homebrew/completions/rake-completion
+# homebrew/completions/vagrant-completion homebrew/dupes/bzip2  homebrew/dupes/grep homebrew/dupes/gzip
+# homebrew/dupes/openssh  homebrew/dupes/zlib homebrew/fuse/ntfs-3g homebrew/fuse/s3fs
+# homebrew/php/composer homebrew/php/php56  homebrew/science/r  homebrew/science/vips
+# homebrew/versions/llvm35  htop  httpie  hub
+# hunspell  ical-buddy  iftop imagemagick
 # ios-webkit-debug-proxy  iperf jenv  jq
 # jsonpp  leiningen libav libvo-aacenc
 # libxslt libyaml luajit  macvim
-# man2html  memcached mercurial mitmproxy
-# mongoose  multitail nginx nmap
-# nsq opam  ossp-uuid parallel
-# pbzip2  phantomjs pidcat  proctools
-# psgrep  pstree  pv  python3
+# man2html  mercurial mitmproxy mongoose
+# multitail mysql nginx nmap
+# nsq opam  ossp-uuid pandoc
+# parallel  pbzip2  phantomjs pick
+# pidcat  postgresql  proctools psgrep
+# pstree  pv  pyenv-virtualenv  python3
 # recoverjpeg rust  s3cmd sdl
 # speedtest_cli subversion  swig  tcpflow
-# the_silver_searcher tig transmission  trash
-# tree  uncrustify  universal-ctags/universal-ctags/universal-ctags unrar
-# v8  watchman  wget  xctool
-# youtube-dl  zsh zsh-completions zsh-syntax-highlighting
+# tig tldr  tmux  transmission
+# trash tree  uncrustify  universal-ctags/universal-ctags/universal-ctags
+# unrar v8  watchman  wget
+# xctool  youtube-dl  zsh zsh-completions
+# zsh-syntax-highlighting
