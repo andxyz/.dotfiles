@@ -1,15 +1,12 @@
 #!/usr/bin/env zsh
 
-autoload -U compinit
-compinit
-
 # brew info zsh-completions
 # ls /usr/local/share/zsh-completions
 # rm -f ~/.zcompdump; compinit
-fpath=(/usr/local/share/zsh-completions $fpath)
-
-# matches case insensitive for lowercase
-zstyle ':completion:*' matcher-list 'm:{a-z}={A-Z}'
-
-# pasting with tabs doesn't perform completion
-zstyle ':completion:*' insert-tab pending
+fpath=(/usr/local/share/zsh-completions $fpath) # Where the completions?
+autoload -U compinit # Load the completion module
+compinit # Process completions
+zstyle ':completion:*' menu select # Style of completion
+zstyle ':completion:*' matcher-list 'm:{a-z}={A-Z}' # matches case insensitive for lowercase
+zstyle ':completion:*' insert-tab pending # pasting with tabs doesn't perform completion
+# source "$(brew --prefix)/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh" # Highlight syntax
