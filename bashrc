@@ -3,7 +3,7 @@
 # set -e
 
 ## for interactive shell
-[[ -f ~/.shell/config_interactive_shell ]]   && source ~/.shell/config_interactive_shell
+[ -n "$PS1" ] && [[ -f ~/.shell/config_interactive_shell ]]   && source ~/.shell/config_interactive_shell
 [[ -f ~/.shell/config_interactive_private ]] && source ~/.shell/config_interactive_private
 [[ -f ~/.shell/config_ssh_agent ]]  && source ~/.shell/config_ssh_agent
 [[ -f ~/.shell/aliases ]]           && source ~/.shell/aliases

@@ -7,7 +7,7 @@ export -- PATH=/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/opt/X11/bin
 [[ -f ~/.shell/path_envs ]]         && source ~/.shell/path_envs
 
 ## for interactive shell
-[[ -f ~/.shell/config_interactive_shell ]]   && source ~/.shell/config_interactive_shell
+[ -n "$PS1" ] && [[ -f ~/.shell/config_interactive_shell ]]   && source ~/.shell/config_interactive_shell
 [[ -f ~/.shell/config_interactive_private ]] && source ~/.shell/config_interactive_private
 [[ -f ~/.shell/config_ssh_agent ]]  && source ~/.shell/config_ssh_agent
 [[ -f ~/.shell/aliases ]]           && source ~/.shell/aliases
