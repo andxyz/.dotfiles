@@ -21,6 +21,7 @@
 # sublimetext 2 3
 *.sublime-workspace
 *.sublime-project
+.sublimelinterrc
 
 # VIM
 [._]*.s[a-w][a-z]
