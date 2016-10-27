@@ -61,6 +61,12 @@
     logprsimple   = "!fgit4() { git log --topo-order --graph --decorate --boundary origin/${1:-master}... --pretty=format:'%Cred[%h]%Creset%Cgreen[%ai]%C(bold blue)[%aN]%Creset %s'; }; fgit4"
     logprstat     = "!fgit5() { git log --topo-order --boundary origin/${1:-master}... --stat; }; fgit5"
 
+    # converted shell aliases
+    git-grep = "grep --break --heading --line-number"
+    git-b    = "branch --list --verbose"
+    git-bb   = "branch-list-by-date.sh"
+    git-ball = "branch --all --verbose"
+
     ## git show alternatives
     showpretty = show --pretty="full" --stat
     showpstat = show --stat=180,150 --pretty="oneline"
