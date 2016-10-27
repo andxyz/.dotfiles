@@ -3,7 +3,7 @@
 set -x
 set -e
 
-export -- LSTOOL_HOME=/opt/homebrew-cask/Caskroom/rcdefaultapp/2.1/RCDefaultApp.prefPane/Contents/Resources/
+export -- LSTOOL_HOME=/Users/andxyz/Library/PreferencePanes/RCDefaultApp.prefPane/Contents/Resources/
 
 $LSTOOL_HOME/lstool write "extension" ".textmate_init"  '/Applications/Sublime Text 3.app'
 $LSTOOL_HOME/lstool write "extension" "adp" '/Applications/Sublime Text 3.app'
@@ -48,6 +48,7 @@ $LSTOOL_HOME/lstool write "extension" "htc" '/Applications/Sublime Text 3.app'
 $LSTOOL_HOME/lstool write "extension" "inc" '/Applications/Sublime Text 3.app'
 $LSTOOL_HOME/lstool write "extension" "inl" '/Applications/Sublime Text 3.app'
 $LSTOOL_HOME/lstool write "extension" "irbrc" '/Applications/Sublime Text 3.app'
+$LSTOOL_HOME/lstool write "extension" "js"  '/Applications/Sublime Text 3.app'
 $LSTOOL_HOME/lstool write "extension" "json"  '/Applications/Sublime Text 3.app'
 $LSTOOL_HOME/lstool write "extension" "jsp" '/Applications/Sublime Text 3.app'
 $LSTOOL_HOME/lstool write "extension" "jsx" '/Applications/Sublime Text 3.app'
