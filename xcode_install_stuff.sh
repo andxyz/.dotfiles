@@ -3,9 +3,9 @@
 # run this file with:
 #
 # ```shell
-# cd ~/code/andxyz-dotfiles &&
-# ./brew_install_stuff.sh &&
-# xcode-select --install &&
+# cd ~/code/andxyz-dotfiles
+# ./brew_install_stuff.sh
+# xcode-select --install
 # ./xcode_install_stuff.sh
 # ```
 
