@@ -28,7 +28,7 @@
 #   insteadOf = https://github.com/
 
 [alias]
-    ## andxyz favorite git shortcuts
+    # andxyz favorite git shortcuts
     p = pull
     f = fetch --all
     fs = fetch origin staging:staging
@@ -37,10 +37,7 @@
     diffc = diff --cached
     unstage = reset HEAD --
 
-    ## branch hunting
-    branch-list-by-date = for-each-ref --sort='-committerdate' --format='%(committerdate:iso8601) %(authoremail) %(refname)'
-
-    ## personal git log opinions
+    # personal git log opinions
     log      = log --topo-order --graph --pretty=format:'%Cred[%h]%Creset%Cgreen[%ci]%C(bold blue)[%aN]%Creset%C(yellow)%d%Creset %s'
     logpnopager = --no-pager log
 
@@ -54,7 +51,7 @@
     logpgraphstat     = log --topo-order --color --stat=180,150 --pretty='format: %Cgreen%h%Creset%Cblue by %aN, %ci%Creset  %s%Cred%d%Creset%n' --graph
     logpgraphoneliner = log --topo-order --graph --color --all --pretty='format: %Cgreen%h%Creset %s%Cred%d%Creset%n'
 
-    ## git log commands used on a github flow feature branch PR
+    # git log commands used on a github flow feature branch PR
     logpr         = "!fgit1() { git log --topo-order --graph --decorate --boundary origin/${1:-master}... --pretty=format:'%Cred %h %Creset%Cgreen[%ai]%C(bold blue)[%aN]%Creset %s%C(yellow)%d%Creset'; }; fgit1"
     logprpatch    = "!fgit2() { git log --topo-order --decorate=full --no-merges --boundary origin/${1:-master}... --patch; }; fgit2"
     logprshowrefs = "!fgit3() { git log --topo-order --graph --decorate --boundary origin/${1:-master}... --oneline; }; fgit3"
@@ -63,22 +60,23 @@
 
     # converted shell aliases
     git-grep = "grep --break --heading --line-number"
-    git-b    = "branch --list --verbose"
-    git-bb   = "branch-list-by-date.sh"
-    git-ball = "branch --all --verbose"
+    # branch hunting
+    git-branch-list-by-date = for-each-ref --sort='-committerdate' --format='%(committerdate:iso8601) %(authoremail) %(refname)'
+    git-branch-list         = "branch --list --verbose"
+    git-branch-list-all     = "branch --all --verbose"
 
-    ## git show alternatives
+    # git show alternatives
     showpretty = show --pretty="full" --stat
     showpstat = show --stat=180,150 --pretty="oneline"
     showpnameonly = show --pretty="full" --name-only
     showponline = show --pretty="oneline" --name-only
 
-    ## code review
-    resetcodereviewto = !bash -c 'git reset --soft ${1} && git reset HEAD -- ' -
+    # code review
+    codereview-reset-to = !bash -c 'git reset --soft ${1} && git reset HEAD -- '
     openunstaged = "!$EDITOR_USING_CURRENT_PROJECT $(git diff --diff-filter AM --name-only)"
     openstaged = "!$EDITOR_USING_CURRENT_PROJECT $(git diff --diff-filter AM --name-only --cached)"
 
-    ## depends on hub
+    # depends on hub
     github-pulls = "!hub browse -- pulls/"
     github-mypulls = "!hub browse -- pulls/andxyz"
     github-open-pull-request = "!hub pull-request"
@@ -86,11 +84,11 @@
     gmypulls = "!hub browse -- pulls/andxyz"
     gpulls = "!hub browse -- pulls"
 
-    ## not really used aliasaes but they are useful to look at when hunting for a git command
+    # not really used aliasaes but they are useful to look at when hunting for a git command
     delete-remote-branch = push origin --delete
     delete-local-branch = branch -D
 
-    ## git formatting tips
+    # git formatting tips
     # http://stackoverflow.com/questions/16286517/how-to-toggle-the-date-format-of-git-log-how-to-display-both-relative-and-abs
     # http://stackoverflow.com/questions/8576503/how-can-i-make-git-log-order-based-on-authors-timestamp
     # http://git-scm.com/docs/git-for-each-ref
@@ -245,8 +243,8 @@
 [init]
     templatedir = ~/.git-template
 
-## mailmap fixes peoples emails
-## try `git shortlog -sne`
+# mailmap fixes peoples emails
+# try `git shortlog -sne`
 [log]
     mailmap = true
 [mailmap]
