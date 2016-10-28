@@ -5,6 +5,12 @@ function httpless {
     http --pretty=all --print=HBhb "$@" | less -R;
 }
 
+function jqbrowser {
+  local TMPFILE=$(gmktemp --suffix=".json")
+  jq '.' > "${TMPFILE}"
+  open -b 'com.google.chrome' "${TMPFILE}"
+}
+
 function sscreencapture-in-2-seconds-send-to-desktop {
   screencapture -T2 -S -x "$HOME/Desktop/screenshot-$(date +%Y-%m-%d__%H_%M_%S).png"
 }

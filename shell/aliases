@@ -60,7 +60,6 @@ alias ni='npm install --silent >> /dev/null 2>&1'
 
 ### tools
 alias mmitmproxy='mitmproxy --palette solarized_light'
-alias jqbrowser="jq '.' > /tmp/tmp.json && open -b 'com.google.chrome' /tmp/tmp.json"
 
 ### zsh correction headaches
 if which noglob >/dev/null; then
