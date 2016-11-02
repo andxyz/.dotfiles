@@ -117,15 +117,20 @@ brew install 'svn'
 
 ### gnu userland utils
 brew tap homebrew/dupes
+brew install 'ack'
+brew install 'binutils'
 brew install 'coreutils'
+brew install 'diffutils'
 brew install 'findutils'
-brew isntall 'ag'
-brew isntall 'ack'
+brew install 'gawk'
 brew install 'gnu-indent'
 brew install 'gnu-sed'
-brew install 'grep' # gnu grep is in homebrew/dupes
 brew install 'gnu-tar'
-brew install 'gawk'
+brew install 'gnutls'
+brew install 'grep' # gnu grep is in homebrew/dupes
+brew install 'gzip'
+brew install 'less'
+
 brew install 'htop' # brew upgrade 'htop'
 sudo chown root:wheel `which htop`
 sudo chmod u+s `which htop`
@@ -191,58 +196,12 @@ brew cask install 'charles'
 brew cask install 'android-file-transfer'
 brew cask install 'Dash3'
 
-### splunk
+### splunking
 brew install 'samdmarshall/formulae/aosd'
 brew cask install '0xed'
 brew cask install 'hex-fiend'
+brew cask install 'hopper-disassembler'
 brew cask install 'synalyze-it-pro'
-##### brew cask install 'reveal'
-##### brew cask install 'reflector'
-
-## crazy data science
-## the following will install python2 python3 R julia and lua
-brew install python3 --framework
-brew cask install xquartz
-brew cask install anaconda
-brew cask install r
-## example cool bundler command: R -e 'chooseCRANmirror(graphics=FALSE, ind=87);library(rbundler);bundle()'
-## see http://stackoverflow.com/questions/11488174/how-to-select-a-cran-mirror-in-r
-## and choose from https://cran.r-project.org/mirrors.html
-hash -r
-R -e 'install.packages("Rserve", repos="http://cran.utstat.utoronto.ca/", type="source")' && \
-R -e 'install.packages("ggplot2", repos="http://cran.utstat.utoronto.ca/", type="source")' && \
-R -e 'install.packages("devtools", repos="http://cran.utstat.utoronto.ca/", type="source")' && \
-R -e 'install.packages("RCurl", repos="http://cran.utstat.utoronto.ca/", type="source")' && \
-R -e 'install.packages("RJSONIO", repos="http://cran.utstat.utoronto.ca/", type="source")' && \
-R -e 'install.packages("jpeg", repos="http://cran.utstat.utoronto.ca/", type="source")' && \
-R -e 'install.packages("png", repos="http://cran.utstat.utoronto.ca/", type="source")' && \
-R -e 'install.packages("base64enc", repos="http://cran.utstat.utoronto.ca/", type="source")'
-brew install zeromq
-### julia
-brew cask install julia
-hash -r
-### lua
-brew install lua
-brew install luajit
-luarocks install luajson
-### conda things
-conda create -n py3k python=3 anaconda
-conda install pyzmq --yes
-
-### try beaker
-brew cask install beaker
-
-## try jupyter
-conda install jupyter --yes
-conda update jupyter --yes
-conda install ipython
-conda install -c ipython-notebook --yes
-conda install -c r r-irkernel --yes
-conda install -c r r-irkernel --yes
-
-## try python3 with anaconda
-brew cask install anaconda
-conda create -n py3k python=3 anaconda
 
 ### 3rd-party-plugins
 brew cask install 'silverlight'
