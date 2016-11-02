@@ -30,7 +30,7 @@
 [alias]
     # andxyz favorite git shortcuts
     p = pull
-    f = fetch --all
+    f = fetch --all --prune
     fs = fetch origin staging:staging
     fm = fetch origin master:master
     ls = ls-files
