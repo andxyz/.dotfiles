@@ -1,25 +1,31 @@
 #!/usr/bin/env bash
 
-# unset SSH_AUTH_SOCK && unset SSH_AGENT_PID
+## using homebrew "ssh-agent"
+## more info here https://www.packetmischief.ca/2016/09/06/ssh-agent-on-os-x/
 #
-## homebrew solution to using homebrew "ssh-agent"
-### more info here https://www.stormacq.com/mac-os-x-makes-handling-ssh-keys-easier/
-#
-# launchctl unload /System/Library/LaunchAgents/org.openbsd.ssh-agent.plist
-# brew install openssh --with-brewed-openssl --with-keychain-support
+# brew install openssl
+# brew info openssh
+# brew install openssh
 # brew cask install lunchy --force
-# lunchy scan /usr/local/Cellar
+# lunchy scan ~/Library/LaunchAgents
 # lunchy list
-# lunchy install /System/Library/LaunchAgents/org.openbsd.ssh-agent.plist
-#
-# lunchy remove /System/Library/LaunchAgents/org.openbsd.ssh-agent.plist
-#
 
-## test my ssh-agent setup with github
-# unset SSH_AUTH_SOCK
-# unset SSH_AGENT_PID
-# export -- SSH_AUTH_SOCK=$(launchctl getenv SSH_AUTH_SOCK)
-# ssh -Tv git@github.com
+# subl ~/Library/LaunchAgents/org.homebrew.ssh-agent.plist
+# launchctl load ~/Library/LaunchAgents/org.homebrew.ssh-agent.plist
+# launchctl list | grep 'ssh-agent'
+
+## test setup with github
+test_my_ssh_agent() {
+  unset SSH_AUTH_SOCK
+  unset SSH_AGENT_PID
+  export -- SSH_AUTH_SOCK="$HOME/.ssh-agent.sock"
+  ssh -V
+  $(find /usr/local/Cellar/openssl -name 'openssl' -type f) version
+  ssh-add -l
+  ssh -Tv git@github.com
+  launchctl list | grep ssh-agent
+}
+## "Hi andxyz! You've successfully authenticated, but GitHub does not provide shell access"
 
 ## old solutions
 ## http://www.dctrwatson.com/2013/07/how-to-update-openssh-on-mac-os-x/
@@ -28,11 +34,11 @@
 ## other notes
 ## http://rabexc.org/posts/pitfalls-of-ssh-agents
 
-# ssh_agent_setup() {
-#   unset SSH_AUTH_SOCK
-#   unset SSH_AGENT_PID
-#   lunchy start org.openbsd.ssh-agent > /dev/null 2>&1
-#   export -- SSH_AUTH_SOCK=$(launchctl getenv SSH_AUTH_SOCK)
-# }
-#
-# ssh_agent_setup
+ssh_agent_setup() {
+  unset SSH_AUTH_SOCK
+  unset SSH_AGENT_PID
+  export SSH_AUTH_SOCK="$HOME/.ssh-agent.sock"
+  lunchy start org.homebrew.ssh-agent > /dev/null 2>&1
+}
+
+ssh_agent_setup
