@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+
+## for when I use charles proxy and turn on mac osx proxy
+## http://stackoverflow.com/questions/8666954/how-to-set-up-a-proxy-via-bash-shell
+export http_proxy=http://127.0.0.1:8888
+export https_proxy=https://127.0.0.1:8888
+export no_proxy=localhost,127.0.0.0/8,*.local
