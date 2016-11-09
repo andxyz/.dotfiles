@@ -34,3 +34,7 @@ function mongoose-http-server {
   echo "Serving on ${ip}:${port} ..."
   python -m SimpleHTTPServer ${port}
 }
+
+function zco {
+   git checkout $(git branch -v | ggrep -v '^*' | sort | fzf --no-sort --reverse --exact --query "$@" | gawk '{print $1}')
+}
