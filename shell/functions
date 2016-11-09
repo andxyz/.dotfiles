@@ -36,5 +36,11 @@ function mongoose-http-server {
 }
 
 function zco {
-   git checkout $(git branch -v | ggrep -v '^*' | sort | fzf --no-sort --reverse --exact --query "$@" | gawk '{print $1}')
+  if [[ "$@" ]]; then
+    myargs="--query $@"
+  else
+    myargs=""
+  fi
+
+  git checkout $(git branch --verbose | ggrep --invert-match '^*' | sort | fzf --no-sort --reverse --exact ${myargs} | gawk '{print $1}')
 }
