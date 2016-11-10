@@ -38,11 +38,13 @@ function mongoose-http-server {
 function zco {
   if [[ "$@" ]]; then
     # if we have arguments to the func, we start the query with them
-    myargs="--query $@"
+    myfilter="fzf --no-sort --reverse --exact --query $@"
   else
     # otherwise, show the list
-    myargs=""
+    myfilter="fzf --no-sort --reverse --exact "
   fi
 
-  git checkout $(git branch --verbose | ggrep --invert-match '^*' | sort | fzf --no-sort --reverse --exact ${myargs} | gawk '{print $1}')
+  set -x;
+  git checkout $(git branch --verbose | ggrep --invert-match '^*' | sort | $(echo ${myfilter}) | gawk '{print $1}')
+  set +x;
 }
