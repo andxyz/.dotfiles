@@ -44,7 +44,5 @@ function zco {
     myfilter="fzf --no-sort --reverse --exact "
   fi
 
-  set -x;
-  git checkout $(git branch --verbose | ggrep --invert-match '^*' | sort | $(echo ${myfilter}) | gawk '{print $1}')
-  set +x;
+  git checkout $(git branch --verbose | ggrep --invert-match '^*' | sort | $(echo ${myfilter}) | gawk '{print $1}');
 }
