@@ -29,15 +29,15 @@
 
 [alias]
     # andxyz favorite git shortcuts
-    p      = pull
-    f      = fetch --all --prune
-    fs     = fetch origin staging:staging
-    fm     = fetch origin master:master
-    ls    = ls-files
+    p  = pull
+    f  = fetch --all --prune
+    fs = fetch origin staging:staging
+    fm = fetch origin master:master
+    ls = ls-files
     unstage = reset HEAD --
 
     # fzf checkout
-    zco   = "!fgitzco() { git checkout $(git branch -v | ggrep -v '^*' | sort | fzf --no-sort --reverse --exact --query \"$@\" | gawk '{print $1}'); }; fgitzco"
+    zco = "!fgitzco() { git checkout $(git branch -v | grep -v '^*' | sort | fzf --no-sort --reverse --exact --query=\"${@:-}\" | gawk '{print $1}'); }; fgitzco"
 
     # diff shortcuts
     diffc = diff --cached
