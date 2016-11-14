@@ -1,8 +1,12 @@
 #!/usr/bin/env bash
 
 function httpless {
-    # `httpless example.org'
-    http --pretty=all --print=HBhb "$@" | less -R;
+  # `httpless example.org'
+  http --pretty=all --print=HBhb "$@" | less -R;
+}
+
+function httpperf {
+  curl -o /dev/null -s -w "%{time_connect} (time_connect) + %{time_starttransfer} (starttransfer) = %{time_total} (time_total)\n" "$@"
 }
 
 function jqbrowser {
