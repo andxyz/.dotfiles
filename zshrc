@@ -8,7 +8,7 @@ export -- PATH=/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/opt/X11/bin
 
 ## for interactive shell
 [ -n "$PS1" ] && [[ -f ~/.shell/config_interactive_shell ]]   && source ~/.shell/config_interactive_shell
-[[ -f ~/.shell/config_interactive_private ]] && source ~/.shell/config_interactive_private
+[ -n "$PS1" ] && [[ -f ~/.shell/config_interactive_private ]] && source ~/.shell/config_interactive_private
 [[ -f ~/.shell/config_ssh_agent ]]  && source ~/.shell/config_ssh_agent
 [[ -f ~/.shell/aliases ]]           && source ~/.shell/aliases
 [[ -f ~/.shell/aliases_private ]]   && source ~/.shell/aliases_private
@@ -17,9 +17,9 @@ export -- PATH=/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/opt/X11/bin
 [[ -f ~/.shell/ruby_rails_tricks.sh ]] && source ~/.shell/ruby_rails_tricks.sh
 
 ## for zsh interactive specific
-[[ -f ~/.zsh/zsh_interactive ]]     && source ~/.zsh/zsh_interactive
-[[ -f ~/.zsh/zsh_completion ]]      && source ~/.zsh/zsh_completion
-[[ -f ~/.zsh/zsh_functions_private ]] && source ~/.zsh/zsh_functions_private
+[ -n "$PS1" ] && [[ -f ~/.zsh/zsh_interactive ]]     && source ~/.zsh/zsh_interactive
+[ -n "$PS1" ] && [[ -f ~/.zsh/zsh_completion ]]      && source ~/.zsh/zsh_completion
+[ -n "$PS1" ] && [[ -f ~/.zsh/zsh_functions_private ]] && source ~/.zsh/zsh_functions_private
 
 echo \
 """export -- PATH=
