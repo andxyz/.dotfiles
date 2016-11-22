@@ -21,11 +21,12 @@
 [branch]
     # git help -w git-config # see branch.autosetuprebase
     autosetupmerge = always
-    autosetuprebase = always # When a new branch is created with git branch or git checkout that tracks another branch, this variable tells Git to set up pull to rebase instead of merge
+    # When a new branch is created with git branch or git checkout that tracks another branch, this variable tells Git to set up pull to rebase instead of merge
+    autosetuprebase = always
 
 # this is messing up cocoapod podspecs
-#  [url "ssh://git@github.com/"]
-#   insteadOf = https://github.com/
+[url "ssh://git@github.com/"]
+    insteadOf = https://github.com/
 
 [alias]
     # andxyz favorite git shortcuts
@@ -244,11 +245,11 @@
 # andxyz secret stuff (github auth tokens etc etc)
 #
 [include]
-    path            = ~/.gitconfig-private
+    path = ~/.gitconfig-private
 
 # how to setup the helper https://help.github.com/articles/caching-your-github-password-in-git/
 [credential]
-	helper = osxkeychain
+    helper = osxkeychain
 [init]
     templatedir = ~/.git-template
 
@@ -259,7 +260,7 @@
 [mailmap]
     file = ~/.mailmap-private
 [color "diff-highlight"]
-	oldNormal = red bold
-	oldHighlight = red bold 52
-	newNormal = green bold
-	newHighlight = green bold 22
+    oldNormal = red bold
+    oldHighlight = red bold 52
+    newNormal = green bold
+    newHighlight = green bold 22
