@@ -34,6 +34,7 @@
     f  = fetch --all --prune
     fs = fetch origin staging:staging
     fm = fetch origin master:master
+    b = branch-list.sh
     ls = ls-files
     unstage = reset HEAD --
 
