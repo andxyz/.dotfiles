@@ -37,14 +37,16 @@
     b = branch-list.sh
     ls = ls-files
     unstage = reset HEAD --
+    cmend = commit --amend -C HEAD
 
     # fzf checkout
     zco = "!fgitzco() { git checkout $(git branch -v | grep -v '^*' | sort | fzf --no-sort --reverse --exact --query=\"${@:-}\" | gawk '{print $1}'); }; fgitzco"
 
     # diff shortcuts
     diffc = diff --cached
-    ## make sure to `npm install -g diff-so-fancy`
+    ## make sure to `npm install -g diff-so-fancy` try `npm ls -g --depth=0`
     ddiff = "!fgitdiff0() { git diff --color $@ | diff-so-fancy | less --tabs=1,5 -R; }; fgitdiff0"
+    ddiffc = "!fgitdiff1() { git diff --cached --color $@ | diff-so-fancy | less --tabs=1,5 -R; }; fgitdiff1"
 
     # personal git log opinions
     log         = log --topo-order --graph
