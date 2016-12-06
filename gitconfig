@@ -55,6 +55,7 @@
 
     # personal git log opinions
     log         = log --topo-order --graph
+    logsecrets  = "!fgitlog1() { git --no-pager log -p --follow --find-copies-harder --find-renames=25% -- $@; }; fgitlog1"
     logpretty   = log --pretty=format:'%Cred[%h]%Creset%Cgreen[%ci]%C(bold blue)[%aN]%Creset%C(yellow)%d%Creset %s'
     logbasic    = !git log
     logpnopager = !git --no-pager log
