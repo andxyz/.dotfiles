@@ -34,10 +34,15 @@
     f  = fetch --all --prune
     fs = fetch origin staging:staging
     fm = fetch origin master:master
+    # runs my $HOME/bin/git-branch-list.sh shell script
     b = branch-list.sh
     ls = ls-files
     unstage = reset HEAD --
     cmend = commit --amend -C HEAD
+
+    # annoying file is annoying
+    un = update-index --assume-unchanged
+    nun = update-index --no-assume-unchanged
 
     # fzf checkout
     zco = "!fgitzco() { git checkout $(git branch -v | grep -v '^*' | sort | fzf --no-sort --reverse --exact --query=\"${@:-}\" | gawk '{print $1}'); }; fgitzco"

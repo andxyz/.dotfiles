@@ -40,9 +40,9 @@ function mongoose-http-server {
 }
 
 function zco {
-  git checkout $(git branch-list.sh | fzf --no-sort --reverse --exact --select-1 --query="${@:-}" | awk -F'[[:space:]][[:space:]]+' '{print $4}');
+  git checkout $(git branch-list.sh | fzf --no-sort --reverse --exact --select-1 --query="${@:-}" | awk -F'[[:space:]][[:space:]]+' '{print $4}') && git status --short --branch;
 }
 
 function zcoa {
-  git checkout $(git branch-list.sh -a | fzf --no-sort --reverse --exact --select-1 --query="${@:-}" | awk -F'[[:space:]][[:space:]]+' '{print $4}');
+  git checkout $(git branch-list.sh -a | fzf --no-sort --reverse --exact --select-1 --query="${@:-}" | awk -F'[[:space:]][[:space:]]+' '{print $4}') && git status --short --branch;
 }
