@@ -179,6 +179,7 @@ brew install 'jq'
 
 ### vms
 brew cask install 'virtualbox'
+brew cask install 'virtualbox-extension-pack'
 brew cask install 'vagrant'
 
 ### archiving tools
@@ -191,10 +192,11 @@ brew cask install 'texshop'
 ### dev
 brew cask install 'viscosity'
 # brew cask install 'android-studio'
-brew cask install 'gitx'
-brew cask install 'charles'
-brew cask install 'android-file-transfer'
 brew cask install 'Dash3'
+brew cask install 'android-file-transfer'
+brew cask install 'charles'
+brew cask install 'gitx'
+brew cask install 'iterm2'
 
 ### splunking
 brew install 'samdmarshall/formulae/aosd'
@@ -220,10 +222,15 @@ brew cask install 'MPlayerX'
 brew cask install 'Vox'
 
 ### productivity?
-brew cask install 'geektool'
+brew cask install '1password'
 brew cask install 'alfred'
-brew cask install 'fantastical'
+brew cask install 'caffeine'
+brew cask install 'disk-inventory-x'
 brew cask install 'dropbox'
+brew cask install 'fantastical'
+brew cask install 'geektool'
+brew cask install 'imagealpha'
+brew cask install 'imageoptim'
 brew cask install 'transmit'
 
 ### maths
@@ -248,9 +255,9 @@ brew install 'homebrew/fuse/ntfs-3g'
 ### music
 # https://github.com/thebitguru/play-button-itunes-patch
 brew install 'homebrew/binary/libspotify'
-brew cask install 'soundcleod'
 brew cask install 'plug'
 brew cask install 'rdio'
+brew cask install 'soundcleod'
 brew cask install 'spotify'
 
 ### freelance
@@ -275,12 +282,12 @@ brew cask install 'xee'
 brew cask install 'calibre'
 
 ### OSX hacks
-brew cask install 'slimbatterymonitor'
 brew cask install 'coconutbattery'
-brew cask install 'ukelele'
 brew cask install 'karabiner'
-brew cask install 'seil'
 brew cask install 'rcdefaultapp'
+brew cask install 'seil'
+brew cask install 'slimbatterymonitor'
+brew cask install 'ukelele'
 # brew cask install 'RightZoom'
 
 # color pickers
@@ -291,18 +298,20 @@ brew cask install icolors --force
 
 ### OSX quicklook plugins
 # see https://github.com/sindresorhus/quick-look-plugins
-brew cask install 'qlcolorcode' --force
-brew cask install 'qlstephen' --force
-brew cask install 'qlmarkdown' --force
-brew cask install 'quicklook-json' --force
-brew cask install 'qlprettypatch' --force
 brew cask install 'betterzipql' --force
-brew cask install 'webpquicklook' --force
-brew cask install 'suspicious-package' --force
 brew cask install 'ipaql' --force
 brew cask install 'provisionql' --force
+brew cask install 'qlcolorcode' --force
 brew cask install 'qlimagesize' --force
+brew cask install 'qlmarkdown' --force
+brew cask install 'qlprettypatch' --force
+brew cask install 'qlstephen' --force
+brew cask install 'qlvideo' --force
+brew cask install 'quicklook-json' --force
+brew cask install 'quicklookapk' --force
 brew cask install 'quicknfo' --force
+brew cask install 'suspicious-package' --force
+brew cask install 'webpquicklook' --force
 
 # brew cask install provisioning
 ### manual quicklook plugins
@@ -387,3 +396,5 @@ brew doctor
 # suspicious-package  texshop the-unarchiver  transmission
 # ukelele vagrant virtualbox  webpquicklook
 # xee xquartz yakyak
+
+ exit 0
