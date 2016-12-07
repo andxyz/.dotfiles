@@ -39,6 +39,7 @@
     ls = ls-files
     unstage = reset HEAD --
     cmend = commit --amend -C HEAD
+    wip = "!gitwip() { git add --all && git commit -m 'wip'; }; gitwip"
 
     # annoying file is annoying
     un = update-index --assume-unchanged

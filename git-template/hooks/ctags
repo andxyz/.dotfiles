@@ -1,24 +1,30 @@
 #!/usr/bin/env bash
-
-# set -e
+set -e
 # set -x
 
 # man ctags
-# ctags-exuberant https://manned.org/ctags-exuberant/05e759a0
+# ctags --list-languages
+# ctags-exuberant http://docs.ctags.io/en/latest/news.html#new-options
 
 CTAGS_GEM_HOME=`rbenv exec gem environment gemdir`
 CTAGS_RBENV_PREFIX=`rbenv prefix`
 CTAGS_RUBY_BASENAME=`basename "${CTAGS_GEM_HOME}"`
 CTAGS_RUBY_STDLIB="${CTAGS_RBENV_PREFIX}/lib/ruby/${CTAGS_RUBY_BASENAME}"
 
-gitdir="$(/usr/local/bin/git rev-parse --git-dir)"
-trap 'rm -f "$gitdir/$$.tags"' EXIT
+GIT_DIRECTORY="$(/usr/local/bin/git rev-parse --git-dir)"
+trap 'rm -f "$GIT_DIRECTORY/$$.tags"' EXIT
 
 git ls-files | \
-/usr/local/bin/ctags --sort=yes -R --tag-relative --languages=+ruby,-javascript,sql --exclude=.git --exclude=log -f"$gitdir/$$.tags" "${CTAGS_RUBY_STDLIB}" $(rbenv exec bundle list --paths)
+/usr/local/bin/ctags --sort=yes -R --tag-relative --languages=+ruby,-javascript,sql \
+--exclude=.git --exclude=log \
+-f"$GIT_DIRECTORY/$$.tags" "${CTAGS_RUBY_STDLIB}" $(rbenv exec bundle list --paths)
 
 if [[ $? -ne 0 ]]; then
   exit 1
 fi
 
-mv "$gitdir/$$.tags" "$gitdir/tags"
+mv "$GIT_DIRECTORY/$$.tags" "$GIT_DIRECTORY/tags"
+
+# We succeeded, reset trap and exit normally
+trap - EXIT
+exit 0
