@@ -58,7 +58,7 @@
     log         = log --topo-order --graph
     logsecrets  = "!fgitlog1() { git --no-pager log -p --follow --find-copies-harder --find-renames=25% -- $@; }; fgitlog1"
     logpretty   = log --pretty=format:'%Cred[%h]%Creset%Cgreen[%ci]%C(bold blue)[%aN]%Creset%C(yellow)%d%Creset %s'
-    logbasic    = !git log
+    logpbasic    = !git log
     logpnopager = !git --no-pager log
 
     # commit investigation
@@ -72,11 +72,12 @@
     logpgraphoneliner = log --topo-order --graph --color --all --pretty='format: %Cgreen%h%Creset %s%Cred%d%Creset%n'
 
     # git log commands used on a github flow feature branch PR
-    logpr         = "!fgit1() { git log --topo-order --graph --decorate --boundary origin/${1:-master}... --pretty=format:'%Cred %h %Creset%Cgreen[%ai]%C(bold blue)[%aN]%Creset %s%C(yellow)%d%Creset'; }; fgit1"
-    logprpatch    = "!fgit2() { git log --topo-order --decorate=full --no-merges --boundary origin/${1:-master}... --patch; }; fgit2"
-    logprshowrefs = "!fgit3() { git log --topo-order --graph --decorate --boundary origin/${1:-master}... --oneline; }; fgit3"
-    logprsimple   = "!fgit4() { git log --topo-order --graph --decorate --boundary origin/${1:-master}... --pretty=format:'%Cred[%h]%Creset%Cgreen[%ai]%C(bold blue)[%aN]%Creset %s'; }; fgit4"
-    logprstat     = "!fgit5() { git log --topo-order --boundary origin/${1:-master}... --stat; }; fgit5"
+    logpr         = "!fgitlogpr1() { git log --topo-order --graph --decorate --boundary origin/${1:-master}... --pretty=format:'%Cred %h %Creset%Cgreen[%ai]%C(bold blue)[%aN]%Creset %s%C(yellow)%d%Creset'; }; fgitlogpr1"
+    logprbasic    = "!fgitlogpr0() { git log --topo-order --decorate --boundary origin/${1:-master}...; }; fgitlogpr0"
+    logprpatch    = "!fgitlogpr2() { git log --topo-order --decorate=full --no-merges --boundary origin/${1:-master}... --patch; }; fgitlogpr2"
+    logprshowrefs = "!fgitlogpr3() { git log --topo-order --graph --decorate --boundary origin/${1:-master}... --oneline; }; fgitlogpr3"
+    logprsimple   = "!fgitlogpr4() { git log --topo-order --graph --decorate --boundary origin/${1:-master}... --pretty=format:'%Cred[%h]%Creset%Cgreen[%ai]%C(bold blue)[%aN]%Creset %s'; }; fgitlogpr4"
+    logprstat     = "!fgitlogpr5() { git log --topo-order --boundary origin/${1:-master}... --stat; }; fgitlogpr5"
 
     # converted shell aliases
     git-grep = "grep --break --heading --line-number"
