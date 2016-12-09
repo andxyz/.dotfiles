@@ -64,3 +64,14 @@ bindkey "^X^E" edit-command-line
 # bindkey '^[[3~' delete-char
 # bindkey '^[^N' newtab
 # bindkey '^?' backward-delete-char
+
+# Colorize man pages, yoink! https://github.com/Nitrodist/dotfiles/commit/d8f19be5c5ebcd5767eb91a776b5ce23f73a19ab
+man() {
+    LESS_TERMCAP_md=$'\e[01;31m' \
+    LESS_TERMCAP_me=$'\e[0m' \
+    LESS_TERMCAP_se=$'\e[0m' \
+    LESS_TERMCAP_so=$'\e[01;44;33m' \
+    LESS_TERMCAP_ue=$'\e[0m' \
+    LESS_TERMCAP_us=$'\e[01;32m' \
+    command man "$@"
+}
