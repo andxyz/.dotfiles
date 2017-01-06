@@ -1,24 +1,21 @@
 #!/usr/bin/env bash
+
 ## andxyz path stuff
 export -- PATH="$HOME/bin:/usr/local/sbin:/usr/local/bin:$PATH"
 export -- MANPATH="/usr/local/share/man:$MANPATH"
+# brew info coreutils
 export -- MANPATH="/usr/local/opt/coreutils/libexec/gnuman:$MANPATH"
-
-# subversion stuff
-# brew info subversion
-test -d "$PATH:/opt/subversion/bin" &&
-export -- PATH="$PATH:/opt/subversion/bin"
 
 ### language setup stuff
 
 # android sdk magic
+export -- STUDIO_JDK=/Library/Java/JavaVirtualMachines/jdk1.8.0_92.jdk
+test -d "/Applications/android-sdk-macosx/" &&
 export -- ANDROID_HOME=/Applications/android-sdk-macosx/
-export -- STUDIO_JDK=/Library/Java/JavaVirtualMachines/jdk1.8.0_31.jdk
 test -d "/Applications/android-sdk-macosx/platform-tools" &&
 export -- PATH="$PATH:/Applications/android-sdk-macosx/platform-tools"
 test -d "/Applications/android-sdk-macosx/tools" &&
 export -- PATH="$PATH:/Applications/android-sdk-macosx/tools"
-test -d "/Applications/android-sdk-macosx/" &&
 
 # golang https://golang.org/doc/install or `brew install go`
 export -- GOPATH=$HOME/code/gowork
@@ -30,14 +27,13 @@ export -- PATH=${PATH}:${GOPATH}/bin
 #export GOROOT=$HOME/go
 #export PATH=$PATH:$GOROOT/bin
 
-## haskell uses cabal
-#https://github.com/andxyz/.dotfiles/blob/master/languages/haskell.sh
-#cabal update
+## haskell uses cabal and stack
+# https://github.com/andxyz/.dotfiles/blob/master/languages/haskell.sh
 test -d "$HOME/.cabal/bin" &&
 export -- PATH="$HOME/.cabal/bin:$PATH"
 
-# nodejs - creationix node version management (nvm)
-test -f "$HOME/.nvm/nvm.sh"
+## nodejs - creationix node version management (nvm)
+test -f "$HOME/.nvm/nvm.sh" &&
 source $HOME/.nvm/nvm.sh
 # example nvm commands (because I always forget)
 # nvm ls-remote
@@ -55,38 +51,50 @@ export -- PATH="./node_modules/.bin:$PATH"
 # java stuff http://www.jenv.be/
 if which jenv > /dev/null; then eval "$(jenv init -)"; fi
 
-# perl path stuff
-# ~/perl5/
+# OPAM configuration
+source $HOME/.opam/opam-init/init.zsh > /dev/null 2> /dev/null || true
+
+## perl path stuff
+## see https://perlbrew.pl/
+# ls ~/perl5/
 export -- PERL_LOCAL_LIB_ROOT="/Users/andxyz/perl5:$PERL_LOCAL_LIB_ROOT";
 export -- PERL_MB_OPT="--install_base "/Users/andxyz/perl5"";
 export -- PERL_MM_OPT="INSTALL_BASE=/Users/andxyz/perl5";
 export -- PERL5LIB="/Users/andxyz/perl5/lib/perl5:$PERL5LIB";
 export -- PATH="/Users/andxyz/perl5/bin:/Users/andxyz/perl5/perlbrew/bin:$PATH";
 
-# php stuff
-which php54 >> /dev/null 2>&1 &&
-export -- PATH="$(brew --prefix homebrew/php/php54)/bin:$PATH"
-which php55 >> /dev/null 2>&1 &&
-export -- PATH="$(brew --prefix homebrew/php/php55)/bin:$PATH"
-which php56 >> /dev/null 2>&1 &&
-export -- PATH="$(brew --prefix homebrew/php/php56)/bin:$PATH"
+## php stuff
+PHP_54_PREFIX=$(brew --prefix homebrew/php/php54)
+test -f "$PHP_54_PREFIX/bin/php" &&
+export -- PATH="$PHP_54_PREFIX/bin:$PATH"
 
-# python path stuff
+PHP_55_PREFIX=$(brew --prefix homebrew/php/php55)
+test -f "$PHP_55_PREFIX/bin/php" &&
+export -- PATH="$PHP_55_PREFIX/bin:$PATH"
+
+PHP_56_PREFIX=$(brew --prefix homebrew/php/php56)
+test -f "$PHP_56_PREFIX/bin/php" &&
+export -- PATH="$PHP_56_PREFIX/bin:$PATH"
+
+## python path stuff
+# which python
 test -f "/usr/local/lib/python" &&
 export -- PYTHONPATH=/usr/local/lib/python:$PYTHONPATH
 
-# rbenv stuff https://github.com/sstephenson/rbenv#readme
-# see https://github.com/andxyz/.dotfiles/raw/master/languages/ruby.sh
-# note currently I use a "be=bundle exec" alias
+## rbenv stuff https://github.com/sstephenson/rbenv#readme
+## see https://github.com/andxyz/.dotfiles/raw/master/languages/ruby.sh
+## note currently I use a "be=bundle exec" alias
 test -d $HOME/.rbenv/bin &&
 export -- PATH="$HOME/.rbenv/bin:$PATH" &&
 eval "$(rbenv init -)"
 
 ## java sdkman http://sdkman.io/
-# this stupid thing curl calls all the time
+# this stupid thing calls curl all the time
 #export SDKMAN_DIR="/Users/andxyz/.sdkman"
 #test -s "/Users/andxyz/.sdkman/bin/sdkman-init.sh" &&
 #source "/Users/andxyz/.sdkman/bin/sdkman-init.sh"
 
-## OS-agnostic, system-level binary package manager and ecosystem http://conda.pydata.org
+## Python OS-agnostic, system-level binary package manager and ecosystem
+## see http://conda.pydata.org
+test -d "$HOME/anaconda3/bin" &&
 export PATH="$PATH:$HOME/anaconda3/bin"
