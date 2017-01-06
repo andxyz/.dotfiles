@@ -2,6 +2,10 @@
 
 setopt INTERACTIVECOMMENTS # allow bash style comments
 
+# http://superuser.com/questions/71857/change-the-output-format-of-zshs-time
+disable -r time       # disable shell reserved word
+alias time='time -p ' # -p for POSIX output
+
 ## zsh function nonsense
 fpath=(~/.zsh/functions $fpath)
 autoload -U ~/.zsh/functions/*(:t)
