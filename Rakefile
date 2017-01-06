@@ -9,7 +9,9 @@ task :install do
       bin
       languages
       andxyz.mit-license.org.json
+      brew_install_data_science.sh
       brew_install_stuff.sh
+      brew_upgrade_outdated.sh
       cheatsheets.md
       cheatsheets.md duti
       git-prompt.sh osx_app_preferences.sh
