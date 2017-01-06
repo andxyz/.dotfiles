@@ -12,7 +12,17 @@ IRB.conf[:PROMPT_MODE] = :SIMPLE
 IRB.conf[:AUTO_INDENT] = true
 
 # Use Pry everywhere
-require 'awesome_print'
-require 'pry'
-Pry.start
+puts "Loaded irbrc"
+
+begin
+  require 'awesome_print'
+rescue LoadError
+end
+
+begin
+  require 'pry'
+  Pry.start
+rescue LoadError
+end
+
 exit
