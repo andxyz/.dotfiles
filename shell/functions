@@ -12,6 +12,7 @@ function httpperf {
 function jqbrowser {
   local TMPFILE=$(gmktemp --suffix=".json")
   jq '.' > "${TMPFILE}"
+  echo "open -b 'com.google.chrome' ${TMPFILE}"
   open -b 'com.google.chrome' "${TMPFILE}"
 }
 
