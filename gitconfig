@@ -216,6 +216,15 @@
     algorithm = minimal
     compactionHeuristic = true
 
+[mergetool "vimdiff_merge"]
+  tool = vimdiff
+  conflictstyle = diff3
+  trustExitCode = false
+
+[mergetool "diffmerge"]
+  cmd = diffmerge --merge --result=$MERGED $LOCAL $BASE $REMOTE
+  trustExitCode = false
+
 #
 # sourcetree
 #
