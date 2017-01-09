@@ -5,4 +5,4 @@
 --exclude=*.min.js
 --exclude=jquery.*.js
 --exclude=jquery-*.js
---languages=-html,sql
+--languages=+ruby,-html,-javascript,+sql
