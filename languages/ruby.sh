@@ -144,13 +144,22 @@ rbenv versions
 ## example use cases of some of our plugins
 
 ### update all your rubygems and bundlers on all your rubies
-function update_ruby_stuff() {
+function update_rubygems_bundler_for_rbenv_all() {
   rbenv update
   rbenv each gem update --system
   rbenv each gem install bundler
   rbenv each gem update bundler
 }
-update_ruby_stuff;
+update_rubygems_bundler_for_rbenv_all;
+
+
+function update_rubygems_bundler_for_rbenv_local() {
+  rbenv exec gem update --system
+  rbenv exec gem install bundler
+  rbenv exec gem update bundler
+  rbenv exec gem list | grep bundler
+}
+update_rubygems_bundler_for_rbenv_local;
 
 ### add some default gems for new ruby installs
 # echo "bundler" >> $HOME/.rbenv/default-gems
