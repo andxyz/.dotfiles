@@ -17,7 +17,8 @@ Pry.commands.alias_command 'cc', 'continue'
 # ==============================
 # nicer table printing
 # ==============================
-if ENV['RAILS_USE_HIRB_GEM'] && defined?(::Rails) && Rails.env
+# RAILS_USE_HIRB_GEM=true RAILS_PRINT_X_COLUMNS=12 bundle exec rails console
+if ENV['RAILS_USE_HIRB_GEM'] == "true" && defined?(::Rails) && Rails.env
   begin
     hirb_gem_location = ''
     Bundler.with_clean_env do
@@ -38,11 +39,11 @@ if ENV['RAILS_USE_HIRB_GEM'] && defined?(::Rails) && Rails.env
 
       def hirb_enable_fancy_print_options
         Hirb.enable({
-          :width => 140,
+          :width => (ENV.fetch('RAILS_PRINT_X_COLUMNS', 6).to_i * 35),
           :height => 500,
           output:
             ActiveRecord::Base.descendants.each_with_object({}) do |klass_name, tmp_hash|
-              tmp_hash[klass_name.to_s] = { options: { fields: klass_name.column_names.take(6) | %w{created_at updated_at} } } rescue next
+              tmp_hash[klass_name.to_s] = { options: { fields: klass_name.column_names.take(ENV.fetch('RAILS_PRINT_X_COLUMNS', 6).to_i) | %w{created_at updated_at} } } rescue next
             end
         })
       end
@@ -50,7 +51,13 @@ if ENV['RAILS_USE_HIRB_GEM'] && defined?(::Rails) && Rails.env
       Hirb.enable()
       hirb_enable_fancy_print
       hirb_enable_fancy_print_options
+
+      # pp Hirb::View.config
+
+      # RAILS_USE_HIRB_GEM=true RAILS_PRINT_X_COLUMNS=12 bundle exec rails console
       # Golf::Event.limit(2)
+      # RAILS_USE_HIRB_GEM=true RAILS_PRINT_X_COLUMNS=16 bundle exec rails console
+      # Baseball::Event.limit(2)
     end
 
   rescue => e
