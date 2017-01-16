@@ -10,8 +10,6 @@ alias la='ls -A'
 alias addr='nocorrect addr'
 
 ### andxyz random
-##### a sublimetext github.com/bkeepers tip
-alias e="subl -n ./"
 alias hhistory='history -99999 | cut -c 8-'
 ##### the only advantage cmd.exe has
 alias cls='clear'

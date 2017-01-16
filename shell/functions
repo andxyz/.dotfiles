@@ -47,3 +47,13 @@ function zco {
 function zcoa {
   git checkout $(git branch-list.sh -a | fzf --no-sort --reverse --exact --select-1 --query="${@:-}" | awk -F'[[:space:]][[:space:]]+' '{print $4}' | gsed -r 's:remotes/origin/::g') && git status --short --branch;
 }
+
+##### the e editor shortcut for sublimetext (github.com/bkeepers tip)
+function e  () {
+  rm -rf project.sublime-workspace > /dev/null 2>&1
+  if [[ -f project.sublime-project ]] ; then
+    subl ./project.sublime-project
+  else
+    subl -n ./
+  fi
+}
