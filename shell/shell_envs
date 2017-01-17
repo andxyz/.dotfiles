@@ -1,7 +1,10 @@
 #!/usr/bin/env bash
 
-# set lang to avoid encoding problems
+# set some langs http://unix.stackexchange.com/questions/149111/what-should-i-set-my-locale-to-and-what-are-the-implications-of-doing-so
 export -- LANG='en_US.UTF-8'
 export -- LANGUAGE='en_US.UTF-8'
+export -- LC_MESSAGES='en_US.UTF-8'
 export -- LC_ALL='en_US.UTF-8'
-export -- LC_CTYPE="en_US.UTF-8"
+export -- LC_CTYPE='en_US.UTF-8'
+export -- LC_COLLATE='C'
+export -- LC_PAPER='en_US'
