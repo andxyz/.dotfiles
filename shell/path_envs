@@ -52,8 +52,8 @@ export -- PATH="./node_modules/.bin:$PATH"
 # java stuff http://www.jenv.be/
 # if which jenv > /dev/null; then eval "$(jenv init -)"; fi
 export JAVA_HOME=$(/usr/libexec/java_home -v 1.8)
-export _JAVA_AWT_WM_NONREPARENTING=1
-export _JAVA_OPTIONS='-Dawt.useSystemAAFontSettings=on -Dsun.java2d.xrender=true -Dswing.aatext=true'
+# export _JAVA_AWT_WM_NONREPARENTING=1
+# export _JAVA_OPTIONS='-Dawt.useSystemAAFontSettings=on -Dsun.java2d.xrender=true -Dswing.aatext=true'
 
 ## java sdkman http://sdkman.io/
 # this stupid thing calls curl all the time
