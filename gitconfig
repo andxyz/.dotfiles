@@ -37,6 +37,7 @@
     # runs my $HOME/bin/git-branch-list.sh shell script
     b = branch-list.sh
     ls = ls-files
+    ls-ignored = !git ls-files -v | grep "^[[:lower:]]"
     unstage = reset HEAD --
     cmend = commit --amend -C HEAD
     wip = "!gitwip() { git add --all && git commit -m 'wip'; }; gitwip"
