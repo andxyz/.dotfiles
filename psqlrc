@@ -5,7 +5,7 @@
 \set PROMPT1 '%[%033[1m%]%M %n@%/%R%[%033[0m%]%# '
 -- PROMPT2 is printed when the prompt expects more input, like when you type
 -- SELECT * FROM<enter>. %R shows what type of input it expects.
-\set PROMPT2 '[more] %R >
+\set PROMPT2 '[more] %R >'
 
 -- taken from:
 -- http://robots.thoughtbot.com/improving-the-command-line-postgres-experience
@@ -41,7 +41,12 @@
 \pset pager off
 
 -- http://serverfault.com/questions/34741/postgres-equivalent-to-mysqls-g
-\set G '\\set QUIET 1\\x\\g\\x\\set QUIET 0'
+\set G '\\set QUIET 1\\x on\\g\\x off\\set QUIET 0'
+-- use :G like this
+-- select * from Articles limit 5 :G
 
 -- set noisyness back to normal
 \unset QUIET
+
+-- list the queries
+-- SELECT query, state, query_start, * FROM pg_stat_activity WHERE pg_stat_activity.query != '<IDLE>' :G
