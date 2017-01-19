@@ -49,4 +49,6 @@
 \unset QUIET
 
 -- list the queries
--- SELECT query, state, query_start, * FROM pg_stat_activity WHERE pg_stat_activity.query != '<IDLE>' :G
+\set LS_QUERIES 'SELECT query, state, query_start, * FROM pg_stat_activity WHERE pg_stat_activity.query != \'\<IDLE\>\' \:G'
+-- kill all the queries on my dev machine
+\set KILL_ALL_QUERIES 'SELECT pg_terminate_backend(pg_stat_activity.pid) FROM pg_stat_activity WHERE pg_stat_activity.query != \'\<IDLE\>\';'
