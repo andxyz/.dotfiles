@@ -159,7 +159,10 @@ function update_rubygems_bundler_for_rbenv_local() {
   rbenv exec gem update bundler
   rbenv exec gem list | grep bundler
 }
-update_rubygems_bundler_for_rbenv_local;
+# update_rubygems_bundler_for_rbenv_local;
+
+# eventmachine openssl issues
+# bundle config --global build.eventmachine --with-cppflags=-I$(brew --prefix openssl)/include
 
 ### add some default gems for new ruby installs
 # echo "bundler" >> $HOME/.rbenv/default-gems
