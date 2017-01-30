@@ -12,6 +12,7 @@
 #set -x
 #set -e
 
+## Alcatraz no longer works :(
 ## reinstall alcatrax plugin package manager
 #rm -rf "$HOME/Library/Application\ Support/Developer/Shared/Xcode/Plug-ins/Alcatraz.xcplugin"
 #rm -rf "$HOME/Library/Application\ Support/Alcatraz"
