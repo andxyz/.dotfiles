@@ -52,3 +52,40 @@
 \set LS_QUERIES 'SELECT query, state, query_start, * FROM pg_stat_activity WHERE pg_stat_activity.query != \'\<IDLE\>\' \:G'
 -- kill all the queries on my dev machine
 \set KILL_ALL_QUERIES 'SELECT pg_terminate_backend(pg_stat_activity.pid) FROM pg_stat_activity WHERE pg_stat_activity.query != \'\<IDLE\>\';'
+-- type :KILL_ALL_QUERIES to use
+-- SELECT pg_terminate_backend(pg_stat_activity.pid) FROM pg_stat_activity WHERE pg_stat_activity.query != '<IDLE>';
+-- SELECT * FROM pg_stat_activity WHERE pg_stat_activity.query != '<IDLE>' :G
+
+-- https://www.postgresql.org/docs/9.6/static/monitoring-stats.html
+-- https://www.postgresql.org/docs/9.6/static/dynamic-trace.html
+-- https://www.postgresql.org/docs/9.6/static/disk-usage.html
+-- https://www.postgresql.org/docs/9.6/static/view-pg-locks.html
+-- https://www.postgresql.org/docs/9.6/static/storage-toast.html
+
+-- To list queries
+-- SELECT * into queries FROM pg_stat_activity;
+-- SELECT * FROM queries;
+
+-- To kill the query
+-- SELECT pg_cancel_backend(pid);
+
+-- To kill the connection
+-- SELECT pg_terminate_backend(pid);
+
+-- To show db-wide stats
+-- SELECT * FROM pg_stat_database;
+
+-- To show background writer's db activity
+-- select * from pg_stat_bgwriter;
+
+-- To show table stats for current db
+-- select * from pg_stat_all_tables;
+
+-- user functions: pg_stat_user_functions
+-- select * from pg_stat_user_functions;
+
+-- To show index stats for current db
+-- select * from pg_stat_all_indexes;
+
+-- locks: pg_locks
+-- select * from pg_locks;
