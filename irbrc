@@ -13,11 +13,6 @@ IRB.conf[:AUTO_INDENT] = true
 
 puts "Loaded irbrc"
 
-begin
-  require 'awesome_print'
-rescue LoadError
-end
-
 # ==============================
 #  PRY
 # ==============================
@@ -39,11 +34,11 @@ if ENV['RAILS_USE_PRY_GEM'] == "true"
     puts e.backtrace if e.backtrace
   end
 end
+
 # Try to use Pry everywhere
 begin
   require 'pry'
   Pry.start
+  exit #exit once pry exits
 rescue LoadError
 end
-
-exit
