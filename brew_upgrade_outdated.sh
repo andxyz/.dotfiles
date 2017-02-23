@@ -7,14 +7,13 @@
 set -x
 set -e
 
-IGNORE_LIST='haskell-stack cabal-install go php56 python virtualbox'
-### first off, update all brew meta data crap
+IGNORE_LIST='go python virtualbox openssh openssl readline'
 
+### first off, update all brew meta data crap
 ## house cleaning round 1
 brew update
-brew cleanup -s
+brew cleanup -s && brew prune
 brew cask cleanup
-brew prune
 
 brew tap 'homebrew/aliases'
 brew tap 'homebrew/apache'
@@ -38,11 +37,13 @@ brew untap 'josegonzalez/php'
 brew update
 brew cleanup -s
 
-brew outdated # show the old
-brew upgrade $(brew outdated --full-name | grep -v $IGNORE_LIST) # update the packages
-brew cask list | # list the casks
-grep -v $IGNORE_LIST  | # skip these
-xargs brew cask install --force # update the cask stuff
+# Show me what is out of date
+TO_UPDATE_LIST=$(gcomm -12 <(brew leaves | sort) <(brew outdated | sort))
+
+brew upgrade $(echo $TO_UPDATE_LIST | grep -v $IGNORE_LIST) # update the packages
+# brew cask list | # list the casks
+# grep -v $IGNORE_LIST  | # skip these
+# xargs brew cask install --force # update the cask stuff
 
 ## house cleaning round 2
 brew cleanup -s && brew prune
