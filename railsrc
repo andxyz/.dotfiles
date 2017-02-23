@@ -1,5 +1,0 @@
-#!/usr/bin/env ruby
-
-# rails new appname --database=postgresql --skip-action-cable --skip-bundle --skip-listen --skip-puma --skip-spring --skip-test --skip-turbolinks
-# rm -r test
-# bundle exec rails generate rspec:install
