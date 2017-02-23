@@ -41,7 +41,12 @@ function mongoose-http-server {
 }
 
 function zco {
-  git checkout $(git branch-list.sh | fzf --no-sort --reverse --exact --select-1 --query="${@:-}" | awk -F'[[:space:]][[:space:]]+' '{print $4}') && git status --short --branch;
+  local BRANCH_NAME=$(git branch-list.sh |
+    fzf --no-sort --reverse --exact --select-1 --query="${@:-}" |
+    awk -F'[[:space:]][[:space:]]+' '{print $4}'
+  )
+  echo "moving to ${BRANCH_NAME}";
+  git checkout $BRANCH_NAME && git status --short --branch
 }
 
 function zcoa {
