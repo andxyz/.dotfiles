@@ -34,8 +34,9 @@ export -- PATH="$HOME/.cabal/bin:$PATH"
 
 ## nodejs - creationix node version management (nvm)
 # slowing me down
-# test -f "$HOME/.nvm/nvm.sh" &&
-# source $HOME/.nvm/nvm.sh
+function source_nodeenv() {
+  source $HOME/.nvm/nvm.sh
+}
 # example nvm commands (because I always forget)
 # nvm ls-remote
 # nvm install v4.1.0
@@ -50,7 +51,11 @@ export -- PATH="$HOME/.cabal/bin:$PATH"
 export -- PATH="./node_modules/.bin:$PATH"
 
 # java stuff http://www.jenv.be/
-# if which jenv > /dev/null; then eval "$(jenv init -)"; fi
+# slowing me down
+function source_javaenv() {
+  eval "$(jenv init -)"
+}
+
 export JAVA_HOME=$(/usr/libexec/java_home -v 1.8)
 # export _JAVA_AWT_WM_NONREPARENTING=1
 # export _JAVA_OPTIONS='-Dawt.useSystemAAFontSettings=on -Dsun.java2d.xrender=true -Dswing.aatext=true'
@@ -63,7 +68,9 @@ export JAVA_HOME=$(/usr/libexec/java_home -v 1.8)
 
 # ocaml OPAM configuration
 # slowing me down
-# source $HOME/.opam/opam-init/init.zsh > /dev/null 2> /dev/null || true
+function source_ocamlenv() {
+  source $HOME/.opam/opam-init/init.zsh > /dev/null 2> /dev/null || true
+}
 
 ## perl perlbrew stuff
 ## see https://perlbrew.pl/
@@ -74,7 +81,9 @@ export -- PERL_MM_OPT="INSTALL_BASE=/Users/andxyz/perl5";
 export -- PERL5LIB="/Users/andxyz/perl5/lib/perl5:$PERL5LIB";
 export -- PATH="/Users/andxyz/perl5/bin:/Users/andxyz/perl5/perlbrew/bin:$PATH";
 # slowing me down
-# source ~/perl5/perlbrew/etc/bashrc
+function source_perlenv() {
+  source ~/perl5/perlbrew/etc/bashrc
+}
 
 ## php stuff
 PHP_54_PREFIX=$(brew --prefix homebrew/php/php54)
@@ -110,4 +119,13 @@ eval "$(rbenv init -)"
 ## rustup rust cargo
 # rustup --help
 # slowing me down
-# source $HOME/.cargo/env
+function source_rustenv() {
+  source $HOME/.cargo/env
+}
+
+export SWIFTENV_ROOT="$HOME/.swiftenv"
+export PATH="$SWIFTENV_ROOT/bin:$PATH"
+# slowing me down
+function source_swiftenv() {
+  eval "$(swiftenv init -)"
+}
