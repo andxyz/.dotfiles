@@ -3,10 +3,16 @@
 # set -e
 # https://kev.inburke.com/kevin/profiling-zsh-startup-time/
 # https://github.com/raboof/zshprof
+#
+# cd /Users/andxyz/code/zshprof
 # ocamlfind ocamlopt -linkpkg -thread -package str Callgrind.ml ZshXtrace.ml ZshXtraceToCallgrind.ml -o zshprof.bin
 # ./zshprof.bin < /tmp/zshprof.57612.log > /tmp/zsh.57612.callgrind
 # brew install qcachegrind --with-graphviz
-# qcachegrind /tmp/zsh.57612.callgrind
+# qcachegrind /tmp/zsh.*.callgrind
+#
+# a quick check
+# time bash -li -c 'echo hi; exit;'
+# time zsh -li -c 'echo hi; exit;'
 
 PROFILE_STARTUP=false
 if [[ "$PROFILE_STARTUP" == true ]]; then

@@ -53,12 +53,11 @@ export -- PATH="./node_modules/.bin:$PATH"
 # java stuff http://www.jenv.be/
 # slowing me down
 function source_javaenv() {
+  export JAVA_HOME=$(/usr/libexec/java_home -v 1.8)
+  # export _JAVA_AWT_WM_NONREPARENTING=1
+  # export _JAVA_OPTIONS='-Dawt.useSystemAAFontSettings=on -Dsun.java2d.xrender=true -Dswing.aatext=true'
   eval "$(jenv init -)"
 }
-
-export JAVA_HOME=$(/usr/libexec/java_home -v 1.8)
-# export _JAVA_AWT_WM_NONREPARENTING=1
-# export _JAVA_OPTIONS='-Dawt.useSystemAAFontSettings=on -Dsun.java2d.xrender=true -Dswing.aatext=true'
 
 ## java sdkman http://sdkman.io/
 # this stupid thing calls curl all the time
@@ -73,45 +72,51 @@ function source_ocamlenv() {
 }
 
 ## perl perlbrew stuff
-## see https://perlbrew.pl/
-# ls ~/perl5/
-export -- PERL_LOCAL_LIB_ROOT="/Users/andxyz/perl5:$PERL_LOCAL_LIB_ROOT";
-export -- PERL_MB_OPT="--install_base "/Users/andxyz/perl5"";
-export -- PERL_MM_OPT="INSTALL_BASE=/Users/andxyz/perl5";
-export -- PERL5LIB="/Users/andxyz/perl5/lib/perl5:$PERL5LIB";
-export -- PATH="/Users/andxyz/perl5/bin:/Users/andxyz/perl5/perlbrew/bin:$PATH";
 # slowing me down
 function source_perlenv() {
+  ## see https://perlbrew.pl/
+  # ls ~/perl5/
+  export -- PERL_LOCAL_LIB_ROOT="/Users/andxyz/perl5:$PERL_LOCAL_LIB_ROOT";
+  export -- PERL_MB_OPT="--install_base "/Users/andxyz/perl5"";
+  export -- PERL_MM_OPT="INSTALL_BASE=/Users/andxyz/perl5";
+  export -- PERL5LIB="/Users/andxyz/perl5/lib/perl5:$PERL5LIB";
+  export -- PATH="/Users/andxyz/perl5/bin:/Users/andxyz/perl5/perlbrew/bin:$PATH";
   source ~/perl5/perlbrew/etc/bashrc
 }
 
 ## php stuff
-PHP_54_PREFIX=$(brew --prefix homebrew/php/php54)
-test -f "$PHP_54_PREFIX/bin/php" &&
-export -- PATH="$PHP_54_PREFIX/bin:$PATH"
+# brew lookups slowing me down
+source_php_env() {
+  PHP_54_PREFIX=$(brew --prefix homebrew/php/php54)
+  test -f "$PHP_54_PREFIX/bin/php" &&
+  export -- PATH="$PHP_54_PREFIX/bin:$PATH"
 
-PHP_55_PREFIX=$(brew --prefix homebrew/php/php55)
-test -f "$PHP_55_PREFIX/bin/php" &&
-export -- PATH="$PHP_55_PREFIX/bin:$PATH"
+  PHP_55_PREFIX=$(brew --prefix homebrew/php/php55)
+  test -f "$PHP_55_PREFIX/bin/php" &&
+  export -- PATH="$PHP_55_PREFIX/bin:$PATH"
 
-PHP_56_PREFIX=$(brew --prefix homebrew/php/php56)
-test -f "$PHP_56_PREFIX/bin/php" &&
-export -- PATH="$PHP_56_PREFIX/bin:$PATH"
+  PHP_56_PREFIX=$(brew --prefix homebrew/php/php56)
+  test -f "$PHP_56_PREFIX/bin/php" &&
+  export -- PATH="$PHP_56_PREFIX/bin:$PATH"
+}
 
 ## python path stuff
 # brew info python
-# They will install into the site-package directory
-#   /usr/local/lib/python2.7/site-packages
-export PYTHONPATH=`brew --prefix`/lib/python2.7/site-packages:$PYTHONPATH
+source_python_env() {
+  # They will install into the site-package directory
+  #   /usr/local/lib/python2.7/site-packages
+  export PYTHONPATH=`brew --prefix`/lib/python2.7/site-packages:$PYTHONPATH
 
-## python anaconda os-agnostic, system-level binary package manager and ecosystem
-## see http://conda.pydata.org
-test -d "$HOME/anaconda3/bin" &&
-export PATH="$PATH:$HOME/anaconda3/bin"
+  ## python anaconda os-agnostic, system-level binary package manager and ecosystem
+  ## see http://conda.pydata.org
+  test -d "$HOME/anaconda3/bin" &&
+  export PATH="$PATH:$HOME/anaconda3/bin"
+}
 
 ## ruby rbenv stuff https://github.com/sstephenson/rbenv#readme
 ## see https://github.com/andxyz/.dotfiles/raw/master/languages/ruby.sh
 ## note currently I use a "be=bundle exec" alias
+# I always seem to use ruby so we live with it
 test -d $HOME/.rbenv/bin &&
 export -- PATH="$HOME/.rbenv/bin:$PATH" &&
 eval "$(rbenv init -)"
@@ -123,9 +128,10 @@ function source_rustenv() {
   source $HOME/.cargo/env
 }
 
-export SWIFTENV_ROOT="$HOME/.swiftenv"
-export PATH="$SWIFTENV_ROOT/bin:$PATH"
+# taytayswifty
 # slowing me down
 function source_swiftenv() {
+  export SWIFTENV_ROOT="$HOME/.swiftenv"
+  export PATH="$SWIFTENV_ROOT/bin:$PATH"
   eval "$(swiftenv init -)"
 }
