@@ -7,8 +7,6 @@
 set -x
 set -e
 
-IGNORE_LIST='go python virtualbox openssh openssl readline'
-
 ### first off, update all brew meta data crap
 ## house cleaning round 1
 brew update
@@ -38,9 +36,13 @@ brew update
 brew cleanup -s
 
 # Show me what is out of date
+IGNORE_LIST='go python virtualbox openssh openssl readline'
 TO_UPDATE_LIST=$(gcomm -12 <(brew leaves | sort) <(brew outdated | sort))
+TO_UPDATE_LIST_WITH_IGNORES=$(echo ${TO_UPDATE_LIST} | grep -v -i "${IGNORE_LIST}")
 
-brew upgrade $(echo $TO_UPDATE_LIST | grep -v $IGNORE_LIST) # update the packages
+echo "${TO_UPDATE_LIST_WITH_IGNORES}"
+
+brew upgrade ${TO_UPDATE_LIST_WITH_IGNORES} # update the packages
 # brew cask list | # list the casks
 # grep -v $IGNORE_LIST  | # skip these
 # xargs brew cask install --force # update the cask stuff
