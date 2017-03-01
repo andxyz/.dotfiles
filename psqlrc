@@ -50,6 +50,13 @@
 
 -- list the queries
 \set LS_QUERIES 'SELECT query, state, query_start, * FROM pg_stat_activity WHERE pg_stat_activity.query != \'\<IDLE\>\' \:G'
+-- show long running queries
+\set LS_5MIN_QUERIES 'SELECT * FROM pg_stat_activity WHERE pg_stat_activity.query_start < now() - interval \'5 minute\' AND pg_stat_activity.query != \'<IDLE>\' \:G'
+-- SELECT * FROM pg_stat_activity WHERE pg_stat_activity.query_start < now() - interval '1 minute' AND pg_stat_activity.query != '<IDLE>' :G
+
+-- kill long running queries
+\set KILL_5MIN_QUERIES 'SELECT pg_terminate_backend(pg_stat_activity.pid) FROM pg_stat_activity WHERE pg_stat_activity.query_start < now() - interval \'5 minute\' AND pg_stat_activity.query != \'<IDLE>\';'
+-- type :KILL_5MIN_QUERIES to use
 -- kill all the queries on my dev machine
 \set KILL_ALL_QUERIES 'SELECT pg_terminate_backend(pg_stat_activity.pid) FROM pg_stat_activity WHERE pg_stat_activity.query != \'\<IDLE\>\';'
 -- type :KILL_ALL_QUERIES to use
