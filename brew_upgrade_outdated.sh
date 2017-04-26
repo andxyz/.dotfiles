@@ -34,6 +34,7 @@ brew untap 'josegonzalez/php'
 
 brew update
 brew cleanup -s
+brew prune
 
 # Show me what is out of date
 IGNORE_LIST='go python virtualbox openssh openssl readline'
@@ -48,6 +49,7 @@ brew upgrade ${TO_UPDATE_LIST_WITH_IGNORES} # update the packages
 # xargs brew cask install --force # update the cask stuff
 
 ## house cleaning round 2
-brew cleanup -s && brew prune
+brew cleanup -s
+brew prune
 brew doctor
 brew cask cleanup

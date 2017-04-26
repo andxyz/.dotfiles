@@ -100,6 +100,7 @@ brew install 'zsh'
 
 ### version control systems
 # brew options git
+brew install 'curl' --with-openssl
 brew install 'git' --with-pcre --with-brewed-curl --with-brewed-openssl
 #brew upgrade 'git' --with-pcre --with-brewed-curl --with-brewed-openssl
 brew install 'hub'
@@ -160,10 +161,10 @@ brew cask cleanup
 ### brew cask install 'sublimetext2'
 ### brew cask install 'sublimetext3''
 brew install --HEAD 'universal-ctags/universal-ctags/universal-ctags'
-brew install 'tmux'
+brew install 'tmux' --with-utf8proc
 brew install 'reattach-to-user-namespace'
-brew install 'vim'
-brew install 'mvim'
+brew install 'vim' --with-lua --with-luajit
+brew install 'macvim' --with-lua --with-luajit
 brew cask install 'clipmenu'
 
 ### http tools
@@ -345,56 +346,62 @@ brew doctor
 
 ### current list of crap on my dev machine
 # ~/code/andxyz-dotfiles[master]$ brew leaves | sort | paste - - - -
-# ack autoenv awscli  aykamko/tag-ag/tag-ag
-# bash  bash-completion bash-git-prompt bfg
-# carthage  coreutils cppcheck  ctags
-# curl  elm ffmpeg  findutils
-# flow  fzf gawk  gcc
-# gdb geoip gifsicle  git
-# gnu-getopt  gnu-indent  gnu-sed gnu-tar
-# gnu-which gnupg gnupg2  gradle
-# graphviz  haskell-stack heroku  highlight
-# homebrew/apache/ab  homebrew/boneyard/samba homebrew/completions/bundler-completion homebrew/completions/cargo-completion
-# homebrew/completions/gem-completion homebrew/completions/grunt-completion homebrew/completions/maven-completion homebrew/completions/pip-completion
-# homebrew/completions/rails-completion homebrew/completions/rake-completion  homebrew/completions/vagrant-completion homebrew/dupes/bzip2
-# homebrew/dupes/grep homebrew/dupes/gzip homebrew/dupes/less homebrew/dupes/openssh
-# homebrew/dupes/zlib homebrew/fuse/ntfs-3g homebrew/fuse/s3fs  homebrew/php/composer
-# homebrew/php/php56  homebrew/science/r  homebrew/science/vips homebrew/versions/llvm35
-# htop  httpie  hub hunspell
-# ical-buddy  iftop imagemagick ios-webkit-debug-proxy
-# iperf jenv  jq  jsonpp
-# leiningen libav libvo-aacenc  libxslt
-# libyaml luajit  macvim  man2html
-# mas mercurial mitmproxy mongoose
-# mono  multitail mysql nginx
-# ninja nmap  nsq opam
-# ossp-uuid pandoc  parallel  pbzip2
-# phantomjs pick  pidcat  postgresql
-# proctools psgrep  pstree  pv
-# pyenv-virtualenv  python3 recoverjpeg ripgrep
-# s3cmd sdl speedtest_cli subversion
-# swig  tcpflow tig tldr
-# tmux  transmission  trash tree
-# uncrustify  universal-ctags/universal-ctags/universal-ctags unrar v8
-# watchman  wget  xctool  yarn
+# ack ansible@1.9 autoenv awscli
+# aykamko/tag-ag/tag-ag bash  bash-completion bash-git-prompt
+# bundler-completion  cargo-completion  carthage  clang-format
+# coreutils cppcheck  ctags curl
+# ddd elm faad2 fasd
+# ffmpeg  findutils flac  flow
+# fzf gawk  gcc gdb
+# gem-completion  geoip gflags  gifsicle
+# git gnu-getopt  gnu-indent  gnu-sed
+# gnu-tar gnu-which gnupg gnupg2
+# gradle  grunt-completion  haskell-stack heroku
+# highlight homebrew/apache/ab  homebrew/boneyard/samba homebrew/dupes/bzip2
+# homebrew/dupes/grep homebrew/dupes/gzip homebrew/dupes/less homebrew/dupes/ncurses
+# homebrew/dupes/openssh  homebrew/dupes/rsync  homebrew/dupes/zlib homebrew/fuse/ntfs-3g
+# homebrew/fuse/s3fs  homebrew/php/composer homebrew/php/php56  homebrew/science/r
+# homebrew/science/vips htop  httpie  hub
+# hunspell  ical-buddy  iftop imagemagick
+# imagesnap iperf jenv  jq
+# jsonpp  leiningen libao libav
+# libcue  libvo-aacenc  libxslt macvim
+# mad man2html  mas maven-completion
+# mercurial mitmproxy mongoose  mono
+# moreutils mp4v2 multitail mysql@5.6
+# nethogs netpbm  nginx nmap
+# nsq opam  ossp-uuid pandoc
+# pbzip2  phantomjs pick  pidcat
+# pip-completion  postgresql94  proctools psgrep
+# pstree  pv  pyenv-virtualenv  python3
+# qcachegrind rails-completion  rake-completion reattach-to-user-namespace
+# rebar3  recoverjpeg ripgrep s3cmd
+# sdl shopify/shopify/toxiproxy speedtest_cli swig
+# tcpflow tig tldr  tmux
+# transmission  trash tree  uncrustify
+# universal-ctags/universal-ctags/universal-ctags unrar usbmuxd v8
+# vagrant-completion  valgrind  vim watchman
+# wget  wifi-password xctool  yarn
 # youtube-dl  zsh zsh-completions zsh-syntax-highlighting
 
 # ~/code/andxyz-dotfiles[master]$ brew cask list  | sort | paste - - - -
-# alfred  anaconda  android-file-transfer beaker
-# betterzipql calibre coconutbattery  colorpicker-developer
-# colorpicker-hex colorpicker-propicker controlplane  disk-inventory-x
-# dropbox geektool  gitx  go2shell
-# google-hangouts harvest icolors jadengeller-helium
-# java  julia keka  lastfm
-# limechat  lunchy  macdown macgdbp
-# macvim  mplayerx  mumble  name-mangler
-# netnewswire osxfuse pgweb provisionql
-# qlcolorcode qlimagesize qlmarkdown  qlprettypatch
-# qlstephen quicklook-csv quicklook-json  quicknfo
-# rcdefaultapp  rightzoom sequel-pro  silverlight
-# skype slimbatterymonitor  soundcleod  speedcrunch
-# suspicious-package  texshop the-unarchiver  transmission
-# ukelele vagrant virtualbox  webpquicklook
-# xee xquartz yakyak
+# alfred  anaconda  android-file-transfer appcleaner
+# atom  beaker  betterzipql calibre
+# coconutbattery  colorpicker-developer colorpicker-hex colorpicker-propicker
+# controlplane  diffmerge disk-inventory-x  dropbox
+# geektool  gitx  go2shell  google-hangouts
+# harvest icolors jadengeller-helium  java
+# julia keka  lastfm  limechat
+# liteicon  lunchy  macdown macgdbp
+# mplayerx  mumble  name-mangler  netnewswire
+# osxfuse pgweb provisionql qlcolorcode
+# qlimagesize qlmarkdown  qlprettypatch qlstephen
+# qlvideo quicklook-csv quicklook-json  quicklookapk
+# quicknfo  rcdefaultapp  rightzoom sequel-pro
+# silverlight skype slimbatterymonitor  soundcleod
+# speedcrunch suspicious-package  texshop the-unarchiver
+# transmission  ukelele vagrant virtualbox
+# visual-studio-code  webpquicklook xee xquartz
+# yakyak
 
  exit 0
