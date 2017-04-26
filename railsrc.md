@@ -17,6 +17,7 @@ rails new appname \
 
 ```shell
 rm -r test
-bundle install rspec-rails
+echo -n "gem 'rspec-rails'" >> Gemfile
+bundle install
 bundle exec rails generate rspec:install
 ```
