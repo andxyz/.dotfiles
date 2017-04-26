@@ -15,8 +15,8 @@ GIT_DIRECTORY="$(/usr/local/bin/git rev-parse --git-dir)"
 trap 'rm -f "$GIT_DIRECTORY/$$.tags"' EXIT
 
 git ls-files | \
-/usr/local/bin/ctags --sort=yes -R --tag-relative \
---languages=+ruby,-html,-javascript,+sql \
+/usr/local/bin/ctags --sort=foldcase --recurse=yes --tag-relative \
+--languages=+ruby,-html,-javascript,-sql \
 --exclude=.git \
 --exclude=log \
 --exclude=vendor \
@@ -24,7 +24,7 @@ git ls-files | \
 --exclude=\*.min.js \
 --exclude=jquery.\*.js \
 --exclude=jquery-\*.js \
--f"$GIT_DIRECTORY/$$.tags" "./" $(rbenv exec bundle list --paths) "${CTAGS_RUBY_STDLIB}"
+-f"$GIT_DIRECTORY/$$.tags" './' $(rbenv exec bundle list --paths) "${CTAGS_RUBY_STDLIB}"
 
 if [[ $? -ne 0 ]]; then
   exit 1
