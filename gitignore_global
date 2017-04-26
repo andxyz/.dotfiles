@@ -1,13 +1,14 @@
 # see https://github.com/github/gitignore/
 
 ## my place to dump info on usage
-/README*secrets.md
 **/README*secrets.md
 
 ## my place to work on secret scripts
-*_andxyz_secrets.rb
-/script*secrets.sh
-**/script*secrets.sh
+lib/tasks/log.rake
+**/*_andxyz_secrets.*
+**/*-andxyz-secrets.*
+**/*script_secrets.sh
+**/*script-secrets.sh
 
 ###
 ## Languages
