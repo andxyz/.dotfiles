@@ -14,6 +14,9 @@
 # launchctl load ~/Library/LaunchAgents/org.homebrew.ssh-agent.plist
 # launchctl list | grep 'ssh-agent'
 
+# when it works
+# srw------- 1 andxyz staff 0 Mar  1 16:45 /Users/andxyz/.ssh-agent.sock
+
 ## test setup with github
 test_my_ssh_agent() {
   unset SSH_AUTH_SOCK
@@ -21,9 +24,10 @@ test_my_ssh_agent() {
   export -- SSH_AUTH_SOCK="$HOME/.ssh-agent.sock"
   ssh -V
   $(find /usr/local/Cellar/openssl -name 'openssl' -type f) version
+  /usr/local/bin/ssh-add ~/.ssh/andxyz-github
   ssh-add -l
   ssh -Tv git@github.com
-  launchctl list | grep ssh-agent
+  launchctl list | grep -i 'ssh-agent'
 }
 ## "Hi andxyz! You've successfully authenticated, but GitHub does not provide shell access"
 
@@ -34,11 +38,19 @@ test_my_ssh_agent() {
 ## other notes
 ## http://rabexc.org/posts/pitfalls-of-ssh-agents
 
-ssh_agent_setup() {
+ssh_agent_setup_hide() {
   unset SSH_AUTH_SOCK
   unset SSH_AGENT_PID
   export SSH_AUTH_SOCK="$HOME/.ssh-agent.sock"
   lunchy start org.homebrew.ssh-agent > /dev/null 2>&1
+}
+
+ssh_agent_setup() {
+  export SSH_AUTH_SOCK=$(launchctl getenv SSH_AUTH_SOCK)
+  export SSH_AGENT_PID=$(launchctl getenv SSH_AGENT_PID)
+  launchctl start org.openbsd.ssh-agent
+  /usr/bin/ssh-add ~/.ssh/andxyz-github
+  /usr/bin/ssh-add -l
 }
 
 ssh_agent_setup
