@@ -14,25 +14,29 @@ IRB.conf[:AUTO_INDENT] = true
 puts "Loaded irbrc"
 
 # ==============================
-#  PRY
+#  PRY BYEBUG https://github.com/deivid-rodriguez/pry-byebug
 # ==============================
-# force pry
-if ENV['RAILS_USE_PRY_GEM'] == "true"
-  begin
-    pry_gem_location = ''
-    Bundler.with_clean_env do
-      pry_gem_location = %x{ dirname `gem which pry` }
-    end
-    # puts pry_gem_location
-    $LOAD_PATH.unshift(File.join(File.dirname(pry_gem_location), 'lib'))
-    # puts $LOAD_PATH
-    ::Kernel.require('pry')
-  rescue => e
-    # oh well
-    puts e.message if e.message
-    puts e.cause if e.cause
-    puts e.backtrace if e.backtrace
+# Try to force pry-byebug
+begin
+  pry_gem_locations = []
+  Bundler.with_clean_env do
+    # gem dependency pry-doc --version '>= 0.10'
+    pry_gem_locations = %x{ dirname `gem which 'pry'` }
+    pry_gem_locations = %x{ dirname `gem which 'pry-byebug'` }
+    pry_gem_locations << %x{ dirname `gem which 'byebug'` }
   end
+  # puts pry_gem_locations
+  pry_gem_locations.split("\n").each do |gem_location|
+    # puts gem_location
+    $LOAD_PATH.unshift(File.join(File.dirname(gem_location), 'lib'))
+  end
+  # puts $LOAD_PATH
+  ::Kernel.require('pry-byebug')
+rescue => e
+  puts "oh well, try gem install 'pry-byebug'"
+  puts e.message if e.message
+  puts e.cause if e.cause
+  puts e.backtrace if e.backtrace
 end
 
 # Try to use Pry everywhere
