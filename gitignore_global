@@ -17,6 +17,9 @@ lib/tasks/log.rake
 ## Ruby stuff
 .bundle/
 .gemlocal
+.byebug_history
+.irb_history
+.pry_history
 
 ## Python stuff
 **/venv/
