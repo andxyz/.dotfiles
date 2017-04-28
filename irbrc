@@ -19,6 +19,7 @@ puts "Loaded irbrc"
 # Try to force pry-byebug
 begin
   pry_gem_locations = []
+  require 'bundler'
   Bundler.with_clean_env do
     # gem dependency pry-doc --version '>= 0.10'
     pry_gem_locations = %x{ dirname `gem which 'pry'` }
