@@ -107,11 +107,20 @@ brew install 'hub'
 # brew cask install 'kaleidoscope'
 ## I've been doing it manually you have to click things to install the commandline tools anyway
 
-### db
-brew install 'mysql'
-brew install 'postgresql'
+### db services
+brew install 'mysql@5.6'
+brew services stop 'mysql@5.6'
+brew link --force 'mysql@5.6'
+
+brew install 'postgresql@9.6'
+brew services stop 'postgresql@9.6'
+brew link --force 'postgresql@9.6'
+
 brew install 'memcached'
+brew services stop 'memcached'
 brew install 'redis'
+brew services stop 'redis'
+
 ### other vcs
 brew install 'hg'
 brew install 'svn'
