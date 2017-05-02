@@ -95,10 +95,10 @@
     showponline = show --pretty="oneline" --name-only
 
     # code review
-    codereview-reset-to = !bash -c 'git reset --soft ${1} && git reset HEAD -- '
-    openunstaged = "!$EDITOR_USING_CURRENT_PROJECT $(git diff --diff-filter AM --name-only)"
-    openstaged = "!$EDITOR_USING_CURRENT_PROJECT $(git diff --diff-filter AM --name-only --cached)"
-    opensince = "!fgitcodereview1() { $EDITOR_USING_CURRENT_PROJECT $(git diff --diff-filter AM --name-only --cached $@); }; fgitcodereview1"
+    codereview-reset-to = "!fgit_codereview_resetto() { bash -c \"git reset --soft $@ && git reset HEAD -- \"; }; fgit_codereview_resetto"
+    openunstaged = "!fgit_openunstaged() { $EDITOR_USING_CURRENT_PROJECT $(git diff --diff-filter AM --name-only); }; fgit_openunstaged"
+    openstaged = "!fgit_openstaged() { $EDITOR_USING_CURRENT_PROJECT $(git diff --diff-filter AM --name-only --cached); }; fgit_openstaged"
+    opensince = "!fgit_opensince() { $EDITOR_USING_CURRENT_PROJECT $(git diff --diff-filter AM --name-only --cached $@); }; fgit_opensince"
 
     # depends on hub
     github-pulls = "!hub browse -- pulls/"
