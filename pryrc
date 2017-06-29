@@ -19,7 +19,7 @@ Pry.config.editor = "subl -w"
 # ==============================
 if Kernel.const_defined?(:Rails) && ::Rails.env
   begin
-    require File.join(Rails.root,"config","environment")
+    require File.join(Rails.root, "config" ,"environment")
     require 'rails/console/app'
     require 'rails/console/helpers'
     extend Rails::ConsoleMethods
@@ -27,6 +27,7 @@ if Kernel.const_defined?(:Rails) && ::Rails.env
   rescue LoadError => e
     require "console_app"
     require "console_with_helpers"
+    puts 'Rails Console Helpers loaded'
   end
 
   ## https://github.com/travisjeffery/dotfiles/blob/master/.railsrc
@@ -98,7 +99,8 @@ end
 # ==============================
 # nicer table printing
 # ==============================
-# RAILS_USE_HIRB_GEM=true RAILS_PRINT_X_COLUMNS=12 bundle exec rails console
+# env RAILS_USE_HIRB_GEM=true RAILS_PRINT_X_COLUMNS=12 bundle exec rails console
+# env RAILS_USE_HIRB_GEM=true RAILS_PRINT_X_COLUMNS=12 bundle exec rescue rspec
 if ENV['RAILS_USE_HIRB_GEM'] == "true" && defined?(::Rails) && Rails.env
   begin
     hirb_gem_location = ''
@@ -123,16 +125,24 @@ if ENV['RAILS_USE_HIRB_GEM'] == "true" && defined?(::Rails) && Rails.env
           :width => (ENV.fetch('RAILS_PRINT_X_COLUMNS', 6).to_i * 35),
           :height => 500,
           output:
-            ActiveRecord::Base.descendants.each_with_object({}) do |klass_name, tmp_hash|
+            ActiveRecord::Base.descendants.
+            select do |klass_name|
+              klass_name.to_s != 'ActiveRecord::SchemaMigration'
+            end.
+            each_with_object({}) do |klass_name, tmp_hash|
               tmp_hash[klass_name.to_s] = { options: { fields: klass_name.column_names.take(ENV.fetch('RAILS_PRINT_X_COLUMNS', 6).to_i) | %w{created_at updated_at} } } rescue next
             end
         })
       end
 
       def active_record_show_me_the_first(number_of_records)
-        ActiveRecord::Base.descendants.each do |klass_name|
-          Hirb::View.view_or_page_output(klass_name.first(number_of_records))
-        end
+        ActiveRecord::Base.descendants.
+          select do |klass_name|
+            klass_name.to_s != 'ActiveRecord::SchemaMigration'
+          end.
+          each do |klass_name|
+            Hirb::View.view_or_page_output(klass_name.first(number_of_records))
+          end
       end
 
       def active_record_show_me_the_last(number_of_records)
