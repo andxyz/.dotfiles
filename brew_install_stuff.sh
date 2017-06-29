@@ -23,28 +23,30 @@ brew outdated
 # brew uses --installed apr
 
 ### enable binary downloads see https://github.com/phinze/homebrew-cask/ for more
+
 brew tap 'homebrew/aliases'
 brew tap 'homebrew/apache'
-brew tap 'homebrew/binary'
 brew tap 'homebrew/bundle'
-brew tap 'homebrew/completions'
 brew tap 'homebrew/dev-tools'
-brew tap 'homebrew/dupes'
-brew tap 'homebrew/fuse'
 brew tap 'homebrew/php'
-brew tap 'homebrew/python'
 brew tap 'homebrew/nginx'
 brew tap 'homebrew/science'
 brew tap 'homebrew/services'
-brew tap 'homebrew/tex'
-brew tap 'homebrew/versions'
 brew tap 'universal-ctags/universal-ctags'
 brew tap 'samdmarshall/formulae'
-brew untap 'josegonzalez/php'
+
+brew untap 'homebrew/binary' || true # was deprecated. This tap is now empty as all its formulae were migrated.
+brew untap 'homebrew/completions' || true # was deprecated. This tap is now empty as all its formulae were migrated.
+brew untap 'homebrew/dupes' || true # was deprecated. This tap is now empty as all its formulae were migrated.
+brew untap 'homebrew/fuse' || true # was deprecated. This tap is now empty as all its formulae were migrated.
+brew untap 'homebrew/python' || true # was deprecated. This tap is now empty as all its formulae were migrated.
+brew untap 'homebrew/tex' || true # was deprecated. This tap is now empty as all its formulae were migrated.
+brew untap 'homebrew/versions' || true # was deprecated. This tap is now empty as all its formulae were migrated.
+brew untap 'josegonzalez/php' || true # was deprecated. for 'homebrew/php'
 
 ## house cleaning round 2
 brew update
-brew upgrade brew-cask
+brew upgrade 'brew-cask' || true
 brew cleanup
 brew cask cleanup
 
@@ -161,8 +163,8 @@ brew install 'clang-format'
 
 ## LETS INSTALL SOME BINARIES
 #
-brew upgrade brew-cask
 brew cleanup
+brew upgrade 'brew-cask' || true
 brew cask cleanup
 
 ### text editor
