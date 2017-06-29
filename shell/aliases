@@ -21,6 +21,7 @@ alias httpheader="http --header get"
 ## Mac OSX
 alias sscreensaver='/System/Library/Frameworks/ScreenSaver.framework/Versions/A/Resources/ScreenSaverEngine.app/Contents/MacOS/ScreenSaverEngine'
 alias pports='sudo lsof -Pni4 | grep LISTEN'
+alias espresso='caffeinate -disu -w 1'
 
 #### htop
 alias hhtop="htop --sort-key Command"
@@ -32,6 +33,9 @@ alias hhtoppid="htop --sort-key PID"
 ## git aliases
 alias gs='git status --short --branch' # fucking ghostscript
 alias gco='git checkout'
+
+## codes
+alias cctags='cctags.sh &'
 
 ### rails and ruby
 ## alias bi="bundle install --binstubs"
@@ -93,19 +97,14 @@ alias nginx.logs.default-ssl.access='tail -250f /usr/local/etc/nginx/logs/defaul
 alias nginx.logs.phpmyadmin.error='tail -250f /usr/local/etc/nginx/logs/phpmyadmin.error.log'
 alias nginx.logs.phpmyadmin.access='tail -250f /usr/local/etc/nginx/logs/phpmyadmin.access.log'
 
-### php55
-alias php-fpm55.wat="cat ~/Library/LaunchAgents/homebrew.mxcl.php55.plist"
-alias php-fpm55.start="launchctl load -w ~/Library/LaunchAgents/homebrew.mxcl.php55.plist"
-alias php-fpm55.stop="launchctl unload -w ~/Library/LaunchAgents/homebrew.mxcl.php55.plist"
-alias php-fpm55.restart='php55-fpm.stop && php55-fpm.start'
+### php56
+alias pphpfpm56.wat="cat ~/Library/LaunchAgents/homebrew-php.php56.plist"
+alias pphpfpm56.start="brew services start phpfpm56"
+alias pphpfpm56.stop="launchctl unload -w ~/Library/LaunchAgents/homebrew-php.php56.plist"
+alias pphpfpm56.restart='pphp56fpm.stop && pphp56fpm.start'
 
-### php54
-alias php-fpm54.wat="cat ~/Library/LaunchAgents/homebrew-php.josegonzalez.php54.plist"
-alias php-fpm54.start="launchctl load -w ~/Library/LaunchAgents/homebrew-php.josegonzalez.php54.plist"
-alias php-fpm54.stop="launchctl unload -w ~/Library/LaunchAgents/homebrew-php.josegonzalez.php54.plist"
-alias php-fpm54.restart='php54-fpm.stop && php54-fpm.start'
 ### generic
-alias php-fpm.killall='pgrep php-fpm | xargs kill -9'
+alias pphpfpm.killall='pgrep php-fpm | xargs kill -9'
 
 ## silly stuff
 
