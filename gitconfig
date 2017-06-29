@@ -94,6 +94,11 @@
     showpnameonly = show --pretty="full" --name-only
     showponline = show --pretty="oneline" --name-only
 
+    # prograhamer
+    scrumlog = log --graph --pretty=format:'%h -%d %s %cr <%an>' --all
+    scrum = "!git scrumlog --since=\"$([ $(date +%w) -eq 1 ] && date -v-3d +%F || date -v-1d +%F) 00:00:00\" --committer=\"`git config user.name`\""
+    megascrum = "!for dir in $(find ~/thescore -name .git -exec dirname {} \\;); do (cd \"$dir\" && git --no-pager scrum); done 2>/dev/null | $(git config --get core.pager)"
+
     # code review
     codereview-reset-to = "!fgit_codereview_resetto() { bash -c \"git reset --soft $@ && git reset HEAD -- \"; }; fgit_codereview_resetto"
     openunstaged = "!fgit_openunstaged() { $EDITOR_USING_CURRENT_PROJECT $(git diff --diff-filter AM --name-only); }; fgit_openunstaged"
@@ -133,6 +138,17 @@
     # http://travisjeffery.com/b/2012/02/search-a-git-repo-like-a-ninja/
     ggrep = grep --break --heading --line-number
     alias = config --get-regexp ^alias\\.
+
+    # git config
+    cg    = config --global
+    clg   = config --global --list
+    c     = config
+    cl    = config --list
+    ce    = config --edit
+    ceg   = config --global --edit
+
+    # ctags
+    ctags = "!.git/hooks/ctags"
 
 #
 # git grep tips
@@ -280,6 +296,7 @@
 # try `git shortlog -sne`
 [log]
     mailmap = true
+    date = relative
 [mailmap]
     file = ~/.mailmap-private
 [color "diff-highlight"]
