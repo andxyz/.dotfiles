@@ -87,4 +87,6 @@ brew prune
 brew doctor
 brew cask cleanup
 
-brew outdated
+TO_UPDATE_LIST=$(gcomm -12 <(brew leaves | sort) <(brew outdated | sort))
+echo "what brew knows needs updating:"
+echo $TO_UPDATE_LIST
