@@ -38,14 +38,15 @@ test_my_ssh_agent() {
 ## other notes
 ## http://rabexc.org/posts/pitfalls-of-ssh-agents
 
-ssh_agent_setup_hide() {
+use_brew_ssh_agent_setup() {
   unset SSH_AUTH_SOCK
   unset SSH_AGENT_PID
   export SSH_AUTH_SOCK="$HOME/.ssh-agent.sock"
   lunchy start org.homebrew.ssh-agent > /dev/null 2>&1
+  lunchy status org.homebrew.ssh-agent
 }
 
-ssh_agent_setup() {
+use_osx_ssh_agent_setup() {
   export SSH_AUTH_SOCK=$(launchctl getenv SSH_AUTH_SOCK)
   export SSH_AGENT_PID=$(launchctl getenv SSH_AGENT_PID)
   launchctl start org.openbsd.ssh-agent
@@ -53,4 +54,4 @@ ssh_agent_setup() {
   /usr/bin/ssh-add -l
 }
 
-ssh_agent_setup
+use_osx_ssh_agent_setup

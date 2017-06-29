@@ -27,6 +27,8 @@ export -- SAVEHIST=999999
 # print elapsed time when more than 10 seconds
 export -- REPORTTIME=10
 
+export -- LESSSECURE=1 # seems legit
+
 # [ -n "$PS1" ] && source "$HOME/code/_clone/base16-shell/scripts/base16-default-dark.sh" # colors
 
 ## disable for now, not enough tips :D
