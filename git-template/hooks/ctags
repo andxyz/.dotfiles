@@ -1,36 +1,73 @@
 #!/usr/bin/env bash
 
-set -x
+# set -x
 
 # man ctags
 # ctags --list-languages
 # ctags-exuberant http://docs.ctags.io/en/latest/news.html#new-options
 
+## explaination
+# So I have a shell script called `/Users/andxyz/.git-template/hooks/ctags`
+#
+# ~/.vimrc you would have
+# `set tags+=./.git/tags;`
+#
+# I have the following inside "/Users/andxyz/Library/Application Support/Sublime Text 3/Packages/User/CTags.sublime-settings"
+#
+# {
+#   "command" : "/usr/local/bin/ctags",
+#   "opts" : [],
+#   "debug": false,
+#   "tag_file" : ".git/tags"
+# }
+#
+# I have the following inside "/Users/andxyz/Library/Application Support/Sublime Text 3/Packages/User/Default (OSX).sublime-keymap"
+#
+# // ctags
+# { "keys": ["shift+ctrl+up"], "command": "jump_prev" },
+# { "keys": ["shift+ctrl+down"], "command": "navigate_to_definition" },
+
+# get the ruby stdlib basepath base
 CTAGS_GEM_HOME=`rbenv exec gem environment gemdir`
 CTAGS_RBENV_PREFIX=`rbenv prefix`
 CTAGS_RUBY_BASENAME=`basename "${CTAGS_GEM_HOME}"`
 CTAGS_RUBY_STDLIB="${CTAGS_RBENV_PREFIX}/lib/ruby/${CTAGS_RUBY_BASENAME}"
 
-GIT_DIRECTORY="$(/usr/local/bin/git rev-parse --git-dir)"
-trap 'rm -f "$GIT_DIRECTORY/$$.tags"' EXIT
+CTAGS_GIT_DIRECTORY="$(/usr/local/bin/git rev-parse --git-dir)"
+trap 'rm -f "$CTAGS_GIT_DIRECTORY/$$.tags"' EXIT
 
-git ls-files | \
-/usr/local/bin/ctags --sort=foldcase --recurse=yes --tag-relative \
+# get all the Gemfile paths from within subprojects too
+CTAGS_RUBY_LIB_PATHS=$(
+  for f in $(find "$CTAGS_GIT_DIRECTORY/.." -name Gemfile); do
+    (cd "$(dirname "${f}")" && (rbenv exec bundle check || rbenv exec bundle install) >/dev/null 2>&1 && rbenv exec bundle list --paths);
+  done | sort -u
+)
+
+# get all the files from git (using absolute paths)
+CTAGS_PROJECT_PATHS=$(
+  greadlink -f $(git ls-files) |
+  sort -u
+)
+
+# set -x
+
+/usr/local/bin/ctags --sort=yes -R --tag-relative \
 --languages=+ruby,-html,-javascript,-sql \
 --exclude=.git \
 --exclude=log \
 --exclude=vendor \
 --exclude=bundle \
---exclude=\*.min.js \
---exclude=jquery.\*.js \
---exclude=jquery-\*.js \
--f"$GIT_DIRECTORY/$$.tags" './' $(rbenv exec bundle list --paths) "${CTAGS_RUBY_STDLIB}"
+--exclude="\*.min.js" \
+--exclude="jquery.\*.js" \
+--exclude="jquery-\*.js" \
+-f"${CTAGS_GIT_DIRECTORY}/$$.tags" "./" ${CTAGS_PROJECT_PATHS} ${CTAGS_RUBY_LIB_PATHS} "${CTAGS_RUBY_STDLIB}"
 
 if [[ $? -ne 0 ]]; then
   exit 1
 fi
 
-mv "$GIT_DIRECTORY/$$.tags" "$GIT_DIRECTORY/tags"
+cp "${CTAGS_GIT_DIRECTORY}/$$.tags" "${CTAGS_GIT_DIRECTORY}/tags"
+mv "${CTAGS_GIT_DIRECTORY}/$$.tags" "${CTAGS_GIT_DIRECTORY}/tags_sorted_by_file"
 
 # We succeeded, reset trap and exit normally
 trap - EXIT

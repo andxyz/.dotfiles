@@ -1,4 +1,6 @@
 #!/usr/bin/env bash
-case "$1" in
-  rebase) exec "${GIT_DIR:-.git}/hooks/post-merge" ;;
-esac
+
+# need to choose correct ctags command first
+# case "$1" in
+#   rebase) exec "${GIT_DIR:-.git}/hooks/post-merge" ;;
+# esac

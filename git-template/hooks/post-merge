@@ -1,2 +1,4 @@
 #!/usr/bin/env bash
-"${GIT_DIR:-.git}/hooks/ctags" >/dev/null 2>&1 &
+
+# need to choose correct ctags command first
+# "${GIT_DIR:-.git}/hooks/ctags" >/dev/null 2>&1 &
