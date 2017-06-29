@@ -8,9 +8,17 @@ set -e
 git clone https://github.com/creationix/nvm.git ~/.nvm
 
 source $HOME/.nvm/nvm.sh
+# nvm unload
+
+# update nvm
+cd ~/.nvm
+git pull
+git tag --list
+git checkout v0.33.2
 
 nvm ls-remote
-nvm install v6.9.1
+nvm install v7.10.0
+nvm install v6.10.3
 nvm install v5.11.1
 # nvm install v5.2.0
 # nvm install v0.12.2
@@ -24,9 +32,9 @@ nvm install v5.11.1
 
 ## set our dev machine defaults
 ### for future shells
-nvm alias default v6.9.1
+nvm alias default v7.10.0
 ### for this shell right now. now now? like now? yes, right now now.
-nvm use v6.9.1
+nvm use v7.10.0
 
 ## install some decent global libraries on the default node
 #### npm update -g --silent npm

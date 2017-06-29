@@ -49,7 +49,7 @@ cd $HOME
 rbenv update
 
 # required for building Ruby <= 1.9.3-p0:
-# brew tap homebrew/dupes && brew install apple-gcc42
+# brew tap 'homebrew/dupes' && brew install 'apple-gcc42'
 
 ## install some rubies
 echo '## installing rubies'
@@ -175,17 +175,24 @@ function update_rubygems_bundler_for_rbenv_local() {
 # echo "bundler" >> $HOME/.rbenv/default-gems
 # echo "pry" >> $HOME/.rbenv/default-gems
 # echo "pry-byebug" >> $HOME/.rbenv/default-gems
+# echo "pry-doc" >> $HOME/.rbenv/default-gems
+# echo "yard" >> $HOME/.rbenv/default-gems
+
 # echo "interactive_editor" >> $HOME/.rbenv/default-gems
 # echo "awesome_print" >> $HOME/.rbenv/default-gems
+
 # echo "bcat" >> $HOME/.rbenv/default-gems
 # echo "octodown" >> $HOME/.rbenv/default-gems
 # echo "octokit" >> $HOME/.rbenv/default-gems
 # echo "faraday" >> $HOME/.rbenv/default-gems
 # echo "rest-client" >> $HOME/.rbenv/default-gems
+
 #
 # cat $HOME/.rbenv/default-gems
 
 ### check which rubies have a gem installed for it
 # rbenv whence bundler
+# rbenv exec gem uninstall bundler -v '1.15.0'
+# rbenv exec gem install bundler -v '1.14.6'
 
 exit 0
