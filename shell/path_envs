@@ -1,6 +1,7 @@
 #!/usr/bin/env bash
 
 ## andxyz path stuff
+export -- PATH="/usr/local/opt/coreutils/libexec/gnubin:$PATH" # use non g prefixed names for coreutils see "brew info coreutils"
 export -- PATH="$HOME/bin:/usr/local/sbin:/usr/local/bin:$PATH"
 export -- MANPATH="/usr/local/share/man:$MANPATH"
 # brew info coreutils
