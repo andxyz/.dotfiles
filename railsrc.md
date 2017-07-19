@@ -4,6 +4,8 @@
 First of all, don't use a `.railsrc`
 
 ```shell
+ruby --version
+gem install rails
 rails new appname \
 --database=postgresql \
 --skip-action-cable \
@@ -16,6 +18,7 @@ rails new appname \
 ```
 
 ```shell
+cd appname
 rm -r test
 echo -n "gem 'rspec-rails'" >> Gemfile
 bundle install
