@@ -94,18 +94,22 @@
     showpnameonly = show --pretty="full" --name-only
     showponline = show --pretty="oneline" --name-only
 
-    # prograhamer
+    # git pad the stats
+    stats = "!git shortlog -sne"
+    statscontrib = "!git log --format='%aN <%aE>' | awk '{arr[$0]++} END{for (i in arr){print arr[i], i;}}' | sort -rn | head"
+
+    # git prograhamer
     scrumlog = log --graph --pretty=format:'%h -%d %s %cr <%an>' --all
     scrum = "!git scrumlog --since=\"$([ $(date +%w) -eq 1 ] && date -v-3d +%F || date -v-1d +%F) 00:00:00\" --committer=\"`git config user.name`\""
     megascrum = "!for dir in $(find ~/thescore -name .git -exec dirname {} \\;); do (cd \"$dir\" && git --no-pager scrum); done 2>/dev/null | $(git config --get core.pager)"
 
-    # code review
+    # git code review
     codereview-reset-to = "!fgit_codereview_resetto() { bash -c \"git reset --soft $@ && git reset HEAD -- \"; }; fgit_codereview_resetto"
     openunstaged = "!fgit_openunstaged() { $EDITOR_USING_CURRENT_PROJECT $(git diff --diff-filter AM --name-only); }; fgit_openunstaged"
     openstaged = "!fgit_openstaged() { $EDITOR_USING_CURRENT_PROJECT $(git diff --diff-filter AM --name-only --cached); }; fgit_openstaged"
     opensince = "!fgit_opensince() { $EDITOR_USING_CURRENT_PROJECT $(git diff --diff-filter AM --name-only --cached $@); }; fgit_opensince"
 
-    # depends on hub
+    # git hub (depends on brew install hub)
     github-pulls = "!hub browse -- pulls/"
     github-mypulls = "!hub browse -- pulls/andxyz"
     github-open-pull-request = "!hub pull-request"
@@ -122,7 +126,7 @@
     # http://stackoverflow.com/questions/8576503/how-can-i-make-git-log-order-based-on-authors-timestamp
     # http://git-scm.com/docs/git-for-each-ref
 
-    # andxyz diff magic
+    # andxyz git diff magic
     diffks = difftool --tool=kaleidoscope_diff
     diffvim = difftool --tool=use_vim_diff
     diffmvim = difftool --tool=use_mvim_diff
