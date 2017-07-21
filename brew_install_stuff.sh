@@ -177,6 +177,8 @@ brew install 'reattach-to-user-namespace'
 brew install 'vim' --with-lua --with-luajit
 brew install 'macvim' --with-lua --with-luajit
 brew cask install 'clipmenu'
+brew install 'fzf'
+brew install 'fpp'
 
 ### http tools
 brew install 'httpie'
