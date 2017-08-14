@@ -12,7 +12,7 @@ brew update
 brew cleanup -s
 # brew cask tricks
 # mv /opt/homebrew-cask/Caskroom /usr/local/Caskroom
-# find ~/Applications -lname '/opt/*' -exec sh -c 'ln -sf "$(readlink "$0" | sed s:^/opt/homebrew\-cask/:/usr/local/:g)" "$0"' {} \;
+# find ~/Applications -lname '/opt/*' -exec sh -c 'ln -sf "$(readlink "$0" | gsed s:^/opt/homebrew\-cask/:/usr/local/:g)" "$0"' {} \;
 # read up https://github.com/caskroom/homebrew-cask/issues/9685
 brew prune
 brew outdated

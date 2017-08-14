@@ -74,7 +74,7 @@ function proxy_on() {
     export no_proxy="localhost,127.0.0.1,localaddress,.localdomain.com"
 
     if (( $# > 0 )); then
-        valid=$(echo $@ | sed -n 's/\([0-9]\{1,3\}.\)\{4\}:\([0-9]\+\)/&/p')
+        valid=$(echo $@ | gsed -n 's/\([0-9]\{1,3\}.\)\{4\}:\([0-9]\+\)/&/p')
         if [[ $valid != $@ ]]; then
             >&2 echo "Invalid address"
             return 1
