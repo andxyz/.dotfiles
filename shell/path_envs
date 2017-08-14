@@ -143,6 +143,12 @@ source_python27_env() {
   export PATH="$PATH:$HOME/anaconda3/bin"
 }
 
+source_mysql55_build_env() {
+  export PATH="/usr/local/opt/mysql@5.5/bin:$PATH"
+  # mysql_config
+  # pip install --no-binary MySQL-python MySQL-python
+}
+
 ## ruby rbenv stuff https://github.com/sstephenson/rbenv#readme
 ## see https://github.com/andxyz/.dotfiles/raw/master/languages/ruby.sh
 ## note currently I use a "be=bundle exec" alias
