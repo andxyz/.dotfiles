@@ -105,9 +105,9 @@
 
     # git code review
     codereview-reset-to = "!fgit_codereview_resetto() { bash -c \"git reset --soft $@ && git reset HEAD -- \"; }; fgit_codereview_resetto"
-    openunstaged = "!fgit_openunstaged() { $EDITOR_USING_CURRENT_PROJECT $(git diff --diff-filter AM --name-only); }; fgit_openunstaged"
+    openunstaged = "!fgit_openunstaged() { $EDITOR_USING_CURRENT_PROJECT $(git add * --intent-to-add && git diff --diff-filter AMUX --name-only); }; fgit_openunstaged"
     openstaged = "!fgit_openstaged() { $EDITOR_USING_CURRENT_PROJECT $(git diff --diff-filter AM --name-only --cached); }; fgit_openstaged"
-    opensince = "!fgit_opensince() { $EDITOR_USING_CURRENT_PROJECT $(git diff --diff-filter AM --name-only --cached $@); }; fgit_opensince"
+    opensince = "!fgit_opensince() { $EDITOR_USING_CURRENT_PROJECT $(git diff --diff-filter AMUX --name-only --cached $@); }; fgit_opensince"
 
     # git hub (depends on brew install hub)
     github-pulls = "!hub browse -- pulls/"
