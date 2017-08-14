@@ -25,15 +25,36 @@ export -- PATH="$PATH:/Applications/android-sdk-macosx/platform-tools"
 test -d "/Applications/android-sdk-macosx/tools" &&
 export -- PATH="$PATH:/Applications/android-sdk-macosx/tools"
 
-# golang https://golang.org/doc/install or `brew install go`
-export -- GOPATH=$HOME/code/gowork
-export -- PATH=$PATH:/usr/local/go/bin
-export -- PATH=${PATH}:${GOPATH}/bin
-## show what is installed in gowork folder
-## tree -L 3 $HOME/code/gowork
-## Note: GOROOT must be set only when installing to a custom location.
-#export GOROOT=$HOME/go
-#export PATH=$PATH:$GOROOT/bin
+function source_golang_env_generic() {
+  # golang https://golang.org/doc/install or `brew install go`
+  export -- GOPATH=$HOME/code/gowork
+  export -- PATH=${PATH}:${GOPATH}/bin
+  ## show what is installed in gowork folder
+  ## tree -L 3 $HOME/code/gowork
+  ## Note: GOROOT must be set only when installing to a custom location.
+  #export GOROOT=$HOME/go
+  #export PATH=$PATH:$GOROOT/bin
+}
+
+function source_golang17_path() {
+  export -- PATH="/usr/local/opt/go@1.7/bin:$PATH"
+}
+
+# slowing me down
+function source_golang17_env() {
+  source_golang_env_generic
+  source_golang17_path
+}
+
+function source_golang18_path() {
+  export -- PATH="/usr/local/opt/go@1.8/bin:$PATH"
+}
+
+# slowing me down
+function source_golang18_env() {
+  source_golang_env_generic
+  source_golang18_path
+}
 
 ## haskell uses cabal and stack
 # https://github.com/andxyz/.dotfiles/blob/master/languages/haskell.sh
@@ -110,10 +131,11 @@ source_php_env() {
 
 ## python path stuff
 # brew info python
-source_python_env() {
+source_python27_env() {
+  export -- PATH="/usr/local/opt/python/libexec/bin:$PATH"
   # They will install into the site-package directory
   #   /usr/local/lib/python2.7/site-packages
-  export PYTHONPATH=`brew --prefix`/lib/python2.7/site-packages:$PYTHONPATH
+  export -- PYTHONPATH=`brew --prefix`/lib/python2.7/site-packages:$PYTHONPATH
 
   ## python anaconda os-agnostic, system-level binary package manager and ecosystem
   ## see http://conda.pydata.org
