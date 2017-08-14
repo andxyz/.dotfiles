@@ -127,13 +127,14 @@
     # http://git-scm.com/docs/git-for-each-ref
 
     # andxyz git diff magic
-    diffks = difftool --tool=kaleidoscope_diff
-    diffvim = difftool --tool=use_vim_diff
-    diffmvim = difftool --tool=use_mvim_diff
-    diffp4 = difftool --tool=p4merge_diff
-    mergeks = mergetool --tool=kaleidoscope_merge
+    diffd-icdiff = difftool --tool=icdiff_diff
+    diffd-ks = difftool --tool=kaleidoscope_diff
+    diffd-vim = difftool --tool=use_vim_diff
+    diffd-mvim = difftool --tool=use_mvim_diff
+    diffd-p4 = difftool --tool=p4merge_diff
+    mergemkaleidoscope = mergetool --tool=kaleidoscope_merge
     # https://github.com/scottgonzalez/pretty-diff
-    # diffpretty = !$HOME/bin/pretty-diff/pretty-diff.js
+    # diffd-pretty = !$HOME/bin/pretty-diff/pretty-diff.js
 
     # http://tbaggery.com/2011/08/08/effortless-ctags-with-git.html
     # ctags = !.git/hooks/ctags
@@ -214,6 +215,31 @@
     keepBackup = false
     keepTemporaries = false
 
+[difftool "icdiff_diff"]
+    cmd = icdiff --line-numbers --unified=3 -- \"$LOCAL\" \"$REMOTE\" | less -LRSX
+    keepBackup = false
+    keepTemporaries = false
+    algorithm = minimal
+    compactionHeuristic = true
+
+[mergetool "vimdiff_merge"]
+  tool = vimdiff
+  conflictstyle = diff3
+  trustExitCode = false
+
+[mergetool "diffmerge"]
+  cmd = diffmerge --merge --result=$MERGED $LOCAL $BASE $REMOTE
+  trustExitCode = false
+
+#
+# sourcetree
+#
+[difftool "sourcetree"]
+    cmd = opendiff \"$LOCAL\" \"$REMOTE\"
+[mergetool "sourcetree"]
+    cmd = /Applications/SourceTree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
+    trustExitCode = true
+
 [diff]
     tool = kaleidoscope_diff
     keepBackup = false
@@ -239,24 +265,6 @@
     strategy = recursive
     algorithm = minimal
     compactionHeuristic = true
-
-[mergetool "vimdiff_merge"]
-  tool = vimdiff
-  conflictstyle = diff3
-  trustExitCode = false
-
-[mergetool "diffmerge"]
-  cmd = diffmerge --merge --result=$MERGED $LOCAL $BASE $REMOTE
-  trustExitCode = false
-
-#
-# sourcetree
-#
-[difftool "sourcetree"]
-    cmd = opendiff \"$LOCAL\" \"$REMOTE\"
-[mergetool "sourcetree"]
-    cmd = /Applications/SourceTree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
-    trustExitCode = true
 
 #
 # ctags are kind of a pain when they run wild
