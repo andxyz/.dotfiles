@@ -46,16 +46,25 @@ function mongoose-http-server {
 }
 
 function zco {
+  # fzf checkout
+  # future work... I would like to preview | git log --oneline --topo-order --color --stat=180,150
   local BRANCH_NAME=$(git branch-list.sh |
-    fzf --no-sort --reverse --exact --select-1 --query="${@:-}" |
-    awk -F'[[:space:]][[:space:]]+' '{print $4}'
+    fzf --ansi --preview-window down:40% --preview "echo {} | gawk -F'[[:blank:]][[:blank:]]+' '{ print \$4 }'" --no-sort --reverse --exact --select-1 --query="${@:-}" |
+    gawk -F'[[:blank:]][[:blank:]]+' '{ print $4 }'
   )
   echo "moving to ${BRANCH_NAME}";
-  git checkout $BRANCH_NAME && git status --short --branch
+  git checkout ${BRANCH_NAME} && git status --short --branch;
 }
 
 function zcoa {
-  git checkout $(git branch-list.sh -a | fzf --no-sort --reverse --exact --select-1 --query="${@:-}" | awk -F'[[:space:]][[:space:]]+' '{print $4}' | gsed -r 's:remotes/origin/::g' | tee) && git status --short --branch;
+  fzf checkout on remotes
+  local BRANCH_NAME=$(git branch-list.sh -a |
+    fzf --ansi --preview-window down:40% --preview "echo {} | gawk -F'[[:blank:]][[:blank:]]+' '{ print \$4 }'" --no-sort --reverse --exact --select-1 --query="${@:-}" |
+    gawk -F'[[:blank:]][[:blank:]]+' '{ print $4 }' |
+    gsed -r 's:remotes/origin/::g'
+  )
+  echo "moving to ${BRANCH_NAME}";
+  git checkout ${BRANCH_NAME} && git status --short --branch;
 }
 
 ##### the e editor shortcut for sublimetext (github.com/bkeepers tip)

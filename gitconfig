@@ -49,9 +49,6 @@
     un = update-index --assume-unchanged
     nun = update-index --no-assume-unchanged
 
-    # fzf checkout
-    zco = "!fgitzco() { git checkout $(git branch -v | grep -v '^*' | sort | fzf --no-sort --reverse --exact --query=\"${@:-}\" | gawk '{print $1}') && git status --short --branch; }; fgitzco"
-
     # diff shortcuts
     diffc = diff --cached
     ## make sure to `npm install -g diff-so-fancy` try `npm ls -g --depth=0`
