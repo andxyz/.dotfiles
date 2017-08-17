@@ -17,7 +17,11 @@ export -- PATH=/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/opt/X11/bin
 [[ -f ~/.shell/ruby_rails_tricks.sh ]] && source ~/.shell/ruby_rails_tricks.sh
 
 ## for bash interactive specific
-[ -n "$PS1" ] && [[ -f ~/.bash/config_bash ]]        && source ~/.bash/config_bash
-[ -n "$PS1" ] && [[ -f ~/.bash/aliases_bash ]]       && source ~/.bash/aliases_bash
+[ -n "$PS1" ] && [[ -f ~/.bash/bash_aliases ]]           && source ~/.bash/bash_aliases
+[ -n "$PS1" ] && [[ -f ~/.bash/bash_completion ]]        && source ~/.bash/bash_completion
+[ -n "$PS1" ] && [[ -f ~/.bash/bash_functions_private ]] && source ~/.bash/bash_functions_private
+[ -n "$PS1" ] && [[ -f ~/.bash/bash_interactive ]]       && source ~/.bash/bash_interactive
 [ -n "$PS1" ] && [[ -f /usr/local/etc/bash_completion ]] && source /usr/local/etc/bash_completion
 [ -n "$PS1" ] && [[ -r $NVM_DIR/bash_completion ]]       && source $NVM_DIR/bash_completion
+
+

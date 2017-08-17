@@ -50,7 +50,7 @@
     nun = update-index --no-assume-unchanged
 
     # fzf checkout
-    zco = "!fgitzco() { git checkout $(git branch -v | grep -v '^*' | sort | fzf --no-sort --reverse --exact --query=\"${@:-}\" | gawk '{print $1}'); }; fgitzco"
+    zco = "!fgitzco() { git checkout $(git branch -v | grep -v '^*' | sort | fzf --no-sort --reverse --exact --query=\"${@:-}\" | gawk '{print $1}') && git status --short --branch; }; fgitzco"
 
     # diff shortcuts
     diffc = diff --cached

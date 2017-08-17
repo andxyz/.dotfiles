@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+# set -x
+# set -e
+
+# directory autocompletes
+function cc { cd ${HOME}/code/$1; }
+
+alias rebash='source ${HOME}/.bashrc'
