@@ -2,9 +2,10 @@
 # http://andxyz.com personal aliases
 
 ### ls
-alias ls="ls -F"
-alias ll="ls -l"
-alias la='ls -A'
+### Colorize the ls output
+alias ls="ls -F -h --group-directories-first --color=auto"
+alias ll="ls -l -h --group-directories-first --color=auto"
+alias la="ls -A -h --group-directories-first --color=auto"
 
 ### personal ~/bin
 alias addr='nocorrect addr'
@@ -13,8 +14,7 @@ alias addr='nocorrect addr'
 alias hhistory='history -99999 | cut -c 8-'
 ##### the only advantage cmd.exe has
 alias cls='clear'
-##### remember to brew install coreutils see
-alias ls='gls --color'
+##### remember to brew install coreutils see brew_install_stuff.s
 alias pps="ps auwwx | perl -p -e 's/\n/\n\n/'"
 alias httpheader="http --header get"
 
