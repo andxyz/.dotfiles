@@ -283,6 +283,7 @@ brew install ffmpeg --with-fdk-aac --with-ffplay --with-freetype --with-frei0r \
 --with-opencore-amr --with-openjpeg --with-opus \
 --with-rtmpdump --with-speex --with-theora --with-tools \
 --with-libvorbis --with-theora
+# brew cask install 'subler'
 # brew cask install 'miro-video-converter'
 
 ### theinternet
@@ -358,63 +359,96 @@ brew doctor
 ### I should get around talking about installing things on your machine
 
 ### current list of crap on my dev machine
-# ~/code/andxyz-dotfiles[master]$ brew leaves | sort | paste - - - -
-# ack ansible@1.9 autoenv awscli
+# ~/code/andxyz-dotfiles[master]
+# $ brew leaves | sort | paste - - - -
+# ack adr-tools ansible ansible@1.9
+# apm-bash-completion aptly-completion  autoenv awscli
 # aykamko/tag-ag/tag-ag bash  bash-completion bash-git-prompt
-# bundler-completion  cargo-completion  carthage  clang-format
-# coreutils cppcheck  ctags curl
-# ddd elm faad2 fasd
-# ffmpeg  findutils flac  flow
+# binutils  bundler-completion  bzip2 cargo-completion
+# carthage  clang-format  consul  coreutils
+# cowsay  cppcheck  ddd dirmngr
+# elm faad2 fasd  ffmpeg
+# findutils flac  flow  fpp
 # fzf gawk  gcc gdb
-# gem-completion  geoip gflags  gifsicle
-# git gnu-getopt  gnu-indent  gnu-sed
-# gnu-tar gnu-which gnupg gnupg2
-# gradle  grunt-completion  haskell-stack heroku
-# highlight homebrew/apache/ab  homebrew/boneyard/samba homebrew/dupes/bzip2
-# homebrew/dupes/grep homebrew/dupes/gzip homebrew/dupes/less homebrew/dupes/ncurses
-# homebrew/dupes/openssh  homebrew/dupes/rsync  homebrew/dupes/zlib homebrew/fuse/ntfs-3g
-# homebrew/fuse/s3fs  homebrew/php/composer homebrew/php/php56  homebrew/science/r
-# homebrew/science/vips htop  httpie  hub
-# hunspell  ical-buddy  iftop imagemagick
-# imagesnap iperf jenv  jq
-# jsonpp  leiningen libao libav
-# libcue  libvo-aacenc  libxslt macvim
+# gem-completion  geoip gflags  ghc
+# gifsicle  git gnu-getopt  gnu-indent
+# gnu-sed gnu-tar gnu-which gnupg
+# go@1.7  gpg-agent gradle  grep
+# grunt-completion  gzip  haskell-stack heroku
+# highlight homebrew/apache/ab  homebrew/php/composer homebrew/php/php56
+# htop  httpie  hub hunspell
+# ical-buddy  icdiff  iftop imagemagick
+# imagesnap iperf jansson jenv
+# jq  jsonpp  leiningen less
+# libao libav libcue  libssh2
+# libusb-compat libvo-aacenc  m-cli macvim
 # mad man2html  mas maven-completion
 # mercurial mitmproxy mongoose  mono
-# moreutils mp4v2 multitail mysql@5.6
-# nethogs netpbm  nginx nmap
-# nsq opam  ossp-uuid pandoc
-# pbzip2  phantomjs pick  pidcat
-# pip-completion  postgresql94  proctools psgrep
+# moreutils mp4v2 multitail mycli
+# mysql@5.5 mysql@5.6 ncurses nethogs
+# netpbm  nginx nmap  nsq
+# ntfs-3g openssh ossp-uuid p7zip
+# packer  pandoc  pbzip2  perl
+# pgcli phantomjs pick  pidcat
+# pip-completion  postgresql  proctools psgrep
 # pstree  pv  pyenv-virtualenv  python3
-# qcachegrind rails-completion  rake-completion reattach-to-user-namespace
-# rebar3  recoverjpeg ripgrep s3cmd
-# sdl shopify/shopify/toxiproxy speedtest_cli swig
-# tcpflow tig tldr  tmux
-# transmission  trash tree  uncrustify
-# universal-ctags/universal-ctags/universal-ctags unrar usbmuxd v8
-# vagrant-completion  valgrind  vim watchman
+# qcachegrind r rails-completion  rake-completion
+# reattach-to-user-namespace  rebar@3 recoverjpeg ripgrep
+# rsync s3cmd s3fs  sdl
+# shopify/shopify/toxiproxy speedtest-cli tcpflow terraform
+# tig tldr  tmux  transmission
+# trash tree  uncrustify  universal-ctags/universal-ctags/universal-ctags
+# unrar v8  vagrant-completion  valgrind
+# vbindiff  vim vips  watchman
 # wget  wifi-password xctool  yarn
-# youtube-dl  zsh zsh-completions zsh-syntax-highlighting
+# youtube-dl  zlib  zsh zsh-completions
+# zsh-syntax-highlighting
 
-# ~/code/andxyz-dotfiles[master]$ brew cask list  | sort | paste - - - -
-# alfred  anaconda  android-file-transfer appcleaner
-# atom  beaker  betterzipql calibre
-# coconutbattery  colorpicker-developer colorpicker-hex colorpicker-propicker
-# controlplane  diffmerge disk-inventory-x  dropbox
-# geektool  gitx  go2shell  google-hangouts
-# harvest icolors jadengeller-helium  java
-# julia keka  lastfm  limechat
-# liteicon  lunchy  macdown macgdbp
-# mplayerx  mumble  name-mangler  netnewswire
-# osxfuse pgweb provisionql qlcolorcode
-# qlimagesize qlmarkdown  qlprettypatch qlstephen
-# qlvideo quicklook-csv quicklook-json  quicklookapk
-# quicknfo  rcdefaultapp  rightzoom sequel-pro
-# silverlight skype slimbatterymonitor  soundcleod
-# speedcrunch suspicious-package  texshop the-unarchiver
-# transmission  ukelele vagrant virtualbox
-# visual-studio-code  webpquicklook xee xquartz
-# yakyak
+# $ brew cask list | sort | paste  - - - -
+# alfred  android-file-transfer appcleaner  atom
+# betterzipql blackscreen-screensaver calibre coconutbattery
+# colorpicker-developer colorpicker-hex colorpicker-propicker controlplane
+# diffmerge disk-inventory-x  dropbox geektool
+# gitx  go2shell  google-hangouts harvest
+# icolors jadengeller-helium  java  julia
+# keka  lastfm  limechat  liteicon
+# lunchy  macdown macgdbp mplayerx
+# mumble  name-mangler  netnewswire osxfuse
+# process-monitor provisionql qlcolorcode qlimagesize
+# qlmarkdown  qlprettypatch qlstephen qlvideo
+# quicklook-csv quicklook-json  quicklookapk  quicknfo
+# rcdefaultapp  rightzoom sequel-pro  silverlight
+# skype slimbatterymonitor  soundcleod  speedcrunch
+# subler  suspicious-package  texshop the-unarchiver
+# trailer transmission  ukelele vagrant
+# virtualbox  visual-studio-code  webpquicklook xee
+# xquartz yakyak
+
+# $ mas list
+# 430255202 Mactracker (7.6.6)
+# 692867256 Simplenote (1.1.8)
+# 526546615 Diptic (2.0.4)
+# 409183694 Keynote (6.6.2)
+# 417602904 CloudApp (4.2.5)
+# 461369673 VOX (2.8.7)
+# 808154494 Mail Notifr (1.3.5)
+# 485812721 TweetDeck (3.9.889)
+# 1082170746 Aware (1.0.3)
+# 871200983 Gifwit (1.0.5)
+# 409203825 Numbers (3.6.2)
+# 497799835 Xcode (8.2.1)
+# 847496013 Deckset (1.8.1)
+# 409201541 Pages (5.6.2)
+# 1199498204 Heartbeat (3.0.2)
+# 777874532 Cinemagraph Pro (2.2)
+# 928871589 Noizio (1.5)
+# 549083868 Display Menu (2.2.2)
+# 603637384 Name Mangler 3 (3.4)
+# 704400176 gps4cam (7.8.2)
+# 552792489 StatusClock (1.2)
+# 1000397973 Wallcat (1.3.0)
+# 492498910 Kitabu (1.1)
+# 1081413713 GIF Brewery 3 (3.5)
+# 445189367 PopClip (1.5.6)
 
  exit 0
