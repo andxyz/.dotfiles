@@ -38,7 +38,7 @@ function postgresstop {
   pg_ctl -D /usr/local/var/postgres stop
 }
 
-function mongoose-http-server {
+function hhttp_server {
   local port=${1:-8000}
   local ip=$(ipconfig getifaddr en0)
   echo "Serving on ${ip}:${port} ..."
