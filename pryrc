@@ -30,6 +30,16 @@ if Kernel.const_defined?(:Rails) && ::Rails.env
     puts 'Rails Console Helpers loaded'
   end
 
+
+  require 'json'
+  def pp_json(object)
+    if object.is_a?(String)
+      puts JSON.pretty_generate(JSON.parse(object))
+    elsif object.is_a?(JSON)
+      puts JSON.pretty_generate(object)
+    end
+  end
+
   ## https://github.com/travisjeffery/dotfiles/blob/master/.railsrc
   require 'logger'
 
