@@ -17,7 +17,7 @@ export -- MANPATH="/usr/local/share/man:$MANPATH"
 ### language setup stuff
 
 # android sdk magic
-export -- STUDIO_JDK=/Library/Java/JavaVirtualMachines/jdk1.8.0_112.jdk/
+export -- STUDIO_JDK=/Library/Java/JavaVirtualMachines/jdk1.8.0_131.jdk/
 test -d "/Applications/android-sdk-macosx/" &&
 export -- ANDROID_HOME=/Applications/android-sdk-macosx/
 test -d "/Applications/android-sdk-macosx/platform-tools" &&
