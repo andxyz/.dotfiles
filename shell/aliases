@@ -56,6 +56,7 @@ alias yi='yarn check || yarn install'
 ### node zsh nocorrect headaches
 if which noglob >/dev/null; then
   alias bower='yarn run bower'
+  alias ember='nocorrect ember'
   alias grunt='yarn run grunt'
   alias gulp='yarn run gulp'
   alias npm='nocorrect npm'
