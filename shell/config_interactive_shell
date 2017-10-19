@@ -40,3 +40,7 @@ export -- LESSSECURE=1 # seems legit
 #   echo "From ${TIP_TILE%.txt}:"                                  # i.e., "From vim/vanilla/tips:"
 #   gshuf -n1 < "$TIP_PATH"                                        # Displays a random line from the tip file
 # )
+
+
+# brew info z
+source /usr/local/etc/profile.d/z.sh
