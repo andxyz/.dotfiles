@@ -57,7 +57,7 @@ function zco {
 }
 
 function zcoa {
-  fzf checkout on remotes
+  # fzf checkout on remotes
   local BRANCH_NAME=$(git branch-list.sh -a |
     fzf --ansi --preview-window down:40% --preview "echo {} | gawk -F'[[:blank:]][[:blank:]]+' '{ print \$4 }'" --no-sort --reverse --exact --select-1 --query="${@:-}" |
     gawk -F'[[:blank:]][[:blank:]]+' '{ print $4 }' |
@@ -65,6 +65,21 @@ function zcoa {
   )
   echo "moving to ${BRANCH_NAME}";
   git checkout ${BRANCH_NAME} && git status --short --branch;
+}
+
+fco() {
+  # fco - checkout git branch/tag from https://github.com/junegunn/fzf/wiki/examples#git
+  local tags branches target
+  tags=$(
+    git tag | awk '{print "\x1b[31;1mtag\x1b[m\t" $1}') || return
+  branches=$(
+    git branch --all | grep -v HEAD             |
+    sed "s/.* //"    | sed "s#remotes/[^/]*/##" |
+    sort -u          | awk '{print "\x1b[34;1mbranch\x1b[m\t" $1}') || return
+  target=$(
+    (echo "$tags"; echo "$branches") |
+    fzf-tmux -l30 -- --no-hscroll --ansi +m -d "\t" -n 2) || return
+  git checkout $(echo "$target" | awk '{print $2}')
 }
 
 ##### the e editor shortcut for sublimetext (github.com/bkeepers tip)
