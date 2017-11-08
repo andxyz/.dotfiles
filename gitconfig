@@ -100,6 +100,8 @@
     scrum = "!git scrumlog --since=\"$([ $(date +%w) -eq 1 ] && date -v-3d +%F || date -v-1d +%F) 00:00:00\" --committer=\"`git config user.name`\""
     megascrum = "!for dir in $(find ~/thescore -name .git -exec dirname {} \\;); do (cd \"$dir\" && git --no-pager scrum); done 2>/dev/null | $(git config --get core.pager)"
 
+    # git tags
+    tagpbydate = "log --tags --simplify-by-decoration --pretty='format:%ai %d'"
     # git code review
     codereview-reset-to = "!fgit_codereview_resetto() { bash -c \"git reset --soft $@ && git reset HEAD -- \"; }; fgit_codereview_resetto"
     openunstaged = "!fgit_openunstaged() { $EDITOR_USING_CURRENT_PROJECT $(git add * --intent-to-add && git diff --diff-filter AMUX --name-only); }; fgit_openunstaged"
