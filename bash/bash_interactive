@@ -7,7 +7,7 @@ export -- HISTFILE=$HOME/.bash_history
 
 # use the homebrew bash 4+ completions if they exist
 if [ -f /usr/local/share/bash-completion/bash_completion ]; then
-  . /usr/local/share/bash-completion/bash_completion
+  source /usr/local/share/bash-completion/bash_completion
 fi
 
 # use the homebrew git prompt script else use and old one
