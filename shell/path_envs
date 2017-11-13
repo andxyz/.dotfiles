@@ -162,6 +162,14 @@ source_mysql56_build_env() {
 }
 
 # slowing me down
+source_postgre93_build_env() {
+  export PATH="/usr/local/opt/postgresql@9.3/bin:$PATH"
+  # brew unlink postgresql
+  # brew link --overwrite postgresql@9.3
+  # brew info postgresql@9.3
+}
+
+# slowing me down
 source_postgre95_build_env() {
   export PATH="/usr/local/opt/postgresql@9.5/bin:$PATH"
   # brew unlink postgresql
