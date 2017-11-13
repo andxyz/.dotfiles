@@ -143,10 +143,38 @@ source_python27_env() {
   export PATH="$PATH:$HOME/anaconda3/bin"
 }
 
+# slowing me down
 source_mysql55_build_env() {
   export PATH="/usr/local/opt/mysql@5.5/bin:$PATH"
+  # brew unlink mysql
+  # brew link --overwrite mysql@5.5
   # mysql_config
   # pip install --no-binary MySQL-python MySQL-python
+}
+
+# slowing me down
+source_mysql56_build_env() {
+  export PATH="/usr/local/opt/mysql@5.6/bin:$PATH"
+  # brew unlink mysql
+  # brew link --overwrite mysql@5.6
+  # mysql_config
+  # pip install --no-binary MySQL-python MySQL-python
+}
+
+# slowing me down
+source_postgre95_build_env() {
+  export PATH="/usr/local/opt/postgresql@9.5/bin:$PATH"
+  # brew unlink postgresql
+  # brew link --overwrite postgresql@9.5
+  # brew info postgresql@9.5
+}
+
+# slowing me down
+source_postgre96_build_env() {
+  export PATH="/usr/local/opt/postgresql@9.6/bin:$PATH"
+  # brew unlink postgresql
+  # brew link --overwrite postgresql@9.6
+  # brew info postgresql@9.6
 }
 
 ## ruby rbenv stuff https://github.com/sstephenson/rbenv#readme
@@ -157,11 +185,13 @@ test -d $HOME/.rbenv/bin &&
 export -- PATH="$HOME/.rbenv/bin:$PATH" &&
 eval "$(rbenv init -)"
 
-## rustup rust cargo
-# rustup --help
+
 # slowing me down
 function source_rust_env() {
   source $HOME/.cargo/env
+  ## brew info rustup
+  ## rustup --help
+  ## rustup update && rustup update stable && rustup default stable && rustup which cargo
 }
 
 # taytayswifty
