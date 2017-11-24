@@ -1,4 +1,6 @@
 #!/usr/bin/env bash
+# set -x
+# set -e
 
 # env shell configs
 [[ -f ~/.shell/shell_envs ]]        && source ~/.shell/shell_envs
