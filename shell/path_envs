@@ -70,9 +70,9 @@ function source_node_env() {
 }
 # example nvm commands (because I always forget)
 # nvm ls-remote
-# nvm install v4.1.0
-# nvm alias default v4.1.0
-# nvm use v4.1.0
+# nvm install v8.9.1
+# nvm alias default v8.9.1
+# nvm use v8.9.1
 #
 # export some NODE vars
 # export -- NODE_PATH="$NVM_PATH"
@@ -140,12 +140,12 @@ source_python27_env() {
   ## python anaconda os-agnostic, system-level binary package manager and ecosystem
   ## see http://conda.pydata.org
   test -d "$HOME/anaconda3/bin" &&
-  export PATH="$PATH:$HOME/anaconda3/bin"
+  export -- PATH="$PATH:$HOME/anaconda3/bin"
 }
 
 # slowing me down
 source_mysql55_build_env() {
-  export PATH="/usr/local/opt/mysql@5.5/bin:$PATH"
+  export -- PATH="/usr/local/opt/mysql@5.5/bin:$PATH"
   # brew unlink mysql
   # brew link --overwrite mysql@5.5
   # mysql_config
@@ -154,7 +154,7 @@ source_mysql55_build_env() {
 
 # slowing me down
 source_mysql56_build_env() {
-  export PATH="/usr/local/opt/mysql@5.6/bin:$PATH"
+  export -- PATH="/usr/local/opt/mysql@5.6/bin:$PATH"
   # brew unlink mysql
   # brew link --overwrite mysql@5.6
   # mysql_config
@@ -163,7 +163,7 @@ source_mysql56_build_env() {
 
 # slowing me down
 source_postgre93_build_env() {
-  export PATH="/usr/local/opt/postgresql@9.3/bin:$PATH"
+  export -- PATH="/usr/local/opt/postgresql@9.3/bin:$PATH"
   # brew unlink postgresql
   # brew link --overwrite postgresql@9.3
   # brew info postgresql@9.3
@@ -171,7 +171,7 @@ source_postgre93_build_env() {
 
 # slowing me down
 source_postgre95_build_env() {
-  export PATH="/usr/local/opt/postgresql@9.5/bin:$PATH"
+  export -- PATH="/usr/local/opt/postgresql@9.5/bin:$PATH"
   # brew unlink postgresql
   # brew link --overwrite postgresql@9.5
   # brew info postgresql@9.5
@@ -179,7 +179,7 @@ source_postgre95_build_env() {
 
 # slowing me down
 source_postgre96_build_env() {
-  export PATH="/usr/local/opt/postgresql@9.6/bin:$PATH"
+  export -- PATH="/usr/local/opt/postgresql@9.6/bin:$PATH"
   # brew unlink postgresql
   # brew link --overwrite postgresql@9.6
   # brew info postgresql@9.6
