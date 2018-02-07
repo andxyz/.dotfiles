@@ -128,7 +128,7 @@ brew install 'hg'
 brew install 'svn'
 
 ### gnu userland utils
-brew tap homebrew/dupes
+brew untap 'homebrew/dupes'
 brew install 'ack'
 brew install 'binutils'
 brew install 'coreutils'
@@ -139,9 +139,19 @@ brew install 'gnu-indent'
 brew install 'gnu-sed'
 brew install 'gnu-tar'
 brew install 'gnutls'
-brew install 'grep' # gnu grep is in homebrew/dupes
+brew install 'grep'
 brew install 'gzip'
 brew install 'less'
+
+## ps tools
+brew install 'proctools'
+brew install 'psgrep'
+brew install 'pstree'
+
+### zip tools
+brew install 'pbzip2'
+brew install 'p7zip'
+brew install 'unrar'
 
 brew install 'htop' # brew upgrade 'htop'
 sudo chown root:wheel `which htop`
@@ -153,8 +163,8 @@ brew install 'heroku'
 
 ### languages
 ### see https://github.com/andxyz/.dotfiles/tree/master/languages
-brew install 'rust'
-brew link 'rust' --force --overwrite || true
+# brew install 'rust'
+# brew link 'rust' --force --overwrite || true
 
 ### language checkers
 brew install 'cppcheck'
@@ -163,8 +173,8 @@ brew install 'clang-format'
 
 ## LETS INSTALL SOME BINARIES
 #
-brew cleanup
-brew upgrade 'brew-cask' || true
+brew cleanup -s
+# brew upgrade 'brew-cask' || true
 brew cask cleanup
 
 ### text editor
@@ -176,14 +186,31 @@ brew install 'tmux' --with-utf8proc
 brew install 'reattach-to-user-namespace'
 brew install 'vim' --with-lua --with-luajit
 brew install 'macvim' --with-lua --with-luajit
-brew cask install 'clipmenu'
+# brew cask install 'clipmenu'
+brew cask install clippy
 brew install 'fzf'
 brew install 'fpp'
 
+### remoting tools
+brew install 'rsync'
+
 ### http tools
 brew install 'httpie'
-brew install 'homebrew/apache/ab'
+brew tap 'apache/apache/ab'
+brew install 'apache/apache/ab'
 brew install 'jq'
+
+## search tools
+brew install 'ack'
+brew install 'ag'
+brew install 'aykamko/tag-ag/tag-ag'
+brew install 'ripgrep'
+
+
+### tools
+brew install 'terraform'
+brew tap 'shopify/shopify'
+brew install 'shopify/shopify/toxiproxy'
 
 ### web servers
 ## nginx
@@ -204,13 +231,14 @@ brew cask install 'the-unarchiver'
 brew cask install 'texshop'
 
 ### dev
-brew cask install 'viscosity'
 # brew cask install 'android-studio'
-brew cask install 'Dash3'
+brew cask install 'iterm2'
 brew cask install 'android-file-transfer'
 brew cask install 'charles'
-brew cask install 'gitx'
-brew cask install 'iterm2'
+brew cask install 'Dash3'
+brew cask install 'viscosity'
+# brew cask install 'gitx'
+
 
 ### splunking
 brew install 'samdmarshall/formulae/aosd'
@@ -236,11 +264,12 @@ brew cask install 'MPlayerX'
 brew cask install 'Vox'
 
 ### productivity?
+brew cask install 'dropbox'
 brew cask install '1password'
 brew cask install 'alfred'
+#
 brew cask install 'caffeine'
 brew cask install 'disk-inventory-x'
-brew cask install 'dropbox'
 brew cask install 'fantastical'
 brew cask install 'geektool'
 brew cask install 'imagealpha'
@@ -283,6 +312,7 @@ brew install ffmpeg --with-fdk-aac --with-ffplay --with-freetype --with-frei0r \
 --with-opencore-amr --with-openjpeg --with-opus \
 --with-rtmpdump --with-speex --with-theora --with-tools \
 --with-libvorbis --with-theora
+brew cask install 'youtube-dl'
 # brew cask install 'subler'
 # brew cask install 'miro-video-converter'
 
@@ -296,14 +326,19 @@ brew cask install 'xee'
 ### text manipulation
 brew cask install 'calibre'
 
-### OSX hacks
-brew cask install 'coconutbattery'
+## Keyboard map
 brew cask install 'karabiner'
-brew cask install 'rcdefaultapp'
 brew cask install 'seil'
-brew cask install 'slimbatterymonitor'
 brew cask install 'ukelele'
+
+### OSX hacks
+brew cask install 'rcdefaultapp'
 # brew cask install 'RightZoom'
+
+### battery stuff
+brew cask install 'slimbatterymonitor'
+# brew cask install 'coconutbattery'
+
 
 # color pickers
 brew cask install colorpicker-developer --force

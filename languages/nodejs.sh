@@ -15,13 +15,18 @@ cd ~/.nvm
 git pull
 git fetch --tags
 git tag --list
-git checkout v0.33.6
+git checkout v0.33.8
+# git checkout v0.33.6
 
 nvm ls-remote
-nvm install v8.9.1
-nvm install v7.10.0
-nvm install v6.10.3
+nvm install v8.9.4
+nvm install v7.10.1
+nvm install v6.12.3
 nvm install v5.11.1
+# nvm install v8.9.1
+# nvm install v7.10.0
+# nvm install v6.10.3
+# nvm install v5.11.1
 # nvm install v5.2.0
 # nvm install v0.12.2
 # nvm install v0.11.13
@@ -34,15 +39,15 @@ nvm install v5.11.1
 
 ## set our dev machine defaults
 ### for future shells
-nvm alias default v8.9.1
+nvm alias default v8.9.4
 ### for this shell right now. now now? like now? yes, right now now.
-nvm use v8.9.1
+nvm use v8.9.4
 
 ## update npm
 npm update -g --silent npm
 
 ## install some decent global libraries on the default node
-npm install -g --silent --no-progress --quiet --depth=0 npm-shrinkwrap
+# npm install -g --silent --no-progress --quiet --depth=0 npm-shrinkwrap
 npm install -g --silent --no-progress --quiet --depth=0 node-inspector
 npm install -g --silent --no-progress --quiet --depth=0 bower
 npm install -g --silent --no-progress --quiet --depth=0 grunt
@@ -55,17 +60,17 @@ npm install -g --silent --no-progress --quiet --depth=0 babel-eslint
 npm install -g --silent --no-progress --quiet --depth=0 jshint
 
 ## front end tools
-npm install -g --silent --no-progress --quiet --depth=0 handlebars
-npm install -g --silent --no-progress --quiet --depth=0 less
+# npm install -g --silent --no-progress --quiet --depth=0 handlebars
+# npm install -g --silent --no-progress --quiet --depth=0 less
 
 ## chrome tools
-npm install -g --silent --no-progress --quiet --depth=0 yo
-npm install -g --silent --no-progress --quiet --depth=0 generator-chrome-extension
+# npm install -g --silent --no-progress --quiet --depth=0 yo
+# npm install -g --silent --no-progress --quiet --depth=0 generator-chrome-extension
 
 ## tools
 npm install -g --silent --no-progress --quiet --depth=0 diff-so-fancy
-npm install -g --silent --no-progress --quiet --depth=0 ios-sim
-npm install -g --silent --no-progress --quiet --depth=0 ios-deploy
+# npm install -g --silent --no-progress --quiet --depth=0 ios-sim
+# npm install -g --silent --no-progress --quiet --depth=0 ios-deploy
 
 ## emberjs tools
 # echo 'I recommend forcing exact versions for working with emberjs'

@@ -121,12 +121,10 @@ echo '## installing rubies'
 # rbenv update
 # rbenv install --list
 env -- MAKE_OPT='-j8' CFLAGS='-g2 -ggdb -O2' RUBY_CONFIGURE_OPTS="--with-openssl-dir=$(brew --prefix openssl)  --with-readline-dir=$(brew --prefix readline) --disable-install-doc --disable-install-rdoc --disable-install-capi" rbenv install --skip-existing --verbose 1.9.3-p551
-env -- MAKE_OPT='-j8' CFLAGS='-g2 -ggdb -O2' RUBY_CONFIGURE_OPTS="--with-openssl-dir=$(brew --prefix openssl)  --with-readline-dir=$(brew --prefix readline) --disable-install-doc --disable-install-rdoc --disable-install-capi" rbenv install --skip-existing --verbose 2.2.6
-env -- MAKE_OPT='-j8' CFLAGS='-g2 -ggdb -O2' RUBY_CONFIGURE_OPTS="--with-openssl-dir=$(brew --prefix openssl)  --with-readline-dir=$(brew --prefix readline) --disable-install-doc --disable-install-rdoc --disable-install-capi --enable-dtrace" rbenv install --skip-existing --verbose 2.3.4
-env -- MAKE_OPT='-j8' CFLAGS='-g2 -ggdb -O3' RUBY_CONFIGURE_OPTS="--with-openssl-dir=$(brew --prefix openssl)  --with-readline-dir=$(brew --prefix readline) --disable-install-doc --disable-install-rdoc --disable-install-capi --enable-dtrace" rbenv install --skip-existing --verbose 2.3.5
-env -- MAKE_OPT='-j8' CFLAGS='-g2 -ggdb -O3' RUBY_CONFIGURE_OPTS="--with-openssl-dir=$(brew --prefix openssl)  --with-readline-dir=$(brew --prefix readline) --disable-install-doc --disable-install-rdoc --disable-install-capi --enable-dtrace" rbenv install --skip-existing --verbose 2.4.1
-env -- MAKE_OPT='-j8' CFLAGS='-g2 -ggdb -O3' RUBY_CONFIGURE_OPTS="--with-openssl-dir=$(brew --prefix openssl)  --with-readline-dir=$(brew --prefix readline) --disable-install-doc --disable-install-rdoc --disable-install-capi --enable-dtrace" rbenv install --skip-existing --verbose 2.4.2
-
+env -- MAKE_OPT='-j8' CFLAGS='-g2 -ggdb -O2' RUBY_CONFIGURE_OPTS="--with-openssl-dir=$(brew --prefix openssl)  --with-readline-dir=$(brew --prefix readline) --disable-install-doc --disable-install-rdoc --disable-install-capi" rbenv install --skip-existing --verbose 2.1.10
+env -- MAKE_OPT='-j8' CFLAGS='-g2 -ggdb -O2' RUBY_CONFIGURE_OPTS="--with-openssl-dir=$(brew --prefix openssl)  --with-readline-dir=$(brew --prefix readline) --disable-install-doc --disable-install-rdoc --disable-install-capi" rbenv install --skip-existing --verbose 2.2.9
+env -- MAKE_OPT='-j8' CFLAGS='-g2 -ggdb -O3' RUBY_CONFIGURE_OPTS="--with-openssl-dir=$(brew --prefix openssl)  --with-readline-dir=$(brew --prefix readline) --disable-install-doc --disable-install-rdoc --disable-install-capi --enable-dtrace" rbenv install --skip-existing --verbose 2.3.6
+env -- MAKE_OPT='-j8' CFLAGS='-g2 -ggdb -O3' RUBY_CONFIGURE_OPTS="--with-openssl-dir=$(brew --prefix openssl)  --with-readline-dir=$(brew --prefix readline) --disable-install-doc --disable-install-rdoc --disable-install-capi --enable-dtrace" rbenv install --skip-existing --verbose 2.4.3
 
 # installer files cleanup
 # cd /usr/local
@@ -138,15 +136,11 @@ brew doctor
 
 ## set my default rubies for new shells
 #
-# rbenv shell 1.9.3-p547
-# rbenv global 1.9.3-p547
-# rbenv shell 2.2.6
-# rbenv global 2.2.6
-# rbenv shell  2.3.4
-# rbenv global 2.3.4
-echo '## setting default shell ruby to 2.4.1'
-rbenv shell  2.4.1
-rbenv global 2.4.1
+# rbenv shell  2.3.6
+# rbenv global 2.3.6
+echo '## setting default shell ruby to 2.4.3'
+rbenv shell  2.4.3
+rbenv global 2.4.3
 
 ## show off my new whiz bangs! you guys! We gots whiz-bangs!
 rbenv rehash
@@ -160,7 +154,7 @@ function update_rubygems_bundler_for_rbenv_all() {
   rbenv each gem install bundler
   rbenv each gem update bundler
 }
-update_rubygems_bundler_for_rbenv_all;
+# update_rubygems_bundler_for_rbenv_all;
 
 
 function update_rubygems_bundler_for_rbenv_local() {
@@ -169,22 +163,23 @@ function update_rubygems_bundler_for_rbenv_local() {
   rbenv exec gem update bundler
   rbenv exec gem list | grep bundler
 }
-# update_rubygems_bundler_for_rbenv_local;
+update_rubygems_bundler_for_rbenv_local;
 
 # eventmachine openssl issues
 # bundle config --global build.eventmachine --with-cppflags=-I$(brew --prefix openssl)/include
 
 ### add some default gems for new ruby installs
+# gem install bundler pry pry-byebug pry-doc yard bcat
 # echo "bundler" >> $HOME/.rbenv/default-gems
 # echo "pry" >> $HOME/.rbenv/default-gems
 # echo "pry-byebug" >> $HOME/.rbenv/default-gems
 # echo "pry-doc" >> $HOME/.rbenv/default-gems
 # echo "yard" >> $HOME/.rbenv/default-gems
+# echo "bcat" >> $HOME/.rbenv/default-gems
 
 # echo "interactive_editor" >> $HOME/.rbenv/default-gems
 # echo "awesome_print" >> $HOME/.rbenv/default-gems
 
-# echo "bcat" >> $HOME/.rbenv/default-gems
 # echo "octodown" >> $HOME/.rbenv/default-gems
 # echo "octokit" >> $HOME/.rbenv/default-gems
 # echo "faraday" >> $HOME/.rbenv/default-gems

@@ -28,6 +28,7 @@ export -- SAVEHIST=999999
 export -- REPORTTIME=10
 
 export -- LESSSECURE=1 # seems legit
+export -- HOMEBREW_NO_AUTO_UPDATE=1 # sounds good to me
 
 # [ -n "$PS1" ] && source "$HOME/code/_clone/base16-shell/scripts/base16-default-dark.sh" # colors
 

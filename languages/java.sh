@@ -22,9 +22,11 @@ brew update
 brew install -vd jenv
 if which jenv > /dev/null; then eval "$(jenv init -)"; fi
 yes | jenv add /Library/Java/JavaVirtualMachines/*/Contents/Home/
-yes | jenv add /Library/Java/JavaVirtualMachines/jdk1.8.0_131.jdk/Contents/Home
+yes | jenv add /Library/Java/JavaVirtualMachines/jdk1.8.0_161.jdk/Contents/Home
+# yes | jenv add /Library/Java/JavaVirtualMachines/jdk1.8.0_131.jdk/Contents/Home
 jenv versions
-jenv global oracle64-1.8.0.131
+jenv global oracle64-1.8.0.161
+# jenv global oracle64-1.8.0.131
 # jenv local oracle64-1.8.0.60
 
 sdkmad_repl_stuff() {

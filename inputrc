@@ -8,7 +8,7 @@ $include /usr/local/etc/inputrc
 ## completion-ignore-case
 ## convert-meta - If on (the default), characters are converted to the ASC seven bit character set.
 ## disable-completion
-## editing mode - May be set to emacs or vi
+## editing-mode - May be set to emacs or vi see https://github.com/prograhamer/dotfiles/blob/e5073bb78f1762b6172dc091f2e65d5bac9c35cb/.inputrc
 ## enable-keyboard
 ## expand-tilde
 ## input-meta - If set to on, eight bit input is enabled. If off (the default) it only passes seven bits of any character.
@@ -26,7 +26,7 @@ set completion-ignore-case on
 # set editing-mode emacs
 # set keymap vi-command
 
-# Be 8 bit clean
+# Can we be 8 bit clean? https://en.wikipedia.org/wiki/8-bit_clean
 # see http://www.comptechdoc.org/os/linux/howlinuxworks/linux_hlkeyprogs.html
 set input-meta on
 set meta-flag on
