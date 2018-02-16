@@ -1,6 +1,9 @@
 #!/usr/bin/env zsh
 # set -x
 # set -e
+#
+# I guess one needs to read about the craziness for profiling-zsh-startup-time
+#
 # https://kev.inburke.com/kevin/profiling-zsh-startup-time/
 # https://github.com/raboof/zshprof
 #
