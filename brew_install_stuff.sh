@@ -142,6 +142,8 @@ brew install 'gnutls'
 brew install 'grep'
 brew install 'gzip'
 brew install 'less'
+brew install 'moreutils' --without-parallel
+brew install 'parallel'
 
 ## ps tools
 brew install 'proctools'
