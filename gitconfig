@@ -87,6 +87,10 @@
     logprpatch    = "!fgitlogpr2() { git log --topo-order --decorate=full --no-merges --boundary ${1:-origin/master}... --patch; }; fgitlogpr2"
     logprstat     = "!fgitlogpr3() { git log --topo-order --boundary ${1:-origin/master}... --stat --oneline; }; fgitlogpr3"
 
+    # git "pad the stats"
+    logpstats = "!git shortlog -sne"
+    logpstatscontrib = "!git log --format='%aN <%aE>' | awk '{arr[$0]++} END{for (i in arr){print arr[i], i;}}' | sort -rn | head"
+
     # converted shell aliases
     git-grep = "grep --break --heading --line-number"
     # branch hunting
@@ -99,10 +103,6 @@
     showpstat = show --stat=180,150 --pretty="oneline"
     showpnameonly = show --pretty="full" --name-only
     showponline = show --pretty="oneline" --name-only
-
-    # git pad the stats
-    stats = "!git shortlog -sne"
-    statscontrib = "!git log --format='%aN <%aE>' | awk '{arr[$0]++} END{for (i in arr){print arr[i], i;}}' | sort -rn | head"
 
     # git github.com/prograhamer https://github.com/prograhamer/dotfiles/blob/351d1c92613d6a32217206c22635d7c9187cb8b1/.gitconfig#L2-L4
     scrumlog = log --graph --pretty=format:'%h -%d %s %cr <%an>' --all
