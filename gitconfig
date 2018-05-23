@@ -32,8 +32,9 @@
 
 [branch]
     # git help -w git-config # see branch.autosetuprebase
+    # this behavior can be chosen per-branch using the --track and --no-track
     autosetupmerge = always
-    # When a new branch is created with git branch or git checkout that tracks another branch, this variable tells Git to set up pull to rebase instead of merge
+    # When always, rebase will be set to true for all tracking branches
     autosetuprebase = always
 
 # this is messing up cocoapod podspecs
