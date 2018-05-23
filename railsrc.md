@@ -1,13 +1,15 @@
 
 #### setting up a new rails project
 
-First of all, don't use a `.railsrc`
+first of all, don't use a `.railsrc` (has caused me pain in the past)
 
 ```shell
 ruby --version
 gem install rails
 rails new appname \
 --database=postgresql \
+--skip-javascript \
+--skip-coffee \
 --skip-action-cable \
 --skip-bundle \
 --skip-listen \
@@ -16,6 +18,8 @@ rails new appname \
 --skip-test \
 --skip-turbolinks
 ```
+
+Maybe you want rspec
 
 ```shell
 cd appname
