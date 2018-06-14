@@ -51,7 +51,7 @@ CTAGS_PROJECT_PATHS=$(
 
 # set -x
 
-/usr/local/bin/ctags --sort=yes -R --tag-relative \
+/usr/local/bin/ctags --sort=yes -R --tag-relative=always \
 --languages=+ruby,-html,-javascript,-sql \
 --exclude=.git \
 --exclude=log \
