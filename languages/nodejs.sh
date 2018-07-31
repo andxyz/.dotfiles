@@ -15,14 +15,14 @@ cd ~/.nvm
 git pull
 git fetch --tags
 git tag --list
-git checkout v0.33.8
+git checkout v0.33.9
 # git checkout v0.33.6
 
 nvm ls-remote
 nvm install v8.9.4
-nvm install v7.10.1
-nvm install v6.12.3
-nvm install v5.11.1
+# nvm install v7.10.1
+# nvm install v6.12.3
+# nvm install v5.11.1
 # nvm install v8.9.1
 # nvm install v7.10.0
 # nvm install v6.10.3
