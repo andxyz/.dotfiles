@@ -56,6 +56,17 @@ function source_golang18_env() {
   source_golang18_path
 }
 
+function source_golang110_path() {
+  export -- PATH="/usr/local/opt/go@1.10/bin:$PATH"
+}
+
+# slowing me down
+function source_golang110_env() {
+  source_golang_env_generic
+  source_golang110_path
+}
+
+
 ## haskell uses cabal and stack
 # https://github.com/andxyz/.dotfiles/blob/master/languages/haskell.sh
 test -d "$HOME/.cabal/bin" &&
@@ -192,7 +203,6 @@ source_postgre96_build_env() {
 test -d $HOME/.rbenv/bin &&
 export -- PATH="$HOME/.rbenv/bin:$PATH" &&
 eval "$(rbenv init -)"
-
 
 # slowing me down
 function source_rust_env() {
