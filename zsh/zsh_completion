@@ -5,8 +5,12 @@
 # rm -f ~/.zcompdump; compinit
 fpath=(/usr/local/share/zsh-completions $fpath) # Where the completions?
 autoload -U compinit # Load the completion module
-compinit # Process completions
+compinit -u # Process completions
 # compaudit
+# for highsierra
+# sudo chmod -R g-w /usr/local/share/zsh/site-functions
+# sudo chmod -R g-w /usr/local/share/zsh
+
 zstyle ':completion:*' menu select # Style of completion
 zstyle ':completion:*' matcher-list 'm:{a-z}={A-Z}' # matches case insensitive for lowercase
 zstyle ':completion:*' insert-tab pending # pasting with tabs doesn't perform completion
