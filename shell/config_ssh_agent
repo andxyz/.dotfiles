@@ -50,7 +50,8 @@ use_osx_ssh_agent_setup() {
   export SSH_AUTH_SOCK=$(launchctl getenv SSH_AUTH_SOCK)
   export SSH_AGENT_PID=$(launchctl getenv SSH_AGENT_PID)
   launchctl start org.openbsd.ssh-agent
-  /usr/bin/ssh-add ~/.ssh/andxyz-github
+  /usr/bin/ssh-add ~/.ssh/andxyz-github || true
+  /usr/bin/ssh-add ~/.ssh/work || true
   /usr/bin/ssh-add -l
 }
 
