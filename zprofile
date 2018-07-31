@@ -10,3 +10,6 @@
 
 ## env zsh specific
 [[ -f ~/.shell/paths_zsh ]]         && source ~/.zsh/zsh_paths
+
+## env for docker
+[[ -f ~/.profile ]]         && source ~/.profile
