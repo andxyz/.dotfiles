@@ -183,5 +183,8 @@ update_rubygems_bundler_for_rbenv_local;
 # rbenv whence bundler
 # rbenv exec gem uninstall bundler -v '1.15.0'
 # rbenv exec gem install bundler -v '1.14.6'
+#
+# rbenv exec gem install rubocop -v '0.54.0'
+# rbenv exec gem install rubocop -v '0.58.2'
 
 exit 0

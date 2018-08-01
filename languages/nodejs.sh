@@ -57,7 +57,10 @@ npm install -g --silent --no-progress --quiet --depth=0 gulp
 ## linting
 npm install -g --silent --no-progress --quiet --depth=0 prettier
 npm install -g --silent --no-progress --quiet --depth=0 babel-eslint
+npm install -g --silent --no-progress --quiet --depth=0 coffeelint
 npm install -g --silent --no-progress --quiet --depth=0 jshint
+npm install -g --silent --no-progress --quiet --depth=0 postcss
+npm install -g --silent --no-progress --quiet --depth=0 stylelint
 
 ## front end tools
 # npm install -g --silent --no-progress --quiet --depth=0 handlebars
