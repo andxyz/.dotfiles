@@ -73,7 +73,7 @@
     logpnopager = !git --no-pager log
 
     # commit investigation
-    logpatch = log --decorate=full --no-merges --topo-order --patch
+    logpatch         = log --topo-order --decorate=full --no-merges --patch
     logponeline      = log --topo-order --decorate --abbrev-commit --pretty=format:'%Cred %h %Creset%Cgreen[%ai]%C(bold blue)[%aN]%Creset %s%C(yellow)%d%Creset'
     logpstat         = log --topo-order --color --stat=180,150 --pretty='format: %Cgreen%h%Creset%Cblue by %aN, %ci%Creset  %s%Cred%d%Creset%n'
     logpmerges       = log --topo-order --merges --decorate --pretty=format:'%Cred %h %Creset%Cgreen[%ai]%C(bold blue)[%aN]%Creset %s%C(yellow)%d%Creset'
