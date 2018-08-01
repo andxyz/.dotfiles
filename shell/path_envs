@@ -173,11 +173,28 @@ source_mysql56_build_env() {
 }
 
 # slowing me down
+source_mysql57_build_env() {
+  export -- PATH="/usr/local/opt/mysql@5.7/bin:$PATH"
+  # brew unlink mysql
+  # brew link --overwrite mysql@5.7
+  # mysql_config
+  # pip install --no-binary MySQL-python MySQL-python
+}
+
+# slowing me down
 source_postgre93_build_env() {
   export -- PATH="/usr/local/opt/postgresql@9.3/bin:$PATH"
   # brew unlink postgresql
   # brew link --overwrite postgresql@9.3
   # brew info postgresql@9.3
+}
+
+# slowing me down
+source_postgre94_build_env() {
+  export -- PATH="/usr/local/opt/postgresql@9.4/bin:$PATH"
+  # brew unlink postgresql
+  # brew link --overwrite postgresql@9.4
+  # brew info postgresql@9.4
 }
 
 # slowing me down
@@ -200,9 +217,11 @@ source_postgre96_build_env() {
 ## see https://github.com/andxyz/.dotfiles/raw/master/languages/ruby.sh
 ## note currently I use a "be=bundle exec" alias
 # I always seem to use ruby so we live with it
-test -d $HOME/.rbenv/bin &&
-export -- PATH="$HOME/.rbenv/bin:$PATH" &&
-eval "$(rbenv init -)"
+source_ruby_env() {
+  test -d $HOME/.rbenv/bin &&
+  export -- PATH="$HOME/.rbenv/bin:$PATH" &&
+  eval "$(rbenv init -)"
+}
 
 # slowing me down
 function source_rust_env() {
@@ -219,3 +238,16 @@ function source_swift_env() {
   export PATH="$SWIFTENV_ROOT/bin:$PATH"
   eval "$(swiftenv init -)"
 }
+
+
+#source_mysql57_build_env
+#source_postgre96_build_env
+
+#source_golang110_env
+source_node_env
+#source_ocaml_env
+#source_php_env
+#source_python27_env
+source_ruby_env
+#source_rust_env
+#source_swift_env
