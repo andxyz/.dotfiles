@@ -4,25 +4,25 @@ require 'erb'
 desc "install the dot files into user's home directory"
 task :install do
   replace_all = false
+  shell_scripts = Dir['*.sh']
+  ruby_scripts = Dir['*.rb']
+  json_files = Dir['*.json']
+  ignore_these_files = %w[
+    duti
+    LICENSE
+    Rakefile
+  ]
+  ignore_these_dirs = %w[
+    bin
+    languages
+  ]
+  exclude_list = shell_scripts +
+    ruby_scripts +
+    json_files +
+    ignore_these_files +
+    ignore_these_dirs
+
   Dir['*'].each do |file|
-    exclude_list = %w[
-      bin
-      languages
-      andxyz.mit-license.org.json
-      brew_install_data_science.sh
-      brew_install_stuff.sh
-      brew_upgrade_outdated.sh
-      cheatsheets.md
-      cheatsheets.md duti
-      git-prompt.sh osx_app_preferences.sh
-      LICENSE
-      Rakefile
-      README-notes.md
-      README-notes.md
-      README.md
-      README.rdoc
-      xcode_install_stuff.sh
-    ]
     next if exclude_list.include? file
 
     if replace_all
