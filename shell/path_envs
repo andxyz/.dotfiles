@@ -13,6 +13,8 @@ export -- MANPATH="/usr/local/opt/findutils/libexec/gnuman:$MANPATH" # brew info
 export -- MANPATH="/usr/local/opt/gnu-sed/libexec/gnuman:$MANPATH"
 export -- MANPATH="/usr/local/opt/gnu-tar/libexec/gnuman:$MANPATH"
 export -- MANPATH="/usr/local/share/man:$MANPATH"
+## openssl
+export PATH="/usr/local/opt/openssl/bin:$PATH"
 
 ### language setup stuff
 
@@ -244,10 +246,10 @@ function source_swift_env() {
 #source_postgre96_build_env
 
 #source_golang110_env
-source_node_env
+#source_node_env
 #source_ocaml_env
 #source_php_env
 #source_python27_env
-source_ruby_env
+#source_ruby_env
 #source_rust_env
 #source_swift_env
