@@ -216,7 +216,7 @@
     keepTemporaries = false
 
 #
-# Kaleidoscope
+# kaleidoscope
 #
 [mergetool "kaleidoscope_merge"]
     cmd = ksdiff --merge --output \"$MERGED\" --base \"$BASE\" -- \"$LOCAL\" --snapshot \"$REMOTE\" --snapshot
