@@ -45,6 +45,17 @@ function hhttp_server {
   python -m SimpleHTTPServer ${port}
 }
 
+##
+# docker
+##
+
+function dew {
+  docker-compose exec web "$@"
+}
+
+##
+# git
+##
 function zco {
   # fzf checkout
   # future work... I would like to preview | git log --oneline --topo-order --color --stat=180,150
