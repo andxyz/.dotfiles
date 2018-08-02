@@ -15,13 +15,27 @@ rails new appname \
 --skip-listen \
 --skip-puma \
 --skip-spring \
---skip-test \
 --skip-turbolinks
 ```
 
 Maybe you want rspec
 
 ```shell
+
+ruby --version
+gem install rails
+rails new appname \
+--database=postgresql \
+--skip-javascript \
+--skip-coffee \
+--skip-action-cable \
+--skip-bundle \
+--skip-listen \
+--skip-puma \
+--skip-spring \
+--skip-test \
+--skip-turbolinks
+
 cd appname
 rm -r test
 echo -n "gem 'rspec-rails'" >> Gemfile
