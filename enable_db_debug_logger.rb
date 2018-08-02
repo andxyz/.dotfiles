@@ -35,7 +35,7 @@ if ::ActiveRecord
 end
 
 =begin
-env RUBYOPT="-I$HOME/code/andxyz-dotfiles/ -renable_db_debug_logger.rb" bundle exec rails console
+env RUBYOPT="-I$HOME/code/rubygems.org -renable_db_debug_logger.rb" bundle exec rails console
 
 cd $HOME/thescore/sports/thescore-pulse/pulse &&
 (bundle check || bundle install) &&
