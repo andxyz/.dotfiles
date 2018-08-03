@@ -2,7 +2,7 @@
 
 set -ex
 
-brew install go
+brew install go@1.10
 # golang https://golang.org/doc/install or `brew install go`
 export -- GOPATH=$HOME/code/gowork
 export -- PATH=$PATH:/usr/local/go/bin
