@@ -6,7 +6,7 @@
 # ctags --list-languages
 # ctags-exuberant http://docs.ctags.io/en/latest/news.html#new-options
 
-## explaination
+## explanation
 # So I have a shell script called `/Users/andxyz/.git-template/hooks/ctags`
 #
 # ~/.vimrc you would have
