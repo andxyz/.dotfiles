@@ -44,9 +44,10 @@
 [alias]
     # andxyz favorite git shortcuts
     p  = pull
-    f  = fetch --all --prune
+    f  = fetch --all
     fs = fetch origin staging:staging
     fm = fetch origin master:master
+    fetch-and-prune  = fetch --all --prune
     # runs my $HOME/bin/git-branch-list.sh shell script
     b = branch-list.sh
     ls = ls-files
