@@ -7,14 +7,15 @@ export -- PATH="/usr/local/opt/findutils/libexec/gnubin:$PATH" # brew info findu
 export -- PATH="/usr/local/opt/gnu-sed/libexec/gnubin:$PATH"
 export -- PATH="/usr/local/opt/gnu-tar/libexec/gnubin:$PATH"
 export -- PATH="$HOME/bin:/usr/local/sbin:/usr/local/bin:$PATH"
+## add openssl to path
+export PATH="/usr/local/opt/openssl/bin:$PATH"
+
 ## andxyz manpath stuff
 export -- MANPATH="/usr/local/opt/coreutils/libexec/gnuman:$MANPATH" # brew info coreutils
 export -- MANPATH="/usr/local/opt/findutils/libexec/gnuman:$MANPATH" # brew info findutils
 export -- MANPATH="/usr/local/opt/gnu-sed/libexec/gnuman:$MANPATH"
 export -- MANPATH="/usr/local/opt/gnu-tar/libexec/gnuman:$MANPATH"
 export -- MANPATH="/usr/local/share/man:$MANPATH"
-## openssl
-export PATH="/usr/local/opt/openssl/bin:$PATH"
 
 ### language setup stuff
 
@@ -203,7 +204,7 @@ source_mysql57_build_env() {
 }
 
 # slowing me down
-source_postgre93_build_env() {
+source_postgres93_build_env() {
   export -- PATH="/usr/local/opt/postgresql@9.3/bin:$PATH"
   # brew unlink postgresql
   # brew link --overwrite postgresql@9.3
@@ -211,7 +212,7 @@ source_postgre93_build_env() {
 }
 
 # slowing me down
-source_postgre94_build_env() {
+source_postgres94_build_env() {
   export -- PATH="/usr/local/opt/postgresql@9.4/bin:$PATH"
   # brew unlink postgresql
   # brew link --overwrite postgresql@9.4
@@ -219,7 +220,7 @@ source_postgre94_build_env() {
 }
 
 # slowing me down
-source_postgre95_build_env() {
+source_postgres95_build_env() {
   export -- PATH="/usr/local/opt/postgresql@9.5/bin:$PATH"
   # brew unlink postgresql
   # brew link --overwrite postgresql@9.5
@@ -227,7 +228,7 @@ source_postgre95_build_env() {
 }
 
 # slowing me down
-source_postgre96_build_env() {
+source_postgres96_build_env() {
   export -- PATH="/usr/local/opt/postgresql@9.6/bin:$PATH"
   # brew unlink postgresql
   # brew link --overwrite postgresql@9.6

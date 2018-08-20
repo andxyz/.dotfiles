@@ -1,17 +1,22 @@
 #!/usr/bin/env bash
 
 function httpless {
-  # httpless 'https://cms.thescore.com/news/1249197'
+  # httpless 'http://www.formatportfolio.com/'
   http --pretty=colors --print=HBhb "$@" | less -R;
 }
 
-function httpless_no_color_no_pager {
-  # httpless_no_color_no_pager --json GET 'https://cms.thescore.com/api/v2/news/1249197.json'
+function httpless_headers_only {
+  # httpless_headers_only 'http://www.formatportfolio.com/'
+  http --pretty=colors --print=HBh "$@" | less -R;
+}
+
+function httpless_json_no_color_no_pager {
+  # httpless_no_color_no_pager --json GET 'http://www.formatportfolio.com/subscription.js'
   http --pretty=none --print=HBhb "$@";
 }
 
 function httpperf {
-  curl -o /dev/null -s -w "%{time_connect} (time_connect) + %{time_starttransfer} (starttransfer) = %{time_total} (time_total)\n" "$@"
+  curl -o /dev/null -s -w "%{http_code} (http_code) ___ %{time_connect} (time_connect) + %{time_starttransfer} (starttransfer) = %{time_total} (time_total)\n" "$@"
 }
 
 function jqbrowser {
@@ -49,8 +54,20 @@ function hhttp_server {
 # docker
 ##
 
+function de {
+  docker-compose exec "$@"
+}
+
 function dew {
   docker-compose exec web "$@"
+}
+
+function det {
+  docker-compose exec test "$@"
+}
+
+function dew-touch-restart-rails {
+  docker-compose exec web touch tmp/restart.txt
 }
 
 ##
