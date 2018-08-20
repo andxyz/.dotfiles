@@ -84,5 +84,5 @@ alias rezsh='source ${HOME}/.zshrc'
 
 # for interactive to have access to languages
 #source_golang110_path
-#source_node_env
+source_node_env
 source_ruby_env
