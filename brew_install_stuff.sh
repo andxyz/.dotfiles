@@ -110,13 +110,25 @@ brew install 'hub'
 ## I've been doing it manually you have to click things to install the commandline tools anyway
 
 ### db services
-brew install 'mysql@5.6'
-brew services stop 'mysql@5.6'
-brew link --force 'mysql@5.6'
+# brew install 'mysql@5.5'
+# brew services stop 'mysql@5.5'
+# brew link --force 'mysql@5.5'
+# which source_mysql55_build_env
+
+brew install 'mysql@5.7'
+brew services stop 'mysql@5.7'
+brew link --force 'mysql@5.7'
+# which source_mysql57_build_env
+
+# brew install 'postgresql@9.5'
+# brew services stop 'postgresql@9.5'
+# brew link --force 'postgresql@9.5'
+# which source_postgres95_build_env
 
 brew install 'postgresql@9.6'
 brew services stop 'postgresql@9.6'
 brew link --force 'postgresql@9.6'
+which source_postgres96_build_env
 
 brew install 'memcached'
 brew services stop 'memcached'
