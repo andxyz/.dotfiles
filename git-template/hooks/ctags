@@ -40,13 +40,13 @@ trap 'rm -f "$CTAGS_GIT_DIRECTORY/$$.tags"' EXIT
 CTAGS_RUBY_LIB_PATHS=$(
   for f in $(find "$CTAGS_GIT_DIRECTORY/.." -name Gemfile); do
     (cd "$(dirname "${f}")" && (rbenv exec bundle check || rbenv exec bundle install) >/dev/null 2>&1 && rbenv exec bundle list --paths);
-  done | sort -u
+  done | gsort -u
 )
 
 # get all the files from git (using absolute paths)
 CTAGS_PROJECT_PATHS=$(
-  greadlink -f $(git ls-files) |
-  sort -u
+  git ls-files | gxargs -L 128 greadlink -f |
+  gsort -u
 )
 
 # set -x
@@ -60,7 +60,8 @@ CTAGS_PROJECT_PATHS=$(
 --exclude="\*.min.js" \
 --exclude="jquery.\*.js" \
 --exclude="jquery-\*.js" \
--f"${CTAGS_GIT_DIRECTORY}/$$.tags" "./" ${CTAGS_PROJECT_PATHS} ${CTAGS_RUBY_LIB_PATHS} "${CTAGS_RUBY_STDLIB}"
+-f"${CTAGS_GIT_DIRECTORY}/$$.tags" "./" ${CTAGS_PROJECT_PATHS} ${CTAGS_RUBY_LIB_PATHS} "${CTAGS_RUBY_STDLIB}" \
+> /dev/null 2>&1 #silence output
 
 if [[ $? -ne 0 ]]; then
   exit 1
