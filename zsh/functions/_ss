@@ -1,4 +1,0 @@
-#compdef ss
-_files -W $HOME/thescore  -/
-
-# See usage in `zsh/functions/ss`

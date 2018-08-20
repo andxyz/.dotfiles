@@ -1,0 +1,4 @@
+#compdef ww
+_files -W $HOME/work  -/
+
+# See usage in `zsh/functions/ww`

@@ -1,4 +1,4 @@
 #!/usr/local/bin/zsh
 
-cd $HOME/thescore/$1;
+cd $HOME/work/$1;
 sset $1;
