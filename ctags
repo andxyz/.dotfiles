@@ -2,6 +2,7 @@
 --exclude=log
 --exclude=vendor
 --exclude=bundle
+--exclude=types.conf
 --exclude=*.min.js
 --exclude=jquery.*.js
 --exclude=jquery-*.js
