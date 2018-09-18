@@ -4,17 +4,26 @@ set -x
 set -e
 
 LSTOOL_HOME='/Users/andxyz/Library/PreferencePanes/RCDefaultApp.prefPane/Contents/Resources/'
-LSREG_HOME='/Users/andxyz/bin/'
 EDITOR_PATH='/Applications/Sublime Text 3.app'
+LSREG_HOME="/Users/andrewstevens/Library/Developer/Xcode/DerivedData/SwiftDefaultApps-efkgcqjeguekrhfjgqyylhkbfjxl/Build/Products/Release/"
+
+## first you must compile lsreg from https://github.com/Lord-Kamina/SwiftDefaultApps
+# git clone git@github.com:Lord-Kamina/SwiftDefaultApps.git
+# cd SwiftDefaultApps
+# git submodule update --init --recursive
+# open SwiftDefaultApps.xcworkspace
+## Product -> schemes -> build CLI
+# open /Users/andrewstevens/Library/Developer/Xcode/DerivedData/
+## find lsreg and use it
 
 
-lsreg getSchemes
-lsreg getHandler --web
-lsreg getHandler --mail
-# lsreg getHandler --rss # errors for some reason
-lsreg getHandler --news
+${LSREG_HOME}/lsreg getSchemes
+${LSREG_HOME}/lsreg getHandler --web
+${LSREG_HOME}/lsreg getHandler --mail
+# ${LSREG_HOME}/lsreg getHandler --rss # errors for some reason
+${LSREG_HOME}/lsreg getHandler --news
 
-# lsreg getUTIs | grep Xcode
+# ${LSREG_HOME}/lsreg getUTIs | grep Xcode
 #
 
 # uhh sure
