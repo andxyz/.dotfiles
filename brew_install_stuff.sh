@@ -362,7 +362,7 @@ brew cask install icolors --force
 
 ### OSX quicklook plugins
 # see https://github.com/sindresorhus/quick-look-plugins
-brew cask install 'betterzipql' --force
+brew cask install 'betterzip' --force #installs app and ql extension for zips
 brew cask install 'ipaql' --force
 brew cask install 'provisionql' --force
 brew cask install 'qlcolorcode' --force
