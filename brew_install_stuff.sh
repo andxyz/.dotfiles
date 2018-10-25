@@ -494,7 +494,7 @@ brew doctor
 # 549083868 Display Menu (2.2.2)
 # 603637384 Name Mangler 3 (3.4)
 # 704400176 gps4cam (7.8.2)
-# 552792489 StatusClock (1.2)
+# 552792489 StatusClock (1.2) # see also https://github.com/netik/UTCMenuClock
 # 1000397973 Wallcat (1.3.0)
 # 492498910 Kitabu (1.1)
 # 1081413713 GIF Brewery 3 (3.5)
