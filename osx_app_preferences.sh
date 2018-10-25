@@ -5,7 +5,7 @@ set -e
 
 LSTOOL_HOME='/Users/andxyz/Library/PreferencePanes/RCDefaultApp.prefPane/Contents/Resources/'
 EDITOR_PATH='/Applications/Sublime Text 3.app'
-LSREG_HOME="/Users/andrewstevens/Library/Developer/Xcode/DerivedData/SwiftDefaultApps-efkgcqjeguekrhfjgqyylhkbfjxl/Build/Products/Release/"
+LSREG_HOME="/Users/andrewstevens/Library/Developer/Xcode/DerivedData/SwiftDefaultApps-efkgcqjeguekrhfjgqyylhkbfjxl/Build/Products/Debug"
 
 ## first you must compile lsreg from https://github.com/Lord-Kamina/SwiftDefaultApps
 # git clone git@github.com:Lord-Kamina/SwiftDefaultApps.git
@@ -23,8 +23,27 @@ ${LSREG_HOME}/lsreg getHandler --mail
 # ${LSREG_HOME}/lsreg getHandler --rss # errors for some reason
 ${LSREG_HOME}/lsreg getHandler --news
 
-# ${LSREG_HOME}/lsreg getUTIs | grep Xcode
+# ${LSREG_HOME}/lsreg getUTIs | grep -i Xcode
+# ${LSREG_HOME}/lsreg getUTIs | grep -i MacVim
+# ${LSREG_HOME}/lsreg getUTIs | grep -i Sublime
+
+## note: you can use the `mdls` command to find the UTI for a file:
+# mdls ~/Desktop/tmp.js
+## prints a bunch of stuff:
 #
+# kMDItemContentTypeTree             = (
+#     "com.netscape.javascript-source",
+#     "public.script",
+#     "public.source-code",
+#     "public.data",
+#     "public.plain-text",
+#     "public.item",
+#     "com.netscape.javascript-source",
+#     "public.content",
+#     "public.executable",
+#     "public.text"
+# )
+# kMDItemKind                        = "JavaScript script"
 
 # uhh sure
 ${LSREG_HOME}/lsreg  setHandler --UTI 'com.apple.applescript.text' --application "${EDITOR_PATH}"
@@ -55,16 +74,22 @@ ${LSREG_HOME}/lsreg  setHandler --UTI 'com.pixar.usd.crate' --application "${EDI
 ${LSREG_HOME}/lsreg  setHandler --UTI 'com.sun.java-source' --application "${EDITOR_PATH}"
 
 # sourcecode
+${LSREG_HOME}/lsreg  setHandler --UTI 'com.netscape.javascript-source' --application "${EDITOR_PATH}"
+${LSREG_HOME}/lsreg  setHandler --UTI 'org.vim.tex-file' --application "${EDITOR_PATH}"
+${LSREG_HOME}/lsreg  setHandler --UTI 'org.vim.vim-script' --application "${EDITOR_PATH}"
+${LSREG_HOME}/lsreg  setHandler --UTI 'public.ada-source' --application "${EDITOR_PATH}"
 ${LSREG_HOME}/lsreg  setHandler --UTI 'public.assembly-source' --application "${EDITOR_PATH}"
 ${LSREG_HOME}/lsreg  setHandler --UTI 'public.c-header' --application "${EDITOR_PATH}"
 ${LSREG_HOME}/lsreg  setHandler --UTI 'public.c-plus-plus-header' --application "${EDITOR_PATH}"
 ${LSREG_HOME}/lsreg  setHandler --UTI 'public.c-plus-plus-source' --application "${EDITOR_PATH}"
 ${LSREG_HOME}/lsreg  setHandler --UTI 'public.c-source' --application "${EDITOR_PATH}"
+${LSREG_HOME}/lsreg  setHandler --UTI 'public.fortran-source' --application "${EDITOR_PATH}"
 ${LSREG_HOME}/lsreg  setHandler --UTI 'public.module-map' --application "${EDITOR_PATH}"
 ${LSREG_HOME}/lsreg  setHandler --UTI 'public.nasm-assembly-source' --application "${EDITOR_PATH}"
 ${LSREG_HOME}/lsreg  setHandler --UTI 'public.objective-c-plus-plus-source' --application "${EDITOR_PATH}"
 ${LSREG_HOME}/lsreg  setHandler --UTI 'public.objective-c-source' --application "${EDITOR_PATH}"
 ${LSREG_HOME}/lsreg  setHandler --UTI 'public.opencl-source' --application "${EDITOR_PATH}"
+${LSREG_HOME}/lsreg  setHandler --UTI 'public.patch-file' --application "${EDITOR_PATH}"
 ${LSREG_HOME}/lsreg  setHandler --UTI 'public.xml' --application "${EDITOR_PATH}"
 
 # scripts
@@ -82,6 +107,7 @@ ${LSREG_HOME}/lsreg  setHandler --UTI 'public.swift-source' --application "${EDI
 ${LSREG_HOME}/lsreg  setHandler --UTI 'public.tcsh-script' --application "${EDITOR_PATH}"
 ${LSREG_HOME}/lsreg  setHandler --UTI 'public.zsh-script' --application "${EDITOR_PATH}"
 
+
 # basic text
 ${LSREG_HOME}/lsreg  setHandler --UTI 'net.daringfireball.markdown' --application "${EDITOR_PATH}"
 ${LSREG_HOME}/lsreg  setHandler --UTI 'public.case-insensitive-text' --application "${EDITOR_PATH}"
@@ -90,6 +116,7 @@ ${LSREG_HOME}/lsreg  setHandler --UTI 'public.css' --application "${EDITOR_PATH}
 ${LSREG_HOME}/lsreg  setHandler --UTI 'public.data' --application "${EDITOR_PATH}"
 ${LSREG_HOME}/lsreg  setHandler --UTI 'public.delimited-values-text' --application "${EDITOR_PATH}"
 ${LSREG_HOME}/lsreg  setHandler --UTI 'public.log' --application "${EDITOR_PATH}"
+${LSREG_HOME}/lsreg  setHandler --UTI 'com.apple.log' --application "${EDITOR_PATH}"
 ${LSREG_HOME}/lsreg  setHandler --UTI 'public.plain-text' --application "${EDITOR_PATH}"
 ${LSREG_HOME}/lsreg  setHandler --UTI 'public.rss' --application "${EDITOR_PATH}"
 ${LSREG_HOME}/lsreg  setHandler --UTI 'public.tab-separated-values-text' --application "${EDITOR_PATH}"
