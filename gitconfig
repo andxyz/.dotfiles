@@ -27,8 +27,8 @@
 [filter "lfs"]
     required = true
     clean = git-lfs clean -- %f
-	smudge = git-lfs smudge -- %f
-	process = git-lfs filter-process
+    smudge = git-lfs smudge -- %f
+    process = git-lfs filter-process
 
 [branch]
     # git help -w git-config # see branch.autosetuprebase
@@ -154,24 +154,24 @@
     # https://github.com/scottgonzalez/pretty-diff
     # diffd-pretty = !$HOME/bin/pretty-diff/pretty-diff.js
 
+    # ctags
     # http://tbaggery.com/2011/08/08/effortless-ctags-with-git.html
-    # ctags = !.git/hooks/ctags
+    ctags = "!.git/hooks/ctags"
 
     # searching git for stuff
     # http://travisjeffery.com/b/2012/02/search-a-git-repo-like-a-ninja/
     ggrep = grep --break --heading --line-number
     alias = config --get-regexp ^alias\\.
 
-    # git config
-    cg    = config --global
-    clg   = config --global --list
-    c     = config
-    cl    = config --list
-    ce    = config --edit
-    ceg   = config --global --edit
+    # I like this gc approach, agressive but keep my reflog
+    garbagecollect = "gc --aggressive --no-prune"
 
-    # ctags
-    ctags = "!.git/hooks/ctags"
+    # git config
+    confg  = config --global
+    confgl = config --global --list
+    confge = config --global --edit
+    confl  = config --list
+    confe  = config --edit
 
 #
 # git grep tips
@@ -241,13 +241,13 @@
     compactionHeuristic = true
 
 [mergetool "vimdiff_merge"]
-  tool = vimdiff
-  conflictstyle = diff3
-  trustExitCode = false
+    tool = vimdiff
+    conflictstyle = diff3
+    trustExitCode = false
 
 [mergetool "diffmerge"]
-  cmd = diffmerge --merge --result=$MERGED $LOCAL $BASE $REMOTE
-  trustExitCode = false
+    cmd = diffmerge --merge --result=$MERGED $LOCAL $BASE $REMOTE
+    trustExitCode = false
 
 #
 # sourcetree
@@ -255,7 +255,7 @@
 [difftool "sourcetree"]
     cmd = opendiff \"$LOCAL\" \"$REMOTE\"
 [mergetool "sourcetree"]
-    cmd = /Applications/SourceTree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
+    cmd = /Applications/Sourcetree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
     trustExitCode = true
 
 [diff]
@@ -335,4 +335,4 @@
     newNormal = green bold
     newHighlight = green bold 22
 [merge "ours"]
-	driver = true
+    driver = true
