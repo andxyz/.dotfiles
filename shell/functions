@@ -95,7 +95,7 @@ function zcoa {
   git checkout ${BRANCH_NAME} && git status --short --branch;
 }
 
-fco() {
+function fco() {
   # fco - checkout git branch/tag from https://github.com/junegunn/fzf/wiki/examples#git
   local tags branches target
   tags=$(
