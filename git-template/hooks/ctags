@@ -32,9 +32,8 @@ CTAGS_GEM_HOME=`rbenv exec gem environment gemdir`
 CTAGS_RBENV_PREFIX=`rbenv prefix`
 CTAGS_RUBY_BASENAME=`basename "${CTAGS_GEM_HOME}"`
 CTAGS_RUBY_STDLIB="${CTAGS_RBENV_PREFIX}/lib/ruby/${CTAGS_RUBY_BASENAME}"
-
 CTAGS_GIT_DIRECTORY="$(/usr/local/bin/git rev-parse --git-dir)"
-trap 'rm -f "$CTAGS_GIT_DIRECTORY/$$.tags"' EXIT
+TMPFILE=$(gmktemp -t tmp_ctags_files_XXXXX.txt)
 
 # get all the Gemfile paths from within subprojects too
 function ctags_ruby_lib_paths {
@@ -43,20 +42,24 @@ function ctags_ruby_lib_paths {
   done | gsort -u
 }
 
-# get all the ruby files from within subprojects too
-function ctags_subproject_rubyfiles {
+# get all the ruby files and subprojects ruby files too
+function ctags_project_and_subproject_rubyfiles {
   for f in $(find "$CTAGS_GIT_DIRECTORY/.." -name Gemfile); do
     (cd "$(gdirname "${f}")" && git ls-files '*.rb' | gxargs -L 128 greadlink -f);
   done | gsort -u
 }
 
-# get all the ruby files from git (using absolute paths)
-function ctags_project_paths {
-  git ls-files '*.rb' | gxargs -L 128 greadlink -f |
-  gsort -u
-}
+trap 'rm -f "${CTAGS_GIT_DIRECTORY}/$$.tags" && rm -f "${TMPFILE}' EXIT
 
 # set -x
+
+# echo "Total project and subprojects ruby files: $(ctags_project_and_subproject_rubyfiles | wc -l)"
+# echo "Total ruby files from gems: $(ctags_ruby_lib_paths | wc -l)"
+# echo "Also traverses Ruby stdlib dir: ${CTAGS_RUBY_STDLIB}"
+
+ctags_project_and_subproject_rubyfiles >> ${TMPFILE}
+ctags_ruby_lib_paths >> ${TMPFILE}
+echo "${CTAGS_RUBY_STDLIB}" >> ${TMPFILE}
 
 /usr/local/bin/ctags --sort=yes -R --tag-relative=always \
 --languages=+ruby,-html,-javascript,-sql \
@@ -66,7 +69,7 @@ function ctags_project_paths {
 --exclude=bundle \
 --exclude=types.conf \
 --exclude='*.js' \
--f"${CTAGS_GIT_DIRECTORY}/$$.tags" $(ctags_project_paths) $(ctags_subproject_rubyfiles) $(ctags_ruby_lib_paths) "${CTAGS_RUBY_STDLIB}" |
+-f"${CTAGS_GIT_DIRECTORY}/$$.tags" -L ${TMPFILE} |
 > /dev/null 2>&1 #silence output
 
 if [[ $? -ne 0 ]]; then
