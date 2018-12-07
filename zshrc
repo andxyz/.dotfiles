@@ -45,6 +45,9 @@ export -- PATH=/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/opt/X11/bin
 [ -n "$PS1" ] && [[ -f ~/.zsh/zsh_completion ]]      && source ~/.zsh/zsh_completion
 [ -n "$PS1" ] && [[ -f ~/.zsh/zsh_functions_private ]] && source ~/.zsh/zsh_functions_private
 
+# the following is a mac osx path fix for gifting my path env var to future apps when opening via finder or alfred or commandline
+# launchctl setenv PATH $PATH
+
 # Entirety of my startup file... then
 if [[ "$PROFILE_STARTUP" == true ]]; then
   unsetopt xtrace

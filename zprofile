@@ -19,6 +19,7 @@ export -- PATH=/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/opt/X11/bin
 [[ -f ~/.profile ]]         && source ~/.profile
 
 # for code editors to have access to linters and autocomplete see zshenv
+# launchctl setenv PATH $PATH
 # TODO: make it work
 # function source_node_env() {
   source $HOME/.nvm/nvm.sh

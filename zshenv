@@ -3,6 +3,7 @@
 # set -e
 
 # for code editors to have access to linters and autocomplete
+# launchctl setenv PATH $PATH
 #
 # TODO: make it work
 #source_golang110_path
