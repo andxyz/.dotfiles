@@ -500,4 +500,4 @@ brew doctor
 # 1081413713 GIF Brewery 3 (3.5)
 # 445189367 PopClip (1.5.6)
 
- exit 0
+exit 0
