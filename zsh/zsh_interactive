@@ -18,6 +18,7 @@ else
 fi
 
 ## force some ENV configs
+setopt NO_BEEP
 setopt NO_BG_NICE # don't nice background tasks
 setopt NO_HUP
 setopt NO_LIST_BEEP
