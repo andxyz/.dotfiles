@@ -10,13 +10,6 @@ if [ -f /usr/local/share/bash-completion/bash_completion ]; then
   source /usr/local/share/bash-completion/bash_completion
 fi
 
-# use the homebrew git prompt script else use and old one
-if test -f /usr/local/etc/bash_completion.d/git-prompt.sh; then
-  source /usr/local/etc/bash_completion.d/git-prompt.sh
-else
-  source $HOME/.git-prompt.sh
-fi
-
 ## http://git-prompt.sh/
 ## fancy git prompt on my local machine using a function
 if [[ -n $SSH_CONNECTION ]]; then

@@ -18,11 +18,11 @@ task :install do
     languages
   ]
   exclude_list = shell_scripts +
-    ruby_scripts +
-    json_files +
-    markdown_files +
-    ignore_these_files +
-    ignore_these_dirs
+                 ruby_scripts +
+                 json_files +
+                 markdown_files +
+                 ignore_these_files +
+                 ignore_these_dirs
 
   Dir['*'].each do |file|
     next if exclude_list.include? file

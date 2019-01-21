@@ -12,9 +12,9 @@ autoload -U ~/.zsh/functions/*(:t)
 
 ## fancy git prompt on my local machine using a zsh function
 if [[ -n $SSH_CONNECTION ]]; then
-  export -- PS1=$'%m:%3~$(git_info_for_prompt)\n$ '
+  setopt PROMPT_SUBST; export -- PS1=$'%m:%3~$(__git_ps1 " (%s)")\n$ '
 else
-  export -- PS1=$'%3~$(git_info_for_prompt)\n$ '
+  setopt PROMPT_SUBST; export -- PS1=$'%3~$(__git_ps1 " (%s)")\n$ '
 fi
 
 ## force some ENV configs

@@ -45,3 +45,10 @@ export -- HOMEBREW_NO_AUTO_UPDATE=1 # sounds good to me
 
 # brew info z
 source /usr/local/etc/profile.d/z.sh
+
+# use the homebrew git prompt script else use and old one
+if test -f /usr/local/etc/bash_completion.d/git-prompt.sh; then
+  source /usr/local/etc/bash_completion.d/git-prompt.sh
+else
+  source $HOME/.shell/git-prompt.sh
+fi
