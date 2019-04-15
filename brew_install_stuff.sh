@@ -43,12 +43,14 @@ brew untap 'homebrew/python' || true # was deprecated. This tap is now empty as 
 brew untap 'homebrew/tex' || true # was deprecated. This tap is now empty as all its formulae were migrated.
 brew untap 'homebrew/versions' || true # was deprecated. This tap is now empty as all its formulae were migrated.
 brew untap 'josegonzalez/php' || true # was deprecated. for 'homebrew/php'
+brew untap 'homebrew/dev-tools' || true # was deprecated
+brew untap 'homebrew/x11' || true # was deprecated
 
 ## house cleaning round 2
 brew update
-brew upgrade 'brew-cask' || true
+# brew upgrade 'brew-cask' || true
 brew cleanup
-brew cask cleanup
+# brew cask cleanup
 
 ## LET US COMPILE STUFF
 
@@ -249,7 +251,7 @@ brew cask install 'texshop'
 brew cask install 'iterm2'
 brew cask install 'android-file-transfer'
 brew cask install 'charles'
-brew cask install 'Dash3'
+brew cask install 'dash' # dash4
 brew cask install 'viscosity'
 # brew cask install 'gitx'
 
