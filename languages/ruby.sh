@@ -14,14 +14,17 @@ eval "$(rbenv init -)"
 echo '## installing recommended homebrew dependencies'
 brew update
 
-brew unlink openssl || true
-brew unlink libffi || true
-brew unlink libyaml || true
+brew unlink openssl  || true
+brew unlink libffi   || true
+brew unlink libyaml  || true
 brew unlink readline || true
 
-brew install openssl libyaml libffi readline
-brew install libxml2 --with-xml2-config
-brew install libxslt
+brew install openssl  && brew upgrade openssl  || true
+brew install libffi   && brew upgrade libffi   || true
+brew install libyaml  && brew upgrade libyaml  || true
+brew install readline && brew upgrade readline || true
+brew install libxml2  && brew upgrade libxml2  || true
+brew install libxslt  && brew upgrade libxslt  || true
 
 brew link openssl --force || true
 brew link libffi --force || true
@@ -115,7 +118,8 @@ env -- MAKE_OPT='-j8' CFLAGS='-g2 -ggdb -O2' RUBY_CONFIGURE_OPTS="--with-openssl
 #env -- MAKE_OPT='-j8' CFLAGS='-g2 -ggdb -O2' RUBY_CONFIGURE_OPTS="--with-openssl-dir=$(brew --prefix openssl)  --with-readline-dir=$(brew --prefix readline) --disable-install-doc --disable-install-rdoc --disable-install-capi" rbenv install --skip-existing --verbose 2.2.10
 #env -- MAKE_OPT='-j8' CFLAGS='-g2 -ggdb -O3' RUBY_CONFIGURE_OPTS="--with-openssl-dir=$(brew --prefix openssl)  --with-readline-dir=$(brew --prefix readline) --disable-install-doc --disable-install-rdoc --disable-install-capi --enable-dtrace" rbenv install --skip-existing --verbose 2.3.7
 #env -- MAKE_OPT='-j8' CFLAGS='-g2 -ggdb -O3' RUBY_CONFIGURE_OPTS="--with-openssl-dir=$(brew --prefix openssl)  --with-readline-dir=$(brew --prefix readline) --disable-install-doc --disable-install-rdoc --disable-install-capi --enable-dtrace" rbenv install --skip-existing --verbose 2.4.4
-env -- MAKE_OPT='-j8' CFLAGS='-g2 -ggdb -O3' RUBY_CONFIGURE_OPTS="--with-openssl-dir=$(brew --prefix openssl)  --with-readline-dir=$(brew --prefix readline) --disable-install-doc --disable-install-rdoc --disable-install-capi --enable-dtrace" rbenv install --skip-existing --verbose 2.5.1
+# env -- MAKE_OPT='-j8' CFLAGS='-g2 -ggdb -O3' RUBY_CONFIGURE_OPTS="--with-openssl-dir=$(brew --prefix openssl)  --with-readline-dir=$(brew --prefix readline) --disable-install-doc --disable-install-rdoc --disable-install-capi --enable-dtrace" rbenv install --skip-existing --verbose 2.5.1
+env -- MAKE_OPT='-j8' CFLAGS='-g2 -ggdb -O3' RUBY_CONFIGURE_OPTS="--with-openssl-dir=$(brew --prefix openssl)  --with-readline-dir=$(brew --prefix readline) --disable-install-doc --disable-install-rdoc --disable-install-capi --enable-dtrace" rbenv install --skip-existing --verbose 2.6.1
 
 # installer files cleanup
 # cd /usr/local
@@ -129,9 +133,10 @@ brew doctor
 #
 # rbenv shell  2.3.6
 # rbenv global 2.3.6
-echo '## setting default shell ruby to 2.5.1'
-rbenv shell  2.5.1
-rbenv global 2.5.1
+# rbenv global 2.5.1
+echo '## setting default shell ruby to 2.6.1'
+rbenv shell  2.6.1
+rbenv global 2.6.1
 
 ## show off my new whiz bangs! you guys! We gots whiz-bangs!
 rbenv rehash
@@ -142,17 +147,17 @@ rbenv versions
 function update_rubygems_bundler_for_rbenv_all() {
   rbenv update
   rbenv each gem update --system
-  rbenv each gem install bundler
-  rbenv each gem update bundler
+  rbenv each gem install bundle
+  rbenv each gem update bundle
 }
 # update_rubygems_bundler_for_rbenv_all;
 
 
 function update_rubygems_bundler_for_rbenv_local() {
   rbenv exec gem update --system
-  rbenv exec gem install bundler
-  rbenv exec gem update bundler
-  rbenv exec gem list | grep bundler
+  rbenv exec gem install bundle
+  rbenv exec gem update bundle
+  rbenv exec gem list | grep bundle
 }
 update_rubygems_bundler_for_rbenv_local;
 
@@ -160,8 +165,8 @@ update_rubygems_bundler_for_rbenv_local;
 # bundle config --global build.eventmachine --with-cppflags=-I$(brew --prefix openssl)/include
 
 ### add some default gems for new ruby installs
-# gem install bundler pry pry-byebug pry-doc yard bcat
-# echo "bundler" >> $HOME/.rbenv/default-gems
+# gem install bundle pry pry-byebug pry-doc yard bcat
+# echo "bundle" >> $HOME/.rbenv/default-gems
 # echo "pry" >> $HOME/.rbenv/default-gems
 # echo "pry-byebug" >> $HOME/.rbenv/default-gems
 # echo "pry-doc" >> $HOME/.rbenv/default-gems
@@ -180,9 +185,9 @@ update_rubygems_bundler_for_rbenv_local;
 # cat $HOME/.rbenv/default-gems
 
 ### check which rubies have a gem installed for it
-# rbenv whence bundler
-# rbenv exec gem uninstall bundler -v '1.15.0'
-# rbenv exec gem install bundler -v '1.14.6'
+# rbenv whence bundle
+# rbenv exec gem uninstall bundle -v '1.15.0'
+# rbenv exec gem install bundle -v '1.14.6'
 #
 # rbenv exec gem install rubocop -v '0.54.0'
 # rbenv exec gem install rubocop -v '0.58.2'
