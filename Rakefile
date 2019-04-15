@@ -8,6 +8,7 @@ task :install do
   ruby_scripts = Dir['*.rb']
   json_files = Dir['*.json']
   markdown_files = Dir['*.md']
+  hide_files = Dir['*.hide']
   ignore_these_files = %w[
     duti
     LICENSE
@@ -21,6 +22,7 @@ task :install do
                  ruby_scripts +
                  json_files +
                  markdown_files +
+                 hide_files +
                  ignore_these_files +
                  ignore_these_dirs
 
