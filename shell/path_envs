@@ -55,6 +55,10 @@ function source_golang110_path() {
   export -- PATH="/usr/local/opt/go@1.10/bin:$PATH"
 }
 
+function source_golang111_path() {
+  export -- PATH="/usr/local/opt/go@1.11/bin:$PATH"
+}
+
 # slowing me down
 function source_golang107_env() {
   source_golang_env_generic
@@ -73,21 +77,17 @@ function source_golang109_env() {
   source_golang109_path
 }
 
-function source_golang110_env() {
-  source_golang_env_generic
-  source_golang110_path
-}
-
-function source_golang110_path() {
-  export -- PATH="/usr/local/opt/go@1.10/bin:$PATH"
-}
-
 # slowing me down
 function source_golang110_env() {
   source_golang_env_generic
   source_golang110_path
 }
 
+# slowing me down
+function source_golang111_env() {
+  source_golang_env_generic
+  source_golang111_path
+}
 
 ## haskell uses cabal and stack
 # https://github.com/andxyz/.dotfiles/blob/master/languages/haskell.sh
