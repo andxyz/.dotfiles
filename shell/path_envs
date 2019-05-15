@@ -31,6 +31,7 @@ export -- PATH="$PATH:/Applications/android-sdk-macosx/tools"
 function source_golang_env_generic() {
   # golang https://golang.org/doc/install or `brew install go`
   export -- GOPATH=$HOME/code/gowork
+  ## export -- PATH=$PATH:/usr/local/go/bin
   export -- PATH=${PATH}:${GOPATH}/bin
   ## show what is installed in gowork folder
   ## tree -L 3 $HOME/code/gowork
@@ -57,6 +58,10 @@ function source_golang110_path() {
 
 function source_golang111_path() {
   export -- PATH="/usr/local/opt/go@1.11/bin:$PATH"
+}
+
+function source_golang112_path() {
+  export -- PATH="/usr/local/opt/go@1.12/bin:$PATH"
 }
 
 # slowing me down
@@ -87,6 +92,12 @@ function source_golang110_env() {
 function source_golang111_env() {
   source_golang_env_generic
   source_golang111_path
+}
+
+# slowing me down
+function source_golang112_env() {
+  source_golang_env_generic
+  source_golang112_path
 }
 
 ## haskell uses cabal and stack

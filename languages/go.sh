@@ -6,7 +6,8 @@ set -ex
 # brew install go@1.8
 # brew install go@1.9
 # brew install go@1.10
-brew install go@1.11
+# brew install go@1.11
+brew install go@1.12
 # golang https://golang.org/doc/install or `brew install go`
 export -- GOPATH=$HOME/code/gowork
 export -- PATH=$PATH:/usr/local/go/bin
