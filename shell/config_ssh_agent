@@ -17,18 +17,25 @@
 # when it works
 # srw------- 1 andxyz staff 0 Mar  1 16:45 /Users/andxyz/.ssh-agent.sock
 
-## test setup with github
-test_my_ssh_agent() {
-  unset SSH_AUTH_SOCK
-  unset SSH_AGENT_PID
-  export -- SSH_AUTH_SOCK="$HOME/.ssh-agent.sock"
-  ssh -V
+## test brew ssh setup with github
+test_brew_ssh_agent() {
+  /usr/local/bin/ssh -V
   $(find /usr/local/Cellar/openssl -name 'openssl' -type f) version
+  /usr/local/bin/ssh-agent
   /usr/local/bin/ssh-add ~/.ssh/andxyz-github
-  ssh-add -l
-  ssh -Tv git@github.com
-  launchctl list | grep -i 'ssh-agent'
+  /usr/local/bin/ssh-add -l
+  /usr/local/bin/ssh -Tv git@github.com
 }
+
+## test osx ssh setup with github
+test_osx_ssh_agent() {
+  /usr/bin/ssh -V
+  /usr/bin/ssh-agent
+  /usr/bin/ssh-add ~/.ssh/andxyz-github
+  /usr/bin/ssh-add -l
+  /usr/bin/ssh -Tv git@github.com
+}
+
 ## "Hi andxyz! You've successfully authenticated, but GitHub does not provide shell access"
 
 ## old solutions
@@ -42,17 +49,24 @@ use_brew_ssh_agent_setup() {
   unset SSH_AUTH_SOCK
   unset SSH_AGENT_PID
   export SSH_AUTH_SOCK="$HOME/.ssh-agent.sock"
-  lunchy start org.homebrew.ssh-agent > /dev/null 2>&1
-  lunchy status org.homebrew.ssh-agent
+  lunchy start 'org.homebrew.ssh-agent' > /dev/null 2>&1
+  eval $(/usr/local/bin/ssh-agent)
+  echo "SSH_AUTH_SOCK = $SSH_AUTH_SOCK"
+  echo "SSH_AGENT_PID = $SSH_AGENT_PID"
+  lunchy status 'org.homebrew.ssh-agent'
 }
 
 use_osx_ssh_agent_setup() {
-  export SSH_AUTH_SOCK=$(launchctl getenv SSH_AUTH_SOCK)
-  export SSH_AGENT_PID=$(launchctl getenv SSH_AGENT_PID)
-  launchctl start org.openbsd.ssh-agent
+  unset SSH_AUTH_SOCK
+  unset SSH_AGENT_PID
+  launchctl start 'com.openssh.ssh-agent'
+  eval $(/usr/bin/ssh-agent)
+  echo "SSH_AUTH_SOCK = $SSH_AUTH_SOCK"
+  echo "SSH_AGENT_PID = $SSH_AGENT_PID"
   /usr/bin/ssh-add ~/.ssh/andxyz-github || true
   /usr/bin/ssh-add ~/.ssh/work || true
   /usr/bin/ssh-add -l
+  launchctl list | grep -i 'ssh-agent'
 }
 
 use_osx_ssh_agent_setup
