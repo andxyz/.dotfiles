@@ -1,44 +1,80 @@
 
 #### setting up a new rails project
 
-first of all, don't use a `.railsrc` (has caused me pain in the past)
+first of all, don't use a `.railsrc` (it has caused me pain in the past)
 
 ```shell
-ruby --version
-gem install rails
-rails new appname \
+
+bundle exec ruby --version
+bundle init
+echo -n "gem 'rails', '~> 6.0.0.rc1'" >> Gemfile
+bundle install
+bundle exec rails --version
+bundle exec rails new rails6 \
 --database=postgresql \
---skip-javascript \
 --skip-coffee \
 --skip-action-cable \
---skip-bundle \
 --skip-listen \
 --skip-puma \
 --skip-spring \
 --skip-turbolinks
 ```
 
-Maybe you want rspec
+### Maybe you want rspec
 
 ```shell
 
-ruby --version
-gem install rails
-rails new appname \
---database=postgresql \
---skip-javascript \
---skip-coffee \
---skip-action-cable \
---skip-bundle \
---skip-listen \
---skip-puma \
---skip-spring \
---skip-test \
---skip-turbolinks
+bundle exec ruby --version
+bundle exec rails --version
+
+bundle exec rails new appname \
+--skip-bundle # ... and all that stuff from above
 
 cd appname
 rm -r test
 echo -n "gem 'rspec-rails'" >> Gemfile
 bundle install
 bundle exec rails generate rspec:install
+```
+
+### Maybe you want pry debugs
+
+```shell
+# edit the Gemfile
+cd appname
+EDITOR Gemfile
+```
+
+inside the dev deps add pry and pry-byebug for example:
+
+```ruby
+group :development do
+  # Access an interactive console on exception pages or by calling 'console' anywhere in the code.
+  gem 'web-console', '>= 3.3.0'
+  gem 'pry-rails'
+  gem 'pry-doc'
+  gem 'pry-byebug'
+end
+```
+
+install the new deps
+
+```shell
+bundle install --with=development
+
+# run my ctags script
+cctags.sh
+
+# now try it out
+bundle exec rails c
+```
+
+```ruby
+Rails.application.routes.url_for({controller: :users, only_path: true})
+$ Rails.application.routes.url_for
+ls Rails.application.routes
+ls app
+
+pp Rails.application.config.hosts; nil
+pp Rails6::Application.config.hosts; nil
 ```
