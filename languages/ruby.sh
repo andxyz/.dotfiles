@@ -113,6 +113,7 @@ echo '## installing rubies'
 # rbenv install --list
 
 #env -- MAKE_OPT='-j8' CFLAGS='-g2 -ggdb -O2' RUBY_CONFIGURE_OPTS="--with-openssl-dir=$(brew --prefix openssl)  --with-readline-dir=$(brew --prefix readline) --disable-install-doc --disable-install-rdoc --disable-install-capi" rbenv install --skip-existing --verbose 1.9.3-p551
+#env -- MAKE_OPT='-j8' CFLAGS='-g2 -ggdb -O2' RUBY_CONFIGURE_OPTS=" --disable-install-doc --disable-install-rdoc --disable-install-capi" rbenv install --skip-existing --verbose 1.9.3-p551
 env -- MAKE_OPT='-j8' CFLAGS='-g2 -ggdb -O2' RUBY_CONFIGURE_OPTS="--with-openssl-dir=$(brew --prefix openssl)  --with-readline-dir=$(brew --prefix readline) --disable-install-doc --disable-install-rdoc --disable-install-capi" rbenv install --skip-existing --verbose 2.1.5
 #env -- MAKE_OPT='-j8' CFLAGS='-g2 -ggdb -O2' RUBY_CONFIGURE_OPTS="--with-openssl-dir=$(brew --prefix openssl)  --with-readline-dir=$(brew --prefix readline) --disable-install-doc --disable-install-rdoc --disable-install-capi" rbenv install --skip-existing --verbose 2.1.10
 #env -- MAKE_OPT='-j8' CFLAGS='-g2 -ggdb -O2' RUBY_CONFIGURE_OPTS="--with-openssl-dir=$(brew --prefix openssl)  --with-readline-dir=$(brew --prefix readline) --disable-install-doc --disable-install-rdoc --disable-install-capi" rbenv install --skip-existing --verbose 2.2.10
