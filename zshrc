@@ -57,3 +57,28 @@ fi
 echo \
 """export -- PATH=
 $PATH"""
+
+# https://tanguy.ortolo.eu/blog/article25/shrc
+
+#
+# note
+#
+# Bash
+# At startup, depending on the case:
+#
+# run as a login shell (or with the option --login), it executes profile (or bash_profile instead if it exists (only user-specific version));
+# run as an interactive, non-login shell, it executes bashrc (the system-wide version is called bash.bashrc).
+# At exit, it executes ~/.bash_logout (the system-wide version is called bash.bash_logout).
+#
+# Note the funny (read: insane) non-login condition for executing bashrc: it is often worked around by having the profile execute bashrc anyway.
+#
+# Zsh
+# Zsh always executes zshenv. Then, depending on the case:
+#
+# run as a login shell, it executes zprofile;
+# run as an interactive, it executes zshrc;
+# run as a login shell, it executes zlogin.
+# At the end of a login session, it executes zlogout, but in reverse order,
+# the user-specific file first,
+# then the system-wide one,
+# constituting a chiasmus with the zlogin files.

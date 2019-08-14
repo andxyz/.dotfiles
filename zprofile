@@ -16,7 +16,8 @@ test -f ~/.shell/config_ruby_envs  && source ~/.shell/config_ruby_envs
 test -f ~/.shell/paths_zsh         && source ~/.zsh/zsh_paths
 
 ## env for docker
-test -f ~/.profile         && source ~/.profile
+test -f ~/.profile                 && source ~/.profile
+test -f ~/.profile_wonolo_private  && source ~/.profile_wonolo_private
 
 # for code editors to have access to linters and autocomplete see zshenv
 # launchctl setenv PATH $PATH
