@@ -25,7 +25,7 @@ brew outdated
 ### enable binary downloads see https://github.com/phinze/homebrew-cask/ for more
 
 brew tap 'homebrew/aliases'
-brew tap 'homebrew/apache'
+# brew tap 'homebrew/apache'
 brew tap 'homebrew/bundle'
 brew tap 'homebrew/dev-tools'
 brew tap 'homebrew/php'
@@ -104,8 +104,8 @@ brew install 'zsh'
 
 ### version control systems
 # brew options git
-brew install 'curl' --with-openssl
-brew install 'git' --with-pcre --with-brewed-curl --with-brewed-openssl
+brew install 'curl'
+brew install 'git'
 #brew upgrade 'git' --with-pcre --with-brewed-curl --with-brewed-openssl
 brew install 'hub'
 # brew cask install 'kaleidoscope'
