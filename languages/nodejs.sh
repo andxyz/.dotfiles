@@ -15,11 +15,12 @@ cd ~/.nvm
 git pull
 git fetch --tags
 git tag --list
-git checkout v0.33.9
+git checkout v0.34.0
 # git checkout v0.33.6
 
 nvm ls-remote
-nvm install v10.12.0
+nvm install v10.16.3
+# nvm install v10.12.0
 # nvm install v8.9.4
 # nvm install v7.10.1
 # nvm install v6.12.3
@@ -40,9 +41,9 @@ nvm install v10.12.0
 
 ## set our dev machine defaults
 ### for future shells
-nvm alias default v10.12.0
+nvm alias default v10.16.3
 ### for this shell right now. now now? like now? yes, right now now.
-nvm use v10.12.0
+nvm use v10.16.3
 
 ## update npm
 npm update -g --silent npm
