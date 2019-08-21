@@ -81,7 +81,7 @@ man() {
     command man "$@"
 }
 
-alias rezsh='source ${HOME}/.zshrc'
+alias rezsh='source "${HOME}"/.zprofile; source "${HOME}"/.zshrc;'
 
 # for interactive to have access to languages
 #source_golang110_path
