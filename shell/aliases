@@ -32,6 +32,7 @@ alias hhtoppid="htop --sort-key PID"
 
 ## git aliases
 alias gs='git status --short --branch' # fucking ghostscript
+alias gss='git status --branch --find-renames'
 alias gco='git checkout'
 
 ## codes
