@@ -364,8 +364,9 @@ brew cask install icolors --force
 
 ### OSX quicklook plugins
 # see https://github.com/sindresorhus/quick-look-plugins
+sudo ls # enter password so installs are clean
 brew cask install 'betterzip' --force #installs app and ql extension for zips
-brew cask install 'ipaql' --force
+brew cask install 'ipaql' --force # errored, doesnt exist? ipaql
 brew cask install 'provisionql' --force
 brew cask install 'qlcolorcode' --force
 brew cask install 'qlimagesize' --force
@@ -378,6 +379,7 @@ brew cask install 'quicklookapk' --force
 brew cask install 'quicknfo' --force
 brew cask install 'suspicious-package' --force
 brew cask install 'webpquicklook' --force
+cd ~/Library/QuickLook/ && qlmanage -r && cd -
 
 # brew cask install provisioning
 ### manual quicklook plugins
