@@ -123,47 +123,37 @@ nvm ls
 # npm list -g --no-progress --quiet --depth=0
 # nvm ls
 # show off the whizbangs
-# /Users/andxyz/.nvm/versions/node/v8.9.1/lib
-# ├── babel-eslint@8.0.2
-# ├── bower@1.8.2
-# ├── diff-so-fancy@1.1.1
-# ├── generator-chrome-extension@0.7.0
-# ├── grunt@1.0.1
-# ├── grunt-cli@1.2.0
-# ├── gulp@3.9.1
-# ├── handlebars@4.0.11
-# ├── ios-deploy@1.9.2
-# ├── ios-sim@6.1.2
-# ├── jshint@2.9.5
-# ├── less@2.7.3
-# ├── npm@5.5.1
-# ├── npm-shrinkwrap@6.1.0
-# ├── prettier@1.8.2
-# └── yo@2.0.0
+# $ cd ~
+# ~
+# $ npm list -g --no-progress --quiet --depth=0
+# /Users/andrew/.nvm/versions/node/v10.16.3/lib
+# ├── babel-eslint@10.0.2
+# ├── bower@1.8.8
+# ├── coffeelint@2.1.0
+# ├── diff-so-fancy@1.2.5
+# ├── eslint@6.2.1
+# ├── grunt@1.0.4
+# ├── grunt-cli@1.3.2
+# ├── gulp@4.0.2
+# ├── jshint@2.10.2
+# ├── npm@6.11.0
+# ├── postcss@7.0.17
+# ├── prettier@1.18.2
+# └── stylelint@10.1.0
 
-#         v0.12.2
-#         v0.12.7
-#     iojs-v3.3.1
-#          v4.1.0
-#          v4.2.1
-#          v5.1.0
-#          v5.2.0
-#         v5.11.1
-#          v6.9.1
-#         v6.11.3
-#          v7.5.0
-#          v8.3.0
-#          v8.6.0
-# ->       v8.9.1
+# ~
+# $ nvm ls
+# ->     v10.16.3
 #          system
-# current -> v5.1.0
-# default -> v8.9.1
-# node -> stable (-> v8.9.1) (default)
-# stable -> 8.9 (-> v8.9.1) (default)
-# iojs -> iojs-v3.3 (-> iojs-v3.3.1) (default)
-# lts/* -> lts/carbon (-> v8.9.1)
-# lts/argon -> v4.8.6 (-> N/A)
-# lts/boron -> v6.12.0 (-> N/A)
-# lts/carbon -> v8.9.1
+# default -> v10.16.3
+# node -> stable (-> v10.16.3) (default)
+# stable -> 10.16 (-> v10.16.3) (default)
+# iojs -> N/A (default)
+# unstable -> N/A (default)
+# lts/* -> lts/dubnium (-> v10.16.3)
+# lts/argon -> v4.9.1 (-> N/A)
+# lts/boron -> v6.17.1 (-> N/A)
+# lts/carbon -> v8.16.1 (-> N/A)
+# lts/dubnium -> v10.16.3
 
 exit 0
