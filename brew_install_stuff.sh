@@ -203,7 +203,7 @@ brew install 'reattach-to-user-namespace'
 brew install 'vim' --with-lua --with-luajit
 brew install 'macvim' --with-lua --with-luajit
 # brew cask install 'clipmenu'
-brew cask install clippy
+brew cask install 'clipy'
 brew install 'fzf'
 brew install 'fpp'
 
