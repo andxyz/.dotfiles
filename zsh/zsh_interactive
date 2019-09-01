@@ -84,7 +84,7 @@ man() {
 alias rezsh='source "${HOME}"/.zprofile; source "${HOME}"/.zshrc;'
 
 # pull in iterm2 shell integrations
-if [[ -e "${HOME}/.iterm2_shell_integration.zsh"]]; then
+if [[ -e "${HOME}/.iterm2_shell_integration.zsh" ]]; then
   source "${HOME}/.iterm2_shell_integration.zsh"
 fi
 

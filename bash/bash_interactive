@@ -19,6 +19,6 @@ else
 fi
 
 # pull in iterm2 shell integrations
-if [[ -e "${HOME}/.iterm2_shell_integration.zsh"]]; then
-  source "${HOME}/.iterm2_shell_integration.zsh"
+if [[ -e "${HOME}/.iterm2_shell_integration.bash" ]]; then
+  source "${HOME}/.iterm2_shell_integration.bash"
 fi
