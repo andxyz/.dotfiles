@@ -168,6 +168,18 @@ if ENV['RAILS_USE_HIRB_GEM'] == "true" && defined?(::Rails) && Rails.env
       # pp Hirb::View.config
 
       # RAILS_USE_HIRB_GEM=true RAILS_PRINT_X_COLUMNS=12 bundle exec rails console
+
+=begin
+
+Company.order(:created_at, :desc).limit(2)
+Employer.order(:created_at, :desc).limit(2)
+Customer.order(:created_at, :desc).limit(2)
+Worker.order(:created_at, :desc).limit(2)
+Badges.order(:created_at, :desc).limit(2)
+
+
+
+=end
       # Golf::Event.limit(2)
       # RAILS_USE_HIRB_GEM=true RAILS_PRINT_X_COLUMNS=16 bundle exec rails console
       # Baseball::Event.limit(2)
