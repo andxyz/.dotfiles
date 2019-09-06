@@ -1,8 +1,9 @@
 -- # http://serverfault.com/questions/34741/postgres-equivalent-to-mysqls-g
 \set G '\\set QUIET 1\\x on\\g\\x off\\set QUIET 0'
 -- \set G '\\set QUIET 1\\x on\\g\\x off\\set QUIET 0'
+
 -- # now you can use :G like this
--- select * from Articles limit 5 :G
+-- select * from customers limit 5 :G
 
 -- # prevent noisy loading of psqlrc file
 \set QUIET yes
