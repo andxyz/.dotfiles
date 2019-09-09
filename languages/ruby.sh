@@ -152,17 +152,17 @@ rbenv versions
 function update_rubygems_bundler_for_rbenv_all() {
   rbenv update
   rbenv each gem update --system
-  rbenv each gem install bundle
-  rbenv each gem update bundle
+  rbenv each gem install bundler
+  rbenv each gem update bundler
 }
 # update_rubygems_bundler_for_rbenv_all;
 
 
 function update_rubygems_bundler_for_rbenv_local() {
   rbenv exec gem update --system
-  rbenv exec gem install bundle
-  rbenv exec gem update bundle
-  rbenv exec gem list | grep bundle
+  rbenv exec gem install bundler
+  rbenv exec gem update bundler
+  rbenv exec gem list | grep bundler
 }
 update_rubygems_bundler_for_rbenv_local;
 
