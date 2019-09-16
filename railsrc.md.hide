@@ -10,12 +10,11 @@ bundle init
 echo -n "gem 'rails', '~> 6.0.0.rc1'" >> Gemfile
 bundle install
 bundle exec rails --version
-bundle exec rails new rails6 \
+bundle exec rails new rails42-instana-poc \
 --database=postgresql \
 --skip-coffee \
 --skip-action-cable \
 --skip-listen \
---skip-puma \
 --skip-spring \
 --skip-turbolinks
 ```
@@ -49,11 +48,10 @@ inside the dev deps add pry and pry-byebug for example:
 
 ```ruby
 group :development do
-  # Access an interactive console on exception pages or by calling 'console' anywhere in the code.
-  gem 'web-console', '>= 3.3.0'
-  gem 'pry-rails'
-  gem 'pry-doc'
   gem 'pry-byebug'
+  gem 'pry-doc'
+  gem 'pry-rails'
+  gem 'web-console', '>= 3.3.0' # Access an interactive console on exception pages or by calling 'console' anywhere in the code.
 end
 ```
 
