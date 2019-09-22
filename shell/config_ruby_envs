@@ -1,10 +1,15 @@
 #!/usr/bin/env bash
 
-# Increase memory allocated to Ruby
-# https://github.com/ruby/ruby/blob/ruby_2_3/gc.c#L7287
-# https://github.com/ruby/ruby/blob/ruby_2_3/gc.c#ruby_gc_set_params
+# Fiddle memory allocated to Ruby
+#
 # read http://tmm1.net/ruby21-rgengc/
 # watch https://youtu.be/gEMnwRAUlKE
+#
+# https://github.com/ruby/ruby/blob/ruby_2_3/gc.c#L7287
+# https://github.com/ruby/ruby/blob/ruby_2_3/gc.c#ruby_gc_set_params
+# ruby 2.6 GC tuning environment variables
+# https://github.com/ruby/ruby/blob/e68627da985d118be573cd9f7e30617cb2bd76fc/gc.c#L7685
+
 export -- RUBY_GC_HEAP_INIT_SLOTS=600000
 export -- RUBY_GC_HEAP_FREE_SLOTS=600000
 # - Prepare at least this amount of slots after GC.
@@ -25,13 +30,9 @@ export -- RUBY_GC_HEAP_GROWTH_MAX_SLOTS=300000
 #  * RUBY_FREE_MIN       -> RUBY_GC_HEAP_FREE_SLOTS (from 2.1)
 #  * RUBY_HEAP_MIN_SLOTS -> RUBY_GC_HEAP_INIT_SLOTS (from 2.1)
 export -- RUBY_GC_MALLOC_LIMIT=64000000
-export -- RUBY_GC_MALLOC_LIMIT_MAX=32000000
-# (new from 2.1)
-export -- RUBY_GC_MALLOC_LIMIT_GROWTH_FACTOR=1.4
-# (new from 2.1)
-# export -- RUBY_GC_OLDMALLOC_LIMIT
-# (new from 2.1)
-# export -- RUBY_GC_OLDMALLOC_LIMIT_MAX
-# (new from 2.1)
-# export -- RUBY_GC_OLDMALLOC_LIMIT_GROWTH_FACTOR
-# (new from 2.1)
+export -- RUBY_GC_MALLOC_LIMIT_MAX=32000000 # (new from 2.1)
+export -- RUBY_GC_MALLOC_LIMIT_GROWTH_FACTOR=1.4 # (new from 2.1)
+# export -- RUBY_GC_OLDMALLOC_LIMIT # (new from 2.1)
+# export -- RUBY_GC_OLDMALLOC_LIMIT_MAX # (new from 2.1)
+# export -- RUBY_GC_OLDMALLOC_LIMIT_GROWTH_FACTOR # (new from 2.1)
+
