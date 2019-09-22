@@ -45,6 +45,7 @@ brew untap 'homebrew/versions' || true # was deprecated. This tap is now empty a
 brew untap 'josegonzalez/php' || true # was deprecated. for 'homebrew/php'
 brew untap 'homebrew/dev-tools' || true # was deprecated
 brew untap 'homebrew/x11' || true # was deprecated
+brew untap 'homebrew-apache' || true # was deprecated
 
 ## house cleaning round 2
 brew update
@@ -78,6 +79,8 @@ brew link libffi --force || true
 brew install 'readline'
 brew link readline --force || true
 brew install 'gcc'
+# for ruby 193
+# brew install 'gcc@6'
 brew link gcc --force || true
 ## ios
 brew install 'carthage'
@@ -212,7 +215,6 @@ brew install 'rsync'
 
 ### http tools
 brew install 'httpie'
-brew tap 'apache/apache/ab'
 brew install 'apache/apache/ab'
 brew install 'jq'
 
