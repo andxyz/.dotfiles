@@ -9,11 +9,9 @@ set -e
 brew search completion | sort
 
 brew install 'apm-bash-completion'
-brew install 'aptly-completion'
 # brew install 'bash-completion' # for default osx bash 3.7
 brew install 'bash-completion@2' # for bash 4+
 # brew install 'boom-completion'
-brew install 'boot2docker-completion'
 brew install 'brew-cask-completion'
 brew install 'bundler-completion'
 # brew install 'cap-completion'
