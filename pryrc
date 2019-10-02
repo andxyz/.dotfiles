@@ -43,39 +43,41 @@ if Kernel.const_defined?(:Rails) && ::Rails.env
   ## https://github.com/travisjeffery/dotfiles/blob/master/.railsrc
   require 'logger'
 
-  def enable_logger
-    ::ActiveRecord::Base.logger = Logger.new(STDOUT)
-    ::ActiveRecord::Base.clear_active_connections!
-    nil
-  end
-
-  def disable_logger
-    ::ActiveRecord::Base.logger = nil
-    ::ActiveRecord::Base.clear_active_connections!
-    nil
-  end
-
-  # prints nice information about a model
-  def show_model(object)
-    y object.class == Class ? object.column_names.sort : object.class.column_names.sort
-  end
-
-  def show_tables
-    y ::ActiveRecord::Base.connection.tables
-  end
-
-  # I use this one to dig into Rails core_ext
-  class Class
-    def core_ext
-      self.instance_methods.map {|m| [m, self.instance_method(m).source_location] }.select {|m| m[1] && m[1][0] =~/activesupport/}.map {|m| m[0]}.sort
+  if defined?(::ActiveRecord)
+    def enable_logger
+      ::ActiveRecord::Base.logger = Logger.new(STDOUT)
+      ::ActiveRecord::Base.clear_active_connections!
+      nil
     end
+
+    def disable_logger
+      ::ActiveRecord::Base.logger = nil
+      ::ActiveRecord::Base.clear_active_connections!
+      nil
+    end
+
+    # prints nice information about a model
+    def show_model(object)
+      y object.class == Class ? object.column_names.sort : object.class.column_names.sort
+    end
+
+    def show_tables
+      y ::ActiveRecord::Base.connection.tables
+    end
+
+    # I use this one to dig into Rails core_ext
+    class Class
+      def core_ext
+        self.instance_methods.map {|m| [m, self.instance_method(m).source_location] }.select {|m| m[1] && m[1][0] =~/activesupport/}.map {|m| m[0]}.sort
+      end
+    end
+
+    # Hit all models for auto-completion
+    ::ActiveRecord::Base.connection.tables.each {|t| t.singularize.classify.constantize rescue nil }
+
+    # logging into console by default
+    enable_logger
   end
-
-  # Hit all models for auto-completion
-  ::ActiveRecord::Base.connection.tables.each {|t| t.singularize.classify.constantize rescue nil }
-
-  # logging into console by default
-  enable_logger
 end
 
 # ==============================
