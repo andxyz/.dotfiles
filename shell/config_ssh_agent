@@ -41,18 +41,32 @@ test_osx_ssh_agent() {
 ## old solutions
 ## http://www.dctrwatson.com/2013/07/how-to-update-openssh-on-mac-os-x/
 ## http://superuser.com/questions/141044/sharing-the-same-ssh-agent-among-multiple-login-sessions
-
 ## other notes
 ## http://rabexc.org/posts/pitfalls-of-ssh-agents
+
+## Using the wacky but useful ssh-find-agent script
+# https://github.com/wwalker/ssh-find-agent
+# make sure to git pull the latest
+# cd ~/bin && git pull
+source ${HOME}/bin/ssh-find-agent.sh
+
+## Important Note: remember to set the soft links
+# ln -s /Users/andxyz/.ssh/andxyz_github.privatekey andxyz-github
+# ln -s /Users/andxyz/.ssh/companyname.privatekey andxyz-work
 
 use_brew_ssh_agent_setup() {
   unset SSH_AUTH_SOCK
   unset SSH_AGENT_PID
-  export SSH_AUTH_SOCK="$HOME/.ssh-agent.sock"
   lunchy start 'org.homebrew.ssh-agent' > /dev/null 2>&1
-  eval $(/usr/local/bin/ssh-agent)
+  export SSH_AUTH_SOCK="$HOME/.ssh-agent.sock"
+  ssh_find_agent -a || eval $(ssh-agent) > /dev/null
   echo "SSH_AUTH_SOCK = $SSH_AUTH_SOCK"
   echo "SSH_AGENT_PID = $SSH_AGENT_PID"
+  /usr/local/bin/ssh-add ~/.ssh/andxyz-github || true
+  /usr/local/bin/ssh-add ~/.ssh/andxyz-work || true
+  /usr/local/bin/ssh-add ~/.ssh/github || true
+  /usr/local/bin/ssh-add ~/.ssh/work || true
+  /usr/local/bin/ssh-add -l
   lunchy status 'org.homebrew.ssh-agent'
 }
 
@@ -60,10 +74,12 @@ use_osx_ssh_agent_setup() {
   unset SSH_AUTH_SOCK
   unset SSH_AGENT_PID
   launchctl start 'com.openssh.ssh-agent'
-  eval $(/usr/bin/ssh-agent)
+  ssh_find_agent -a || eval $(ssh-agent) > /dev/null
   echo "SSH_AUTH_SOCK = $SSH_AUTH_SOCK"
   echo "SSH_AGENT_PID = $SSH_AGENT_PID"
   /usr/bin/ssh-add ~/.ssh/andxyz-github || true
+  /usr/bin/ssh-add ~/.ssh/andxyz-work || true
+  /usr/bin/ssh-add ~/.ssh/github || true
   /usr/bin/ssh-add ~/.ssh/work || true
   /usr/bin/ssh-add -l
   launchctl list | grep -i 'ssh-agent'
