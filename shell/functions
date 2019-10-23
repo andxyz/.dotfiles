@@ -16,7 +16,7 @@ function httpless_json_no_color_no_pager {
 }
 
 function httpperf {
-  curl -o /dev/null -s -w "%{http_code} (http_code) ___ %{time_connect} (time_connect) + %{time_starttransfer} (starttransfer) = %{time_total} (time_total)\n" "$@"
+  curl -o /dev/null -s -w "http_code='%{http_code}' time_connect='%{time_connect}' time_starttransfer='%{time_starttransfer}' time_total='%{time_total}'\n" "$@"
 }
 
 function jqbrowser {
