@@ -21,7 +21,8 @@
 test_brew_ssh_agent() {
   /usr/local/bin/ssh -V
   $(find /usr/local/Cellar/openssl -name 'openssl' -type f) version
-  /usr/local/bin/ssh-agent
+
+  # /usr/local/bin/ssh-agent
   /usr/local/bin/ssh-add ~/.ssh/andxyz-github
   /usr/local/bin/ssh-add -l
   /usr/local/bin/ssh -Tv git@github.com
@@ -30,7 +31,8 @@ test_brew_ssh_agent() {
 ## test osx ssh setup with github
 test_osx_ssh_agent() {
   /usr/bin/ssh -V
-  /usr/bin/ssh-agent
+
+  # /usr/bin/ssh-agent
   /usr/bin/ssh-add ~/.ssh/andxyz-github
   /usr/bin/ssh-add -l
   /usr/bin/ssh -Tv git@github.com
@@ -60,8 +62,8 @@ use_brew_ssh_agent_setup() {
   lunchy start 'org.homebrew.ssh-agent' > /dev/null 2>&1
   export SSH_AUTH_SOCK="$HOME/.ssh-agent.sock"
   ssh_find_agent -a || eval $(ssh-agent) > /dev/null
-  echo "SSH_AUTH_SOCK = $SSH_AUTH_SOCK"
-  echo "SSH_AGENT_PID = $SSH_AGENT_PID"
+  echo "SSH_AUTH_SOCK = ${SSH_AUTH_SOCK}"
+  echo "SSH_AGENT_PID = ${SSH_AGENT_PID}"
   /usr/local/bin/ssh-add ~/.ssh/andxyz-github || true
   /usr/local/bin/ssh-add ~/.ssh/andxyz-work || true
   /usr/local/bin/ssh-add ~/.ssh/github || true
@@ -71,12 +73,12 @@ use_brew_ssh_agent_setup() {
 }
 
 use_osx_ssh_agent_setup() {
-  unset SSH_AUTH_SOCK
-  unset SSH_AGENT_PID
   launchctl start 'com.openssh.ssh-agent'
-  ssh_find_agent -a || eval $(ssh-agent) > /dev/null
-  echo "SSH_AUTH_SOCK = $SSH_AUTH_SOCK"
-  echo "SSH_AGENT_PID = $SSH_AGENT_PID"
+  if [ -z "${SSH_AUTH_SOCK}" ] && [ -z "${SSH_AGENT_PID}" ] ; then
+    ssh_find_agent -a || eval $(ssh-agent) > /dev/null
+  fi
+  echo "SSH_AUTH_SOCK = ${SSH_AUTH_SOCK}"
+  echo "SSH_AGENT_PID = ${SSH_AGENT_PID}"
   /usr/bin/ssh-add ~/.ssh/andxyz-github || true
   /usr/bin/ssh-add ~/.ssh/andxyz-work || true
   /usr/bin/ssh-add ~/.ssh/github || true
