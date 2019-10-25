@@ -41,15 +41,17 @@ now I close the current shell and open a new one
 ### install other languages as needed
 cd ~/.dotfiles/
 chmod +x ./languages/*
-./languages/clojure.sh
-./languages/go.sh
-./languages/haskell.sh
-./languages/java.sh
-./languages/nodejs.sh
-./languages/perl.sh
-./languages/php.sh
-./languages/python.sh
-./languages/ruby.sh
+/languages/clojure.sh
+/languages/elixir.sh
+/languages/go.sh
+/languages/haskell.sh
+/languages/java.sh
+/languages/nodejs.sh
+/languages/perl.sh
+/languages/php.sh
+/languages/python.sh
+/languages/ruby.sh
+/languages/rust.sh
 ```
 
 #### andxyz personal sublime text plugins
