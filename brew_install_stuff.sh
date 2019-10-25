@@ -204,7 +204,7 @@ brew install --HEAD 'universal-ctags/universal-ctags/universal-ctags'
 brew install 'tmux' --with-utf8proc
 brew install 'reattach-to-user-namespace'
 brew install 'vim' --with-lua --with-luajit
-brew install 'macvim' --with-lua --with-luajit
+brew install --force-bottle 'macvim'
 # brew cask install 'clipmenu'
 brew cask install 'clipy'
 brew install 'fzf'
@@ -215,7 +215,9 @@ brew install 'rsync'
 
 ### http tools
 brew install 'httpie'
-brew install 'apache/apache/ab'
+# brew install 'apache/apache/ab'
+brew install 'wrk' # https://github.com/wg/wrk
+brew install 'seige' # https://github.com/JoeDog/siege
 brew install 'jq'
 
 ## search tools
@@ -505,5 +507,13 @@ brew doctor
 # 492498910 Kitabu (1.1)
 # 1081413713 GIF Brewery 3 (3.5)
 # 445189367 PopClip (1.5.6)
+
+## random mac trash
+# $ mas list
+# 408981434 iMovie (10.1.11)
+# 409183694 Keynote (9.0.1)
+# 409201541 Pages (8.0)
+# 682658836 GarageBand (10.3.2)
+# 409203825 Numbers (6.0)
 
 exit 0
