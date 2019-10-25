@@ -70,6 +70,20 @@ function dew-touch-restart-rails {
   docker-compose exec web touch tmp/restart.txt
 }
 
+function docker-prune {
+  set -x
+  docker system df
+  docker images -q | wc -l
+
+  docker system prune --all
+
+  docker rmi -f $(docker images --filter=reference='platform*' -q)
+
+  docker system df
+  docker images -q | wc -l
+  set +x
+}
+
 ##
 # git
 ##
