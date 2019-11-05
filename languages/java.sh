@@ -11,30 +11,30 @@ set -x
 echo "below we install and use jenv"
 
 # download some version of java
-curl -L \
-  -b "oraclelicense=a" \
-  'http://download.oracle.com/otn-pub/java/jdk/8u131-b11/d54c1d3a095b4ff2b6607d096fa80163/jdk-8u131-macosx-x64.dmg?AuthParam=1495564463_cd4fee31aa94429c58e204437c4f4735' \
-  --output /tmp/jdk-8u92-macosx-x64.dmg
+# stole from chromes copy as curl functionality
+open -b 'com.google.chrome' 'https://www.oracle.com/technetwork/java/javase/downloads/index.html'
+
 open -a 'finder' /tmp/jdk-8u92-macosx-x64.dmg
-# manually install it
+open -a 'finder' ~/Downloads/jdk-13.0.1_osx-x64_bin.dmg
+
+# now we manually install it, sad face
 
 brew update
 brew install -vd jenv
-if which jenv > /dev/null; then eval "$(jenv init -)"; fi
+
+
+## bash
+# which -a jenv > /dev/null && eval "$(jenv init -)"
+## read zsh
+jenv init - zsh
+
 yes | jenv add /Library/Java/JavaVirtualMachines/*/Contents/Home/
-yes | jenv add /Library/Java/JavaVirtualMachines/jdk1.8.0_161.jdk/Contents/Home
 # yes | jenv add /Library/Java/JavaVirtualMachines/jdk1.8.0_131.jdk/Contents/Home
 jenv versions
-jenv global oracle64-1.8.0.161
+jenv global oracle64-13.0.1
+# jenv global oracle64-1.8.0.161
 # jenv global oracle64-1.8.0.131
 # jenv local oracle64-1.8.0.60
 
-sdkmad_repl_stuff() {
-  echo "maybe checkout http://sdkman.io/"
-  export SDKMAN_DIR="$HOME/.sdkman" && source "$HOME/.sdkman/bin/sdkman-init.sh"
-  sdk selfupdate force
-  sdk install groovy
-  # groovysh
-}
 
 exit 0
