@@ -126,10 +126,11 @@ function source_node_env() {
 # java stuff http://www.jenv.be/
 # slowing me down
 function source_java_env() {
-  export JAVA_HOME=$(/usr/libexec/java_home -v 1.8)
+  export JAVA_HOME=$(/usr/libexec/java_home -v '13.0')
   # export _JAVA_AWT_WM_NONREPARENTING=1
   # export _JAVA_OPTIONS='-Dawt.useSystemAAFontSettings=on -Dsun.java2d.xrender=true -Dswing.aatext=true'
-  eval "$(jenv init -)"
+  unalias jenv
+  eval "$(jenv init - zsh)"
 }
 
 ## java sdkman http://sdkman.io/

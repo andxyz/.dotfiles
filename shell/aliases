@@ -71,8 +71,6 @@ alias mmitmproxy='mitmproxy --palette solarized_light'
 if which noglob >/dev/null; then
   #### homebrew
   alias brew='nocorrect brew'
-  #### java
-  alias jenv='nocorrect jenv'
 fi
 
 ## webservers
