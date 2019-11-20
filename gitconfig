@@ -144,6 +144,10 @@
     github-pulls = "!hub browse -- pulls/"
     github-mypulls = "!hub browse -- pulls/andxyz"
     github-open-pull-request = "!hub pull-request"
+    hub-pulls = "!git github-pulls"
+    hub-mypulls = "!git github-mypulls"
+    hub-open-pull-request = "!git github-open-pull-request"
+
     gopenpr = "!hub pull-request"
     gmypulls = "!hub browse -- pulls/andxyz"
     gpulls = "!hub browse -- pulls"
