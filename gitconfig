@@ -51,6 +51,11 @@
     # When always, rebase will be set to true for all tracking branches
     autosetuprebase = always
 
+# fooling around thanks to https://github.com/imbsky/dotfiles/blob/fc18a09126148365bea7a19dcedca0a47c4c44ee/gitconfig
+# see https://git-scm.com/docs/protocol-v2
+[protocol]
+version = 2
+
 # this is messing up cocoapod podspecs
 [url "ssh://git@github.com/"]
     insteadOf = https://github.com/
