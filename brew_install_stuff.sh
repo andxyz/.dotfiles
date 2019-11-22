@@ -145,7 +145,7 @@ brew install 'hg'
 brew install 'svn'
 
 ### gnu userland utils
-brew untap 'homebrew/dupes'
+# brew untap 'homebrew/dupes' #old brew command
 brew install 'ack'
 brew install 'binutils'
 brew install 'coreutils'
