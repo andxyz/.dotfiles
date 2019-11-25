@@ -19,9 +19,10 @@ test -f ~/.shell/paths_zsh         && source ~/.zsh/zsh_paths
 test -f ~/.profile                 && source ~/.profile
 test -f ~/.profile_wonolo_private  && source ~/.profile_wonolo_private
 
+# TODO: make it work
 # for code editors to have access to linters and autocomplete see zshenv
 # launchctl setenv PATH $PATH
-# TODO: make it work
+
 # function source_node_env() {
   test -f $HOME/.nvm/nvm.sh  && source $HOME/.nvm/nvm.sh
 # }

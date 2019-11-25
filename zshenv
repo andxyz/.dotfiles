@@ -2,19 +2,16 @@
 # set -x
 # set -e
 
+# TODO: make it work
 # for code editors to have access to linters and autocomplete
 # launchctl setenv PATH $PATH
 #
-# TODO: make it work
-#source_golang110_path
-#
 
-# # function source_node_env() {
-#   source $HOME/.nvm/nvm.sh
-# # }
+use_osx_ssh_agent_setup
 
-# # source_ruby_env() {
-#   test -d $HOME/.rbenv/bin &&
-#   export -- PATH="$HOME/.rbenv/bin:$PATH" &&
-#   eval "$(rbenv init -)"
-# # }
+source_golang112_env
+source_ruby_env
+source_node_env
+
+
+
