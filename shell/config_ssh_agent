@@ -73,18 +73,24 @@ use_brew_ssh_agent_setup() {
 }
 
 use_osx_ssh_agent_setup() {
-  launchctl start 'com.openssh.ssh-agent'
+  launchctl start 'com.openssh.ssh-agent' > /dev/null 2>&1
+
   if [ -z "${SSH_AUTH_SOCK}" ] && [ -z "${SSH_AGENT_PID}" ] ; then
     ssh_find_agent -a || eval $(ssh-agent) > /dev/null
   fi
-  echo "SSH_AUTH_SOCK = ${SSH_AUTH_SOCK}"
-  echo "SSH_AGENT_PID = ${SSH_AGENT_PID}"
-  /usr/bin/ssh-add ~/.ssh/andxyz-github || true
-  /usr/bin/ssh-add ~/.ssh/andxyz-work || true
-  /usr/bin/ssh-add ~/.ssh/github || true
-  /usr/bin/ssh-add ~/.ssh/work || true
-  /usr/bin/ssh-add -l
-  launchctl list | grep -i 'ssh-agent'
+
+  ## puts info
+  # echo "SSH_AUTH_SOCK = ${SSH_AUTH_SOCK}"
+  # echo "SSH_AGENT_PID = ${SSH_AGENT_PID}"
+
+  /usr/bin/ssh-add ~/.ssh/andxyz-github > /dev/null 2>&1 || true
+  /usr/bin/ssh-add ~/.ssh/andxyz-work > /dev/null 2>&1  || true
+  /usr/bin/ssh-add ~/.ssh/github > /dev/null 2>&1 || true
+  /usr/bin/ssh-add ~/.ssh/work > /dev/null 2>&1 || true
+
+  ## puts more info
+  # /usr/bin/ssh-add -l
+  # launchctl list | grep -i 'ssh-agent'
 }
 
 use_osx_ssh_agent_setup
