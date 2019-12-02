@@ -273,7 +273,6 @@ function source_swift_env() {
   eval "$(swiftenv init -)"
 }
 
-
 #source_mysql57_build_env
 #source_postgre96_build_env
 
