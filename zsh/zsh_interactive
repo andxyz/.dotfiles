@@ -9,6 +9,12 @@ alias time='time -p ' # -p for POSIX output
 ## zsh function nonsense
 fpath=(~/.zsh/functions $fpath)
 autoload -U ~/.zsh/functions/*(:t)
+## zplug dance see https://github.com/zplug/zplug
+export ZPLUG_HOME=/usr/local/opt/zplug
+source $ZPLUG_HOME/init.zsh
+## plugs
+zplug "changyuheng/fz", defer:1
+zplug "rupa/z", use:z.sh
 
 ## fancy git prompt on my local machine using a zsh function
 if [[ -n $SSH_CONNECTION ]]; then
