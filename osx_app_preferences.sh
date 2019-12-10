@@ -3,36 +3,46 @@
 set -x
 set -e
 
-LSTOOL_HOME='/Users/andxyz/Library/PreferencePanes/RCDefaultApp.prefPane/Contents/Resources/'
-EDITOR_PATH='/Applications/Sublime Text 3.app'
-LSREG_HOME="/Users/andrewstevens/Library/Developer/Xcode/DerivedData/SwiftDefaultApps-efkgcqjeguekrhfjgqyylhkbfjxl/Build/Products/Debug"
+LSTOOL_HOME='/Users/andrew/Library/PreferencePanes/RCDefaultApp.prefPane/Contents/Resources/'
+EDITOR_PATH='/Applications/Sublime Text.app' #Sublimetext3
+LSREG_HOME="/Users/andrew/Library/Developer/Xcode/DerivedData/SwiftDefaultApps-akayzniwfxeojlczrbiwbzphucas/Build/Products/Release"
+LSREG_TOOL="${LSREG_HOME}/swda"
 
-## first you must compile lsreg from https://github.com/Lord-Kamina/SwiftDefaultApps
+## first you must compile swda from https://github.com/Lord-Kamina/SwiftDefaultApps
 # git clone git@github.com:Lord-Kamina/SwiftDefaultApps.git
 # cd SwiftDefaultApps
 # git submodule update --init --recursive
 # open SwiftDefaultApps.xcworkspace
 ## Product -> schemes -> build CLI
 # open /Users/andrewstevens/Library/Developer/Xcode/DerivedData/
-## find lsreg and use it
+## find swda and use it
+#
+
+# cd /Users/andrew/code/_clone/SwiftDefaultApps
+
+# export DEVELOPER_DIR=/Applications/Xcode.app/Contents/Developer
+
+# export SDKROOT=/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.15.sdk
+
+# /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/swiftc -incremental -module-name SwiftCLI -Onone -enable-batch-mode -enforce-exclusivity=checked @/Users/andrew/Library/Developer/Xcode/DerivedData/SwiftDefaultApps-akayzniwfxeojlczrbiwbzphucas/Build/Intermediates.noindex/SwiftDefaultApps\ CLI.build/Debug/SwiftCLI.build/Objects-normal/x86_64/SwiftCLI.SwiftFileList -DSWIFT_PACKAGE -DXcode -sdk /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.15.sdk -target x86_64-apple-macos10.15 -g -module-cache-path /Users/andrew/Library/Developer/Xcode/DerivedData/ModuleCache.noindex -Xfrontend -serialize-debugging-options -enable-testing -index-store-path /Users/andrew/Library/Developer/Xcode/DerivedData/SwiftDefaultApps-akayzniwfxeojlczrbiwbzphucas/Index/DataStore -swift-version 5 -I /Users/andrew/Library/Developer/Xcode/DerivedData/SwiftDefaultApps-akayzniwfxeojlczrbiwbzphucas/Build/Products/Debug -F /Users/andrew/Library/Developer/Xcode/DerivedData/SwiftDefaultApps-akayzniwfxeojlczrbiwbzphucas/Build/Products/Debug -F /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/Library/Frameworks -c -j12 -output-file-map /Users/andrew/Library/Developer/Xcode/DerivedData/SwiftDefaultApps-akayzniwfxeojlczrbiwbzphucas/Build/Intermediates.noindex/SwiftDefaultApps\ CLI.build/Debug/SwiftCLI.build/Objects-normal/x86_64/SwiftCLI-OutputFileMap.json -parseable-output -serialize-diagnostics -emit-dependencies -emit-module -emit-module-path /Users/andrew/Library/Developer/Xcode/DerivedData/SwiftDefaultApps-akayzniwfxeojlczrbiwbzphucas/Build/Intermediates.noindex/SwiftDefaultApps\ CLI.build/Debug/SwiftCLI.build/Objects-normal/x86_64/SwiftCLI.swiftmodule -Xcc -I/Users/andrew/Library/Developer/Xcode/DerivedData/SwiftDefaultApps-akayzniwfxeojlczrbiwbzphucas/Build/Intermediates.noindex/SwiftDefaultApps\ CLI.build/Debug/SwiftCLI.build/swift-overrides.hmap -Xcc -I/Users/andrew/Library/Developer/Xcode/DerivedData/SwiftDefaultApps-akayzniwfxeojlczrbiwbzphucas/Build/Products/Debug/include -Xcc -I/Users/andrew/Library/Developer/Xcode/DerivedData/SwiftDefaultApps-akayzniwfxeojlczrbiwbzphucas/Build/Intermediates.noindex/SwiftDefaultApps\ CLI.build/Debug/SwiftCLI.build/DerivedSources-normal/x86_64 -Xcc -I/Users/andrew/Library/Developer/Xcode/DerivedData/SwiftDefaultApps-akayzniwfxeojlczrbiwbzphucas/Build/Intermediates.noindex/SwiftDefaultApps\ CLI.build/Debug/SwiftCLI.build/DerivedSources/x86_64 -Xcc -I/Users/andrew/Library/Developer/Xcode/DerivedData/SwiftDefaultApps-akayzniwfxeojlczrbiwbzphucas/Build/Intermediates.noindex/SwiftDefaultApps\ CLI.build/Debug/SwiftCLI.build/DerivedSources -emit-objc-header -emit-objc-header-path /Users/andrew/Library/Developer/Xcode/DerivedData/SwiftDefaultApps-akayzniwfxeojlczrbiwbzphucas/Build/Intermediates.noindex/SwiftDefaultApps\ CLI.build/Debug/SwiftCLI.build/Objects-normal/x86_64/SwiftCLI-Swift.h -working-directory /Users/andrew/code/_clone/SwiftDefaultApps
 
 
-${LSREG_HOME}/lsreg getSchemes
-${LSREG_HOME}/lsreg getHandler --web
-${LSREG_HOME}/lsreg getHandler --mail
-# ${LSREG_HOME}/lsreg getHandler --rss # errors for some reason
-${LSREG_HOME}/lsreg getHandler --news
+${LSREG_HOME}/swda getSchemes
+${LSREG_HOME}/swda getHandler --web
+${LSREG_HOME}/swda getHandler --mail
+# ${LSREG_HOME}/swda getHandler --rss # errors for some reason
+${LSREG_HOME}/swda getHandler --news
 
-# ${LSREG_HOME}/lsreg getUTIs | grep -i Xcode
-# ${LSREG_HOME}/lsreg getUTIs | grep -i MacVim
-# ${LSREG_HOME}/lsreg getUTIs | grep -i Sublime
+# ${LSREG_HOME}/swda getUTIs | grep -i Xcode
+# ${LSREG_HOME}/swda getUTIs | grep -i MacVim
+# ${LSREG_HOME}/swda getUTIs | grep -i Sublime
 
 ## note: you can use the `mdls` command to find the UTI for a file:
 # mdls ~/Desktop/tmp.js
 ## prints a bunch of stuff:
 #
+# kMDItemContentType                 = "com.netscape.javascript-source"
 # kMDItemContentTypeTree             = (
-#     "com.netscape.javascript-source",
 #     "public.script",
 #     "public.source-code",
 #     "public.data",
@@ -43,88 +53,87 @@ ${LSREG_HOME}/lsreg getHandler --news
 #     "public.executable",
 #     "public.text"
 # )
-# kMDItemKind                        = "JavaScript script"
 
 # uhh sure
-${LSREG_HOME}/lsreg  setHandler --UTI 'com.apple.applescript.text' --application "${EDITOR_PATH}"
+${LSREG_TOOL} setHandler --UTI 'com.apple.applescript.text' --application "${EDITOR_PATH}"
 
 # uhh sure okay
-${LSREG_HOME}/lsreg  setHandler --UTI 'com.apple.xcode.bash-script' --application "${EDITOR_PATH}"
-${LSREG_HOME}/lsreg  setHandler --UTI 'com.apple.xcode.csh-script' --application "${EDITOR_PATH}"
-${LSREG_HOME}/lsreg  setHandler --UTI 'com.apple.xcode.ksh-script' --application "${EDITOR_PATH}"
-${LSREG_HOME}/lsreg  setHandler --UTI 'com.apple.xcode.make-script' --application "${EDITOR_PATH}"
-${LSREG_HOME}/lsreg  setHandler --UTI 'com.apple.xcode.tcsh-script' --application "${EDITOR_PATH}"
-${LSREG_HOME}/lsreg  setHandler --UTI 'com.apple.xcode.zsh-script' --application "${EDITOR_PATH}"
+${LSREG_TOOL} setHandler --UTI 'com.apple.xcode.bash-script' --application "${EDITOR_PATH}"
+${LSREG_TOOL} setHandler --UTI 'com.apple.xcode.csh-script' --application "${EDITOR_PATH}"
+${LSREG_TOOL} setHandler --UTI 'com.apple.xcode.ksh-script' --application "${EDITOR_PATH}"
+${LSREG_TOOL} setHandler --UTI 'com.apple.xcode.make-script' --application "${EDITOR_PATH}"
+${LSREG_TOOL} setHandler --UTI 'com.apple.xcode.tcsh-script' --application "${EDITOR_PATH}"
+${LSREG_TOOL} setHandler --UTI 'com.apple.xcode.zsh-script' --application "${EDITOR_PATH}"
 
 # uhh sure
-${LSREG_HOME}/lsreg  setHandler --UTI 'com.apple.xcode.ada-source' --application "${EDITOR_PATH}"
-${LSREG_HOME}/lsreg  setHandler --UTI 'com.apple.xcode.fortran-source' --application "${EDITOR_PATH}"
-${LSREG_HOME}/lsreg  setHandler --UTI 'com.apple.xcode.lex-source' --application "${EDITOR_PATH}"
-${LSREG_HOME}/lsreg  setHandler --UTI 'com.apple.xcode.pascal-source' --application "${EDITOR_PATH}"
-${LSREG_HOME}/lsreg  setHandler --UTI 'com.apple.xcode.mig-source' --application "${EDITOR_PATH}"
-${LSREG_HOME}/lsreg  setHandler --UTI 'com.apple.xcode.strings-dictionary' --application "${EDITOR_PATH}"
-${LSREG_HOME}/lsreg  setHandler --UTI 'com.apple.xcode.strings-text' --application "${EDITOR_PATH}"
-${LSREG_HOME}/lsreg  setHandler --UTI 'com.apple.xcode.usersettings' --application "${EDITOR_PATH}"
-${LSREG_HOME}/lsreg  setHandler --UTI 'com.apple.xcode.yacc-source' --application "${EDITOR_PATH}"
+${LSREG_TOOL} setHandler --UTI 'com.apple.xcode.ada-source' --application "${EDITOR_PATH}"
+${LSREG_TOOL} setHandler --UTI 'com.apple.xcode.fortran-source' --application "${EDITOR_PATH}"
+${LSREG_TOOL} setHandler --UTI 'com.apple.xcode.lex-source' --application "${EDITOR_PATH}"
+${LSREG_TOOL} setHandler --UTI 'com.apple.xcode.pascal-source' --application "${EDITOR_PATH}"
+${LSREG_TOOL} setHandler --UTI 'com.apple.xcode.mig-source' --application "${EDITOR_PATH}"
+${LSREG_TOOL} setHandler --UTI 'com.apple.xcode.strings-dictionary' --application "${EDITOR_PATH}"
+${LSREG_TOOL} setHandler --UTI 'com.apple.xcode.strings-text' --application "${EDITOR_PATH}"
+${LSREG_TOOL} setHandler --UTI 'com.apple.xcode.usersettings' --application "${EDITOR_PATH}"
+${LSREG_TOOL} setHandler --UTI 'com.apple.xcode.yacc-source' --application "${EDITOR_PATH}"
 
 # uhh
-${LSREG_HOME}/lsreg  setHandler --UTI 'com.apple.xml-property-list' --application "${EDITOR_PATH}"
-${LSREG_HOME}/lsreg  setHandler --UTI 'com.pixar.usd.ascii' --application "${EDITOR_PATH}"
-${LSREG_HOME}/lsreg  setHandler --UTI 'com.pixar.usd.crate' --application "${EDITOR_PATH}"
-${LSREG_HOME}/lsreg  setHandler --UTI 'com.sun.java-source' --application "${EDITOR_PATH}"
+${LSREG_TOOL} setHandler --UTI 'com.apple.xml-property-list' --application "${EDITOR_PATH}"
+${LSREG_TOOL} setHandler --UTI 'com.pixar.usd.ascii' --application "${EDITOR_PATH}"
+${LSREG_TOOL} setHandler --UTI 'com.pixar.usd.crate' --application "${EDITOR_PATH}"
+${LSREG_TOOL} setHandler --UTI 'com.sun.java-source' --application "${EDITOR_PATH}"
 
 # sourcecode
-${LSREG_HOME}/lsreg  setHandler --UTI 'com.netscape.javascript-source' --application "${EDITOR_PATH}"
-${LSREG_HOME}/lsreg  setHandler --UTI 'org.vim.tex-file' --application "${EDITOR_PATH}"
-${LSREG_HOME}/lsreg  setHandler --UTI 'org.vim.vim-script' --application "${EDITOR_PATH}"
-${LSREG_HOME}/lsreg  setHandler --UTI 'public.ada-source' --application "${EDITOR_PATH}"
-${LSREG_HOME}/lsreg  setHandler --UTI 'public.assembly-source' --application "${EDITOR_PATH}"
-${LSREG_HOME}/lsreg  setHandler --UTI 'public.c-header' --application "${EDITOR_PATH}"
-${LSREG_HOME}/lsreg  setHandler --UTI 'public.c-plus-plus-header' --application "${EDITOR_PATH}"
-${LSREG_HOME}/lsreg  setHandler --UTI 'public.c-plus-plus-source' --application "${EDITOR_PATH}"
-${LSREG_HOME}/lsreg  setHandler --UTI 'public.c-source' --application "${EDITOR_PATH}"
-${LSREG_HOME}/lsreg  setHandler --UTI 'public.fortran-source' --application "${EDITOR_PATH}"
-${LSREG_HOME}/lsreg  setHandler --UTI 'public.module-map' --application "${EDITOR_PATH}"
-${LSREG_HOME}/lsreg  setHandler --UTI 'public.nasm-assembly-source' --application "${EDITOR_PATH}"
-${LSREG_HOME}/lsreg  setHandler --UTI 'public.objective-c-plus-plus-source' --application "${EDITOR_PATH}"
-${LSREG_HOME}/lsreg  setHandler --UTI 'public.objective-c-source' --application "${EDITOR_PATH}"
-${LSREG_HOME}/lsreg  setHandler --UTI 'public.opencl-source' --application "${EDITOR_PATH}"
-${LSREG_HOME}/lsreg  setHandler --UTI 'public.patch-file' --application "${EDITOR_PATH}"
-${LSREG_HOME}/lsreg  setHandler --UTI 'public.xml' --application "${EDITOR_PATH}"
+${LSREG_TOOL} setHandler --UTI 'com.netscape.javascript-source' --application "${EDITOR_PATH}"
+${LSREG_TOOL} setHandler --UTI 'org.vim.tex-file' --application "${EDITOR_PATH}"
+${LSREG_TOOL} setHandler --UTI 'org.vim.vim-script' --application "${EDITOR_PATH}"
+${LSREG_TOOL} setHandler --UTI 'public.ada-source' --application "${EDITOR_PATH}"
+${LSREG_TOOL} setHandler --UTI 'public.assembly-source' --application "${EDITOR_PATH}"
+${LSREG_TOOL} setHandler --UTI 'public.c-header' --application "${EDITOR_PATH}"
+${LSREG_TOOL} setHandler --UTI 'public.c-plus-plus-header' --application "${EDITOR_PATH}"
+${LSREG_TOOL} setHandler --UTI 'public.c-plus-plus-source' --application "${EDITOR_PATH}"
+${LSREG_TOOL} setHandler --UTI 'public.c-source' --application "${EDITOR_PATH}"
+${LSREG_TOOL} setHandler --UTI 'public.fortran-source' --application "${EDITOR_PATH}"
+${LSREG_TOOL} setHandler --UTI 'public.module-map' --application "${EDITOR_PATH}"
+${LSREG_TOOL} setHandler --UTI 'public.nasm-assembly-source' --application "${EDITOR_PATH}"
+${LSREG_TOOL} setHandler --UTI 'public.objective-c-plus-plus-source' --application "${EDITOR_PATH}"
+${LSREG_TOOL} setHandler --UTI 'public.objective-c-source' --application "${EDITOR_PATH}"
+${LSREG_TOOL} setHandler --UTI 'public.opencl-source' --application "${EDITOR_PATH}"
+${LSREG_TOOL} setHandler --UTI 'public.patch-file' --application "${EDITOR_PATH}"
+${LSREG_TOOL} setHandler --UTI 'public.xml' --application "${EDITOR_PATH}"
 
 # scripts
-${LSREG_HOME}/lsreg  setHandler --UTI 'public.bash-script' --application "${EDITOR_PATH}"
-${LSREG_HOME}/lsreg  setHandler --UTI 'public.csh-script' --application "${EDITOR_PATH}"
-${LSREG_HOME}/lsreg  setHandler --UTI 'public.ksh-script' --application "${EDITOR_PATH}"
-${LSREG_HOME}/lsreg  setHandler --UTI 'public.perl-script' --application "${EDITOR_PATH}"
-${LSREG_HOME}/lsreg  setHandler --UTI 'public.php-script' --application "${EDITOR_PATH}"
-${LSREG_HOME}/lsreg  setHandler --UTI 'public.python-script' --application "${EDITOR_PATH}"
-${LSREG_HOME}/lsreg  setHandler --UTI 'public.ruby-script' --application "${EDITOR_PATH}"
-${LSREG_HOME}/lsreg  setHandler --UTI 'public.script' --application "${EDITOR_PATH}"
-${LSREG_HOME}/lsreg  setHandler --UTI 'public.shell-script' --application "${EDITOR_PATH}"
-${LSREG_HOME}/lsreg  setHandler --UTI 'public.source-code' --application "${EDITOR_PATH}"
-${LSREG_HOME}/lsreg  setHandler --UTI 'public.swift-source' --application "${EDITOR_PATH}"
-${LSREG_HOME}/lsreg  setHandler --UTI 'public.tcsh-script' --application "${EDITOR_PATH}"
-${LSREG_HOME}/lsreg  setHandler --UTI 'public.zsh-script' --application "${EDITOR_PATH}"
+${LSREG_TOOL} setHandler --UTI 'public.bash-script' --application "${EDITOR_PATH}"
+${LSREG_TOOL} setHandler --UTI 'public.csh-script' --application "${EDITOR_PATH}"
+${LSREG_TOOL} setHandler --UTI 'public.ksh-script' --application "${EDITOR_PATH}"
+${LSREG_TOOL} setHandler --UTI 'public.perl-script' --application "${EDITOR_PATH}"
+${LSREG_TOOL} setHandler --UTI 'public.php-script' --application "${EDITOR_PATH}"
+${LSREG_TOOL} setHandler --UTI 'public.python-script' --application "${EDITOR_PATH}"
+${LSREG_TOOL} setHandler --UTI 'public.ruby-script' --application "${EDITOR_PATH}"
+${LSREG_TOOL} setHandler --UTI 'public.script' --application "${EDITOR_PATH}"
+${LSREG_TOOL} setHandler --UTI 'public.shell-script' --application "${EDITOR_PATH}"
+${LSREG_TOOL} setHandler --UTI 'public.source-code' --application "${EDITOR_PATH}"
+${LSREG_TOOL} setHandler --UTI 'public.swift-source' --application "${EDITOR_PATH}"
+${LSREG_TOOL} setHandler --UTI 'public.tcsh-script' --application "${EDITOR_PATH}"
+${LSREG_TOOL} setHandler --UTI 'public.zsh-script' --application "${EDITOR_PATH}"
 
 
 # basic text
-${LSREG_HOME}/lsreg  setHandler --UTI 'net.daringfireball.markdown' --application "${EDITOR_PATH}"
-${LSREG_HOME}/lsreg  setHandler --UTI 'public.case-insensitive-text' --application "${EDITOR_PATH}"
-${LSREG_HOME}/lsreg  setHandler --UTI 'public.comma-separated-values-text' --application "${EDITOR_PATH}"
-${LSREG_HOME}/lsreg  setHandler --UTI 'public.css' --application "${EDITOR_PATH}"
-${LSREG_HOME}/lsreg  setHandler --UTI 'public.data' --application "${EDITOR_PATH}"
-${LSREG_HOME}/lsreg  setHandler --UTI 'public.delimited-values-text' --application "${EDITOR_PATH}"
-${LSREG_HOME}/lsreg  setHandler --UTI 'public.log' --application "${EDITOR_PATH}"
-${LSREG_HOME}/lsreg  setHandler --UTI 'com.apple.log' --application "${EDITOR_PATH}"
-${LSREG_HOME}/lsreg  setHandler --UTI 'public.plain-text' --application "${EDITOR_PATH}"
-${LSREG_HOME}/lsreg  setHandler --UTI 'public.rss' --application "${EDITOR_PATH}"
-${LSREG_HOME}/lsreg  setHandler --UTI 'public.tab-separated-values-text' --application "${EDITOR_PATH}"
-${LSREG_HOME}/lsreg  setHandler --UTI 'public.text' --application "${EDITOR_PATH}"
-${LSREG_HOME}/lsreg  setHandler --UTI 'public.utf16-external-plain-text' --application "${EDITOR_PATH}"
-${LSREG_HOME}/lsreg  setHandler --UTI 'public.utf16-plain-text' --application "${EDITOR_PATH}"
-${LSREG_HOME}/lsreg  setHandler --UTI 'public.utf8-plain-text' --application "${EDITOR_PATH}"
-${LSREG_HOME}/lsreg  setHandler --UTI 'public.utf8-tab-separated-values-text' --application "${EDITOR_PATH}"
+${LSREG_TOOL} setHandler --UTI 'net.daringfireball.markdown' --application "${EDITOR_PATH}"
+${LSREG_TOOL} setHandler --UTI 'public.case-insensitive-text' --application "${EDITOR_PATH}"
+${LSREG_TOOL} setHandler --UTI 'public.comma-separated-values-text' --application "${EDITOR_PATH}"
+${LSREG_TOOL} setHandler --UTI 'public.css' --application "${EDITOR_PATH}"
+${LSREG_TOOL} setHandler --UTI 'public.data' --application "${EDITOR_PATH}"
+${LSREG_TOOL} setHandler --UTI 'public.delimited-values-text' --application "${EDITOR_PATH}"
+${LSREG_TOOL} setHandler --UTI 'public.log' --application "${EDITOR_PATH}"
+${LSREG_TOOL} setHandler --UTI 'com.apple.log' --application "${EDITOR_PATH}"
+${LSREG_TOOL} setHandler --UTI 'public.plain-text' --application "${EDITOR_PATH}"
+${LSREG_TOOL} setHandler --UTI 'public.rss' --application "${EDITOR_PATH}"
+${LSREG_TOOL} setHandler --UTI 'public.tab-separated-values-text' --application "${EDITOR_PATH}"
+${LSREG_TOOL} setHandler --UTI 'public.text' --application "${EDITOR_PATH}"
+${LSREG_TOOL} setHandler --UTI 'public.utf16-external-plain-text' --application "${EDITOR_PATH}"
+${LSREG_TOOL} setHandler --UTI 'public.utf16-plain-text' --application "${EDITOR_PATH}"
+${LSREG_TOOL} setHandler --UTI 'public.utf8-plain-text' --application "${EDITOR_PATH}"
+${LSREG_TOOL} setHandler --UTI 'public.utf8-tab-separated-values-text' --application "${EDITOR_PATH}"
 
 ##
 ##
