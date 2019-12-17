@@ -25,6 +25,7 @@ alias hhttpheader="http --header get"
 alias sscreensaver='/System/Library/Frameworks/ScreenSaver.framework/Versions/A/Resources/ScreenSaverEngine.app/Contents/MacOS/ScreenSaverEngine'
 alias pports='sudo lsof -Pni4 | grep LISTEN'
 alias eespresso='caffeinate -disu -w 1'
+alias ddouble_rainbow.sh='double_rainbow.sh'
 
 #### htop
 alias hhtop="htop --sort-key Command"
@@ -83,31 +84,31 @@ fi
 ### `sudo find /usr/local -iname homebrew.*plist`
 ### `ln -sfv /usr/local/Cellar/nginx/1.4.6/homebrew.mxcl.nginx.plist ~/Library/LaunchAgents/
 ### `chmod 644 /usr/local/bin/nginx && chown root /usr/local/bin/nginx`
-alias nginx.start='sudo launchctl load ~/Library/LaunchAgents/homebrew.mxcl.nginx.plist'
-alias nginx.stop='sudo launchctl unload ~/Library/LaunchAgents/homebrew.mxcl.nginx.plist'
-alias nginx.restart='nginx.stop && nginx.start'
+alias nnginx.start='sudo launchctl load ~/Library/LaunchAgents/homebrew.mxcl.nginx.plist'
+alias nnginx.stop='sudo launchctl unload ~/Library/LaunchAgents/homebrew.mxcl.nginx.plist'
+alias nnginx.restart='nginx.stop && nginx.start'
 
 ### mysql
-alias mysql.start="launchctl load -w ~/Library/LaunchAgents/homebrew.mxcl.mysql.plist"
-alias mysql.stop="launchctl unload -w ~/Library/LaunchAgents/homebrew.mxcl.mysql.plist"
-alias mysql.restart='mysql.stop && mysql.start'
+alias mmysql.start="launchctl load -w ~/Library/LaunchAgents/homebrew.mxcl.mysql.plist"
+alias mmysql.stop="launchctl unload -w ~/Library/LaunchAgents/homebrew.mxcl.mysql.plist"
+alias mmysql.restart='mysql.stop && mysql.start'
 
 ### nginx logs
-alias nginx.logs.error='tail -250f /usr/local/etc/nginx/logs/error.log'
-alias nginx.logs.access='tail -250f /usr/local/etc/nginx/logs/access.log'
-alias nginx.logs.default.access='tail -250f /usr/local/etc/nginx/logs/default.access.log'
-alias nginx.logs.default-ssl.access='tail -250f /usr/local/etc/nginx/logs/default-ssl.access.log'
-alias nginx.logs.phpmyadmin.error='tail -250f /usr/local/etc/nginx/logs/phpmyadmin.error.log'
-alias nginx.logs.phpmyadmin.access='tail -250f /usr/local/etc/nginx/logs/phpmyadmin.access.log'
+alias nnginx.logs.error='tail -250f /usr/local/etc/nginx/logs/error.log'
+alias nnginx.logs.access='tail -250f /usr/local/etc/nginx/logs/access.log'
+alias nnginx.logs.default.access='tail -250f /usr/local/etc/nginx/logs/default.access.log'
+alias nnginx.logs.default-ssl.access='tail -250f /usr/local/etc/nginx/logs/default-ssl.access.log'
+alias nnginx.logs.phpmyadmin.error='tail -250f /usr/local/etc/nginx/logs/phpmyadmin.error.log'
+alias nnginx.logs.phpmyadmin.access='tail -250f /usr/local/etc/nginx/logs/phpmyadmin.access.log'
 
 ### php56
-alias phpfpm56.wat="cat ~/Library/LaunchAgents/homebrew-php.php56.plist"
-alias phpfpm56.start="brew services start phpfpm56"
-alias phpfpm56.stop="launchctl unload -w ~/Library/LaunchAgents/homebrew-php.php56.plist"
-alias phpfpm56.restart='pphp56fpm.stop && pphp56fpm.start'
+alias pphpfpm56.wat="cat ~/Library/LaunchAgents/homebrew-php.php56.plist"
+alias pphpfpm56.start="brew services start phpfpm56"
+alias pphpfpm56.stop="launchctl unload -w ~/Library/LaunchAgents/homebrew-php.php56.plist"
+alias pphpfpm56.restart='pphp56fpm.stop && pphp56fpm.start'
 
 ### generic
-alias phpfpm.killall='pgrep php-fpm | xargs kill -9'
+alias pphpfpm.killall='pgrep php-fpm | xargs kill -9'
 
 ## silly stuff
 
