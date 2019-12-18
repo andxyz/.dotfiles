@@ -149,9 +149,10 @@ version = 2
     github-pulls = "!hub browse -- pulls/"
     github-mypulls = "!hub browse -- pulls/andxyz"
     github-open-pull-request = "!hub pull-request"
+    github-open-pull-request-against-production-branch = "!hub pull-request -b production"
     hub-pulls = "!git github-pulls"
     hub-mypulls = "!git github-mypulls"
-    hub-open-pull-request = "!git github-open-pull-request"
+    hub-open-pull-request = "!git github-open-pull-request-against-production-branch"
 
     gopenpr = "!hub pull-request"
     gmypulls = "!hub browse -- pulls/andxyz"
