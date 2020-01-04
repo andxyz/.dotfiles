@@ -130,10 +130,10 @@ brew link --force 'mysql@5.7'
 # brew link --force 'postgresql@9.5'
 # which source_postgres95_build_env
 
-brew install 'postgresql@9.6'
-brew services stop 'postgresql@9.6'
-brew link --force 'postgresql@9.6'
-which source_postgres96_build_env
+brew install 'postgresql@11'
+brew services stop 'postgresql@11'
+brew link --force 'postgresql@11'
+which source_postgres11_build_env
 
 brew install 'memcached'
 brew services stop 'memcached'

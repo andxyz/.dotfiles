@@ -247,6 +247,22 @@ source_postgres96_build_env() {
   # brew info postgresql@9.6
 }
 
+# slowing me down
+source_postgres114_build_env() {
+  export -- PATH="/usr/local/opt/postgresql@11.4/bin:$PATH"
+  # brew unlink postgresql
+  # brew link --overwrite postgresql@11.4
+  # brew info postgresql@11.4
+}
+
+# slowing me down
+source_postgres11_build_env() {
+  export -- PATH="/usr/local/opt/postgresql@11/bin:$PATH"
+  # brew unlink postgresql
+  # brew link --overwrite postgresql@11
+  # brew info postgresql@11
+}
+
 ## ruby rbenv stuff https://github.com/sstephenson/rbenv#readme
 ## see https://github.com/andxyz/.dotfiles/raw/master/languages/ruby.sh
 ## note currently I use a "be=bundle exec" alias
