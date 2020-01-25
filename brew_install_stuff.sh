@@ -34,6 +34,7 @@ brew tap 'homebrew/science'
 brew tap 'homebrew/services'
 brew tap 'universal-ctags/universal-ctags'
 brew tap 'samdmarshall/formulae'
+brew tap 'josh/tap'
 
 brew untap 'homebrew/binary' || true # was deprecated. This tap is now empty as all its formulae were migrated.
 brew untap 'homebrew/completions' || true # was deprecated. This tap is now empty as all its formulae were migrated.
@@ -261,7 +262,8 @@ brew cask install 'viscosity'
 
 
 ### splunking
-brew install 'samdmarshall/formulae/aosd'
+# brew install 'samdmarshall/formulae/aosd'
+brew install 'samdmarshall/formulae/afterglow' # https://github.com/samdmarshall/homebrew-formulae/blob/master/afterglow.rb
 brew cask install '0xed'
 brew cask install 'hex-fiend'
 brew cask install 'hopper-disassembler'
