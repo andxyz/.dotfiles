@@ -281,6 +281,7 @@ brew cask install 'slack'
 
 ### playback
 brew cask install 'MPlayerX'
+brew cask install 'mpv'
 brew cask install 'Vox'
 
 ### productivity?
