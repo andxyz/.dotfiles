@@ -15,6 +15,11 @@ function httpless_json_no_color_no_pager {
   http --pretty=none --print=HBhb "$@";
 }
 
+# dig info
+function ddig() {
+  dig +nocmd "$1" any +multiline +noall +answer
+}
+
 function httpperf {
   curl -o /dev/null -s -w "http_code='%{http_code}' time_connect='%{time_connect}' time_starttransfer='%{time_starttransfer}' time_total='%{time_total}'\n" "$@"
 }
