@@ -1,5 +1,13 @@
 #!/usr/bin/env bash
 
+# https://bundler.io/blog/2016/09/08/bundler-1-13.html
+# First, export the environment variable BUNDLE_ENABLE_TRAMPOLINE.
+# In the Bash shell, that means running export BUNDLE_ENABLE_TRAMPOLINE=true.
+# Then, run bundle install and bundle exec as usual. You should notice that
+# Bundler will automatically switch to the version of Bundler that is saved into the Gemfile.lock.
+# To update the version of Bundler saved in the lockfile, run bundle update --bundler
+export -- BUNDLE_ENABLE_TRAMPOLINE=true
+
 # Fiddle memory allocated to Ruby
 #
 # read http://tmm1.net/ruby21-rgengc/
