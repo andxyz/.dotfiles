@@ -51,10 +51,12 @@ npm update -g --silent npm
 ## install some decent global libraries on the default node
 # npm install -g --silent --no-progress --quiet --depth=0 npm-shrinkwrap
 # npm install -g --silent --no-progress --quiet --depth=0 node-inspector
-npm install -g --silent --no-progress --quiet --depth=0 bower
-npm install -g --silent --no-progress --quiet --depth=0 grunt
-npm install -g --silent --no-progress --quiet --depth=0 grunt-cli
-npm install -g --silent --no-progress --quiet --depth=0 gulp
+npm install -g --silent --no-progress --quiet --depth=0 yarn
+npm install -g --silent --no-progress --quiet --depth=0 webpack
+# npm install -g --silent --no-progress --quiet --depth=0 bower
+# npm install -g --silent --no-progress --quiet --depth=0 grunt
+# npm install -g --silent --no-progress --quiet --depth=0 grunt-cli
+# npm install -g --silent --no-progress --quiet --depth=0 gulp
 
 ## linting
 npm install -g --silent --no-progress --quiet --depth=0 prettier
@@ -64,6 +66,7 @@ npm install -g --silent --no-progress --quiet --depth=0 coffeelint
 npm install -g --silent --no-progress --quiet --depth=0 jshint
 npm install -g --silent --no-progress --quiet --depth=0 postcss
 npm install -g --silent --no-progress --quiet --depth=0 stylelint
+npm install -g --silent --no-progress --quiet --depth=0 js-beautify
 
 ## front end tools
 # npm install -g --silent --no-progress --quiet --depth=0 handlebars
