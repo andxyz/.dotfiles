@@ -1,0 +1,26 @@
+# Add some types
+# https://github.com/BurntSushi/ripgrep/blob/9cb93abd11906fe1d6f89de712465a7a3aa8c381/GUIDE.md#configuration-file
+
+--type-add=css=.sass,.less,.scss
+--type-add=html=.erb,.haml,.slim
+--type-add=js=.coffee
+--type-add=js=.js.erb,.json
+--type-add=objc=.pch
+--type-add=ruby=.rake,.rsel,.builder,.erb,.erb.html,.haml,Gemfile,Rakefile,Capfile,Fastfile
+--type-add=sql=.ddl
+--type-set=actionscript=.as
+--type-set=coffeescript=.coffee
+--type-set=cucumber=.feature
+--type-set=handlebars=.handlebars,.hbs
+--type-set=markdown=.markdown,.md,.mdown
+--type-set=markdown=.markdown,.mdown,.md,.mkd,.mkdn,.txt
+--type-set=nib=.xib
+--type-set=plist=.plist
+--type-set=rdoc=.rdoc
+--type-set=xcode=.pbxproj,.pbxuser,.perspectivev3
+--type-set=config=.conf
+--type-set=template=.tpl,.ctmpl
+
+# Using glob patterns to include/exclude files or folders
+--glob=!.git/*
+--no-heading
