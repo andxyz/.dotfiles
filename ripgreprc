@@ -23,4 +23,7 @@
 
 # Using glob patterns to include/exclude files or folders
 --glob=!.git/*
+
+# output appearance
 --no-heading
+--sort
