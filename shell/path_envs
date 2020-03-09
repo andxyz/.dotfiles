@@ -68,10 +68,13 @@ function source_golang113_path() {
   export -- PATH="/usr/local/opt/go@1.13/bin:$PATH"
 }
 
+<<<<<<< HEAD
 function source_golang114_path() {
   export -- PATH="/usr/local/opt/go@1.14/bin:$PATH"
 }
 
+=======
+>>>>>>> Update golang stuff, goland by jetbrains is amazing btw
 # slowing me down
 function source_golang107_env() {
   source_golang_env_generic
@@ -114,12 +117,15 @@ function source_golang113_env() {
   source_golang113_path
 }
 
+<<<<<<< HEAD
 # slowing me down
 function source_golang114_env() {
   source_golang_env_generic
   source_golang114_path
 }
 
+=======
+>>>>>>> Update golang stuff, goland by jetbrains is amazing btw
 ## haskell uses cabal and stack
 # https://github.com/andxyz/.dotfiles/blob/master/languages/haskell.sh
 test -d "$HOME/.cabal/bin" &&
