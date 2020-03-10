@@ -8,6 +8,10 @@
 # To update the version of Bundler saved in the lockfile, run bundle update --bundler
 export -- BUNDLE_ENABLE_TRAMPOLINE=true
 
+# DISABLE_SPRING - If set, Spring will be bypassed and your application will boot in a foreground process
+# https://github.com/rails/spring#environment-variables
+export -- DISABLE_SPRING=true
+
 # Fiddle memory allocated to Ruby
 #
 # read http://tmm1.net/ruby21-rgengc/
