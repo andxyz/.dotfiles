@@ -210,7 +210,7 @@ version = 2
 #
 # https://git-scm.com/blog/2010/03/08/rerere.html
 [rerere]
-    enabled = true
+    enabled = false
 
 #
 # perforce p4merge aint so great, just buy http://www.kaleidoscopeapp.com/
