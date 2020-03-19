@@ -26,8 +26,12 @@ if ::ActiveRecord
 
   # Hit all models for auto-completion
   def show_tables
-    # ::ActiveRecord::Base.establish_connection(Rails.application.config_for(:database))
-    ::ActiveRecord::Base.connection.tables.each {|t| t.singularize.classify.constantize rescue nil }
+    # ::ActiveRecord::Base.establish_connection(
+    #   Rails.application.config_for(:database)
+    # )
+    ::ActiveRecord::Base.connection.tables.each do |t|
+      t.singularize.classify.constantize rescue nil
+    end
   end
 
   # logging into console by default
