@@ -17,6 +17,6 @@ launchctl setenv JAVA_HOME "${JAVA_HOME}"
 # for my code editor to have working ssh
 # and working language enviroments
 use_osx_ssh_agent_setup
-source_golang112_env
+source_golang114_env
 source_ruby_env
 source_node_env
