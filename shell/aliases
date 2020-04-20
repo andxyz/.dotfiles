@@ -44,8 +44,10 @@ alias gs='git status --short --branch' # fucking ghostscript
 alias gss='git status --branch --find-renames'
 alias gco='git checkout'
 
+
 ## codes
 alias cctags='cctags.sh &'
+alias zz='cd $(find ~/wonolo/* -maxdepth 0 -type d | fzf --preview "git -C {} status --short --branch")'
 
 ### rails and ruby
 ## alias bi="bundle install --binstubs"
