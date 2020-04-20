@@ -67,6 +67,7 @@ version = 2
     fs = fetch origin staging:staging
     fm = fetch origin master:master
     fp = fetch origin production:production
+    pushf = push --force-with-lease
     fetch-and-prune  = fetch --all --prune
     # runs my $HOME/bin/git-branch-list.sh shell script
     b = branch-list.sh
