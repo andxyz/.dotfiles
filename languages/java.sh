@@ -22,11 +22,16 @@ open -a 'finder' ~/Downloads/jdk-13.0.1_osx-x64_bin.dmg
 brew update
 brew install -vd jenv
 
+brew tap "adoptopenjdk/openjdk"
+# brew cask install "adoptopenjdk/openjdk/adoptopenjdk8"
+# brew cask install "adoptopenjdk/openjdk/adoptopenjdk11"
+brew cask install "adoptopenjdk/openjdk/adoptopenjdk14"
 
 ## bash
 # which -a jenv > /dev/null && eval "$(jenv init -)"
-## read zsh
-jenv init - zsh
+## zsh
+which -a jenv > /dev/null && eval "$(jenv init - zsh)"
+
 
 yes | jenv add /Library/Java/JavaVirtualMachines/*/Contents/Home/
 # yes | jenv add /Library/Java/JavaVirtualMachines/jdk1.8.0_131.jdk/Contents/Home
