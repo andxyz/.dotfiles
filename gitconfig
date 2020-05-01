@@ -133,7 +133,7 @@ version = 2
     # git github.com/prograhamer https://github.com/prograhamer/dotfiles/blob/351d1c92613d6a32217206c22635d7c9187cb8b1/.gitconfig#L2-L4
     scrumlog = log --graph --pretty=format:'%h -%d %s %cr <%an>' --all
     scrum = "!git scrumlog --since=\"$([ $(date +%w) -eq 1 ] && date -v-3d +%F || date -v-1d +%F) 00:00:00\" --committer=\"`git config user.name`\""
-    megascrum = "!for dir in $(find ~/thescore -name .git -exec dirname {} \\;); do (cd \"$dir\" && git --no-pager scrum); done 2>/dev/null | $(git config --get core.pager)"
+    megascrum = "!for dir in $(find ~/code -name .git -exec dirname {} \\;); do (cd \"$dir\" && git --no-pager scrum); done 2>/dev/null | $(git config --get core.pager)"
 
     # git github.com/haacked https://github.com/Haacked/dotfiles/blob/f625b1c9e89b1e261868ac3244af037b6287b8bd/git/gitconfig.template#L9
     churn = !git --no-pager log --name-only --oneline | grep -v ' ' | sort | uniq -c | sort -nr | head
