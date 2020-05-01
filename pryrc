@@ -1,11 +1,13 @@
 #!/usr/bin/env ruby
 
+# frozen_string_literal: true
+
 # See https://github.com/pry/pry/wiki/Customization-and-configuration
 # load this file please
 Pry.config.should_load_rc = true
 
 # config history file
-Pry.config.history.file = "#{ENV['HOME']}/.irb_history"
+Pry.config.history.file = "~/.irb_history"
 
 # config editor
 Pry.config.editor = "subl -w"
