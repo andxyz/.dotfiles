@@ -150,16 +150,13 @@ version = 2
     github-pulls = "!hub browse -- pulls/"
     github-mypulls = "!hub browse -- pulls/andxyz"
     github-open-pull-request = "!hub pull-request"
-    github-open-pull-request-against-production-branch = "!hub pull-request -b production"
     hub-pulls = "!git github-pulls"
     hub-mypulls = "!git github-mypulls"
-    hub-open-pull-request = "!git github-open-pull-request-against-production-branch"
+    prs-show = "!git github-pulls"
+    prs-mypulls = "!git github-mypulls"
+    prs-create = "!hub pull-request -b master --no-edit"
 
-    gopenpr = "!hub pull-request"
-    gmypulls = "!hub browse -- pulls/andxyz"
-    gpulls = "!hub browse -- pulls"
-
-    # not really used aliasaes but they are useful to look at when hunting for a git command
+    # not really used aliases but they are useful to look at when hunting for a git command
     delete-remote-branch = push origin --delete
     delete-local-branch = branch -D
     submodule-update-oneliner = submodule update --init --recursive
