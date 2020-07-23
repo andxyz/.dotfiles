@@ -86,9 +86,9 @@ version = 2
     diffc = diff --cached
     ## make sure to `npm install -g --silent --no-progress --quiet --depth=0 diff-so-fancy` try `npm ls -g --depth=0`
 
-    ddiff = "!fgitdiff0() { git diff --color $@ | diff-so-fancy | less --tabs=1,5 -R; }; fgitdiff0"
-    ddiffc = "!fgitdiff1() { git diff --cached --color $@ | diff-so-fancy | less --tabs=1,5 -R; }; fgitdiff1"
-    d = "!fgitdiff1() { git diff --cached --color $@ | diff-so-fancy | less --tabs=1,5 -R; }; fgitdiff1"
+    ddiff = "!fgitdiff0() { git diff --color \"$@\" | diff-so-fancy | less --tabs=4 -RFXS; }; fgitdiff0"
+    ddiffc = "!fgitdiff1() { git diff --cached --color $@ | diff-so-fancy | less --tabs=4 -RFXS; }; fgitdiff1"
+    d = "!fgitdiff1() { git diff --cached --color $@ | diff-so-fancy | less --tabs=4 -RFXS; }; fgitdiff1"
 
     # personal git log opinions
     llog         = log --topo-order --graph
