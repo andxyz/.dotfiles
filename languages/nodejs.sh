@@ -15,7 +15,7 @@ cd ~/.nvm
 git pull
 git fetch --tags
 git tag --list
-git checkout v0.34.0
+git checkout v0.35.3
 # git checkout v0.33.6
 
 nvm ls-remote
