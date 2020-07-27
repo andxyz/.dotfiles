@@ -5,16 +5,19 @@ first of all, don't use a `.railsrc` (it has caused me pain in the past)
 
 ```shell
 
-bundle exec ruby --version
 bundle init
-echo -n "gem 'rails', '~> 6.0.0.rc1'" >> Gemfile
+bundle exec ruby --version
+echo -n "gem 'rails', '~> 6.0.3.1'" >> Gemfile
 bundle install
 bundle exec rails --version
-bundle exec rails new rails42-instana-poc \
---database=postgresql \
---skip-coffee \
+bundle exec rails help
+bundle exec rails new puzzle_shelf ./ \
 --skip-action-cable \
+--skip-action-mailbox \
+--skip-action-mailer \
+--skip-active-record \
 --skip-listen \
+--no-rc \
 --skip-spring \
 --skip-turbolinks
 ```
@@ -36,15 +39,7 @@ bundle install
 bundle exec rails generate rspec:install
 ```
 
-### Maybe you want pry debugs
-
-```shell
-# edit the Gemfile
-cd appname
-EDITOR Gemfile
-```
-
-inside the dev deps add pry and pry-byebug for example:
+## add some dev deps
 
 ```ruby
 group :development do
@@ -55,7 +50,7 @@ group :development do
 end
 ```
 
-install the new deps
+## install the new deps
 
 ```shell
 bundle install --with=development
@@ -67,9 +62,13 @@ cctags.sh
 bundle exec rails c
 ```
 
+## debug some routes
+
 ```ruby
 Rails.application.routes.url_for({controller: :users, only_path: true})
-$ Rails.application.routes.url_for
+
+Rails.application.routes.url_for
+
 ls Rails.application.routes
 ls app
 
