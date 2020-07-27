@@ -40,6 +40,12 @@ export -- PATH=/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/opt/X11/bin
 [[ -f ~/.shell/functions_private ]] && source ~/.shell/functions_private
 [[ -f ~/.shell/ruby_rails_tricks.sh ]] && source ~/.shell/ruby_rails_tricks.sh
 
+# The next line updates PATH for the Google Cloud SDK.
+if [ -f '/Users/andxyz/Downloads/google-cloud-sdk/path.zsh.inc' ]; then . '/Users/andxyz/Downloads/google-cloud-sdk/path.zsh.inc'; fi
+
+# The next line enables shell command completion for gcloud.
+if [ -f '/Users/andxyz/Downloads/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/andxyz/Downloads/google-cloud-sdk/completion.zsh.inc'; fi
+
 ## for zsh interactive specific
 [ -n "$PS1" ] && [[ -f ~/.zsh/zsh_interactive ]]     && source ~/.zsh/zsh_interactive
 [ -n "$PS1" ] && [[ -f ~/.zsh/zsh_completion ]]      && source ~/.zsh/zsh_completion
