@@ -44,6 +44,10 @@ end
 begin
   require 'pry'
   Pry.start
-  exit #exit once pry exits
-rescue LoadError
+  exit # exit once pry exits
+rescue => e
+  puts "oh well, try gem install 'pry-byebug'"
+  puts e.message if e.message
+  puts e.cause if e.cause
+  puts e.backtrace if e.backtrace
 end
