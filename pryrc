@@ -7,10 +7,14 @@
 Pry.config.should_load_rc = true
 
 # config history file
-Pry.config.history.file = "~/.irb_history"
+if Gem::Version.new(Pry::VERSION) >= Gem::Version.new('0.13.0')
+  Pry.config.history_file = '~/.irb_history'
+else
+  Pry.config.history.file = '~/.irb_history'
+end
 
 # config editor
-Pry.config.editor = "subl -w"
+Pry.config.editor = 'subl -w'
 
 # Pry.commands.alias_command 'cc', 'continue'
 # Pry.commands.alias_command 'ss', 'step'
@@ -21,17 +25,16 @@ Pry.config.editor = "subl -w"
 # ==============================
 if Kernel.const_defined?(:Rails) && ::Rails.env
   begin
-    require File.join(Rails.root, "config" ,"environment")
+    require File.join(Rails.root, 'config','environment')
     require 'rails/console/app'
     require 'rails/console/helpers'
     extend Rails::ConsoleMethods
     puts 'Rails Console Helpers loaded'
   rescue LoadError => e
-    require "console_app"
-    require "console_with_helpers"
+    require 'console_app'
+    require 'console_with_helpers'
     puts 'Rails Console Helpers loaded'
   end
-
 
   require 'json'
   def pp_json(object)
@@ -70,12 +73,12 @@ if Kernel.const_defined?(:Rails) && ::Rails.env
     # I use this one to dig into Rails core_ext
     class Class
       def core_ext
-        self.instance_methods.map {|m| [m, self.instance_method(m).source_location] }.select {|m| m[1] && m[1][0] =~/activesupport/}.map {|m| m[0]}.sort
+        self.instance_methods.map { |m| [m, self.instance_method(m).source_location] }.select {|m| m[1] && m[1][0] =~/activesupport/}.map { |m| m[0]}.sort
       end
     end
 
     # Hit all models for auto-completion
-    ::ActiveRecord::Base.connection.tables.each {|t| t.singularize.classify.constantize rescue nil }
+    ::ActiveRecord::Base.connection.tables.each { |t| t.singularize.classify.constantize rescue nil }
 
     # logging into console by default
     enable_logger
@@ -93,8 +96,8 @@ begin
   require 'bundler'
   Bundler.with_clean_env do
     # gem dependency pry-doc --version '>= 0.10'
-    pry_doc_gem_locations = %x{ dirname `gem which 'pry-doc'` }
-    pry_doc_gem_locations << %x{ dirname `gem which 'yard'` }
+    pry_doc_gem_locations = %x(dirname `gem which 'pry-doc'`)
+    pry_doc_gem_locations << %x(dirname `gem which 'yard'`)
   end
   # puts pry_doc_gem_locations
   pry_doc_gem_locations.split("\n").each do |gem_location|
@@ -103,7 +106,7 @@ begin
   end
   # puts $LOAD_PATH
   ::Kernel.require('pry-doc')
-rescue => e
+rescue RunTimeError => e
   puts "oh well, try gem install 'pry-doc'"
   puts e.message if e.message
   puts e.cause if e.cause
@@ -115,11 +118,11 @@ end
 # ==============================
 # env RAILS_USE_HIRB_GEM=true RAILS_PRINT_X_COLUMNS=12 bundle exec rails console
 # env RAILS_USE_HIRB_GEM=true RAILS_PRINT_X_COLUMNS=12 bundle exec rescue rspec
-if ENV['RAILS_USE_HIRB_GEM'] == "true" && defined?(::Rails) && Rails.env
+if ENV['RAILS_USE_HIRB_GEM'] == 'true' && defined?(::Rails) && Rails.env
   begin
     hirb_gem_location = ''
     Bundler.with_clean_env do
-      hirb_gem_location = %x{ dirname `gem which hirb` }
+      hirb_gem_location = %x(dirname `gem which hirb`)
     end
     # puts hirb_gem_location
     $LOAD_PATH.unshift(File.join(File.dirname(hirb_gem_location), 'lib'))
@@ -181,15 +184,12 @@ Customer.order(:created_at, :desc).limit(2)
 Worker.order(:created_at, :desc).limit(2)
 Badges.order(:created_at, :desc).limit(2)
 
-
-
 =end
       # Golf::Event.limit(2)
       # RAILS_USE_HIRB_GEM=true RAILS_PRINT_X_COLUMNS=16 bundle exec rails console
       # Baseball::Event.limit(2)
     end
-
-  rescue => e
+  rescue RunTimeError => e
     # oh well
     puts e.message if e.message
     puts e.cause if e.cause
@@ -201,4 +201,4 @@ puts "Ruby #{RUBY_VERSION}-p#{RUBY_PATCHLEVEL}"
 puts "Pry #{Pry::VERSION}"
 puts "PryDoc #{PryDoc::VERSION}"
 
-puts "Loaded pryrc"
+puts 'Loaded pryrc'
