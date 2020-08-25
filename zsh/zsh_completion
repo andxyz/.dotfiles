@@ -3,13 +3,18 @@
 # brew info zsh-completions
 # ls /usr/local/share/zsh-completions
 # rm -f ~/.zcompdump; compinit
-fpath=(/usr/local/share/zsh-completions $fpath) # Where the completions?
-autoload -U compinit # Load the completion module
-compinit -u # Process completions
+if type brew &>/dev/null; then
+  FPATH=$(brew --prefix)/share/zsh-completions:$FPATH # Where the completions?
+
+  autoload -Uz compinit # Load the completion module
+  compinit -u # Process completions
+fi
 # compaudit
-# for highsierra
+#
 # sudo chmod -R g-w /usr/local/share/zsh/site-functions
 # sudo chmod -R g-w /usr/local/share/zsh
+# sudo chmod -R g-w /usr/local/share/
+#
 
 zstyle ':completion:*' menu select # Style of completion
 zstyle ':completion:*' matcher-list 'm:{a-z}={A-Z}' # matches case insensitive for lowercase
