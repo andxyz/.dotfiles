@@ -17,10 +17,6 @@ launchctl setenv JAVA_HOME "${JAVA_HOME}"
 # for my code editor to have working ssh
 # and working language enviroments
 use_osx_ssh_agent_setup
-<<<<<<< HEAD
 source_golang114_env
-=======
-source_golang113_env
->>>>>>> Update golang stuff, goland by jetbrains is amazing btw
 source_ruby_env
 source_node_env

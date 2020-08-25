@@ -8,12 +8,8 @@ set -ex
 # brew install go@1.10
 # brew install go@1.11
 # brew install go@1.12
-<<<<<<< HEAD:languages/golang.sh
 # brew install go@1.13
 brew install go@1.14
-=======
-brew install go@1.13
->>>>>>> Update golang stuff, goland by jetbrains is amazing btw:languages/go.sh
 # golang https://golang.org/doc/install or `brew install go`
 export -- GOPATH=$HOME/code/gowork
 export -- PATH=$PATH:/usr/local/go/bin
