@@ -227,7 +227,6 @@ brew install 'ag'
 brew install 'aykamko/tag-ag/tag-ag'
 brew install 'ripgrep'
 
-
 ### tools
 brew install 'terraform'
 brew tap 'shopify/shopify'
@@ -250,6 +249,9 @@ brew cask install 'the-unarchiver'
 
 ### text editing
 brew cask install 'texshop'
+
+## spreadsheet and document apps
+brew install tika # apache-tika content analysis toolkit http://tika.apache.org/
 
 ### dev
 # brew cask install 'android-studio'
