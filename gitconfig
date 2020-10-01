@@ -67,7 +67,8 @@ version = 2
     fs = fetch origin staging:staging
     fm = fetch origin master:master
     fp = fetch origin production:production
-    pushf = push --force-with-lease
+    pushf = "!git push --force-with-lease origin \"$(git rev-parse --abbrev-ref HEAD)\""
+    # pushf_old = push --force-with-lease
     fetch-and-prune  = fetch --all --prune
     # runs my $HOME/bin/git-branch-list.sh shell script
     b = branch-list.sh
@@ -259,7 +260,7 @@ version = 2
     cmd = icdiff --line-numbers --unified=3 -- \"$LOCAL\" \"$REMOTE\" | less -LRSX
     keepBackup = false
     keepTemporaries = false
-    algorithm = minimal
+    algorithm = patience
     compactionHeuristic = true
 
 [mergetool "vimdiff_merge"]
@@ -285,7 +286,7 @@ version = 2
     tool = kaleidoscope_diff
     keepBackup = false
     keepTemporaries = false
-    algorithm = minimal
+    algorithm = patience
     compactionHeuristic = true
 
 [merge]
@@ -294,7 +295,7 @@ version = 2
     keepTemporaries = false
     trustExitCode = false
     strategy = recursive
-    algorithm = minimal
+    algorithm = patience
     compactionHeuristic = true
 
 [mergetool]
@@ -304,7 +305,7 @@ version = 2
     trustExitCode = false
     prompt = false
     strategy = recursive
-    algorithm = minimal
+    algorithm = patience
     compactionHeuristic = true
 
 [merge "ours"]
