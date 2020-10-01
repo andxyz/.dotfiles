@@ -37,14 +37,14 @@ TMPFILE=$(gmktemp -t tmp_ctags_files_XXXXX.txt)
 
 # get all the Gemfile paths from within subprojects too
 function ctags_ruby_lib_paths {
-  for f in $(find "$CTAGS_GIT_DIRECTORY/.." -name Gemfile); do
+  for f in $(cd "${CTAGS_GIT_DIRECTORY}/.."; find '.' -not -path './\.*' -name Gemfile); do
     (cd "$(gdirname "${f}")" && (rbenv exec bundle check || rbenv exec bundle install) >/dev/null 2>&1 && rbenv exec bundle list --paths);
   done | gsort -u
 }
 
 # get all the ruby files and subprojects ruby files too
 function ctags_project_and_subproject_rubyfiles {
-  for f in $(find "$CTAGS_GIT_DIRECTORY/.." -name Gemfile); do
+  for f in $(cd "${CTAGS_GIT_DIRECTORY}/.."; find '.' -not -path './\.*' -name Gemfile); do
     (cd "$(gdirname "${f}")" && git ls-files '*.rb' | gxargs -L 128 greadlink -f);
   done | gsort -u
 }
