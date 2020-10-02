@@ -67,8 +67,9 @@ version = 2
     fs = fetch origin staging:staging
     fm = fetch origin master:master
     fp = fetch origin production:production
-    pushf = "!git push --force-with-lease origin \"$(git rev-parse --abbrev-ref HEAD)\""
-    # pushf_old = push --force-with-lease
+    # pushf_new failed me, reverting for now
+    # pushf_new = "!git push --force-with-lease origin \"$(git rev-parse --abbrev-ref HEAD)\""
+    pushf = push --force-with-lease
     fetch-and-prune  = fetch --all --prune
     # runs my $HOME/bin/git-branch-list.sh shell script
     b = branch-list.sh
