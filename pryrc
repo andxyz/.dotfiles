@@ -25,7 +25,7 @@ Pry.config.editor = 'subl -w'
 # ==============================
 if Kernel.const_defined?(:Rails) && ::Rails.env
   begin
-    require File.join(Rails.root, 'config','environment')
+    require File.join(Rails.root, 'config', 'environment')
     require 'rails/console/app'
     require 'rails/console/helpers'
     extend Rails::ConsoleMethods
@@ -49,24 +49,24 @@ if Kernel.const_defined?(:Rails) && ::Rails.env
   require 'logger'
 
   if defined?(::ActiveRecord)
-    def enable_logger
+    def pry_enable_logger
       ::ActiveRecord::Base.logger = Logger.new(STDOUT)
       ::ActiveRecord::Base.clear_active_connections!
       nil
     end
 
-    def disable_logger
+    def pry_disable_logger
       ::ActiveRecord::Base.logger = nil
       ::ActiveRecord::Base.clear_active_connections!
       nil
     end
 
     # prints nice information about a model
-    def show_model(object)
+    def pry_show_model(object)
       y object.class == Class ? object.column_names.sort : object.class.column_names.sort
     end
 
-    def show_tables
+    def pry_show_tables
       y ::ActiveRecord::Base.connection.tables
     end
 
@@ -81,7 +81,7 @@ if Kernel.const_defined?(:Rails) && ::Rails.env
     ::ActiveRecord::Base.connection.tables.each { |t| t.singularize.classify.constantize rescue nil }
 
     # logging into console by default
-    enable_logger
+    pry_enable_logger
   end
 end
 
@@ -138,31 +138,36 @@ if ENV['RAILS_USE_HIRB_GEM'] == 'true' && defined?(::Rails) && Rails.env
       end
 
       def hirb_enable_fancy_print_options
-        Hirb.enable({
-          :width => (ENV.fetch('RAILS_PRINT_X_COLUMNS', 6).to_i * 35),
-          :height => 500,
-          output:
-            ActiveRecord::Base.descendants.
-            select do |klass_name|
-              klass_name.to_s != 'ActiveRecord::SchemaMigration'
-            end.
-            each_with_object({}) do |klass_name, tmp_hash|
-              tmp_hash[klass_name.to_s] = { options: { fields: klass_name.column_names.take(ENV.fetch('RAILS_PRINT_X_COLUMNS', 6).to_i) | %w{created_at updated_at} } } rescue next
-            end
-        })
+        Hirb.enable(
+          {
+            width: (ENV.fetch('RAILS_PRINT_X_COLUMNS', 6).to_i * 35),
+            height: 500,
+            output:
+              ActiveRecord::Base.descendants.select do |klass_name|
+                klass_name.to_s != 'ActiveRecord::SchemaMigration'
+              end.
+              each_with_object({}) do |klass_name, tmp_hash|
+                tmp_hash[klass_name.to_s] = \
+                  {
+                    options: {
+                      fields: klass_name.column_names.take(ENV.fetch('RAILS_PRINT_X_COLUMNS', 6).to_i) | %w[created_at updated_at]
+                    }
+                  } rescue next
+              end
+          }
+        )
       end
 
-      def active_record_show_me_the_first(number_of_records)
-        ActiveRecord::Base.descendants.
-          select do |klass_name|
-            klass_name.to_s != 'ActiveRecord::SchemaMigration'
-          end.
-          each do |klass_name|
-            Hirb::View.view_or_page_output(klass_name.first(number_of_records))
-          end
+      def pry_active_record_show_me_the_first(number_of_records)
+        ActiveRecord::Base.descendants.select do |klass_name|
+          klass_name.to_s != 'ActiveRecord::SchemaMigration'
+        end.
+        each do |klass_name|
+          Hirb::View.view_or_page_output(klass_name.first(number_of_records))
+        end
       end
 
-      def active_record_show_me_the_last(number_of_records)
+      def pry_active_record_show_me_the_last(number_of_records)
         ActiveRecord::Base.descendants.each do |klass_name|
           Hirb::View.view_or_page_output(klass_name.last(number_of_records))
         end
@@ -178,11 +183,12 @@ if ENV['RAILS_USE_HIRB_GEM'] == 'true' && defined?(::Rails) && Rails.env
 
 =begin
 
-Company.order(:created_at, :desc).limit(2)
-Employer.order(:created_at, :desc).limit(2)
-Customer.order(:created_at, :desc).limit(2)
-Worker.order(:created_at, :desc).limit(2)
-Badges.order(:created_at, :desc).limit(2)
+Worker.order(created_at: :desc).limit(2)
+Job.order(created_at: :desc).limit(2)
+Company.order(id: :desc).limit(2)
+Employer.order(created_at: :desc).limit(2)
+Customer.order(created_at: :desc).limit(2)
+Badge.order(ccreated_at: :desc).limit(2)
 
 =end
       # Golf::Event.limit(2)
@@ -193,7 +199,7 @@ Badges.order(:created_at, :desc).limit(2)
     # oh well
     puts e.message if e.message
     puts e.cause if e.cause
-    puts e.backtrace if e.backtrace
+    puts e.backtrace.join("\n") if e.backtrace
   end
 end
 
