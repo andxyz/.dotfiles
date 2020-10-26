@@ -63,7 +63,11 @@ if Kernel.const_defined?(:Rails) && ::Rails.env
 
     # prints nice information about a model
     def pry_show_model(object)
-      y object.class == Class ? object.column_names.sort : object.class.column_names.sort
+      if object.class == Class
+        y object.column_names.sort
+      else
+        y object.class.column_names.sort
+      end
     end
 
     def pry_show_tables
@@ -73,12 +77,25 @@ if Kernel.const_defined?(:Rails) && ::Rails.env
     # I use this one to dig into Rails core_ext
     class Class
       def core_ext
-        self.instance_methods.map { |m| [m, self.instance_method(m).source_location] }.select {|m| m[1] && m[1][0] =~/activesupport/}.map { |m| m[0]}.sort
+        instance_methods.map do |m|
+          [m, instance_method(m).source_location]
+        end.select do |m|
+          m[1] && m[1][0] =~ /activesupport/
+        end.map do |m|
+          m[0]
+        end.sort
       end
     end
 
     # Hit all models for auto-completion
-    ::ActiveRecord::Base.connection.tables.each { |t| t.singularize.classify.constantize rescue nil }
+    ApplicationRecord.descendants.each do |klass|
+      klass.name.constantize.column_names
+    rescue StandardError => e
+      puts "oh, okay then"
+      puts e.message if e.message
+      puts e.cause if e.cause
+      puts e.backtrace if e.backtrace
+    end; nil
 
     # logging into console by default
     pry_enable_logger
@@ -143,8 +160,8 @@ if ENV['RAILS_USE_HIRB_GEM'] == 'true' && defined?(::Rails) && Rails.env
             width: (ENV.fetch('RAILS_PRINT_X_COLUMNS', 6).to_i * 35),
             height: 500,
             output:
-              ActiveRecord::Base.descendants.select do |klass_name|
-                klass_name.to_s != 'ActiveRecord::SchemaMigration'
+              ActiveRecord::Base.descendants.reject do |klass_name|
+                klass_name.to_s == 'ActiveRecord::SchemaMigration'
               end.
               each_with_object({}) do |klass_name, tmp_hash|
                 tmp_hash[klass_name.to_s] = \
@@ -156,52 +173,53 @@ if ENV['RAILS_USE_HIRB_GEM'] == 'true' && defined?(::Rails) && Rails.env
               end
           }
         )
+
+        nil
       end
 
       def pry_active_record_show_me_the_first(number_of_records)
-        ActiveRecord::Base.descendants.select do |klass_name|
-          klass_name.to_s != 'ActiveRecord::SchemaMigration'
-        end.
-        each do |klass_name|
+        ApplicationRecord.descendants.each do |klass_name|
+          puts "\n#{klass_name}\n"
           Hirb::View.view_or_page_output(klass_name.first(number_of_records))
         end
+
+        nil
       end
 
       def pry_active_record_show_me_the_last(number_of_records)
-        ActiveRecord::Base.descendants.each do |klass_name|
+        ApplicationRecord.descendants.each do |klass_name|
+          puts "\n#{klass_name}\n"
           Hirb::View.view_or_page_output(klass_name.last(number_of_records))
         end
+
+        nil
       end
 
-      Hirb.enable()
+      Hirb.enable
       hirb_enable_fancy_print
       hirb_enable_fancy_print_options
-
-      # pp Hirb::View.config
-
-      # RAILS_USE_HIRB_GEM=true RAILS_PRINT_X_COLUMNS=12 bundle exec rails console
-
-=begin
-
-Worker.order(created_at: :desc).limit(2)
-Job.order(created_at: :desc).limit(2)
-Company.order(id: :desc).limit(2)
-Employer.order(created_at: :desc).limit(2)
-Customer.order(created_at: :desc).limit(2)
-Badge.order(ccreated_at: :desc).limit(2)
-
-=end
-      # Golf::Event.limit(2)
-      # RAILS_USE_HIRB_GEM=true RAILS_PRINT_X_COLUMNS=16 bundle exec rails console
-      # Baseball::Event.limit(2)
     end
-  rescue RunTimeError => e
+  rescue StandardError => e
     # oh well
     puts e.message if e.message
     puts e.cause if e.cause
     puts e.backtrace.join("\n") if e.backtrace
   end
+  # Worker.order(created_at: :desc).limit(2)
+  # Job.order(created_at: :desc).limit(2)
+  # Company.order(id: :desc).limit(2)
+  # Employer.order(created_at: :desc).limit(2)
+  # Customer.order(created_at: :desc).limit(2)
+  # Badge.order(ccreated_at: :desc).limit(2)
+
+  # Golf::Event.limit(2)
+  # RAILS_USE_HIRB_GEM=true RAILS_PRINT_X_COLUMNS=16 bundle exec rails console
+  # Baseball::Event.limit(2)
 end
+
+# pp Hirb::View.config
+
+# RAILS_USE_HIRB_GEM=true RAILS_PRINT_X_COLUMNS=12 bundle exec rails console
 
 puts "Ruby #{RUBY_VERSION}-p#{RUBY_PATCHLEVEL}"
 puts "Pry #{Pry::VERSION}"
