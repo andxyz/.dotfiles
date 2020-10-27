@@ -131,7 +131,9 @@ env -- MAKE_OPT='-j8' CFLAGS='-g2 -ggdb -O3' RUBY_CONFIGURE_OPTS="--with-openssl
 # env -- MAKE_OPT='-j8' CFLAGS='-g2 -ggdb -O3' RUBY_CONFIGURE_OPTS="--with-openssl-dir=$(brew --prefix openssl)  --with-readline-dir=$(brew --prefix readline) --disable-install-doc --disable-install-rdoc --disable-install-capi --enable-dtrace" rbenv install --skip-existing --verbose 2.6.1
 # env -- MAKE_OPT='-j8' CFLAGS='-g2 -ggdb -O3' RUBY_CONFIGURE_OPTS="--with-openssl-dir=$(brew --prefix openssl)  --with-readline-dir=$(brew --prefix readline) --disable-install-doc --disable-install-rdoc --disable-install-capi --enable-dtrace" rbenv install --skip-existing --verbose 2.6.3
 env -- MAKE_OPT='-j8' CFLAGS='-g2 -ggdb -O3' RUBY_CONFIGURE_OPTS="--with-openssl-dir=$(brew --prefix openssl)  --with-readline-dir=$(brew --prefix readline) --disable-install-doc --disable-install-rdoc --disable-install-capi --enable-dtrace" rbenv install --skip-existing --verbose 2.6.5
+# env -- MAKE_OPT='-j8' CFLAGS='-g2 -ggdb -O3' RUBY_CONFIGURE_OPTS="--with-openssl-dir=$(brew --prefix openssl)  --with-readline-dir=$(brew --prefix readline) --disable-install-doc --disable-install-rdoc --disable-install-capi --enable-dtrace" rbenv install --skip-existing --verbose 2.6.6
 # env -- MAKE_OPT='-j8' CFLAGS='-g2 -ggdb -O3' RUBY_CONFIGURE_OPTS="--with-openssl-dir=$(brew --prefix openssl)  --with-readline-dir=$(brew --prefix readline) --disable-install-doc --disable-install-rdoc --disable-install-capi --enable-dtrace" rbenv install --skip-existing --verbose 2.7.0
+# env -- MAKE_OPT='-j8' CFLAGS='-g2 -ggdb -O3' RUBY_CONFIGURE_OPTS="--with-openssl-dir=$(brew --prefix openssl)  --with-readline-dir=$(brew --prefix readline) --disable-install-doc --disable-install-rdoc --disable-install-capi --enable-dtrace" rbenv install --skip-existing --verbose 2.7.2
 
 # installer files cleanup
 # cd /usr/local
@@ -146,9 +148,9 @@ brew doctor
 # rbenv shell  2.3.6
 # rbenv global 2.3.6
 # rbenv global 2.5.1
-echo '## setting default shell ruby to 2.6.1'
-rbenv shell  2.6.1
-rbenv global 2.6.1
+echo '## setting default shell ruby to 2.6.5'
+rbenv shell  2.6.5
+rbenv global 2.6.5
 
 # rbenv shell  2.3.1
 # rbenv global 2.3.1
@@ -159,22 +161,23 @@ rbenv versions
 ## example use cases of some of our plugins
 
 ### update all your rubygems and bundlers on all your rubies
-function update_rubygems_bundler_for_rbenv_all() {
+function rbenv-update_rubygems_bundler_for_rbenv_all() {
   rbenv update
   rbenv each gem update --system
-  rbenv each gem install bundler
+  rbenv exec gem install bundler -v '~> 1.7'
+  rbenv exec gem install bundler -v '~> 2.0'
   rbenv each gem update bundler
 }
-# update_rubygems_bundler_for_rbenv_all;
+# rbenv-update_rubygems_bundler_for_rbenv_all;
 
-
-function update_rubygems_bundler_for_rbenv_local() {
+function rbenv-update_rubygems_bundler_for_rbenv_local() {
   rbenv exec gem update --system
-  rbenv exec gem install bundler
+  rbenv exec gem install bundler -v '~> 1.7'
+  rbenv exec gem install bundler -v '~> 2.0'
   rbenv exec gem update bundler
   rbenv exec gem list | grep bundler
 }
-update_rubygems_bundler_for_rbenv_local;
+rbenv-update_rubygems_bundler_for_rbenv_local;
 
 # eventmachine openssl issues
 # bundle config --global build.eventmachine --with-cppflags=-I$(brew --prefix openssl)/include
@@ -219,26 +222,19 @@ update_rubygems_bundler_for_rbenv_local;
 ### RED ALERT clean house
 ####
 #
-function  show_rbenv_space_usage() {
+function  rbenv-show_space_usage() {
+  du -hsc "$(rbenv root)"
   du -hsc "$(rbenv root)"/versions/*
 }
-function update_rubygems_bundler_for_rbenv_all() {
-  rbenv update
-  rbenv each gem update --system
-  rbenv each gem install bundler
-  rbenv each gem update bundler
-}
-function cleanup_gems_for_each_installed_ruby() {
+function rbenv-cleanup_gems_for_each_installed_ruby() {
   yes | rbenv each gem cleanup
   rbenv each uninstall_gems.sh
   # now reinstall some basics
   rbenv each gem install 'bundler' 'pry' 'pry-byebug' 'pry-doc' 'yard' 'bcat'
 }
-show_rbenv_space_usage;
-update_rubygems_bundler_for_rbenv_all;
-cleanup_gems_for_each_installed_ruby;
-show_rbenv_space_usage;
+# rbenv-show_space_usage;
+# rbenv-update_rubygems_bundler_for_rbenv_all;
+# rbenv-cleanup_gems_for_each_installed_ruby;
+# rbenv-show_space_usage;
 
 exit 0
-
-
