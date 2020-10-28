@@ -63,6 +63,9 @@ name-mangler
 ntfs-3g
 openssh
 openssl
+postgresql@9
+postgresql@9.5
+postgresql@9.6
 postgresql@10
 postgresql@10.10
 postgresql@10.11
@@ -70,15 +73,13 @@ postgresql@10.6
 postgresql@10.7
 postgresql@10.8
 postgresql@10.9
+postgresql@11
 postgresql@11.1
 postgresql@11.2
 postgresql@11.3
 postgresql@11.4
 postgresql@11.5
 postgresql@11.6
-postgresql@9
-postgresql@9.5
-postgresql@9.6
 python
 python@2
 readline
@@ -94,13 +95,19 @@ echo ""
 
 TO_UPDATE_LIST_WITH_IGNORES=$(diff <(echo "$IGNORE_LIST" | sort | uniq) <(echo "$TO_UPDATE_LIST" | sort | uniq)  | grep ^\> | cut -d' ' -f2)
 
-echo "things I actually want to update:"
 echo $TO_UPDATE_LIST_WITH_IGNORES
-echo ""
 
-for PACKAGE_TO_UPGRADE in ${TO_UPDATE_LIST_WITH_IGNORES}; do
-  echo "brew upgrade ${PACKAGE_TO_UPGRADE}"
-done
+function small_ruby_program() {
+cat << EOF
+  list_to_update = \$stdin.read;
+
+  list_to_update.split("\n").each do |upgradable_package|
+    puts "brew upgrade '#{upgradable_package}'";
+  end
+EOF
+}
+
+echo $TO_UPDATE_LIST_WITH_IGNORES | ruby -e "$(small_ruby_program)"
 
 ##
 ### Final cleanup
