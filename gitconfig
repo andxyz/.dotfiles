@@ -359,3 +359,5 @@ version = 2
     date = relative
 [mailmap]
     file = ~/.mailmap-private
+[rebase]
+	autosquash = true
