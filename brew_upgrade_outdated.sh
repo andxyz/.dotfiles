@@ -2,6 +2,8 @@
 
 set -eufo pipefail
 
+# Sept 2020
+
 brew upgrade 'automake'
 brew upgrade 'awscli'
 brew upgrade 'bash-completion@2'
@@ -31,5 +33,24 @@ brew upgrade 'rake-completion'
 brew upgrade 'redis'
 brew upgrade 'rs/tap/curlie'
 brew upgrade 'tika'
+brew upgrade 'vagrant-completion'
+brew upgrade 'youtube-dl'
+
+# Nov 2020
+
+brew upgrade 'awscli'
+brew upgrade 'django-completion'
+brew upgrade 'ffmpeg'
+brew upgrade 'fzf'
+brew upgrade 'git'
+brew upgrade 'git-lfs'
+brew upgrade 'grep'
+brew upgrade 'muesli/tap/duf'
+brew upgrade 'nomad'
+brew upgrade 'rbspy'
+brew upgrade 'redis'
+brew upgrade 'rs/tap/curlie'
+brew upgrade 'tmuxinator-completion'
+brew upgrade 'unrar'
 brew upgrade 'vagrant-completion'
 brew upgrade 'youtube-dl'
