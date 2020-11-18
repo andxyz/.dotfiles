@@ -8,7 +8,7 @@ set -e
 ## house cleaning round 1
 brew update
 brew cleanup -s
-brew prune
+# brew prune
 brew outdated
 
 ## crazy data science tools
@@ -38,6 +38,7 @@ hash -r
 brew install lua
 brew install luajit
 luarocks install luajson
+
 ### conda things
 conda create -n py3k python=3 anaconda
 conda install pyzmq --yes
@@ -50,7 +51,7 @@ conda install jupyter --yes
 conda update jupyter --yes
 conda install ipython
 conda install -c ipython-notebook --yes
-conda install -c r r-irkernel --yes
+# Native R kernel for Jupyter
 conda install -c r r-irkernel --yes
 
 ## try python3 with anaconda
@@ -58,5 +59,5 @@ brew cask install anaconda
 conda create -n py3k python=3 anaconda
 
 ### some brew cleanup
-brew cleanup -s && brew prune
+brew cleanup -s
 brew doctor
