@@ -361,3 +361,5 @@ version = 2
     file = ~/.mailmap-private
 [rebase]
 	autosquash = true
+[fetch]
+	prune = true
