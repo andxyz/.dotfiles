@@ -48,10 +48,10 @@ function brew_run_a_cleanup() {
 # note I pay for alfred and name-mangler casks, so I don't want the lastest
 IGNORE_LIST="carthage
 alfred
-curl
+elastic/tap/elasticsearch-oss
+elastic/tap/kibana-oss
 ffmpeg
 gnupg
-go
 gpg-agent
 hunspell
 imagemagick
@@ -97,11 +97,14 @@ TO_UPDATE_LIST_WITH_IGNORES=$(diff <(echo "$IGNORE_LIST" | sort | uniq) <(echo "
 
 echo $TO_UPDATE_LIST_WITH_IGNORES
 
+echo "here is the list a bit nicer"
+echo ""
+
 function small_ruby_program() {
 cat << EOF
   list_to_update = \$stdin.read;
 
-  list_to_update.split("\n").each do |upgradable_package|
+  list_to_update.split(" ").each do |upgradable_package|
     puts "brew upgrade '#{upgradable_package}'";
   end
 EOF
