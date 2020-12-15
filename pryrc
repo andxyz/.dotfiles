@@ -88,20 +88,23 @@ if Kernel.const_defined?(:Rails) && ::Rails.env
     end
 
     # Hit all models for auto-completion
-    ApplicationRecord.descendants.each do |klass|
-      klass.name.constantize.column_names
-    rescue ActiveRecord::StatementInvalid => e
-      # do nothing, rails is having trouble loading
-    rescue StandardError => e
-      puts "oh, okay then"
-      puts e.class if e.class
-      puts e.message if e.message
-      puts e.cause if e.cause
-      puts e.backtrace if e.backtrace
-    end; nil
+    def pry_enable_autocomplete
+      ApplicationRecord.descendants.each do |klass|
+        klass.name.constantize.column_names
+      rescue ActiveRecord::StatementInvalid => e
+        # do nothing, rails is having trouble loading
+      rescue StandardError => e
+        puts "oh, okay then"
+        puts e.class if e.class
+        puts e.message if e.message
+        puts e.cause if e.cause
+        puts e.backtrace if e.backtrace
+      end
+    end
 
     # logging into console by default
-    pry_enable_logger
+    # pry_enable_logger
+    # pry_enable_autocomplete
   end
 end
 
