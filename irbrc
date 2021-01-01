@@ -20,7 +20,7 @@ puts "Loaded irbrc"
 begin
   pry_gem_locations = []
   require 'bundler'
-  Bundler.with_clean_env do
+  Bundler.with_unbundled_env do
     # gem dependency pry-doc --version '>= 0.10'
     pry_gem_locations = %x{ dirname `gem which 'pry'` }
     pry_gem_locations = %x{ dirname `gem which 'pry-byebug'` }
