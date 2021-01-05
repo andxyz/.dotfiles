@@ -89,10 +89,13 @@ man() {
 
 alias rezsh='source "${HOME}"/.zprofile; source "${HOME}"/.zshrc;'
 
+##
+# Disable for now till I figure out https://apple.stackexchange.com/questions/395341/iterm2-cmdclick-tries-to-download-url-as-it-is-a-remote-file
+##
 # pull in iterm2 shell integrations
-if [[ -e "${HOME}/.iterm2_shell_integration.zsh" ]]; then
-  source "${HOME}/.iterm2_shell_integration.zsh"
-fi
+# if [[ -e "${HOME}/.iterm2_shell_integration.zsh" ]]; then
+#   source "${HOME}/.iterm2_shell_integration.zsh"
+# fi
 
 # for interactive to have access to languages
 #source_golang110_path
