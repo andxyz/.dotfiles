@@ -25,15 +25,23 @@ Pry.config.editor = 'subl -w'
 # ==============================
 if Kernel.const_defined?(:Rails) && ::Rails.env
   begin
+    # rails 4 -> rails 6
     require File.join(Rails.root, 'config', 'environment')
     require 'rails/console/app'
     require 'rails/console/helpers'
     extend Rails::ConsoleMethods
     puts 'Rails Console Helpers loaded'
   rescue LoadError => e
+    # older rails < 4
     require 'console_app'
     require 'console_with_helpers'
     puts 'Rails Console Helpers loaded'
+  rescue TypeError
+    # sometimes files don't exist to require,
+    # throwing TypeError: no implicit conversion of nil into String
+    # just move on
+
+    nil
   end
 
   require 'json'
