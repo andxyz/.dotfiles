@@ -32,7 +32,7 @@ lib/tasks/log.rake
 *.sublime-workspace
 *.sublime-project
 .sublimelinterrc
-
+.vscode/
 # VIM
 [._]*.s[a-w][a-z]
 [._]s[a-w][a-z]
