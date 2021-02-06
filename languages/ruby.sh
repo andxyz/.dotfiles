@@ -198,7 +198,7 @@ rbenv-update_rubygems_bundler_for_rbenv_local;
 # echo "bcat" >> "${HOME}"/.rbenv/default-gems
 # echo "gem-browse" >> "${HOME}"/.rbenv/default-gems
 # echo "gem-ctags" >> "${HOME}"/.rbenv/default-gems
-# echo "gem-open" >> "${HOME}"/.rbenv/default-gems
+# echo "rbenv-ctags" >> "${HOME}"/.rbenv/default-gems
 
 # echo "interactive_editor" >> "${HOME}"/.rbenv/default-gems
 # echo "awesome_print" >> "${HOME}"/.rbenv/default-gems
