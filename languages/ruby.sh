@@ -1,12 +1,17 @@
 #!/usr/bin/env bash
+#
 # curl -fsSL https://github.com/andxyz/.dotfiles/raw/master/languages/ruby.sh | bash
 # source ~/code/andxyz-dotfiles/languages/ruby.sh
-set -xe
+#
+# `shellcheck /Users/andrew/code/andxyz-dotfiles/languages/ruby.sh`
+#
+set -x
+set -e
 
 ## see https://github.com/sstephenson/rbenv/wiki/_pages
 echo '## installing rbenv'
-git clone https://github.com/sstephenson/rbenv.git $HOME/.rbenv
-export -- PATH="$HOME/.rbenv/bin:$PATH" &&
+git clone https://github.com/sstephenson/rbenv.git "${HOME}"/.rbenv
+export -- PATH="${HOME}/.rbenv/bin:$PATH" &&
 eval "$(rbenv init -)"
 
 # optional, but recommended:
@@ -19,13 +24,13 @@ brew unlink libffi   || true
 brew unlink libyaml  || true
 brew unlink readline || true
 
-brew install openssl  && brew upgrade openssl  || true
-brew install libffi   && brew upgrade libffi   || true
-brew install libyaml  && brew upgrade libyaml  || true
-brew install readline && brew upgrade readline || true
-brew install libxml2  && brew upgrade libxml2  || true
-brew install libxslt  && brew upgrade libxslt  || true
-brew install postgresql@11  && brew upgrade postgresql@11  || true
+(brew install openssl  && brew upgrade openssl)  || true
+(brew install libffi   && brew upgrade libffi)   || true
+(brew install libyaml  && brew upgrade libyaml)  || true
+(brew install readline && brew upgrade readline) || true
+(brew install libxml2  && brew upgrade libxml2)  || true
+(brew install libxslt  && brew upgrade libxslt)  || true
+(brew install postgresql@11  && brew upgrade postgresql@11)  || true
 
 brew link openssl --force || true
 brew link libffi --force || true
@@ -39,18 +44,18 @@ export CPPFLAGS="-I/usr/local/opt/openssl@1.1/include -I/usr/local/opt/libffi/in
 
 ## plugins ahoy, see https://github.com/sstephenson/rbenv/wiki/Plugins
 echo '## installing rbenv plugins'
-mkdir $HOME/.rbenv/plugins/
-git clone https://github.com/sstephenson/ruby-build.git $HOME/.rbenv/plugins/ruby-build
-git clone https://github.com/rbenv/rbenv-each.git $HOME/.rbenv/plugins/rbenv-each
-git clone https://github.com/rkh/rbenv-update.git $HOME/.rbenv/plugins/rbenv-update
-git clone https://github.com/sstephenson/rbenv-gem-rehash.git $HOME/.rbenv/plugins/rbenv-gem-rehash
-git clone https://github.com/sstephenson/rbenv-default-gems.git $HOME/.rbenv/plugins/rbenv-default-gems
+mkdir "${HOME}"/.rbenv/plugins/
+git clone https://github.com/sstephenson/ruby-build.git "${HOME}"/.rbenv/plugins/ruby-build
+git clone https://github.com/rbenv/rbenv-each.git "${HOME}"/.rbenv/plugins/rbenv-each
+git clone https://github.com/rkh/rbenv-update.git "${HOME}"/.rbenv/plugins/rbenv-update
+git clone https://github.com/sstephenson/rbenv-gem-rehash.git "${HOME}"/.rbenv/plugins/rbenv-gem-rehash
+git clone https://github.com/sstephenson/rbenv-default-gems.git "${HOME}"/.rbenv/plugins/rbenv-default-gems
 
 ls "$(rbenv root)"/plugins
 
 ## prepare ruby-build, see https://github.com/sstephenson/ruby-build/wiki
 cd "$(rbenv root)"/plugins/ruby-build && git pull
-cd $HOME
+cd "${HOME}"
 
 ## make sure rbenv is uptodate
 rbenv update
@@ -185,23 +190,26 @@ rbenv-update_rubygems_bundler_for_rbenv_local;
 
 ### add some default gems for new ruby installs
 # gem install bundle pry pry-byebug pry-doc yard bcat
-# echo "bundle" >> $HOME/.rbenv/default-gems
-# echo "pry" >> $HOME/.rbenv/default-gems
-# echo "pry-byebug" >> $HOME/.rbenv/default-gems
-# echo "pry-doc" >> $HOME/.rbenv/default-gems
-# echo "yard" >> $HOME/.rbenv/default-gems
-# echo "bcat" >> $HOME/.rbenv/default-gems
+# echo "bundle" >> "${HOME}"/.rbenv/default-gems
+# echo "pry" >> "${HOME}"/.rbenv/default-gems
+# echo "pry-byebug" >> "${HOME}"/.rbenv/default-gems
+# echo "pry-doc" >> "${HOME}"/.rbenv/default-gems
+# echo "yard" >> "${HOME}"/.rbenv/default-gems
+# echo "bcat" >> "${HOME}"/.rbenv/default-gems
+# echo "gem-browse" >> "${HOME}"/.rbenv/default-gems
+# echo "gem-ctags" >> "${HOME}"/.rbenv/default-gems
+# echo "gem-open" >> "${HOME}"/.rbenv/default-gems
 
-# echo "interactive_editor" >> $HOME/.rbenv/default-gems
-# echo "awesome_print" >> $HOME/.rbenv/default-gems
+# echo "interactive_editor" >> "${HOME}"/.rbenv/default-gems
+# echo "awesome_print" >> "${HOME}"/.rbenv/default-gems
 
-# echo "octodown" >> $HOME/.rbenv/default-gems
-# echo "octokit" >> $HOME/.rbenv/default-gems
-# echo "faraday" >> $HOME/.rbenv/default-gems
-# echo "rest-client" >> $HOME/.rbenv/default-gems
+# echo "octodown" >> "${HOME}"/.rbenv/default-gems
+# echo "octokit" >> "${HOME}"/.rbenv/default-gems
+# echo "faraday" >> "${HOME}"/.rbenv/default-gems
+# echo "rest-client" >> "${HOME}"/.rbenv/default-gems
 
 #
-# cat $HOME/.rbenv/default-gems
+# cat "${HOME}"/.rbenv/default-gems
 
 ### check which rubies have a gem installed for it
 # rbenv whence bundle
