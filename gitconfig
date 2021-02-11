@@ -89,8 +89,9 @@ version = 2
     ## make sure to `npm install -g --silent --no-progress --quiet --depth=0 diff-so-fancy` try `npm ls -g --depth=0`
 
     ddiff = "!fgitdiff0() { git diff --color \"$@\" | diff-so-fancy | less --tabs=4 -RFXS; }; fgitdiff0"
-    ddiffc = "!fgitdiff1() { git diff --cached --color $@ | diff-so-fancy | less --tabs=4 -RFXS; }; fgitdiff1"
-    d = "!fgitdiff1() { git diff --cached --color $@ | diff-so-fancy | less --tabs=4 -RFXS; }; fgitdiff1"
+    ddiffc = "!fgitdiffc0() { git diff --cached --color $@ | diff-so-fancy | less --tabs=4 -RFXS; }; fgitdiffc0"
+    d = "ddiff"
+    dc = "ddiffc"
 
     # personal git log opinions
     llog         = log --topo-order --graph
