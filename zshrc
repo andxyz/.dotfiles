@@ -1,4 +1,4 @@
-#!/usr/bin/env zsh
+#!/usr/bin/env bash
 # set -x
 # set -e
 #
@@ -27,6 +27,7 @@ fi
 
 # forcing paths on a mac when using interactive shell
 export -- PATH=/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/opt/X11/bin
+
 [[ -f ~/.shell/path_envs ]]         && source ~/.shell/path_envs
 [[ -f ~/.shell/path_envs_private ]] && source ~/.shell/path_envs_private
 
@@ -60,9 +61,9 @@ if [[ "$PROFILE_STARTUP" == true ]]; then
   exec 2>&3 3>&-
 fi
 
+## Show me what is listed in my PATH for interactive shells
 echo \
-"""export -- PATH=
-$PATH"""
+"""export -- PATH=$PATH"""
 
 # https://tanguy.ortolo.eu/blog/article25/shrc
 
