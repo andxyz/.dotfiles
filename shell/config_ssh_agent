@@ -50,18 +50,19 @@ test_osx_ssh_agent() {
 # https://github.com/wwalker/ssh-find-agent
 # make sure to git pull the latest
 # cd ~/bin && git pull
-source ${HOME}/bin/ssh-find-agent.sh
+source "${HOME}"/bin/ssh-find-agent.sh
 
 ## Important Note: remember to set the soft links
-# ln -s /Users/andxyz/.ssh/andxyz_github.privatekey andxyz-github
-# ln -s /Users/andxyz/.ssh/companyname.privatekey andxyz-work
+# ls -l "${HOME}"/.ssh
+# ln -s "${HOME}"/.ssh/andxyz_github.privatekey andxyz-github
+# ln -s "${HOME}"/.ssh/companyname.privatekey andxyz-work
 
 use_brew_ssh_agent_setup() {
   unset SSH_AUTH_SOCK
   unset SSH_AGENT_PID
   lunchy start 'org.homebrew.ssh-agent' > /dev/null 2>&1
   export SSH_AUTH_SOCK="$HOME/.ssh-agent.sock"
-  ssh_find_agent -a || eval $(ssh-agent) > /dev/null
+  ssh_find_agent -a || eval "$(ssh-agent)" > /dev/null
   echo "SSH_AUTH_SOCK = ${SSH_AUTH_SOCK}"
   echo "SSH_AGENT_PID = ${SSH_AGENT_PID}"
   /usr/local/bin/ssh-add ~/.ssh/andxyz-github || true
@@ -76,7 +77,7 @@ use_osx_ssh_agent_setup() {
   launchctl start 'com.openssh.ssh-agent' > /dev/null 2>&1
 
   if [ -z "${SSH_AUTH_SOCK}" ] && [ -z "${SSH_AGENT_PID}" ] ; then
-    ssh_find_agent -a || eval $(ssh-agent) > /dev/null
+    ssh_find_agent -a || eval "$(ssh-agent)" > /dev/null
   fi
 
   ## puts info

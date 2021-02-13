@@ -1,8 +1,7 @@
 #!/usr/bin/env bash
 # echo 'fuck that you have new mail shit'
 unset MAILCHECK
-test -f "$HOME/.hushlogin" &&
-touch $HOME/.hushlogin
+test -f "${HOME}/.hushlogin" && touch "${HOME}/.hushlogin"
 
 # disable the fucking core dumps
 ulimit -S -c 0
@@ -14,8 +13,8 @@ ulimit -S -c 0
 # #!/bin/sh
 # #open -Wn -- "$@"
 # subl -w -- "$@"
-export -- EDITOR="subl -w -n -- ${@}"
-export -- EDITOR_USING_CURRENT_PROJECT="subl -- ${@}"
+export -- EDITOR="subl -w -n -- ${*}"
+export -- EDITOR_USING_CURRENT_PROJECT="subl -- ${*}"
 export -- PAGER="less -R"
 export -- VISUAL="${EDITOR}"
 
@@ -32,23 +31,15 @@ export -- HOMEBREW_NO_AUTO_UPDATE=1 # sounds good to me
 
 # [ -n "$PS1" ] && source "$HOME/code/_clone/base16-shell/scripts/base16-default-dark.sh" # colors
 
-## disable for now, not enough tips :D
-# Displays a random tip from the .tips directory when opening the shell
-# Requires gshuf (brew install coreutils)
-# (
-#   TIP_PATH=$(find ~/.tips -type f -name tips.txt | gshuf -n1)    # Pick a random tips.txt file
-#   TIP_TILE=${TIP_PATH#"$HOME/.tips/"}                            # i.e., ~/.tips/vim/vanilla/tips.txt  --->  vim/vanilla/tips.txt
-#   echo "From ${TIP_TILE%.txt}:"                                  # i.e., "From vim/vanilla/tips:"
-#   gshuf -n1 < "$TIP_PATH"                                        # Displays a random line from the tip file
-# )
-
-
 # brew info z
+# shellcheck source=/usr/local/etc/profile.d/z.sh
 source /usr/local/etc/profile.d/z.sh
 
 # use the homebrew git prompt script else use and old one
 if test -f /usr/local/etc/bash_completion.d/git-prompt.sh; then
+  # shellcheck source=/usr/local/etc/bash_completion.d/git-prompt.sh
   source /usr/local/etc/bash_completion.d/git-prompt.sh
 else
-  source $HOME/.shell/git-prompt.sh
+  # shellcheck source="${HOME}"/.shell/git-prompt.sh
+  source "${HOME}"/.shell/git-prompt.sh
 fi
