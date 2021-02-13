@@ -1,0 +1,9 @@
+#!/usr/bin/env zsh
+
+function ddockerinit {
+  set -x
+  docker-machine start
+  eval $(docker-machine env default)
+  export -- DOCKER_IP=$(docker-machine ip default)
+  set +x
+}

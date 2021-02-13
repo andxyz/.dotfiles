@@ -1,4 +1,4 @@
 #!/usr/bin/env zsh
 
 # a wip for showing files with their fullpath from root
-lll() { ls -lrt -d -1 $PWD/{*,.*}; }
+lll() { ls -lrt -d -1 "${PWD}"/*; }
