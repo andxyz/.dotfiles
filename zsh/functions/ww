@@ -1,4 +1,9 @@
 #!/usr/local/bin/zsh
+#
+# ln -s /Users/andrew/orbis /Users/andrew/work
+# ln -s /Users/andrew/pilot /Users/andrew/work
+# ln -s /Users/andrew/thescore /Users/andrew/work
+# ln -s /Users/andrew/wonolo   /Users/andrew/work
 
-cd $HOME/work/$1;
+cd "${HOME}"/work/$1;
 sset $1;

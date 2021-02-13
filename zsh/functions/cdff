@@ -7,4 +7,4 @@ function cdff_show_folder_name { osascript -e 'tell application "Finder"'\
  -e 'end if' -e 'end tell'; };\
 
 # cd to the front most finder window
-function cdff { cd "$(cdff_show_folder_name $@)"; };
+function cdff { cd "$(cdff_show_folder_name $@)"; echo "${PWD}" };
