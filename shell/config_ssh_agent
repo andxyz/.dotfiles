@@ -20,7 +20,7 @@
 ## test brew ssh setup with github
 test_brew_ssh_agent() {
   /usr/local/bin/ssh -V
-  $(find /usr/local/Cellar/openssl -name 'openssl' -type f) version
+  $(find /usr/local/Cellar/openssl* -name 'openssl' -type f) version
 
   # /usr/local/bin/ssh-agent
   /usr/local/bin/ssh-add ~/.ssh/andxyz-github
