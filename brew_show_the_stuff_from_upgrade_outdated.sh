@@ -2,7 +2,7 @@
 #
 # upgrade all my outdated stuff
 # run this file with:
-# `cd ~/code/andxyz-dotfiles && ./brew_upgrade_outdated.sh`
+# `cd ~/code/andxyz-dotfiles && ./brew_show_the_stuff_from_upgrade_outdated.sh`
 
 # set -x
 set -e
@@ -63,6 +63,7 @@ name-mangler
 ntfs-3g
 openssh
 openssl
+postgresql
 postgresql@9
 postgresql@9.5
 postgresql@9.6

@@ -366,28 +366,28 @@ brew cask install 'slimbatterymonitor'
 
 
 # color pickers
-brew cask install colorpicker-developer --force
-brew cask install colorpicker-propicker --force
-brew cask install colorpicker-hex --force
-brew cask install icolors --force
+brew install colorpicker-developer --force
+brew install colorpicker-propicker --force
+brew install colorpicker-hex --force
+# brew install icolors --force
 
 ### OSX quicklook plugins
 # see https://github.com/sindresorhus/quick-look-plugins
 sudo ls # enter password so installs are clean
-brew cask install 'betterzip' --force #installs app and ql extension for zips
-brew cask install 'ipaql' --force # errored, doesnt exist? ipaql
-brew cask install 'provisionql' --force
-brew cask install 'qlcolorcode' --force
-brew cask install 'qlimagesize' --force
-brew cask install 'qlmarkdown' --force
-brew cask install 'qlprettypatch' --force
-brew cask install 'qlstephen' --force
-brew cask install 'qlvideo' --force
-brew cask install 'quicklook-json' --force
-brew cask install 'quicklookapk' --force
-brew cask install 'quicknfo' --force
-brew cask install 'suspicious-package' --force
-brew cask install 'webpquicklook' --force
+brew install 'betterzip' --force #installs app and ql extension for zips
+# brew install 'ipaql' --force # errored, doesnt exist? ipaql
+brew install 'provisionql' --force
+brew install 'qlcolorcode' --force
+brew install 'qlimagesize' --force
+brew install 'qlmarkdown' --force
+brew install 'qlprettypatch' --force
+brew install 'qlstephen' --force
+brew install 'qlvideo' --force
+brew install 'quicklook-json' --force
+brew install 'quicklookapk' --force
+brew install 'quicknfo' --force
+brew install 'suspicious-package' --force
+brew install 'webpquicklook' --force
 cd ~/Library/QuickLook/ && qlmanage -r && cd -
 
 # brew cask install provisioning
