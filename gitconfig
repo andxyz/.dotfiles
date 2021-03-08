@@ -51,6 +51,18 @@
     # When always, rebase will be set to true for all tracking branches
     autosetuprebase = always
 
+[rebase]
+    autosquash = true
+
+[fetch]
+    prune = true
+
+[pull]
+    rebase = true
+
+[remote]
+    pushDefault = origin
+
 # fooling around thanks to https://github.com/imbsky/dotfiles/blob/fc18a09126148365bea7a19dcedca0a47c4c44ee/gitconfig
 # see https://git-scm.com/docs/protocol-v2
 [protocol]
@@ -279,7 +291,7 @@ version = 2
 #
 [difftool "sourcetree"]
 	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
-	path = 
+	path =
 [mergetool "sourcetree"]
 	cmd = /Applications/Sourcetree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
 	trustExitCode = true
@@ -312,6 +324,15 @@ version = 2
 
 [merge "ours"]
     driver = true
+
+# yoinked from https://github.com/exterm/dotfiles/blob/dd2dad77ef8d63273eb2b599ddca5b140ec4e509/.gitconfig#L28
+[mergetool "labeled-meld"]
+    cmd = `which meld` --output=$MERGED \
+          $LOCAL  --label 'current branch' \
+          $BASE   --label 'common base (and result file)' \
+          $REMOTE --label 'to be merged' \
+          2>/dev/null
+    trustExitCode = false
 
 #
 # ctags are kind of a pain when they run wild
@@ -360,7 +381,3 @@ version = 2
     date = relative
 [mailmap]
     file = ~/.mailmap-private
-[rebase]
-	autosquash = true
-[fetch]
-	prune = true
