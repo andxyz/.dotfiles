@@ -38,6 +38,12 @@
 [push]
     default = simple
 
+[remote]
+    pushDefault = origin
+
+[pull]
+    rebase = true
+
 [filter "lfs"]
     required = true
     clean = git-lfs clean -- %f
@@ -57,11 +63,6 @@
 [fetch]
     prune = true
 
-[pull]
-    rebase = true
-
-[remote]
-    pushDefault = origin
 
 # fooling around thanks to https://github.com/imbsky/dotfiles/blob/fc18a09126148365bea7a19dcedca0a47c4c44ee/gitconfig
 # see https://git-scm.com/docs/protocol-v2
