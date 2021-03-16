@@ -18,23 +18,25 @@ puts "Loaded irbrc"
 # ==============================
 # Try to force pry-byebug
 begin
-  pry_gem_locations = []
+  extra_gem_locations = []
   require 'bundler'
   Bundler.with_unbundled_env do
     # gem dependency pry-doc --version '>= 0.10'
-    pry_gem_locations = %x{ dirname `gem which 'pry'` }
-    pry_gem_locations = %x{ dirname `gem which 'pry-byebug'` }
-    pry_gem_locations << %x{ dirname `gem which 'byebug'` }
+    extra_gem_locations = %x{ dirname `gem which 'pry'` }
+    extra_gem_locations << %x{ dirname `gem which 'niceql'` }
+    extra_gem_locations << %x{ dirname `gem which 'pry-byebug'` }
+    extra_gem_locations << %x{ dirname `gem which 'byebug'` }
   end
-  # puts pry_gem_locations
-  pry_gem_locations.split("\n").each do |gem_location|
+  # puts extra_gem_locations
+  extra_gem_locations.split("\n").each do |gem_location|
     # puts gem_location
     $LOAD_PATH.unshift(File.join(File.dirname(gem_location), 'lib'))
   end
   # puts $LOAD_PATH
   ::Kernel.require('pry-byebug')
+  ::Kernel.require('niceql')
 rescue => e
-  puts "oh well, try gem install 'pry-byebug'"
+  puts "oh well, maybe try rbenv exec gem install 'pry-byebug'"
   puts e.message if e.message
   puts e.cause if e.cause
   puts e.backtrace if e.backtrace

@@ -45,6 +45,7 @@ if Kernel.const_defined?(:Rails) && ::Rails.env
   end
 
   require 'json'
+
   def pp_json(object)
     if object.is_a?(String)
       puts JSON.pretty_generate(JSON.parse(object))
@@ -52,6 +53,21 @@ if Kernel.const_defined?(:Rails) && ::Rails.env
       puts JSON.pretty_generate(object)
     end
   end
+
+  begin
+    ::Kernel.require('niceql')
+  rescue => e
+    puts "oh well, maybe try rbenv exec gem install 'niceql'"
+    puts e.message if e.message
+    puts e.cause if e.cause
+    puts e.backtrace if e.backtrace
+  end
+
+  def pp_sql(object)
+    if object.is_a?(String)
+      puts ::Niceql::Prettifier.prettify_sql(object)
+    end
+  end if defined?(::Niceql)
 
   ## https://github.com/travisjeffery/dotfiles/blob/master/.railsrc
   require 'logger'
