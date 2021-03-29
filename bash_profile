@@ -16,7 +16,7 @@ test -f ~/.profile_wonolo_private  && source ~/.profile_wonolo_private
 # launchctl setenv PATH $PATH
 # TODO: make it work
 # function source_node_env() {
-  test -f $HOME/.nvm/nvm.sh  && source $HOME/.nvm/nvm.sh
+  test -f $HOME/.nvm/nvm.sh && source $HOME/.nvm/nvm.sh
 # }
 
 # source_ruby_env() {
