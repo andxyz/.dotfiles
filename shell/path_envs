@@ -1,32 +1,36 @@
 #!/usr/bin/env bash
 
 ## andxyz path stuff
-export -- PATH="/usr/local/opt/coreutils/bin:$PATH" # use g prefixed names for coreutils
-export -- PATH="/usr/local/opt/coreutils/libexec/gnubin:$PATH" # use non g prefixed names for coreutils see "brew info coreutils"
-export -- PATH="/usr/local/opt/findutils/libexec/gnubin:$PATH" # brew info findutils
-export -- PATH="/usr/local/opt/gnu-sed/libexec/gnubin:$PATH"
-export -- PATH="/usr/local/opt/gnu-tar/libexec/gnubin:$PATH"
-export -- PATH="$HOME/bin:/usr/local/sbin:/usr/local/bin:$PATH"
+export -- PATH="/usr/local/opt/coreutils/bin:${PATH}" # use g prefixed names for coreutils
+export -- PATH="/usr/local/opt/coreutils/libexec/gnubin:${PATH}" # use non g prefixed names for coreutils see "brew info coreutils"
+export -- PATH="/usr/local/opt/findutils/libexec/gnubin:${PATH}" # brew info findutils
+export -- PATH="/usr/local/opt/gnu-sed/libexec/gnubin:${PATH}"
+export -- PATH="/usr/local/opt/gnu-tar/libexec/gnubin:${PATH}"
+export -- PATH="${HOME}/.cargo/bin:${PATH}"
+export -- PATH="${HOME}/bin:/usr/local/sbin:/usr/local/bin:${PATH}"
 ## add openssl to path
-export PATH="/usr/local/opt/openssl/bin:$PATH"
+export PATH="/usr/local/opt/openssl/bin:${PATH}"
 
 ## andxyz manpath stuff
-export -- MANPATH="/usr/local/opt/coreutils/libexec/gnuman:$MANPATH" # brew info coreutils
-export -- MANPATH="/usr/local/opt/findutils/libexec/gnuman:$MANPATH" # brew info findutils
-export -- MANPATH="/usr/local/opt/gnu-sed/libexec/gnuman:$MANPATH"
-export -- MANPATH="/usr/local/opt/gnu-tar/libexec/gnuman:$MANPATH"
-export -- MANPATH="/usr/local/share/man:$MANPATH"
+export -- MANPATH="/usr/local/opt/coreutils/libexec/gnuman:${MANPATH}" # brew info coreutils
+export -- MANPATH="/usr/local/opt/findutils/libexec/gnuman:${MANPATH}" # brew info findutils
+export -- MANPATH="/usr/local/opt/gnu-sed/libexec/gnuman:${MANPATH}"
+export -- MANPATH="/usr/local/opt/gnu-tar/libexec/gnuman:${MANPATH}"
+export -- MANPATH="/usr/local/share/man:${MANPATH}"
 
 ### language setup stuff
 
-# android sdk magic
-export -- STUDIO_JDK=/Library/Java/JavaVirtualMachines/jdk1.8.0_131.jdk/
+# android sdk nonsense
+test -d "/Library/Java/JavaVirtualMachines/jdk1.8.0_131.jdk/" &&
+  export -- STUDIO_JDK=/Library/Java/JavaVirtualMachines/jdk1.8.0_131.jdk/
+test -d "/Library/Java/JavaVirtualMachines/jdk-13.0.1.jdk/" &&
+  export -- STUDIO_JDK=/Library/Java/JavaVirtualMachines/jdk-13.0.1.jdk/
 test -d "/Applications/android-sdk-macosx/" &&
-export -- ANDROID_HOME=/Applications/android-sdk-macosx/
+  export -- ANDROID_HOME=/Applications/android-sdk-macosx/
 test -d "/Applications/android-sdk-macosx/platform-tools" &&
-export -- PATH="$PATH:/Applications/android-sdk-macosx/platform-tools"
+  export -- PATH="${PATH}:/Applications/android-sdk-macosx/platform-tools"
 test -d "/Applications/android-sdk-macosx/tools" &&
-export -- PATH="$PATH:/Applications/android-sdk-macosx/tools"
+  export -- PATH="${PATH}:/Applications/android-sdk-macosx/tools"
 
 function source_golang_env_generic() {
   # golang https://golang.org/doc/install or `brew install go`
@@ -70,6 +74,10 @@ function source_golang113_path() {
 
 function source_golang114_path() {
   export -- PATH="/usr/local/opt/go@1.14/bin:$PATH"
+}
+
+function source_golang115_path() {
+  export -- PATH="/usr/local/opt/go@1.15/bin:$PATH"
 }
 
 # slowing me down
@@ -118,6 +126,12 @@ function source_golang113_env() {
 function source_golang114_env() {
   source_golang_env_generic
   source_golang114_path
+}
+
+# slowing me down
+function source_golang115_env() {
+  source_golang_env_generic
+  source_golang115_path
 }
 
 ## haskell uses cabal and stack
