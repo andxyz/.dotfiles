@@ -56,11 +56,11 @@ if Kernel.const_defined?(:Rails) && ::Rails.env
 
   begin
     ::Kernel.require('niceql')
-  rescue => e
+  rescue LoadError => e
     puts "oh well, maybe try rbenv exec gem install 'niceql'"
     puts e.message if e.message
     puts e.cause if e.cause
-    puts e.backtrace if e.backtrace
+    # puts e.backtrace if e.backtrace
   end
 
   def pp_sql(object)
