@@ -70,8 +70,12 @@
 version = 2
 
 # this is messing up cocoapod podspecs
-[url "ssh://git@github.com/"]
-    insteadOf = https://github.com/
+# this is also messing up rust-lang/crates.io during, cargo build --release
+# [url "ssh://git@github.com/"]
+    # insteadOf = https://github.com/
+# Is this the fix? see https://github.com/rust-lang/cargo/issues/3381
+# [url "git@github.com:"]
+# insteadOf = https://github.com/
 
 [alias]
     # andxyz favorite git shortcuts
