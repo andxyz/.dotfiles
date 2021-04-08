@@ -195,6 +195,7 @@ rbenv-update_rubygems_bundler_for_rbenv_local;
 # echo "pry-byebug" >> "${HOME}"/.rbenv/default-gems
 # echo "pry-doc" >> "${HOME}"/.rbenv/default-gems
 # echo "yard" >> "${HOME}"/.rbenv/default-gems
+# echo "foreman" >> "${HOME}"/.rbenv/default-gems
 # echo "niceql" >> "${HOME}"/.rbenv/default-gems
 # echo "bcat" >> "${HOME}"/.rbenv/default-gems
 # echo "gem-browse" >> "${HOME}"/.rbenv/default-gems
@@ -240,7 +241,7 @@ function rbenv-cleanup_gems_for_each_installed_ruby() {
   yes | rbenv each gem cleanup
   rbenv each uninstall_gems.sh
   # now reinstall some basics
-  rbenv each gem install 'bundler' 'pry' 'pry-byebug' 'pry-doc' 'yard' 'bcat' 'niceql'
+  rbenv each gem install 'bundler' 'pry' 'pry-byebug' 'pry-doc' 'yard' 'bcat' 'niceql' 'foreman'
 }
 # rbenv-show_space_usage;
 # rbenv-update_rubygems_bundler_for_rbenv_all;
