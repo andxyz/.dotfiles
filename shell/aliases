@@ -8,7 +8,7 @@ alias ll="ls -l -h --group-directories-first --color=auto"
 alias la="ls -A -h --group-directories-first --color=auto"
 
 ### send to the trashbin not into the ether
-alias rm='rmtrash'
+# alias rm='rmtrash'
 
 ### personal ~/bin
 alias addr='nocorrect addr'

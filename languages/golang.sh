@@ -10,12 +10,13 @@ set -ex
 # brew install go@1.12
 # brew install go@1.13
 # brew install go@1.14
-brew install go@1.15
+# brew install go@1.15
+brew install go@1.16
 
 # golang https://golang.org/doc/install or `brew install go`
 #
 export -- GOPATH=${HOME}/code/gowork
-export -- PATH=${PATH}:/usr/local/opt/go@1.15/bin
+export -- PATH=${PATH}:/usr/local/opt/go@1.16/bin
 export -- PATH=${PATH}:${GOPATH}/bin
 
 ## Note: GOROOT must be set only when installing to a custom location.

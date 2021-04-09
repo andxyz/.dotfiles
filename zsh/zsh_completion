@@ -2,6 +2,7 @@
 
 # brew info zsh-completions
 # ls /usr/local/share/zsh-completions
+# chmod -R go-w '/usr/local/share/zsh'
 # rm -f ~/.zcompdump; compinit
 if type brew &>/dev/null; then
   FPATH=$(brew --prefix)/share/zsh-completions:$FPATH # Where the completions?

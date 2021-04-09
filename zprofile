@@ -13,7 +13,7 @@ test -f ~/.shell/path_envs_private && source ~/.shell/path_envs_private
 test -f ~/.shell/config_ruby_envs  && source ~/.shell/config_ruby_envs
 
 ## env zsh specific
-test -f ~/.shell/paths_zsh         && source ~/.zsh/zsh_paths
+test -f ~/.zsh/zsh_paths         && source ~/.zsh/zsh_paths
 
 ## env for docker
 test -f ~/.profile                 && source ~/.profile
