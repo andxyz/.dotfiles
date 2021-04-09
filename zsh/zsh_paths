@@ -1,3 +1,4 @@
 #!/usr/bin/env zsh
 
 # source /Users/andxyz/perl5/perlbrew/etc/bashrc
+export -- ZSH_HIGHLIGHT_HIGHLIGHTERS_DIR=/usr/local/share/zsh-syntax-highlighting/highlighters

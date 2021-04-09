@@ -20,7 +20,7 @@ git checkout v0.37.2
 # git checkout v0.33.6
 
 nvm ls-remote
-nvm install v14.15.4
+nvm install v14.15.5
 # nvm install v10.16.3
 # nvm install v10.12.0
 # nvm install v8.9.4
@@ -43,9 +43,9 @@ nvm install v14.15.4
 
 ## set our dev machine defaults
 ### for future shells
-nvm alias default v14.15.4
+nvm alias default v14.15.5
 ### for this shell right now. now now? like now? yes, right now now.
-nvm use v14.15.4
+nvm use v14.15.5
 
 ## update npm
 npm update -g --silent npm
