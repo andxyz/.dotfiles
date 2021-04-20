@@ -55,6 +55,18 @@ if Kernel.const_defined?(:Rails) && ::Rails.env
   end
 
   begin
+    extra_gem_locations = []
+    require 'bundler'
+    Bundler.with_unbundled_env do
+      extra_gem_locations << %x{ dirname `gem which 'niceql'` }
+    end
+    # puts extra_gem_locations
+    extra_gem_locations.split("\n").each do |gem_location|
+      # puts gem_location
+      $LOAD_PATH.unshift(File.join(File.dirname(gem_location), 'lib'))
+    end
+    # puts $LOAD_PATH
+    #
     ::Kernel.require('niceql')
   rescue LoadError => e
     puts "oh well, maybe try rbenv exec gem install 'niceql'"
