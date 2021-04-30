@@ -21,8 +21,50 @@ Pry.config.editor = 'subl -w'
 # Pry.commands.alias_command 'nn', 'next'
 
 # ==============================
+#  Helpers
+# ==============================
+#
+require 'json'
+
+def pp_json(object)
+  if object.is_a?(String)
+    puts JSON.pretty_generate(JSON.parse(object))
+  elsif object.is_a?(JSON)
+    puts JSON.pretty_generate(object)
+  end
+end
+
+begin
+  extra_gem_locations = []
+  require 'bundler'
+  Bundler.with_unbundled_env do
+    extra_gem_locations << %x{ dirname `gem which 'niceql'` }
+  end
+  # puts extra_gem_locations
+  extra_gem_locations.to_s.split("\n").each do |gem_location|
+    # puts gem_location
+    $LOAD_PATH.unshift(File.join(File.dirname(gem_location), 'lib'))
+  end
+  # puts $LOAD_PATH
+  #
+  ::Kernel.require('niceql')
+rescue LoadError => e
+  puts "oh well, maybe try rbenv exec gem install 'niceql'"
+  puts e.message if e.message
+  puts e.cause if e.cause
+  # puts e.backtrace if e.backtrace
+end
+
+def pp_sql(object)
+  if object.is_a?(String)
+    puts ::Niceql::Prettifier.prettify_sql(object)
+  end
+end if defined?(::Niceql)
+
+# ==============================
 #   Rails
 # ==============================
+#
 if Kernel.const_defined?(:Rails) && ::Rails.env
   begin
     # rails 4 -> rails 6
@@ -43,43 +85,6 @@ if Kernel.const_defined?(:Rails) && ::Rails.env
 
     nil
   end
-
-  require 'json'
-
-  def pp_json(object)
-    if object.is_a?(String)
-      puts JSON.pretty_generate(JSON.parse(object))
-    elsif object.is_a?(JSON)
-      puts JSON.pretty_generate(object)
-    end
-  end
-
-  begin
-    extra_gem_locations = []
-    require 'bundler'
-    Bundler.with_unbundled_env do
-      extra_gem_locations << %x{ dirname `gem which 'niceql'` }
-    end
-    # puts extra_gem_locations
-    extra_gem_locations.split("\n").each do |gem_location|
-      # puts gem_location
-      $LOAD_PATH.unshift(File.join(File.dirname(gem_location), 'lib'))
-    end
-    # puts $LOAD_PATH
-    #
-    ::Kernel.require('niceql')
-  rescue LoadError => e
-    puts "oh well, maybe try rbenv exec gem install 'niceql'"
-    puts e.message if e.message
-    puts e.cause if e.cause
-    # puts e.backtrace if e.backtrace
-  end
-
-  def pp_sql(object)
-    if object.is_a?(String)
-      puts ::Niceql::Prettifier.prettify_sql(object)
-    end
-  end if defined?(::Niceql)
 
   ## https://github.com/travisjeffery/dotfiles/blob/master/.railsrc
   require 'logger'
