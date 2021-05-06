@@ -378,7 +378,8 @@ version = 2
 
 [init]
     templatedir = ~/.git-template
-	defaultBranch = main
+	defaultBranch = master
+    # defaultBranch = main
 
 # mailmap fixes peoples emails
 # try `git shortlog -sne`
