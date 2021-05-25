@@ -5,7 +5,7 @@ set -e
 
 ## see https://github.com/creationix/nvm
 ! test -d ~/.nvm &&
-git clone https://github.com/creationix/nvm.git ~/.nvm
+git clone git@github.com:nvm-sh/nvm.git
 
 source $HOME/.nvm/nvm.sh
 # nvm unload
