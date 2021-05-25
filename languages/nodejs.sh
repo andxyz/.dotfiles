@@ -20,7 +20,8 @@ git checkout v0.37.2
 # git checkout v0.33.6
 
 nvm ls-remote
-nvm install v14.15.5
+nvm install v14.17.0
+# nvm install v14.15.5
 # nvm install v10.16.3
 # nvm install v10.12.0
 # nvm install v8.9.4
@@ -43,9 +44,9 @@ nvm install v14.15.5
 
 ## set our dev machine defaults
 ### for future shells
-nvm alias default v14.15.5
+nvm alias default v14.17.0
 ### for this shell right now. now now? like now? yes, right now now.
-nvm use v14.15.5
+nvm use v14.17.0
 
 ## update npm
 npm update -g --silent npm
@@ -53,34 +54,34 @@ npm update -g --silent npm
 ## install some decent global libraries on the default node
 # npm install -g --silent --no-progress --quiet --depth=0 npm-shrinkwrap
 # npm install -g --silent --no-progress --quiet --depth=0 node-inspector
-npm install -g --silent --no-progress --quiet --depth=0 yarn
-npm install -g --silent --no-progress --quiet --depth=0 webpack
+npm install -g --depth=0 yarn
+npm install -g --depth=0 webpack
 # npm install -g --silent --no-progress --quiet --depth=0 bower
 # npm install -g --silent --no-progress --quiet --depth=0 grunt
 # npm install -g --silent --no-progress --quiet --depth=0 grunt-cli
 # npm install -g --silent --no-progress --quiet --depth=0 gulp
 
 ## linting
-npm install -g --silent --no-progress --quiet --depth=0 prettier
-npm install -g --silent --no-progress --quiet --depth=0 eslint
-npm install -g --silent --no-progress --quiet --depth=0 babel-eslint
-npm install -g --silent --no-progress --quiet --depth=0 coffeelint
-npm install -g --silent --no-progress --quiet --depth=0 jshint
-npm install -g --silent --no-progress --quiet --depth=0 postcss
+npm install -g --depth=0 prettier
+npm install -g --depth=0 eslint
+npm install -g --depth=0 babel-eslint
+# npm install -g --silent --no-progress --quiet --depth=0 coffeelint
+# npm install -g --silent --no-progress --quiet --depth=0 jshint
+# npm install -g --silent --no-progress --quiet --depth=0 postcss
 npm install -g --silent --no-progress --quiet --depth=0 stylelint
-npm install -g --silent --no-progress --quiet --depth=0 js-beautify
+# npm install -g --silent --no-progress --quiet --depth=0 js-beautify
 
 ## front end tools
 # npm install -g --silent --no-progress --quiet --depth=0 handlebars
 # npm install -g --silent --no-progress --quiet --depth=0 less
-npm install -g --silent --no-progress --quiet --depth=0 sass
+# npm install -g --silent --no-progress --quiet --depth=0 sass
 
 ## chrome tools
 # npm install -g --silent --no-progress --quiet --depth=0 yo
 # npm install -g --silent --no-progress --quiet --depth=0 generator-chrome-extension
 
 ## tools
-npm install -g --silent --no-progress --quiet --depth=0 diff-so-fancy
+npm install -g --depth=0 diff-so-fancy
 # npm install -g --silent --no-progress --quiet --depth=0 ios-sim
 # npm install -g --silent --no-progress --quiet --depth=0 ios-deploy
 
