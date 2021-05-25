@@ -31,7 +31,11 @@ def pp_json(object)
     puts JSON.pretty_generate(JSON.parse(object))
   elsif object.is_a?(JSON)
     puts JSON.pretty_generate(object)
+  else
+    puts JSON.pretty_generate(JSON.parse(object.to_json))
   end
+rescue StandardError => exception
+  puts exception.to_s
 end
 
 begin
