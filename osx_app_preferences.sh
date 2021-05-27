@@ -3,10 +3,13 @@
 set -x
 set -e
 
-LSTOOL_HOME='/Users/andrew/Library/PreferencePanes/RCDefaultApp.prefPane/Contents/Resources/'
+# LSTOOL_HOME='/Users/andrew/Library/PreferencePanes/RCDefaultApp.prefPane/Contents/Resources/'
 EDITOR_PATH='/Applications/Sublime Text.app' #Sublimetext3
-LSREG_HOME="/Users/andrew/Library/Developer/Xcode/DerivedData/SwiftDefaultApps-akayzniwfxeojlczrbiwbzphucas/Build/Products/Release"
+# LSREG_HOME="/Users/andrew/Library/Developer/Xcode/DerivedData/SwiftDefaultApps-akayzniwfxeojlczrbiwbzphucas/Build/Products/Release"
+LSREG_HOME=${HOME}/bin
 LSREG_TOOL="${LSREG_HOME}/swda"
+
+# First download a compiled swda from https://github.com/Lord-Kamina/SwiftDefaultApps/releases
 
 ## first you must compile swda from https://github.com/Lord-Kamina/SwiftDefaultApps
 # git clone git@github.com:Lord-Kamina/SwiftDefaultApps.git
@@ -24,7 +27,44 @@ LSREG_TOOL="${LSREG_HOME}/swda"
 
 # export SDKROOT=/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.15.sdk
 
-# /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/swiftc -incremental -module-name SwiftCLI -Onone -enable-batch-mode -enforce-exclusivity=checked @/Users/andrew/Library/Developer/Xcode/DerivedData/SwiftDefaultApps-akayzniwfxeojlczrbiwbzphucas/Build/Intermediates.noindex/SwiftDefaultApps\ CLI.build/Debug/SwiftCLI.build/Objects-normal/x86_64/SwiftCLI.SwiftFileList -DSWIFT_PACKAGE -DXcode -sdk /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.15.sdk -target x86_64-apple-macos10.15 -g -module-cache-path /Users/andrew/Library/Developer/Xcode/DerivedData/ModuleCache.noindex -Xfrontend -serialize-debugging-options -enable-testing -index-store-path /Users/andrew/Library/Developer/Xcode/DerivedData/SwiftDefaultApps-akayzniwfxeojlczrbiwbzphucas/Index/DataStore -swift-version 5 -I /Users/andrew/Library/Developer/Xcode/DerivedData/SwiftDefaultApps-akayzniwfxeojlczrbiwbzphucas/Build/Products/Debug -F /Users/andrew/Library/Developer/Xcode/DerivedData/SwiftDefaultApps-akayzniwfxeojlczrbiwbzphucas/Build/Products/Debug -F /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/Library/Frameworks -c -j12 -output-file-map /Users/andrew/Library/Developer/Xcode/DerivedData/SwiftDefaultApps-akayzniwfxeojlczrbiwbzphucas/Build/Intermediates.noindex/SwiftDefaultApps\ CLI.build/Debug/SwiftCLI.build/Objects-normal/x86_64/SwiftCLI-OutputFileMap.json -parseable-output -serialize-diagnostics -emit-dependencies -emit-module -emit-module-path /Users/andrew/Library/Developer/Xcode/DerivedData/SwiftDefaultApps-akayzniwfxeojlczrbiwbzphucas/Build/Intermediates.noindex/SwiftDefaultApps\ CLI.build/Debug/SwiftCLI.build/Objects-normal/x86_64/SwiftCLI.swiftmodule -Xcc -I/Users/andrew/Library/Developer/Xcode/DerivedData/SwiftDefaultApps-akayzniwfxeojlczrbiwbzphucas/Build/Intermediates.noindex/SwiftDefaultApps\ CLI.build/Debug/SwiftCLI.build/swift-overrides.hmap -Xcc -I/Users/andrew/Library/Developer/Xcode/DerivedData/SwiftDefaultApps-akayzniwfxeojlczrbiwbzphucas/Build/Products/Debug/include -Xcc -I/Users/andrew/Library/Developer/Xcode/DerivedData/SwiftDefaultApps-akayzniwfxeojlczrbiwbzphucas/Build/Intermediates.noindex/SwiftDefaultApps\ CLI.build/Debug/SwiftCLI.build/DerivedSources-normal/x86_64 -Xcc -I/Users/andrew/Library/Developer/Xcode/DerivedData/SwiftDefaultApps-akayzniwfxeojlczrbiwbzphucas/Build/Intermediates.noindex/SwiftDefaultApps\ CLI.build/Debug/SwiftCLI.build/DerivedSources/x86_64 -Xcc -I/Users/andrew/Library/Developer/Xcode/DerivedData/SwiftDefaultApps-akayzniwfxeojlczrbiwbzphucas/Build/Intermediates.noindex/SwiftDefaultApps\ CLI.build/Debug/SwiftCLI.build/DerivedSources -emit-objc-header -emit-objc-header-path /Users/andrew/Library/Developer/Xcode/DerivedData/SwiftDefaultApps-akayzniwfxeojlczrbiwbzphucas/Build/Intermediates.noindex/SwiftDefaultApps\ CLI.build/Debug/SwiftCLI.build/Objects-normal/x86_64/SwiftCLI-Swift.h -working-directory /Users/andrew/code/_clone/SwiftDefaultApps
+# /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/swiftc -incremental \
+# -module-name SwiftCLI -Onone -enable-batch-mode \
+# -enforce-exclusivity=checked @/Users/andrew/Library/Developer/Xcode/DerivedData/SwiftDefaultApps-akayzniwfxeojlczrbiwbzphucas/Build/Intermediates.noindex/SwiftDefaultApps\ CLI.build/Debug/SwiftCLI.build/Objects-normal/x86_64/SwiftCLI.SwiftFileList \
+# -DSWIFT_PACKAGE -DXcode -sdk /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.15.sdk \
+# -target x86_64-apple-macos10.15 \
+# -g \
+# -module-cache-path /Users/andrew/Library/Developer/Xcode/DerivedData/ModuleCache.noindex \
+# -Xfrontend -serialize-debugging-options -enable-testing \
+# -index-store-path /Users/andrew/Library/Developer/Xcode/DerivedData/SwiftDefaultApps-akayzniwfxeojlczrbiwbzphucas/Index/DataStore \
+# -swift-version 5 -I /Users/andrew/Library/Developer/Xcode/DerivedData/SwiftDefaultApps-akayzniwfxeojlczrbiwbzphucas/Build/Products/Debug \
+# -F /Users/andrew/Library/Developer/Xcode/DerivedData/SwiftDefaultApps-akayzniwfxeojlczrbiwbzphucas/Build/Products/Debug \
+# -F /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/Library/Frameworks \
+# -c -j12 -output-file-map /Users/andrew/Library/Developer/Xcode/DerivedData/SwiftDefaultApps-akayzniwfxeojlczrbiwbzphucas/Build/Intermediates.noindex/SwiftDefaultApps\ CLI.build/Debug/SwiftCLI.build/Objects-normal/x86_64/SwiftCLI-OutputFileMap.json \
+# -parseable-output -serialize-diagnostics \
+# -emit-dependencies -emit-module -emit-module-path /Users/andrew/Library/Developer/Xcode/DerivedData/SwiftDefaultApps-akayzniwfxeojlczrbiwbzphucas/Build/Intermediates.noindex/SwiftDefaultApps\ CLI.build/Debug/SwiftCLI.build/Objects-normal/x86_64/SwiftCLI.swiftmodule \
+# -Xcc -I/Users/andrew/Library/Developer/Xcode/DerivedData/SwiftDefaultApps-akayzniwfxeojlczrbiwbzphucas/Build/Intermediates.noindex/SwiftDefaultApps\ CLI.build/Debug/SwiftCLI.build/swift-overrides.hmap \
+# -Xcc -I/Users/andrew/Library/Developer/Xcode/DerivedData/SwiftDefaultApps-akayzniwfxeojlczrbiwbzphucas/Build/Products/Debug/include \
+# -Xcc -I/Users/andrew/Library/Developer/Xcode/DerivedData/SwiftDefaultApps-akayzniwfxeojlczrbiwbzphucas/Build/Intermediates.noindex/SwiftDefaultApps\ CLI.build/Debug/SwiftCLI.build/DerivedSources-normal/x86_64 \
+# -Xcc -I/Users/andrew/Library/Developer/Xcode/DerivedData/SwiftDefaultApps-akayzniwfxeojlczrbiwbzphucas/Build/Intermediates.noindex/SwiftDefaultApps\ CLI.build/Debug/SwiftCLI.build/DerivedSources/x86_64 \
+# -Xcc -I/Users/andrew/Library/Developer/Xcode/DerivedData/SwiftDefaultApps-akayzniwfxeojlczrbiwbzphucas/Build/Intermediates.noindex/SwiftDefaultApps\ CLI.build/Debug/SwiftCLI.build/DerivedSources \
+# -emit-objc-header -emit-objc-header-path /Users/andrew/Library/Developer/Xcode/DerivedData/SwiftDefaultApps-akayzniwfxeojlczrbiwbzphucas/Build/Intermediates.noindex/SwiftDefaultApps\ CLI.build/Debug/SwiftCLI.build/Objects-normal/x86_64/SwiftCLI-Swift.h \
+# -working-directory /Users/andrew/code/_clone/SwiftDefaultApps
+
+# /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/swiftc \
+# -module-name SwiftCLI \
+# -Onone \
+# -enable-batch-mode \
+# -enforce-exclusivity=checked \
+# -DSWIFT_PACKAGE \
+# -DXcode -sdk /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/ -target x86_64-apple-macos11.1 \
+# -g \
+# -Xfrontend -serialize-debugging-options -enable-testing \
+# -swift-version 5 \
+# -F /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/Library/Frameworks \
+# -c -j12 \
+# -parseable-output -serialize-diagnostics \
+# -working-directory /Users/andrew/code/_clone/SwiftDefaultApps
+# -I ???
 
 
 ${LSREG_HOME}/swda getSchemes
@@ -33,12 +73,16 @@ ${LSREG_HOME}/swda getHandler --mail
 # ${LSREG_HOME}/swda getHandler --rss # errors for some reason
 ${LSREG_HOME}/swda getHandler --news
 
-# ${LSREG_HOME}/swda getUTIs | grep -i Xcode
-# ${LSREG_HOME}/swda getUTIs | grep -i MacVim
-# ${LSREG_HOME}/swda getUTIs | grep -i Sublime
+${LSREG_HOME}/swda getUTIs | grep -i Xcode
+${LSREG_HOME}/swda getUTIs | grep -i MacVim
+${LSREG_HOME}/swda getUTIs | grep -i Terminal
+${LSREG_HOME}/swda getUTIs | grep -i TextEdit
+${LSREG_HOME}/swda getUTIs | grep -i Sublime
 
 ## note: you can use the `mdls` command to find the UTI for a file:
 # mdls ~/Desktop/tmp.js
+# mdls ~/code/andxyz-dotfiles/ctags
+#
 ## prints a bunch of stuff:
 #
 # kMDItemContentType                 = "com.netscape.javascript-source"
@@ -99,7 +143,21 @@ ${LSREG_TOOL} setHandler --UTI 'public.objective-c-plus-plus-source' --applicati
 ${LSREG_TOOL} setHandler --UTI 'public.objective-c-source' --application "${EDITOR_PATH}"
 ${LSREG_TOOL} setHandler --UTI 'public.opencl-source' --application "${EDITOR_PATH}"
 ${LSREG_TOOL} setHandler --UTI 'public.patch-file' --application "${EDITOR_PATH}"
+# more sourcecode
+${LSREG_TOOL} setHandler --UTI 'com.apple.alias-file' --application "${EDITOR_PATH}"
+${LSREG_TOOL} setHandler --UTI 'com.apple.alias-record' --application "${EDITOR_PATH}"
+${LSREG_TOOL} setHandler --UTI 'com.apple.terminal.shell-script' --application "${EDITOR_PATH}"
+${LSREG_TOOL} setHandler --UTI 'public.directory' --application "${EDITOR_PATH}"
+${LSREG_TOOL} setHandler --UTI 'public.file-url' --application "${EDITOR_PATH}"
+${LSREG_TOOL} setHandler --UTI 'public.json' --application "${EDITOR_PATH}"
+${LSREG_TOOL} setHandler --UTI 'public.source-code.preprocessed' --application "${EDITOR_PATH}"
+${LSREG_TOOL} setHandler --UTI 'public.symlink' --application "${EDITOR_PATH}"
 ${LSREG_TOOL} setHandler --UTI 'public.xml' --application "${EDITOR_PATH}"
+${LSREG_TOOL} setHandler --UTI 'public.yaml' --application "${EDITOR_PATH}"
+${LSREG_TOOL} setHandler --UTI 'public.filename-extension' --application "${EDITOR_PATH}"
+${LSREG_TOOL} setHandler --UTI 'public.data' --application "${EDITOR_PATH}"
+${LSREG_TOOL} setHandler --UTI 'public.item' --application "${EDITOR_PATH}"
+
 
 # scripts
 ${LSREG_TOOL} setHandler --UTI 'public.bash-script' --application "${EDITOR_PATH}"

@@ -32,6 +32,28 @@
     new = green bold
     whitespace = red reverse
 
+[include]
+    path = "${HOME}/code/git/delta/themes.gitconfig"
+
+[pager]
+    diff = delta
+    log = delta
+    reflog = delta
+    show = delta
+
+[interactive]
+    diffFilter = delta --color-only
+
+[delta]
+    syntax-theme = Monokai Extended
+    features = hyperlinks line-numbers keep-plus-minus-markers decorations
+    whitespace-error-style = magenta reverse
+
+[delta "decorations"]
+    commit-decoration-style = none
+    file-style = bold yellow ul
+    file-decoration-style = bold yellow box
+
 [commit]
   template = ~/.gitmessage
 
@@ -105,8 +127,10 @@ version = 2
     diffc = diff --cached
     ## make sure to `npm install -g --silent --no-progress --quiet --depth=0 diff-so-fancy` try `npm ls -g --depth=0`
 
-    ddiff = "!fgitdiff0() { git diff --color \"$@\" | diff-so-fancy | less --tabs=4 -RFXS; }; fgitdiff0"
-    ddiffc = "!fgitdiffc0() { git diff --cached --color $@ | diff-so-fancy | less --tabs=4 -RFXS; }; fgitdiffc0"
+    # ddiff = "!fgitdiff0() { git diff --color \"$@\" | diff-so-fancy | less --tabs=4 -RFXS; }; fgitdiff0"
+    # ddiffc = "!fgitdiffc0() { git diff --cached --color $@ | diff-so-fancy | less --tabs=4 -RFXS; }; fgitdiffc0"
+    ddiff = "!fgitddiff0() { git diff --color \"${@}\"; }; fgitddiff0"
+    ddiffc = "!fgitddiffc0() { git diff --cached --color \"${@}\"; }; fgitddiffc0"
     d = "ddiff"
     dc = "ddiffc"
 
@@ -156,10 +180,10 @@ version = 2
     megascrum = "!for dir in $(find ~/code -name .git -exec dirname {} \\;); do (cd \"$dir\" && git --no-pager scrum); done 2>/dev/null | $(git config --get core.pager)"
 
     # git github.com/haacked https://github.com/Haacked/dotfiles/blob/f625b1c9e89b1e261868ac3244af037b6287b8bd/git/gitconfig.template#L9
-    churn = !git --no-pager log --name-only --oneline | grep -v ' ' | sort | uniq -c | sort -nr | head
+    churn = "!git --no-pager log --name-only --oneline | grep -v ' ' | sort | uniq -c | sort -nr | head"
 
     # git tags
-    tagpbydate = "log --tags --simplify-by-decoration --pretty='format:%ai %d'"
+    tagpbydate = "!git log --tags --simplify-by-decoration --pretty='format:%ai %d'"
     # git code review
     codereview-reset-to = "!fgit_codereview_resetto() { bash -c \"git reset --soft $@ && git reset HEAD -- \"; }; fgit_codereview_resetto"
     openunstaged = "!fgit_openunstaged() { $EDITOR_USING_CURRENT_PROJECT $(git add * --intent-to-add && git diff --diff-filter AMUX --name-only); }; fgit_openunstaged"
