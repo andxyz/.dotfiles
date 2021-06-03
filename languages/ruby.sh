@@ -8,14 +8,14 @@
 set -x
 set -e
 
-## see https://github.com/sstephenson/rbenv/wiki/_pages
+## see https://github.com/rbenv/rbenv/wiki/_pages
 echo '## installing rbenv'
-git clone https://github.com/sstephenson/rbenv.git "${HOME}"/.rbenv
+git clone https://github.com/rbenv/rbenv.git "${HOME}"/.rbenv
 export -- PATH="${HOME}/.rbenv/bin:$PATH" &&
 eval "$(rbenv init -)"
 
 # optional, but recommended:
-# https://github.com/sstephenson/ruby-build/wiki#suggested-build-environment
+# https://github.com/rbenv/ruby-build/wiki#suggested-build-environment
 echo '## installing recommended homebrew dependencies'
 brew update
 
@@ -42,18 +42,18 @@ brew link libxslt --force || true
 export LDFLAGS="-L/usr/local/opt/openssl@1.1/lib -L/usr/local/opt/libffi/lib -L/usr/local/opt/readline/lib -L/usr/local/opt/libxml2/lib -L/usr/local/opt/libxslt/lib -L/usr/local/opt/postgresql@11/lib"
 export CPPFLAGS="-I/usr/local/opt/openssl@1.1/include -I/usr/local/opt/libffi/include -I/usr/local/opt/readline/include -I/usr/local/opt/libxml2/include -I/usr/local/opt/libxslt/include -I/usr/local/opt/postgresql@11/include"
 
-## plugins ahoy, see https://github.com/sstephenson/rbenv/wiki/Plugins
+## plugins ahoy, see https://github.com/rbenv/rbenv/wiki/Plugins
 echo '## installing rbenv plugins'
 mkdir "${HOME}"/.rbenv/plugins/
-git clone https://github.com/sstephenson/ruby-build.git "${HOME}"/.rbenv/plugins/ruby-build
+git clone https://github.com/rbenv/ruby-build.git "${HOME}"/.rbenv/plugins/ruby-build
 git clone https://github.com/rbenv/rbenv-each.git "${HOME}"/.rbenv/plugins/rbenv-each
 git clone https://github.com/rkh/rbenv-update.git "${HOME}"/.rbenv/plugins/rbenv-update
-git clone https://github.com/sstephenson/rbenv-gem-rehash.git "${HOME}"/.rbenv/plugins/rbenv-gem-rehash
-git clone https://github.com/sstephenson/rbenv-default-gems.git "${HOME}"/.rbenv/plugins/rbenv-default-gems
+git clone https://github.com/rbenv/rbenv-gem-rehash.git "${HOME}"/.rbenv/plugins/rbenv-gem-rehash
+git clone https://github.com/rbenv/rbenv-default-gems.git "${HOME}"/.rbenv/plugins/rbenv-default-gems
 
 ls "$(rbenv root)"/plugins
 
-## prepare ruby-build, see https://github.com/sstephenson/ruby-build/wiki
+## prepare ruby-build, see https://github.com/rbenv/ruby-build/wiki
 cd "$(rbenv root)"/plugins/ruby-build && git pull
 cd "${HOME}"
 
