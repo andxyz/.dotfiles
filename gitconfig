@@ -46,13 +46,15 @@
 
 [delta]
     syntax-theme = Monokai Extended
-    features = hyperlinks line-numbers keep-plus-minus-markers decorations
+    features = line-numbers keep-plus-minus-markers decorations
     whitespace-error-style = magenta reverse
 
 [delta "decorations"]
     commit-decoration-style = none
     file-style = bold yellow ul
+    hunk-header-style = file omit
     file-decoration-style = bold yellow box
+    hunk-header-decoration-style = none
 
 [commit]
   template = ~/.gitmessage
