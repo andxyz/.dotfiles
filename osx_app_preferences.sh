@@ -21,7 +21,7 @@ LSREG_TOOL="${LSREG_HOME}/swda"
 ## find swda and use it
 #
 
-# cd /Users/andrew/code/_clone/SwiftDefaultApps
+# cd /Users/andrew/code/git/SwiftDefaultApps
 
 # export DEVELOPER_DIR=/Applications/Xcode.app/Contents/Developer
 
@@ -48,7 +48,7 @@ LSREG_TOOL="${LSREG_HOME}/swda"
 # -Xcc -I/Users/andrew/Library/Developer/Xcode/DerivedData/SwiftDefaultApps-akayzniwfxeojlczrbiwbzphucas/Build/Intermediates.noindex/SwiftDefaultApps\ CLI.build/Debug/SwiftCLI.build/DerivedSources/x86_64 \
 # -Xcc -I/Users/andrew/Library/Developer/Xcode/DerivedData/SwiftDefaultApps-akayzniwfxeojlczrbiwbzphucas/Build/Intermediates.noindex/SwiftDefaultApps\ CLI.build/Debug/SwiftCLI.build/DerivedSources \
 # -emit-objc-header -emit-objc-header-path /Users/andrew/Library/Developer/Xcode/DerivedData/SwiftDefaultApps-akayzniwfxeojlczrbiwbzphucas/Build/Intermediates.noindex/SwiftDefaultApps\ CLI.build/Debug/SwiftCLI.build/Objects-normal/x86_64/SwiftCLI-Swift.h \
-# -working-directory /Users/andrew/code/_clone/SwiftDefaultApps
+# -working-directory /Users/andrew/code/git/SwiftDefaultApps
 
 # /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/swiftc \
 # -module-name SwiftCLI \
@@ -63,7 +63,7 @@ LSREG_TOOL="${LSREG_HOME}/swda"
 # -F /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/Library/Frameworks \
 # -c -j12 \
 # -parseable-output -serialize-diagnostics \
-# -working-directory /Users/andrew/code/_clone/SwiftDefaultApps
+# -working-directory /Users/andrew/code/git/SwiftDefaultApps
 # -I ???
 
 
