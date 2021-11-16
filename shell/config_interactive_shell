@@ -43,3 +43,7 @@ else
   # shellcheck source="${HOME}"/.shell/git-prompt.sh
   source "${HOME}"/.shell/git-prompt.sh
 fi
+
+if test -f /usr/local/etc/gh_completion; then
+  source /usr/local/etc/gh_completion
+fi
