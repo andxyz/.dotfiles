@@ -28,6 +28,7 @@
 # { "keys": ["shift+ctrl+down"], "command": "navigate_to_definition" },
 
 # get the ruby stdlib basepath base
+CTAGS_DEBUG='' # set to "true" to debug
 CTAGS_GEM_HOME=`rbenv exec gem environment gemdir`
 CTAGS_RBENV_PREFIX=`rbenv prefix`
 CTAGS_RUBY_BASENAME=`basename "${CTAGS_GEM_HOME}"`
@@ -35,10 +36,14 @@ CTAGS_RUBY_STDLIB="${CTAGS_RBENV_PREFIX}/lib/ruby/${CTAGS_RUBY_BASENAME}"
 CTAGS_GIT_DIRECTORY="$(/usr/local/bin/git rev-parse --git-dir)"
 TMPFILE=$(gmktemp -t tmp_ctags_files_XXXXX.txt)
 
+if [[ -n $CTAGS_DEBUG ]]; then
+  echo "${CTAGS_GEM_HOME}\n${CTAGS_RBENV_PREFIX}\n${CTAGS_RUBY_BASENAME}\n${CTAGS_RUBY_STDLIB}\n${CTAGS_GIT_DIRECTORY}\n${TMPFILE}"
+fi
+
 # get all the Gemfile paths from within subprojects too
 function ctags_ruby_lib_paths {
   for f in $(cd "${CTAGS_GIT_DIRECTORY}/.."; find '.' -not -path './\.*' -name Gemfile); do
-    (cd "$(gdirname "${f}")" && (rbenv exec bundle check || rbenv exec bundle install) >/dev/null 2>&1 && rbenv exec bundle list --paths);
+    (cd "$(gdirname "${f}")" && (rbenv exec bundle check || rbenv exec bundle install) >/dev/null 2>&1 && find $(rbenv exec bundle list --paths) -iname '*.rb');
   done | gsort -u
 }
 
@@ -53,32 +58,52 @@ trap 'rm -f "${CTAGS_GIT_DIRECTORY}/$$.tags" && rm -f "${TMPFILE}' EXIT
 
 # set -x
 
-# echo "Total project and subprojects ruby files: $(ctags_project_and_subproject_rubyfiles | wc -l)"
-# echo "Total ruby files from gems: $(ctags_ruby_lib_paths | wc -l)"
-# echo "Also traverses Ruby stdlib dir: ${CTAGS_RUBY_STDLIB}"
+if [[ -n $CTAGS_DEBUG ]]; then
+  echo "Total project and subprojects ruby files: $(ctags_project_and_subproject_rubyfiles | wc -l)"
+  echo "Total ruby files from gems: $(ctags_ruby_lib_paths | wc -l)"
+  echo "Also traverses Ruby stdlib dir: ${CTAGS_RUBY_STDLIB}"
+fi
 
 ctags_project_and_subproject_rubyfiles >> ${TMPFILE}
 ctags_ruby_lib_paths >> ${TMPFILE}
 echo "${CTAGS_RUBY_STDLIB}" >> ${TMPFILE}
 
 /usr/local/bin/ctags --sort=yes -R --tag-relative=always \
---languages=+ruby,-html,-javascript,-sql \
---exclude=.git \
---exclude=log \
---exclude=vendor \
---exclude=bundle \
---exclude=types.conf \
+--languages='+ruby,-html,-javascript,-sql,-c,-c++,-css' \
+--exclude='Makefile' \
+--exclude='*.c' \
+--exclude='*.h' \
+--exclude='*.in' \
+--exclude='*.cpp' \
+--exclude='*.hpp' \
+--exclude='*.hh' \
+--exclude='*.rst' \
+--exclude='*.md' \
+--exclude='README' \
 --exclude='*.js' \
+--exclude='*.json' \
+--exclude='*.html' \
+--exclude='*.xml' \
+--exclude='*.svg' \
+--exclude='*.css' \
+--exclude='.git' \
+--exclude='bundle' \
+--exclude='log' \
+--exclude='types.conf' \
+--exclude='vendor' \
+--exclude='node_modules' \
 -f"${CTAGS_GIT_DIRECTORY}/$$.tags" -L ${TMPFILE} |
 > /dev/null 2>&1 #silence output
 
+# if the last command failed, then we "exit status 1", :sadcowboy:
 if [[ $? -ne 0 ]]; then
   exit 1
 fi
 
-cp "${CTAGS_GIT_DIRECTORY}/$$.tags" "${CTAGS_GIT_DIRECTORY}/tags"
+# We succeeded, move the files to names we want
 mv "${CTAGS_GIT_DIRECTORY}/$$.tags" "${CTAGS_GIT_DIRECTORY}/tags_sorted_by_file"
+ln -s "${CTAGS_GIT_DIRECTORY}/tags_sorted_by_file" "${CTAGS_GIT_DIRECTORY}/tags"
 
-# We succeeded, reset trap and exit normally
+# We succeeded, run the trap and exit normally
 trap - EXIT
 exit 0
