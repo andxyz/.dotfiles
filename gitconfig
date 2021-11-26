@@ -176,10 +176,10 @@ version = 2
     showpnameonly = show --pretty="full" --name-only
     showponline = show --pretty="oneline" --name-only
 
-    # git github.com/prograhamer https://github.com/prograhamer/dotfiles/blob/351d1c92613d6a32217206c22635d7c9187cb8b1/.gitconfig#L2-L4
-    scrumlog = log --graph --pretty=format:'%h -%d %s %cr <%an>' --all
-    scrum = "!git scrumlog --since=\"$([ $(date +%w) -eq 1 ] && date -v-3d +%F || date -v-1d +%F) 00:00:00\" --committer=\"`git config user.name`\""
-    megascrum = "!for dir in $(find ~/code -name .git -exec dirname {} \\;); do (cd \"$dir\" && git --no-pager scrum); done 2>/dev/null | $(git config --get core.pager)"
+    # Hacked megascrum from github.com/prograhamer https://github.com/prograhamer/dotfiles/blob/351d1c92613d6a32217206c22635d7c9187cb8b1/.gitconfig#L2-L4
+    scrumlog = "!git logpr ${@}"
+    scrum = "!git scrumlog --since=\"$([ $(gdate +%w) -eq 1 ] && gdate --date='3 days ago' +%F || gdate --date='2 days ago' +%F)\""
+    megascrum = "!for dir in $(find ${PWD} -name .git -exec dirname {} \\;); do (cd \"$dir\" && git --no-pager scrum); done 2>/dev/null | $(git config --get core.pager)"
 
     # git github.com/haacked https://github.com/Haacked/dotfiles/blob/f625b1c9e89b1e261868ac3244af037b6287b8bd/git/gitconfig.template#L9
     churn = "!git --no-pager log --name-only --oneline | grep -v ' ' | sort | uniq -c | sort -nr | head"
