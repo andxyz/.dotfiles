@@ -19,6 +19,9 @@ eval "$(rbenv init -)"
 echo '## installing recommended homebrew dependencies'
 brew update
 
+rbenv update
+XYZ_DEFAULT_RUBY="2.7.5"
+
 brew unlink openssl  || true
 brew unlink libffi   || true
 brew unlink libyaml  || true
@@ -55,7 +58,7 @@ ls "$(rbenv root)"/plugins
 
 ## prepare ruby-build, see https://github.com/rbenv/ruby-build/wiki
 cd "$(rbenv root)"/plugins/ruby-build && git pull
-cd "${HOME}"
+cd -
 
 ## make sure rbenv is uptodate
 rbenv update
@@ -141,7 +144,7 @@ brew --prefix readline
 # env -- MAKE_OPT='-j8' CFLAGS='-g3 -gdwarf-2 -O2' RUBY_CONFIGURE_OPTS="--with-openssl-dir=$(brew --prefix openssl)  --with-readline-dir=$(brew --prefix readline) --disable-install-doc --disable-install-rdoc --disable-install-capi --enable-dtrace" rbenv install --skip-existing --verbose 2.7.2
 # env -- MAKE_OPT='-j8' CFLAGS='-g3 -gdwarf-2 -O2' RUBY_CONFIGURE_OPTS="--with-openssl-dir=$(brew --prefix openssl)  --with-readline-dir=$(brew --prefix readline) --disable-install-doc --disable-install-rdoc --disable-install-capi --enable-dtrace" rbenv install --skip-existing --verbose 2.7.3
 # env -- MAKE_OPT='-j8' CFLAGS='-g3 -gdwarf-2 -O2' RUBY_CONFIGURE_OPTS="--with-openssl-dir=$(brew --prefix openssl)  --with-readline-dir=$(brew --prefix readline) --disable-install-doc --disable-install-rdoc --disable-install-capi --enable-dtrace" rbenv install --skip-existing --verbose 2.7.4
-env -- MAKE_OPT='-j8' CFLAGS='-g3 -gdwarf-2 -O2' RUBY_CONFIGURE_OPTS="--with-openssl-dir=$(brew --prefix openssl)  --with-readline-dir=$(brew --prefix readline) --disable-install-doc --disable-install-rdoc --disable-install-capi --enable-dtrace" rbenv install --skip-existing --verbose 2.7.5
+env -- MAKE_OPT='-j8' CFLAGS='-g3 -gdwarf-2 -O2' RUBY_CONFIGURE_OPTS="--with-openssl-dir=$(brew --prefix openssl)  --with-readline-dir=$(brew --prefix readline) --disable-install-doc --disable-install-rdoc --disable-install-capi --enable-dtrace" rbenv install --skip-existing --verbose "${XYZ_DEFAULT_RUBY}"
 env -- MAKE_OPT='-j8' CFLAGS='-g3 -gdwarf-2 -O2' RUBY_CONFIGURE_OPTS="--with-openssl-dir=$(brew --prefix openssl)  --with-readline-dir=$(brew --prefix readline) --disable-install-doc --disable-install-rdoc --disable-install-capi --enable-dtrace" rbenv install --skip-existing --verbose 3.0.2
 
 # installer files cleanup
@@ -157,12 +160,9 @@ brew doctor
 # rbenv shell  2.3.6
 # rbenv global 2.3.6
 # rbenv global 2.5.1
-echo '## setting default shell ruby to 2.6.5'
-rbenv shell  2.6.5
-rbenv global 2.6.5
-
-# rbenv shell  2.3.1
-# rbenv global 2.3.1
+echo "## setting default shell ruby to ${XYZ_DEFAULT_RUBY}"
+rbenv shell  "${XYZ_DEFAULT_RUBY}"
+rbenv global "${XYZ_DEFAULT_RUBY}"
 
 ## show off my new whiz bangs! you guys! We gots whiz-bangs!
 rbenv rehash
