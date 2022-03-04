@@ -16,4 +16,8 @@ function setup_docker_machine() {
   fi
 }
 
-setup_docker_machine
+# setup_docker_machine
+
+# I switched to colima
+#
+export -- DOCKER_IP=0.0.0.0
