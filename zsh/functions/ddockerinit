@@ -7,3 +7,5 @@ function ddockerinit {
   export -- DOCKER_IP=$(docker-machine ip default)
   set +x
 }
+
+export -- DOCKER_IP=0.0.0.0
