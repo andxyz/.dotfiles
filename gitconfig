@@ -148,6 +148,7 @@ version = 2
     logponeline      = log --topo-order --decorate --abbrev-commit --abbrev=7 --pretty=format:'%Cred %h %Creset%Cgreen[%ai]%C(bold blue)[%aN]%Creset %s%C(yellow)%d%Creset'
     logpstat         = log --topo-order --color --stat=180,150 --pretty='format: %Cgreen%h%Creset%Cblue by %aN, %ci%Creset  %s%Cred%d%Creset%n'
     logpmerges       = log --topo-order --merges --decorate --pretty=format:'%Cred %h %Creset%Cgreen[%ai]%C(bold blue)[%aN]%Creset %s%C(yellow)%d%Creset'
+    logpbuildkite    = !echo "test-$(git rev-parse --short=7 HEAD)"
 
     # graphing
     logpgraphstat     = log --topo-order --color --stat=180,150 --pretty='format: %Cgreen%h%Creset%Cblue by %aN, %ci%Creset  %s%Cred%d%Creset%n' --graph
