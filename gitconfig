@@ -48,6 +48,7 @@
     syntax-theme = Monokai Extended
     features = line-numbers keep-plus-minus-markers decorations
     whitespace-error-style = magenta reverse
+    side-by-side = false
 
 [delta "decorations"]
     commit-decoration-style = none
@@ -57,7 +58,7 @@
     hunk-header-decoration-style = none
 
 [commit]
-  template = ~/.gitmessage
+  # template = ~/.gitmessage # turn this off for now, for Jorges work to take over
 
 [push]
     default = simple
