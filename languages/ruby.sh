@@ -145,7 +145,8 @@ brew --prefix readline
 # env -- MAKE_OPT='-j8' CFLAGS='-g3 -gdwarf-2 -O2' RUBY_CONFIGURE_OPTS="--with-openssl-dir=$(brew --prefix openssl)  --with-readline-dir=$(brew --prefix readline) --disable-install-doc --disable-install-rdoc --disable-install-capi --enable-dtrace" rbenv install --skip-existing --verbose 2.7.3
 # env -- MAKE_OPT='-j8' CFLAGS='-g3 -gdwarf-2 -O2' RUBY_CONFIGURE_OPTS="--with-openssl-dir=$(brew --prefix openssl)  --with-readline-dir=$(brew --prefix readline) --disable-install-doc --disable-install-rdoc --disable-install-capi --enable-dtrace" rbenv install --skip-existing --verbose 2.7.4
 env -- MAKE_OPT='-j8' CFLAGS='-g3 -gdwarf-2 -O2' RUBY_CONFIGURE_OPTS="--with-openssl-dir=$(brew --prefix openssl)  --with-readline-dir=$(brew --prefix readline) --disable-install-doc --disable-install-rdoc --disable-install-capi --enable-dtrace" rbenv install --skip-existing --verbose "${XYZ_DEFAULT_RUBY}"
-env -- MAKE_OPT='-j8' CFLAGS='-g3 -gdwarf-2 -O2' RUBY_CONFIGURE_OPTS="--with-openssl-dir=$(brew --prefix openssl)  --with-readline-dir=$(brew --prefix readline) --disable-install-doc --disable-install-rdoc --disable-install-capi --enable-dtrace" rbenv install --skip-existing --verbose 3.0.2
+# env -- MAKE_OPT='-j8' CFLAGS='-g3 -gdwarf-2 -O2' RUBY_CONFIGURE_OPTS="--with-openssl-dir=$(brew --prefix openssl)  --with-readline-dir=$(brew --prefix readline) --disable-install-doc --disable-install-rdoc --disable-install-capi --enable-dtrace" rbenv install --skip-existing --verbose 3.0.2
+env -- MAKE_OPT='-j8' CFLAGS='-g3 -gdwarf-2 -O2' RUBY_CONFIGURE_OPTS="--with-openssl-dir=$(brew --prefix openssl)  --with-readline-dir=$(brew --prefix readline) --disable-install-doc --disable-install-rdoc --disable-install-capi --enable-dtrace" rbenv install --skip-existing --verbose 3.0.3
 
 # installer files cleanup
 # cd /usr/local
@@ -157,9 +158,9 @@ brew doctor
 
 ## set my default rubies for new shells
 #
-# rbenv shell  2.3.6
-# rbenv global 2.3.6
-# rbenv global 2.5.1
+# rbenv shell  2.3.7
+# rbenv global 2.3.7
+# rbenv global 2.5.8
 echo "## setting default shell ruby to ${XYZ_DEFAULT_RUBY}"
 rbenv shell  "${XYZ_DEFAULT_RUBY}"
 rbenv global "${XYZ_DEFAULT_RUBY}"
@@ -243,6 +244,7 @@ function  rbenv-show_space_usage() {
 function rbenv-cleanup_gems_for_each_installed_ruby() {
   yes | rbenv each gem cleanup
   rbenv each uninstall_gems.sh
+
   # now reinstall some basics
   rbenv each gem install 'bundler' 'pry' 'pry-byebug' 'pry-doc' 'yard' 'bcat' 'niceql' 'foreman'
 }
