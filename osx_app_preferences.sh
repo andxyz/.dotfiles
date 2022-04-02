@@ -81,7 +81,11 @@ ${LSREG_HOME}/swda getUTIs | grep -i Sublime
 
 ## note: you can use the `mdls` command to find the UTI for a file:
 # mdls ~/Desktop/tmp.js
+# kMDItemKind = "JavaScript script"
 # mdls ~/code/andxyz-dotfiles/ctags
+# kMDItemKind = "Document"
+# mdls /Users/andrew/wonolo/nomad-jobs/andrew/andrew-opensearch.hcl
+#
 #
 ## prints a bunch of stuff:
 #
