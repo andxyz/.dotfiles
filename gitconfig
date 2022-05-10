@@ -405,7 +405,7 @@ version = 2
     helper = osxkeychain
 
 [init]
-    templatedir = ~/.git-template
+    # templatedir = ~/.git-template
 	defaultBranch = master
     # defaultBranch = main
 
