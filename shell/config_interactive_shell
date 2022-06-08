@@ -29,6 +29,10 @@ export -- REPORTTIME=10
 export -- LESSSECURE=1 # seems legit
 export -- HOMEBREW_NO_AUTO_UPDATE=1 # sounds good to me
 
+# ruby hacks, https://github.com/rails/rails/issues/38560
+export -- OBJC_DISABLE_INITIALIZE_FORK_SAFETY=YES
+export -- DISABLE_SPRING=true
+
 # [ -n "$PS1" ] && source "$HOME/code/git/base16-shell/scripts/base16-default-dark.sh" # colors
 
 # brew info z

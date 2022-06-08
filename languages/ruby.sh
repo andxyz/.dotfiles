@@ -41,8 +41,8 @@ brew link readline --force || true
 brew link libxml2 --force || true
 brew link libxslt --force || true
 
-export LDFLAGS="-L/usr/local/opt/openssl@1.1/lib -L/usr/local/opt/libffi/lib -L/usr/local/opt/readline/lib -L/usr/local/opt/libxml2/lib -L/usr/local/opt/libxslt/lib -L/usr/local/opt/postgresql@11/lib"
-export CPPFLAGS="-I/usr/local/opt/openssl@1.1/include -I/usr/local/opt/libffi/include -I/usr/local/opt/readline/include -I/usr/local/opt/libxml2/include -I/usr/local/opt/libxslt/include -I/usr/local/opt/postgresql@11/include"
+export LDFLAGS="-L/usr/local/opt/openssl@1.1/lib -L/usr/local/opt/libffi/lib -L/usr/local/opt/readline/lib -L/usr/local/opt/libxml2/lib -L/usr/local/opt/libxslt/lib -L/usr/local/opt/postgresql@10/lib"
+export CPPFLAGS="-I/usr/local/opt/openssl@1.1/include -I/usr/local/opt/libffi/include -I/usr/local/opt/readline/include -I/usr/local/opt/libxml2/include -I/usr/local/opt/libxslt/include -I/usr/local/opt/postgresql@10/include"
 
 ## plugins ahoy, see https://github.com/rbenv/rbenv/wiki/Plugins
 echo '## installing rbenv plugins'
@@ -123,7 +123,8 @@ echo '## installing rubies'
 # rbenv update
 # rbenv install --list
 
-brew --prefix openssl
+brew --prefix openssl@1.1
+brew --prefix openssl@3
 brew --prefix readline
 
 # env -- MAKE_OPT='-j8' CFLAGS='-g3 -gdwarf-2 -O2' RUBY_CONFIGURE_OPTS="--with-openssl-dir=$(brew --prefix openssl)  --with-readline-dir=$(brew --prefix readline) --disable-install-doc --disable-install-rdoc --disable-install-capi" rbenv install --skip-existing --verbose 1.9.3-p551
@@ -148,7 +149,8 @@ brew --prefix readline
 # https://github.com/postmodern/ruby-install/issues/412
 # see also https://github.com/oracle/truffleruby/pull/2557/files
 #
-env -- MAKE_OPT='-j8' CFLAGS='-g3 -gdwarf-2 -O2' RUBY_CONFIGURE_OPTS="--with-openssl-dir=$(brew --prefix 'openssl@1.1')  --with-readline-dir=$(brew --prefix readline) --disable-install-doc --disable-install-rdoc --disable-install-capi --enable-dtrace" rbenv install --skip-existing --verbose "${XYZ_DEFAULT_RUBY}"
+env -- MAKE_OPT='-j8' CFLAGS='-g3 -gdwarf-2 -O2' RUBY_CONFIGURE_OPTS="--with-openssl-dir=$(brew --prefix 'openssl@1.1')  --with-readline-dir=$(brew --prefix readline) --disable-install-doc --disable-install-rdoc --disable-install-capi --enable-dtrace" rbenv install --skip-existing --verbose 2.7.5
+env -- MAKE_OPT='-j8' CFLAGS='-g3 -gdwarf-2 -O2' RUBY_CONFIGURE_OPTS="--with-openssl-dir=$(brew --prefix 'openssl@3')  --with-readline-dir=$(brew --prefix readline) --disable-install-doc --disable-install-rdoc --disable-install-capi --enable-dtrace" rbenv install --skip-existing --verbose 2.7.6
 # env -- MAKE_OPT='-j8' CFLAGS='-g3 -gdwarf-2 -O2' RUBY_CONFIGURE_OPTS="--with-openssl-dir=$(brew --prefix 'openssl@3')  --with-readline-dir=$(brew --prefix readline) --disable-install-doc --disable-install-rdoc --disable-install-capi --enable-dtrace" rbenv install --skip-existing --verbose 3.0.2
 env -- MAKE_OPT='-j8' CFLAGS='-g3 -gdwarf-2 -O2' RUBY_CONFIGURE_OPTS="--with-openssl-dir=$(brew --prefix 'openssl@3')  --with-readline-dir=$(brew --prefix readline) --disable-install-doc --disable-install-rdoc --disable-install-capi --enable-dtrace" rbenv install --skip-existing --verbose 3.1.1
 

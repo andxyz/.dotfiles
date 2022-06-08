@@ -1,20 +1,24 @@
 #!/usr/bin/env zsh
 
 # brew info zsh-completions
+#
 # ls /usr/local/share/zsh-completions
 # chmod -R go-w '/usr/local/share/zsh'
 # rm -f ~/.zcompdump; compinit
-if type brew &>/dev/null; then
-  FPATH=$(brew --prefix)/share/zsh-completions:$FPATH # Where the completions?
 
-  autoload -Uz compinit # Load the completion module
-  compinit -u # Process completions
+if type brew &>/dev/null; then
+  export FPATH="$(brew --prefix)"/share/zsh-completions:$FPATH
+
+  autoload -Uz compinit
+  compinit
 fi
 # compaudit
 #
 # sudo chmod -R g-w /usr/local/share/zsh/site-functions
 # sudo chmod -R g-w /usr/local/share/zsh
 # sudo chmod -R g-w /usr/local/share/
+#
+#
 #
 
 zstyle ':completion:*' menu select # Style of completion
