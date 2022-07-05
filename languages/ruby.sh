@@ -32,6 +32,7 @@ brew unlink readline || true
 (brew install readline && brew upgrade readline) || true
 (brew install libxml2  && brew upgrade libxml2)  || true
 (brew install libxslt  && brew upgrade libxslt)  || true
+(brew install postgresql@10  && brew upgrade postgresql@10)  || true
 (brew install postgresql@11  && brew upgrade postgresql@11)  || true
 
 brew link openssl --force || true
@@ -41,8 +42,9 @@ brew link readline --force || true
 brew link libxml2 --force || true
 brew link libxslt --force || true
 
-export LDFLAGS="-L/usr/local/opt/openssl@1.1/lib -L/usr/local/opt/libffi/lib -L/usr/local/opt/readline/lib -L/usr/local/opt/libxml2/lib -L/usr/local/opt/libxslt/lib -L/usr/local/opt/postgresql@10/lib"
-export CPPFLAGS="-I/usr/local/opt/openssl@1.1/include -I/usr/local/opt/libffi/include -I/usr/local/opt/readline/include -I/usr/local/opt/libxml2/include -I/usr/local/opt/libxslt/include -I/usr/local/opt/postgresql@10/include"
+export LDFLAGS="-L/usr/local/opt/curl/lib -L/usr/local/opt/openssl@1.1/lib -L/usr/local/opt/libffi/lib -L/usr/local/opt/readline/lib -L/usr/local/opt/libxml2/lib -L/usr/local/opt/libxslt/lib -L/usr/local/opt/postgresql@10/lib"
+export CPPFLAGS="-I/usr/local/opt/curl/include -I/usr/local/opt/openssl@1.1/include -I/usr/local/opt/libffi/include -I/usr/local/opt/readline/include -I/usr/local/opt/libxml2/include -I/usr/local/opt/libxslt/include -I/usr/local/opt/postgresql@10/include"
+export PKG_CONFIG_PATH="/usr/local/opt/curl/lib/pkgconfig:/usr/local/opt/openssl@1.1/lib/pkgconfig:/usr/local/opt/libffi/lib/pkgconfig:/usr/local/opt/readline/lib/pkgconfig:/usr/local/opt/libxml2/lib/pkgconfig:/usr/local/opt/libxslt/lib/pkgconfig:/usr/local/opt/postgresql@10/lib/pkgconfig"
 
 ## plugins ahoy, see https://github.com/rbenv/rbenv/wiki/Plugins
 echo '## installing rbenv plugins'
@@ -243,7 +245,7 @@ rbenv-update_rubygems_bundler_for_rbenv_local;
 ### RED ALERT clean house
 ####
 #
-function  rbenv-show_space_usage() {
+function rbenv-show_space_usage() {
   du -hsc "$(rbenv root)"
   du -hsc "$(rbenv root)"/versions/*
 }
