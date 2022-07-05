@@ -9,8 +9,9 @@ alias time='time -p ' # -p for POSIX output
 ## zsh function nonsense
 fpath=(~/.zsh/functions $fpath)
 autoload -U ~/.zsh/functions/*(:t)
+
 ## zplug dance see https://github.com/zplug/zplug
-export ZPLUG_HOME=/usr/local/Cellar/zplug/2.4.2
+export ZPLUG_HOME=/usr/local/opt/zplug
 source $ZPLUG_HOME/init.zsh
 ## plugs
 zplug "changyuheng/fz", defer:1
