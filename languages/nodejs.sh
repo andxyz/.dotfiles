@@ -5,7 +5,7 @@ set -e
 
 ## see https://github.com/creationix/nvm
 ! test -d ~/.nvm &&
-git clone git@github.com:nvm-sh/nvm.git
+git clone git@github.com:nvm-sh/nvm.git ~/.nvm
 
 source $HOME/.nvm/nvm.sh
 # nvm unload
@@ -15,12 +15,18 @@ cd ~/.nvm
 git pull
 git fetch --tags
 git tag --list
-git checkout v0.37.2
+git checkout v0.39.2
+# git checkout v0.37.2
 # git checkout v0.35.3
 # git checkout v0.33.6
 
 nvm ls-remote
-nvm install v14.17.0
+PATH='/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/opt/X11/bin'
+nvm install v18.12.1
+# nvm install v18.12.1
+# nvm install v17.9.1
+# nvm install v16.19.0
+# nvm install v15.14.0
 # nvm install v14.15.5
 # nvm install v10.16.3
 # nvm install v10.12.0
@@ -44,9 +50,9 @@ nvm install v14.17.0
 
 ## set our dev machine defaults
 ### for future shells
-nvm alias default v14.17.0
+nvm alias default v18.12.1
 ### for this shell right now. now now? like now? yes, right now now.
-nvm use v14.17.0
+nvm use v18.12.1
 
 ## update npm
 npm update -g --silent npm
