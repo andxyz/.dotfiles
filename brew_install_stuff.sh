@@ -84,8 +84,7 @@ brew install 'gcc'
 # brew install 'gcc@6'
 brew link gcc --force || true
 ## ios
-brew install 'carthage'
-
+# brew install 'carthage'
 # brew upgrade 'openssh'
 # brew upgrade 'openssl'
 # brew upgrade 'libyaml'
@@ -112,6 +111,7 @@ brew install 'curl'
 brew install 'git'
 #brew upgrade 'git' --with-pcre --with-brewed-curl --with-brewed-openssl
 brew install 'hub'
+brew install 'gh'
 # brew cask install 'kaleidoscope'
 ## I've been doing it manually you have to click things to install the commandline tools anyway
 
