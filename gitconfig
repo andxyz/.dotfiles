@@ -132,8 +132,8 @@ version = 2
 
     # ddiff = "!fgitdiff0() { git diff --color \"$@\" | diff-so-fancy | less --tabs=4 -RFXS; }; fgitdiff0"
     # ddiffc = "!fgitdiffc0() { git diff --cached --color $@ | diff-so-fancy | less --tabs=4 -RFXS; }; fgitdiffc0"
-    ddiff = "!fgitddiff0() { git diff --color \"${@}\"; }; fgitddiff0"
-    ddiffc = "!fgitddiffc0() { git diff --cached --color \"${@}\"; }; fgitddiffc0"
+    ddiff = "!fgitddiff0() { git diff --color --diff-algorithm=minimal \"${@}\"; }; fgitddiff0"
+    ddiffc = "!fgitddiffc0() { git diff --cached --color --diff-algorithm=minimal \"${@}\"; }; fgitddiffc0"
     d = "ddiff"
     dc = "ddiffc"
 
