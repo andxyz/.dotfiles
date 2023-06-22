@@ -373,7 +373,7 @@ brew install colorpicker-hex --force
 
 ### OSX quicklook plugins
 # see https://github.com/sindresorhus/quick-look-plugins
-sudo ls # enter password so installs are clean
+cd ~/Library/QuickLook/ && sudo ls # enter password so installs are clean
 brew install 'betterzip' --force #installs app and ql extension for zips
 # brew install 'ipaql' --force # errored, doesnt exist? ipaql
 brew install 'provisionql' --force
