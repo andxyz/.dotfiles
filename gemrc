@@ -1,11 +1,17 @@
 ---
+# https://docs.ruby-lang.org/en/3.2/Gem/ConfigFile.html
+# gem install --help
+# update_sources[RW] True if we want to update the SourceInfoCache every time, false otherwise
+# backtrace[W]: True if we print backtraces on errors.
+# benchmark:, Removed benchmark option from .gemrc https://blog.rubygems.org/2013/02/08/2.0.0.rc.2-released.html
+# bulk_threshold[RW]: Bulk threshold value. If the number of missing gems are above this threshold value, then a bulk download technique is used. (deprecated)
+# verbose[RW]: Verbose level of output: "false – No output"  "true – Normal output" ":loud – Extra output"
 update_sources: true
 sources:
 - https://rubygems.org
 backtrace: true
-benchmark: false
 bulk_threshold: 1000
 verbose: true
-gem: --no-rdoc --no-ri --no-doc --env-shebang
-install: --no-rdoc --no-ri --no-doc --env-shebang
-update: --no-rdoc --no-ri --no-doc --env-shebang
+gem: --no-document --env-shebang
+install: --no-document --env-shebang
+update: --no-document --env-shebang
