@@ -112,7 +112,7 @@ brew install 'git'
 #brew upgrade 'git' --with-pcre --with-brewed-curl --with-brewed-openssl
 brew install 'hub'
 brew install 'gh'
-# brew cask install 'kaleidoscope'
+# brew install --cask 'kaleidoscope'
 ## I've been doing it manually you have to click things to install the commandline tools anyway
 
 ### db services
@@ -198,16 +198,16 @@ brew cleanup -s
 brew cask cleanup
 
 ### text editor
-### brew cask install 'sublime-text'
-### brew cask install 'sublimetext2'
-### brew cask install 'sublimetext3''
+### brew install --cask 'sublime-text'
+### brew install --cask 'sublimetext2'
+### brew install --cask 'sublimetext3''
 brew install --HEAD 'universal-ctags/universal-ctags/universal-ctags'
 brew install 'tmux' --with-utf8proc
 brew install 'reattach-to-user-namespace'
 brew install 'vim' --with-lua --with-luajit
 brew install --force-bottle 'macvim'
-# brew cask install 'clipmenu'
-brew cask install 'clipy'
+# brew install --cask 'clipmenu'
+brew install --cask 'clipy'
 brew install 'fzf'
 brew install 'fpp'
 
@@ -239,70 +239,70 @@ brew install 'shopify/shopify/toxiproxy'
 #brew install nginx-full --with-upload-module
 
 ### vms
-brew cask install 'virtualbox'
-brew cask install 'virtualbox-extension-pack'
-brew cask install 'vagrant'
+brew install --cask 'virtualbox'
+brew install --cask 'virtualbox-extension-pack'
+brew install --cask 'vagrant'
 
 ### archiving tools
-brew cask install 'keka'
-brew cask install 'the-unarchiver'
+brew install --cask 'keka'
+brew install --cask 'the-unarchiver'
 
 ### text editing
-brew cask install 'texshop'
+brew install --cask 'texshop'
 
 ## spreadsheet and document apps
 brew install tika # apache-tika content analysis toolkit http://tika.apache.org/
 
 ### dev
-# brew cask install 'android-studio'
-brew cask install 'iterm2'
-brew cask install 'android-file-transfer'
-brew cask install 'charles'
-brew cask install 'dash' # dash4
-brew cask install 'viscosity'
-# brew cask install 'gitx'
+# brew install --cask 'android-studio'
+brew install --cask 'iterm2'
+brew install --cask 'android-file-transfer'
+brew install --cask 'charles'
+brew install --cask 'dash' # dash4
+brew install --cask 'viscosity'
+# brew install --cask 'gitx'
 
 
 ### splunking
 # brew install 'samdmarshall/formulae/aosd'
 brew install 'samdmarshall/formulae/afterglow' # https://github.com/samdmarshall/homebrew-formulae/blob/master/afterglow.rb
-brew cask install '0xed'
-brew cask install 'hex-fiend'
-brew cask install 'hopper-disassembler'
-brew cask install 'synalyze-it-pro'
+brew install --cask '0xed'
+brew install --cask 'hex-fiend'
+brew install --cask 'hopper-disassembler'
+brew install --cask 'synalyze-it-pro'
 
 ### 3rd-party-plugins
-brew cask install 'silverlight'
+brew install --cask 'silverlight'
 
 ### video chat
-brew cask install 'skype'
-brew cask install 'mumble'
-brew cask install 'google-hangouts'
+brew install --cask 'skype'
+brew install --cask 'mumble'
+brew install --cask 'google-hangouts'
 ### text chat
-# brew cask install 'hipchat'
-brew cask install 'slack'
-# brew cask install 'propane'
+# brew install --cask 'hipchat'
+brew install --cask 'slack'
+# brew install --cask 'propane'
 
 ### playback
-brew cask install 'MPlayerX'
-brew cask install 'mpv'
-brew cask install 'Vox'
+brew install --cask 'MPlayerX'
+brew install --cask 'mpv'
+brew install --cask 'Vox'
 
 ### productivity?
-brew cask install 'dropbox'
-brew cask install '1password'
-brew cask install 'alfred'
+brew install --cask 'dropbox'
+brew install --cask '1password'
+brew install --cask 'alfred'
 #
-brew cask install 'caffeine'
-brew cask install 'disk-inventory-x'
-brew cask install 'fantastical'
-brew cask install 'geektool'
-brew cask install 'imagealpha'
-brew cask install 'imageoptim'
-brew cask install 'transmit'
+brew install --cask 'caffeine'
+brew install --cask 'disk-inventory-x'
+brew install --cask 'fantastical'
+brew install --cask 'geektool'
+brew install --cask 'imagealpha'
+brew install --cask 'imageoptim'
+brew install --cask 'transmit'
 
 ### maths
-brew cask install 'speedcrunch'
+brew install --cask 'speedcrunch'
 
 ## debug
 # brew tap 'homebrew/x11/'
@@ -310,26 +310,26 @@ brew cask install 'speedcrunch'
 # git remote set-url origin git@github.com:Homebrew/homebrew-x11/.git
 brew install 'homebrew/dev-tools/brew-pry'
 brew install 'gdb'
-brew cask install 'macgdbp'
+brew install --cask 'macgdbp'
 brew install 'homebrew/x11/ddd'
 brew install 'ios-webkit-debug-proxy'
 brew install 'iperf'
 
 ## filesystems
-brew cask install 'osxfuse'
+brew install --cask 'osxfuse'
 brew install 'homebrew/fuse/s3fs'
 brew install 'homebrew/fuse/ntfs-3g'
 
 ### music
 # https://github.com/thebitguru/play-button-itunes-patch
 brew install 'homebrew/binary/libspotify'
-brew cask install 'plug'
-brew cask install 'rdio'
-brew cask install 'soundcleod'
-brew cask install 'spotify'
+brew install --cask 'plug'
+brew install --cask 'rdio'
+brew install --cask 'soundcleod'
+brew install --cask 'spotify'
 
 ### freelance
-brew cask install 'harvest'
+brew install --cask 'harvest'
 
 ### video manipulation
 brew install ffmpeg --with-fdk-aac --with-ffplay --with-freetype --with-frei0r \
@@ -337,32 +337,32 @@ brew install ffmpeg --with-fdk-aac --with-ffplay --with-freetype --with-frei0r \
 --with-opencore-amr --with-openjpeg --with-opus \
 --with-rtmpdump --with-speex --with-theora --with-tools \
 --with-libvorbis --with-theora
-brew cask install 'youtube-dl'
-# brew cask install 'subler'
-# brew cask install 'miro-video-converter'
+brew install --cask 'youtube-dl'
+# brew install --cask 'subler'
+# brew install --cask 'miro-video-converter'
 
 ### theinternet
-brew cask install 'transmission'
-brew cask install 'lastfm'
+brew install --cask 'transmission'
+brew install --cask 'lastfm'
 
 ### image manipulation
-brew cask install 'xee'
+brew install --cask 'xee'
 
 ### text manipulation
-brew cask install 'calibre'
+brew install --cask 'calibre'
 
 ## Keyboard map
-brew cask install 'karabiner'
-brew cask install 'seil'
-brew cask install 'ukelele'
+brew install --cask 'karabiner'
+brew install --cask 'seil'
+brew install --cask 'ukelele'
 
 ### OSX hacks
-brew cask install 'rcdefaultapp'
-# brew cask install 'RightZoom'
+brew install --cask 'rcdefaultapp'
+# brew install --cask 'RightZoom'
 
 ### battery stuff
-brew cask install 'slimbatterymonitor'
-# brew cask install 'coconutbattery'
+brew install --cask 'slimbatterymonitor'
+# brew install --cask 'coconutbattery'
 
 
 # color pickers
@@ -392,7 +392,7 @@ brew install 'suspicious-package' --force
 brew install 'webpquicklook' --force
 cd ~/Library/QuickLook/ && qlmanage -r && cd -
 
-# brew cask install provisioning
+# brew install --cask provisioning
 ### manual quicklook plugins
 # https://github.com/jaketmp/ePub-quicklook
 # https://code.google.com/p/cert-quicklook/downloads/list
@@ -425,6 +425,7 @@ brew doctor
 ### current list of crap on my dev machine
 # ~/code/andxyz-dotfiles[master]
 # $ brew leaves | sort | paste - - - -
+#
 # ack adr-tools ansible ansible@1.9
 # apm-bash-completion aptly-completion  autoenv awscli
 # aykamko/tag-ag/tag-ag bash  bash-completion bash-git-prompt
