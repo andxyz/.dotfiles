@@ -378,13 +378,15 @@ brew install 'betterzip' --force #installs app and ql extension for zips
 # brew install 'ipaql' --force # errored, doesnt exist? ipaql
 brew install 'provisionql' --force
 brew install 'qlcolorcode' --force
+# see workaround https://gist.github.com/Kiran-B/a26f482194ffdf01045621f33fe257c0?permalink_comment_id=3448689#gistcomment-3448689
+cd ~/Library/ColorPickers && codesign --force --deep --sign - ./DeveloperColorPicker.colorPicker && cd -
 brew install 'qlimagesize' --force
 brew install 'qlmarkdown' --force
 brew install 'qlprettypatch' --force
 brew install 'qlstephen' --force
 brew install 'qlvideo' --force
 brew install 'quicklook-json' --force
-brew install 'quicklookapk' --force
+# brew install 'quicklookapk' --force
 brew install 'quicknfo' --force
 brew install 'suspicious-package' --force
 brew install 'webpquicklook' --force
