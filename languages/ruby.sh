@@ -245,7 +245,7 @@ rbenv-update_rubygems_bundler_for_rbenv_local;
 ### reinstall pg gem
 #
 # rbenv exec gem uninstall pg
-# brew link --force --overwrite postgresql
+# brew link --force --overwrite postgresql@14
 # rbenv exec bundle install
 #
 
