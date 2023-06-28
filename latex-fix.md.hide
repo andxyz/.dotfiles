@@ -1,0 +1,8 @@
+
+#### Remember to create the link for mactex and texshop
+
+For example
+
+```shell
+sudo ln -s /usr/local/texlive/2023/bin/universal-darwin/ /Library/TeX/texbin
+```
