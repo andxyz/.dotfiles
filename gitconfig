@@ -4,7 +4,7 @@
 
 [core]
     pager = delta
-    editor = subl -n -w
+    editor = nvim
     excludesfile = ~/.gitignore_global
     autocrlf = input
     whitespace = trailing-space,space-before-tab,tab-in-indent
@@ -15,35 +15,47 @@
 [apply]
     whitespace = warn
 
+[color]
+    ui = auto
+
+[color "diff-highlight"]
+    oldNormal = red bold
+    oldHighlight = red bold 52
+    newNormal = green bold
+    newHighlight = green bold 22
+
+[color "diff"]
+    meta = 11
+    frag = magenta bold
+    commit = yellow bold
+    old = red bold
+    new = green bold
+    whitespace = red reverse
+
 [include]
     path = "${HOME}/code/git/delta/themes.gitconfig"
 
 [pager]
-    diff = delta --features="line-numbers decorations"
+    diff = delta
     log = delta
     reflog = delta
     show = delta
 
 [interactive]
-    diffFilter = delta --color-only --features=interactive
+    diffFilter = delta --color-only
 
 [delta]
-    true-color = always
+    syntax-theme = Monokai Extended
+    features = line-numbers keep-plus-minus-markers decorations
+    whitespace-error-style = magenta reverse
     side-by-side = false
 
 [delta "decorations"]
     commit-decoration-style = none
-    file-style = bold "#a0efa0" ul
+    file-style = bold yellow ul
     hunk-header-style = file omit
-    file-decoration-style = bold "#a0efa0" box
+    file-decoration-style = bold yellow box
     hunk-header-decoration-style = none
-    hyperlinks = true
-    hyperlinks-file-link-format = "file://{path}:{line}"
-
-[delta "interactive"]
-    keep-plus-minus-markers = false
-    hyperlinks = true
-    hyperlinks-file-link-format = "file://{path}:{line}"
 
 [commit]
   # template = ~/.gitmessage # turn this off for now, for Jorges work to take over
@@ -80,7 +92,7 @@
 # fooling around thanks to https://github.com/imbsky/dotfiles/blob/fc18a09126148365bea7a19dcedca0a47c4c44ee/gitconfig
 # see https://git-scm.com/docs/protocol-v2
 [protocol]
-    version = 2
+version = 2
 
 # this is messing up cocoapod podspecs
 # this is also messing up rust-lang/crates.io during, cargo build --release
@@ -96,11 +108,12 @@
     f  = fetch --all
     fs = fetch origin staging:staging
     fm = fetch origin main:main
-    fmm = fetch origin master:master
+    fp = fetch origin production:production
     # pushf_new failed me, reverting for now
-    pushf = "!gitpushf() { git push --force-with-lease origin \"$(git rev-parse --abbrev-ref HEAD)\"; }; gitpushf"
+    # pushf_new = "!git push --force-with-lease origin \"$(git rev-parse --abbrev-ref HEAD)\""
+    pushf = push --force-with-lease
     fetch-and-prune  = fetch --all --prune
-    # runs my ${HOME}/bin/git-branch-list.sh shell script
+    # runs my $HOME/bin/git-branch-list.sh shell script
     b = branch-list.sh
     ls = ls-files
     ls-ignored = !git ls-files -v | grep "^[[:lower:]]"
@@ -209,7 +222,7 @@
     diffd-p4 = difftool --tool=p4merge_diff
     mergemkaleidoscope = mergetool --tool=kaleidoscope_merge
     # https://github.com/scottgonzalez/pretty-diff
-    # diffd-pretty = !${HOME}/bin/pretty-diff/pretty-diff.js
+    # diffd-pretty = !$HOME/bin/pretty-diff/pretty-diff.js
 
     # ctags
     # http://tbaggery.com/2011/08/08/effortless-ctags-with-git.html
@@ -317,7 +330,6 @@
 	trustExitCode = true
 
 [diff]
-    colorMoved = default
     tool = kaleidoscope_diff
     keepBackup = false
     keepTemporaries = false
@@ -388,7 +400,7 @@
     path = ~/.gitconfig-private
 
 # how to setup the helper https://help.github.com/articles/caching-your-github-password-in-git/
-# see ${HOME}/bin/git-credential-helper-setup.sh
+# see $HOME/bin/git-credential-helper-setup.sh
 [credential]
     helper = osxkeychain
 

@@ -13,11 +13,29 @@ ulimit -S -c 0
 # #!/bin/sh
 # #open -Wn -- "$@"
 # subl -w -- "$@"
-export -- EDITOR="subl -w -n -- ${*}"
-export -- EDITOR_USING_CURRENT_PROJECT="subl -- ${*}"
-export -- OPEN_IN_EDITOR="subl -- ${*}"
-export -- PAGER="less -R"
-export -- VISUAL="${EDITOR}"
+if [[ $(uname -s) == Darwin ]]
+then
+  export -- EDITOR="subl -w -n -- ${*}"
+  export -- EDITOR_USING_CURRENT_PROJECT="subl -- ${*}"
+  export -- PAGER="less -R"
+  export -- VISUAL="${EDITOR}"
+else # linux
+  if [ -z "$PAGER" ] && type less >/dev/null 2>&1; then
+    PAGER=less
+    export PAGER
+  fi
+  LESS="FXRq#10"
+  if [ -z "$LESSOPEN" ] && type lesspipe >/dev/null 2>&1; then
+    LESSOPEN='|lesspipe %s'
+  elif [ -z "$LESSOPEN" ]; then
+    LESSOPEN='|"$HOME/.lessfilter" %s'
+  fi
+  if [ -z "$VISUAL" ]; then
+    type vim >/dev/null 2>&1 && VISUAL=vim || VISUAL=vi
+  fi
+  EDITOR=$VISUAL
+  export -- LESS LESSOPEN VISUAL EDITOR
+fi
 
 # echo 'give me history you dogs of history'
 export -- HISTFILE=$HOME/.history
@@ -36,10 +54,6 @@ export -- OBJC_DISABLE_INITIALIZE_FORK_SAFETY=YES
 export -- DISABLE_SPRING=true
 
 # [ -n "$PS1" ] && source "$HOME/code/git/base16-shell/scripts/base16-default-dark.sh" # colors
-
-# brew info z
-# shellcheck source=/usr/local/etc/profile.d/z.sh
-# source /usr/local/etc/profile.d/z.sh
 
 # use the homebrew git prompt script else use and old one
 #
