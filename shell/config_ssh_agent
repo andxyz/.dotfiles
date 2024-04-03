@@ -18,6 +18,7 @@
 # srw------- 1 andxyz staff 0 Mar  1 16:45 /Users/andxyz/.ssh-agent.sock
 
 ## test brew ssh setup with github
+## "Hi andxyz! You've successfully authenticated, but GitHub does not provide shell access"
 test_brew_ssh_agent() {
   /usr/local/bin/ssh -V
   $(find /usr/local/Cellar/openssl* -name 'openssl' -type f) version
@@ -29,6 +30,7 @@ test_brew_ssh_agent() {
 }
 
 ## test osx ssh setup with github
+## "Hi andxyz! You've successfully authenticated, but GitHub does not provide shell access"
 test_osx_ssh_agent() {
   /usr/bin/ssh -V
 
@@ -38,7 +40,7 @@ test_osx_ssh_agent() {
   /usr/bin/ssh -Tv git@github.com
 }
 
-## "Hi andxyz! You've successfully authenticated, but GitHub does not provide shell access"
+
 
 ## old solutions
 ## http://www.dctrwatson.com/2013/07/how-to-update-openssh-on-mac-os-x/
@@ -65,12 +67,12 @@ use_brew_ssh_agent_setup() {
   ssh_find_agent -a || eval "$(ssh-agent)" > /dev/null
   echo "SSH_AUTH_SOCK = ${SSH_AUTH_SOCK}"
   echo "SSH_AGENT_PID = ${SSH_AGENT_PID}"
-  /usr/local/bin/ssh-add ~/.ssh/andxyz-github || true
-  /usr/local/bin/ssh-add ~/.ssh/andxyz-work || true
-  /usr/local/bin/ssh-add ~/.ssh/github || true
-  /usr/local/bin/ssh-add ~/.ssh/work || true
-  /usr/local/bin/ssh-add -l
-  lunchy status 'org.homebrew.ssh-agent'
+
+
+  ssh_agent_add_keys
+
+  # /usr/local/bin/ssh-add -l
+  # lunchy status 'org.homebrew.ssh-agent'
 }
 
 use_osx_ssh_agent_setup() {
@@ -84,14 +86,20 @@ use_osx_ssh_agent_setup() {
   # echo "SSH_AUTH_SOCK = ${SSH_AUTH_SOCK}"
   # echo "SSH_AGENT_PID = ${SSH_AGENT_PID}"
 
-  /usr/bin/ssh-add ~/.ssh/andxyz-github > /dev/null 2>&1 || true
-  /usr/bin/ssh-add ~/.ssh/andxyz-work > /dev/null 2>&1  || true
-  /usr/bin/ssh-add ~/.ssh/github > /dev/null 2>&1 || true
-  /usr/bin/ssh-add ~/.ssh/work > /dev/null 2>&1 || true
+  ssh_agent_add_keys
 
   ## puts more info
   # /usr/bin/ssh-add -l
   # launchctl list | grep -i 'ssh-agent'
+}
+
+ssh_agent_add_keys() {
+  /usr/bin/ssh-add ~/.ssh/andxyz-github > /dev/null 2>&1 || true
+  /usr/bin/ssh-add ~/.ssh/andxyz-gitlab > /dev/null 2>&1 || true
+  /usr/bin/ssh-add ~/.ssh/andxyz-work > /dev/null 2>&1  || true
+  /usr/bin/ssh-add ~/.ssh/github > /dev/null 2>&1 || true
+  /usr/bin/ssh-add ~/.ssh/gitlab > /dev/null 2>&1 || true
+  /usr/bin/ssh-add ~/.ssh/work > /dev/null 2>&1 || true
 }
 
 use_osx_ssh_agent_setup
