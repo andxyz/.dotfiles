@@ -47,7 +47,8 @@ alias gco='git checkout'
 
 ## codes
 alias cctags='cctags.sh &'
-alias zz='cd $(find ~/wonolo/* -maxdepth 0 -type d | fzf --preview "git -C {} status --short --branch")'
+alias ccd_project_dir="find ~/code/* -name '.git' -type d -execdir sh -c 'pwd' \; | fzf --preview 'git -c color.ui=always -C {} status --short --branch'"
+alias zz='cd "$(ccd_project_dir)"'
 
 ### rails and ruby
 ## alias bi="bundle install --binstubs"
