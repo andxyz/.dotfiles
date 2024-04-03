@@ -32,8 +32,9 @@ test -d "/Applications/android-sdk-macosx/platform-tools" &&
 test -d "/Applications/android-sdk-macosx/tools" &&
   export -- PATH="${PATH}:/Applications/android-sdk-macosx/tools"
 
-function source_golang_env_generic() {
-  # golang https://golang.org/doc/install or `brew install go`
+function source_golang_env_old_generic() {
+  # golang pre116
+  # golang https://golang.org/doc/install or `brew install go@1.16`
   export -- GOPATH=$HOME/code/gowork
   ## export -- PATH=$PATH:/usr/local/go/bin
   export -- PATH=${PATH}:${GOPATH}/bin
@@ -46,6 +47,12 @@ function source_golang_env_generic() {
 
 function source_golang107_path() {
   export -- PATH="/usr/local/opt/go@1.7/bin:$PATH"
+}
+
+# slowing me down
+function source_golang107_env() {
+  source_golang_env_old_generic
+  source_golang107_path
 }
 
 function source_golang108_path() {
@@ -80,58 +87,53 @@ function source_golang115_path() {
   export -- PATH="/usr/local/opt/go@1.15/bin:$PATH"
 }
 
-# slowing me down
-function source_golang107_env() {
-  source_golang_env_generic
-  source_golang107_path
+function source_golang116_path() {
+  export -- PATH="/usr/local/opt/go@1.16/bin:$PATH"
 }
-
 # slowing me down
 function source_golang108_env() {
-  source_golang_env_generic
+  source_golang_env_old_generic
   source_golang108_path
 }
-
 # slowing me down
 function source_golang109_env() {
-  source_golang_env_generic
+  source_golang_env_old_generic
   source_golang109_path
 }
-
 # slowing me down
 function source_golang110_env() {
-  source_golang_env_generic
+  source_golang_env_old_generic
   source_golang110_path
 }
-
 # slowing me down
 function source_golang111_env() {
-  source_golang_env_generic
+  source_golang_env_old_generic
   source_golang111_path
 }
-
 # slowing me down
 function source_golang112_env() {
-  source_golang_env_generic
+  source_golang_env_old_generic
   source_golang112_path
 }
-
 # slowing me down
 function source_golang113_env() {
-  source_golang_env_generic
+  source_golang_env_old_generic
   source_golang113_path
 }
-
 # slowing me down
 function source_golang114_env() {
-  source_golang_env_generic
+  source_golang_env_old_generic
   source_golang114_path
 }
-
 # slowing me down
 function source_golang115_env() {
-  source_golang_env_generic
+  source_golang_env_old_generic
   source_golang115_path
+}
+# slowing me down
+function source_golang116_env() {
+  source_golang_env_old_generic
+  source_golang116_path
 }
 
 ## haskell uses cabal and stack
@@ -338,7 +340,7 @@ function source_swift_env() {
 
 #source_mysql57_build_env
 #source_postgres114_build_env
-#source_golang114_env
+#source_golang116_env
 #source_node_env
 #source_ocaml_env
 #source_php_env
