@@ -14,7 +14,7 @@ test -f ~/.profile_wonolo_private  && source ~/.profile_wonolo_private
 
 # for code editors to have access to linters and autocomplete see .profile
 # launchctl setenv PATH $PATH
-# TODO: make it work
+
 # function source_node_env() {
   test -f $HOME/.nvm/nvm.sh && source $HOME/.nvm/nvm.sh
 # }
@@ -24,3 +24,4 @@ test -f ~/.profile_wonolo_private  && source ~/.profile_wonolo_private
   export -- PATH="$HOME/.rbenv/bin:$PATH" &&
   eval "$(rbenv init -)"
 # }
+

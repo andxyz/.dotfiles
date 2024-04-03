@@ -21,3 +21,14 @@ function setup_docker_machine() {
 # I switched to colima
 #
 export -- DOCKER_IP=0.0.0.0
+
+# for my code editor to have access to linters and autocomplete etc etc
+#
+# launchctl setenv PATH "${PATH}"
+# see also https://github.com/ersiner/osx-env-sync
+#
+#
+if type launchctl &>/dev/null; then
+  launchctl setenv PATH "${PATH}"
+  launchctl setenv JAVA_HOME "${JAVA_HOME}"
+fi

@@ -8,8 +8,10 @@
 # see also https://github.com/ersiner/osx-env-sync
 #
 #
-launchctl setenv PATH "${PATH}"
-launchctl setenv JAVA_HOME "${JAVA_HOME}"
+if type launchctl &>/dev/null; then
+  launchctl setenv PATH "${PATH}"
+  launchctl setenv JAVA_HOME "${JAVA_HOME}"
+fi
 
 [[ -f ~/.shell/config_ssh_agent ]]  && source ~/.shell/config_ssh_agent
 [[ -f ~/.shell/path_envs ]]         && source ~/.shell/path_envs
