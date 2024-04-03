@@ -312,6 +312,14 @@ source_ruby_env() {
   eval "$(rbenv init -)"
 }
 
+# bun completions
+[ -s "/Users/andxyz/.bun/_bun" ] && source "/Users/andxyz/.bun/_bun"
+
+# bun
+export BUN_INSTALL="$HOME/.bun"
+export PATH="$BUN_INSTALL/bin:$PATH"
+
+
 # slowing me down
 function source_rust_env() {
   source $HOME/.cargo/env
