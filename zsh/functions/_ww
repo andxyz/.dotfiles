@@ -1,4 +1,0 @@
-#compdef ww
-_files -W $HOME/wonolo  -/
-
-# See usage in `zsh/functions/ww`

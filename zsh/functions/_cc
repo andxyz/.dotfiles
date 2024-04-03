@@ -1,4 +1,0 @@
-#compdef cc
-_files -W $HOME/code -/
-
-# See usage in `zsh/functions/cc`

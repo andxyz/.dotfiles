@@ -1,4 +1,0 @@
-#!/usr/bin/env zsh
-
-cd $HOME/code/$1;
-sset $1;
