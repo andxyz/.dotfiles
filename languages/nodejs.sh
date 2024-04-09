@@ -15,14 +15,15 @@ cd ~/.nvm
 git pull
 git fetch --tags
 git tag --list
-git checkout v0.39.2
+git checkout v0.39.7
 # git checkout v0.37.2
 # git checkout v0.35.3
 # git checkout v0.33.6
 
 nvm ls-remote
 PATH='/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/opt/X11/bin'
-nvm install v18.12.1
+nvm install v20.12.1
+# nvm install v18.12.1
 # nvm install v18.12.1
 # nvm install v17.9.1
 # nvm install v16.19.0
@@ -50,9 +51,9 @@ nvm install v18.12.1
 
 ## set our dev machine defaults
 ### for future shells
-nvm alias default v18.12.1
+nvm alias default v20.12.1
 ### for this shell right now. now now? like now? yes, right now now.
-nvm use v18.12.1
+nvm use v20.12.1
 
 ## update npm
 npm update -g --silent npm
@@ -87,7 +88,7 @@ npm install -g --silent --no-progress --quiet --depth=0 stylelint
 # npm install -g --silent --no-progress --quiet --depth=0 generator-chrome-extension
 
 ## tools
-npm install -g --depth=0 diff-so-fancy
+# npm install -g --depth=0 diff-so-fancy # I use git-delta now
 # npm install -g --silent --no-progress --quiet --depth=0 ios-sim
 # npm install -g --silent --no-progress --quiet --depth=0 ios-deploy
 
