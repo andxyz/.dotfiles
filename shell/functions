@@ -82,7 +82,7 @@ function docker-prune {
 
   docker system prune --all
 
-  docker rmi -f $(docker images --filter=reference='platform*' -q)
+  docker rmi -f $(docker images --filter=reference='platform*' -q) # wonolo specific
 
   docker system df
   docker images -q | wc -l
@@ -114,7 +114,7 @@ function zcoa {
   git checkout ${BRANCH_NAME} && git status --short --branch;
 }
 
-function fco() {
+function zco_fzf() {
   # fco - checkout git branch/tag from https://github.com/junegunn/fzf/wiki/examples#git
   local tags branches target
   tags=$(
@@ -131,7 +131,7 @@ function fco() {
 
 ##### the e editor shortcut for sublimetext (github.com/bkeepers tip)
 function e  () {
-  rm -rf project.sublime-workspace > /dev/null 2>&1
+  # rm -rf project.sublime-workspace > /dev/null 2>&1
   if [[ -f project.sublime-project ]] ; then
     subl ./project.sublime-project
   else
