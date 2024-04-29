@@ -56,7 +56,8 @@ mkdir "${HOME}"/.rbenv/plugins/
 git clone https://github.com/rbenv/ruby-build.git "${HOME}"/.rbenv/plugins/ruby-build
 git clone https://github.com/rbenv/rbenv-each.git "${HOME}"/.rbenv/plugins/rbenv-each
 git clone https://github.com/rkh/rbenv-update.git "${HOME}"/.rbenv/plugins/rbenv-update
-git clone https://github.com/rbenv/rbenv-gem-rehash.git "${HOME}"/.rbenv/plugins/rbenv-gem-rehash
+# This plugin is deprecated since its behavior is now included in rbenv core.
+# git clone https://github.com/rbenv/rbenv-gem-rehash.git "${HOME}"/.rbenv/plugins/rbenv-gem-rehash # https://github.com/rbenv/rbenv-gem-rehash
 git clone https://github.com/rbenv/rbenv-default-gems.git "${HOME}"/.rbenv/plugins/rbenv-default-gems
 
 ls "$(rbenv root)"/plugins
