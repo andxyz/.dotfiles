@@ -211,11 +211,11 @@ rbenv-update_rubygems_bundler_for_rbenv_local;
 
 ### add some default gems for new ruby installs
 # gem install bundle pry pry-byebug pry-doc yard bcat
-# echo "bundle" >> "${HOME}"/.rbenv/default-gems
-# echo "pry" >> "${HOME}"/.rbenv/default-gems
-# echo "pry-byebug" >> "${HOME}"/.rbenv/default-gems
-# echo "pry-doc" >> "${HOME}"/.rbenv/default-gems
-# echo "yard" >> "${HOME}"/.rbenv/default-gems
+echo "bundle" >> "${HOME}"/.rbenv/default-gems
+echo "pry" >> "${HOME}"/.rbenv/default-gems
+echo "pry-byebug" >> "${HOME}"/.rbenv/default-gems
+echo "pry-doc" >> "${HOME}"/.rbenv/default-gems
+echo "yard" >> "${HOME}"/.rbenv/default-gems
 # echo "foreman" >> "${HOME}"/.rbenv/default-gems
 # echo "niceql" >> "${HOME}"/.rbenv/default-gems
 # echo "bcat" >> "${HOME}"/.rbenv/default-gems
