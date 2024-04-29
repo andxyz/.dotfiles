@@ -28,7 +28,7 @@
 # { "keys": ["shift+ctrl+down"], "command": "navigate_to_definition" },
 
 # get the ruby stdlib basepath base
-CTAGS_DEBUG='true' # set to "true" to debug
+CTAGS_DEBUG='' # set to "true" to debug
 CTAGS_GEM_HOME=`rbenv exec gem environment gemdir`
 CTAGS_RBENV_PREFIX=`rbenv prefix`
 CTAGS_RUBY_BASENAME=`basename "${CTAGS_GEM_HOME}"`
