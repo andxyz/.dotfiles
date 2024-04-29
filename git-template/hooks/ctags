@@ -28,7 +28,7 @@
 # { "keys": ["shift+ctrl+down"], "command": "navigate_to_definition" },
 
 # get the ruby stdlib basepath base
-CTAGS_DEBUG='' # set to "true" to debug
+CTAGS_DEBUG='true' # set to "true" to debug
 CTAGS_GEM_HOME=`rbenv exec gem environment gemdir`
 CTAGS_RBENV_PREFIX=`rbenv prefix`
 CTAGS_RUBY_BASENAME=`basename "${CTAGS_GEM_HOME}"`
@@ -37,7 +37,12 @@ CTAGS_GIT_DIRECTORY="$(/usr/local/bin/git rev-parse --git-dir)"
 TMPFILE=$(gmktemp -t tmp_ctags_files_XXXXX.txt)
 
 if [[ -n $CTAGS_DEBUG ]]; then
-  echo "${CTAGS_GEM_HOME}\n${CTAGS_RBENV_PREFIX}\n${CTAGS_RUBY_BASENAME}\n${CTAGS_RUBY_STDLIB}\n${CTAGS_GIT_DIRECTORY}\n${TMPFILE}"
+  echo -e "CTAGS_GEM_HOME:\n${CTAGS_GEM_HOME}"
+  echo -e "CTAGS_RBENV_PREFIX:\n${CTAGS_RBENV_PREFIX}"
+  echo -e "CTAGS_RUBY_BASENAME:\n${CTAGS_RUBY_BASENAME}"
+  echo -e "CTAGS_RUBY_STDLIB:\n${CTAGS_RUBY_STDLIB}"
+  echo -e "CTAGS_GIT_DIRECTORY:\n${CTAGS_GIT_DIRECTORY}"
+  echo -e "TMPFILE:\n${TMPFILE}"
 fi
 
 # get all the Gemfile paths from within subprojects too
@@ -56,17 +61,17 @@ function ctags_project_and_subproject_rubyfiles {
 
 trap 'rm -f "${CTAGS_GIT_DIRECTORY}/$$.tags" && rm -f "${TMPFILE}' EXIT
 
-# set -x
+ctags_project_and_subproject_rubyfiles >> ${TMPFILE}
+ctags_ruby_lib_paths >> ${TMPFILE}
+echo "${CTAGS_RUBY_STDLIB}" >> ${TMPFILE}
 
 if [[ -n $CTAGS_DEBUG ]]; then
   echo "Total project and subprojects ruby files: $(ctags_project_and_subproject_rubyfiles | wc -l)"
   echo "Total ruby files from gems: $(ctags_ruby_lib_paths | wc -l)"
   echo "Also traverses Ruby stdlib dir: ${CTAGS_RUBY_STDLIB}"
+  echo -e "Contents of ${TMPFILE}:"
+  cat "${TMPFILE}"
 fi
-
-ctags_project_and_subproject_rubyfiles >> ${TMPFILE}
-ctags_ruby_lib_paths >> ${TMPFILE}
-echo "${CTAGS_RUBY_STDLIB}" >> ${TMPFILE}
 
 /usr/local/bin/ctags --sort=yes -R --tag-relative=always \
 --languages='+ruby,-html,-javascript,-sql,-c,-c++,-css' \
