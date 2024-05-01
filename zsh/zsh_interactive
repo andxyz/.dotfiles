@@ -15,7 +15,20 @@ export ZPLUG_HOME=/usr/local/opt/zplug
 source $ZPLUG_HOME/init.zsh
 ## plugs
 zplug "changyuheng/fz", defer:1
+export -- FZ_SUBDIR_CMD=fz_zz
 zplug "rupa/z", use:z.sh
+# Install plugins if there are plugins that have not been installed
+zplug check &> /dev/null
+if (( $? )) then
+  zplug install
+  zplug update
+else
+  # do nothing
+fi
+zplug load &> /dev/null
+
+# carapace-bin dance https://github.com/carapace-sh/carapace-bin?tab=readme-ov-file#getting-started
+source <(carapace _carapace)
 
 ## fancy git prompt on my local machine using a zsh function
 if [[ -n $SSH_CONNECTION ]]; then

@@ -10,6 +10,9 @@ if [ -f /usr/local/share/bash-completion/bash_completion ]; then
   source /usr/local/share/bash-completion/bash_completion
 fi
 
+# carapace-bin dance https://github.com/carapace-sh/carapace-bin?tab=readme-ov-file#getting-started
+source <(carapace _carapace)
+
 ## http://git-prompt.sh/
 ## fancy git prompt on my local machine using a function
 if [[ -n $SSH_CONNECTION ]]; then
