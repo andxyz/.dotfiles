@@ -1,6 +1,5 @@
 #!/usr/bin/env zsh
 
-
 cd $(find ~/code/* -name '.git' -type d -execdir sh -c 'pwd' \; |
 fzf --query ${1:-""} --preview 'git -c color.ui=always -C {} status --short --branch')
 
