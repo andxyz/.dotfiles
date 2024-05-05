@@ -17,6 +17,13 @@
 # time bash -li -c 'echo hi; exit;'
 # time zsh -li -c 'echo hi; exit;'
 
+# Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
+# Initialization code that may require console input (password prompts, [y/n]
+# confirmations, etc.) must go above this block; everything else may go below.
+if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
+  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
+fi
+
 PROFILE_STARTUP=false
 if [[ "$PROFILE_STARTUP" == true ]]; then
   # http://zsh.sourceforge.net/Doc/Release/Prompt-Expansion.html
@@ -31,11 +38,6 @@ export -- PATH=/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/opt/X11/bin
 [[ -f ~/.shell/path_envs ]]         && source ~/.shell/path_envs
 [[ -f ~/.shell/path_envs_private ]] && source ~/.shell/path_envs_private
 
-## for zsh interactive specific
-[ -n "$PS1" ] && [[ -f ~/.zsh/zsh_interactive ]]     && source ~/.zsh/zsh_interactive
-[ -n "$PS1" ] && [[ -f ~/.zsh/zsh_completion ]]      && source ~/.zsh/zsh_completion
-[ -n "$PS1" ] && [[ -f ~/.zsh/zsh_functions_private ]] && source ~/.zsh/zsh_functions_private
-
 ## for interactive shell
 [[ -f ~/.shell/aliases ]]           && source ~/.shell/aliases
 [[ -f ~/.shell/aliases_private ]]   && source ~/.shell/aliases_private
@@ -46,14 +48,16 @@ export -- PATH=/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/opt/X11/bin
 [[ -f ~/.shell/functions_private ]] && source ~/.shell/functions_private
 [[ -f ~/.shell/ruby_rails_tricks.sh ]] && source ~/.shell/ruby_rails_tricks.sh
 
+## for zsh interactive specific
+[ -n "$PS1" ] && [[ -f ~/.zsh/zsh_interactive ]]     && source ~/.zsh/zsh_interactive
+[ -n "$PS1" ] && [[ -f ~/.zsh/zsh_completion ]]      && source ~/.zsh/zsh_completion
+[ -n "$PS1" ] && [[ -f ~/.zsh/zsh_functions_private ]] && source ~/.zsh/zsh_functions_private
+
 # The next line updates PATH for the Google Cloud SDK.
 if [ -f '/Users/andxyz/Downloads/google-cloud-sdk/path.zsh.inc' ]; then . '/Users/andxyz/Downloads/google-cloud-sdk/path.zsh.inc'; fi
 
 # The next line enables shell command completion for gcloud.
 if [ -f '/Users/andxyz/Downloads/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/andxyz/Downloads/google-cloud-sdk/completion.zsh.inc'; fi
-
-# Load zplug at the very end
-[ -n "$PS1" ] && [[ -f ~/.zsh/zsh_interactive ]] &&  zplug load --verbose >/dev/null 2>&1
 
 # the following is a mac osx path fix for gifting my path env var to future apps when opening via finder or alfred or commandline
 # launchctl setenv PATH $PATH
@@ -65,8 +69,16 @@ if [[ "$PROFILE_STARTUP" == true ]]; then
 fi
 
 ## Show me what is listed in my PATH for interactive shells
-echo \
-"""export -- PATH=$PATH"""
+if [[ "$PROFILE_STARTUP" == true ]]; then
+  echo \
+    """export -- PATH=$PATH"""
+fi
+
+# Load zplug at the very end
+[ -n "$PS1" ] && [[ -f ~/.zsh/zsh_interactive ]] &&  zplug load --verbose >/dev/null 2>&1
+
+# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
+[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh && autoload -Uz compinit && compinit
 
 # https://tanguy.ortolo.eu/blog/article25/shrc
 
