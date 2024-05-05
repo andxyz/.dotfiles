@@ -66,7 +66,8 @@ cd ~/Library/Application\ Support/Sublime\ Text\ 3/
 git checkout --force master
 ```
 
-#### iterm2 notes
+#### iterm2 terminal notes
 
 - https://github.com/mbadolato/iTerm2-Color-Schemes#installation-instructions for importing color schemes
+- https://github.com/sonph/onehalf
 - `/Users/andxyz/code/andxyz-dotfiles/inputrc`
