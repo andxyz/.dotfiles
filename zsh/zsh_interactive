@@ -17,7 +17,8 @@ source $ZPLUG_HOME/init.zsh
 # (If the defer tag is given 2 or above, run after compinit command)
 zplug "rupa/z", use:z.sh
 zplug "zsh-users/zsh-syntax-highlighting"
-zplug "dracula/zsh", as:theme
+zplug "romkatv/powerlevel10k", as:theme, depth:1
+# zplug "dracula/zsh", as:theme
 # brew install 'zsh-syntax-highlighting'
 zplug "zsh-users/zsh-history-substring-search", \
     from:github, \

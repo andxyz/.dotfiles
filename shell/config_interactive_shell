@@ -40,13 +40,14 @@ export -- DISABLE_SPRING=true
 # source /usr/local/etc/profile.d/z.sh
 
 # use the homebrew git prompt script else use and old one
-if test -f /usr/local/etc/bash_completion.d/git-prompt.sh; then
-  # shellcheck source=/usr/local/etc/bash_completion.d/git-prompt.sh
-  source /usr/local/etc/bash_completion.d/git-prompt.sh
-else
-  # shellcheck source="${HOME}"/.shell/git-prompt.sh
-  source "${HOME}"/.shell/git-prompt.sh
-fi
+#
+# if test -f /usr/local/etc/bash_completion.d/git-prompt.sh; then
+#   # shellcheck source=/usr/local/etc/bash_completion.d/git-prompt.sh
+#   source /usr/local/etc/bash_completion.d/git-prompt.sh
+# else
+#   # shellcheck source="${HOME}"/.shell/git-prompt.sh
+#   source "${HOME}"/.shell/git-prompt.sh
+# fi
 
 if test -f /usr/local/etc/gh_completion; then
   source /usr/local/etc/gh_completion
