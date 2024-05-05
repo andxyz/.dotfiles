@@ -37,7 +37,7 @@ export -- DISABLE_SPRING=true
 
 # brew info z
 # shellcheck source=/usr/local/etc/profile.d/z.sh
-source /usr/local/etc/profile.d/z.sh
+# source /usr/local/etc/profile.d/z.sh
 
 # use the homebrew git prompt script else use and old one
 if test -f /usr/local/etc/bash_completion.d/git-prompt.sh; then

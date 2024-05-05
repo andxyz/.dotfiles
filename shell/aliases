@@ -22,7 +22,6 @@ alias pps="ps auwwx | perl -p -e 's/\n/\n\n/'"
 alias hhttpheader="http --header get"
 
 ## Mac OSX
-alias sscreensaver='/System/Library/Frameworks/ScreenSaver.framework/Versions/A/Resources/ScreenSaverEngine.app/Contents/MacOS/ScreenSaverEngine'
 alias eespresso='caffeinate -disu -w 1'
 alias ddouble_rainbow.sh='double_rainbow.sh'
 
