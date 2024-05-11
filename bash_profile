@@ -13,15 +13,7 @@ test -f ~/.profile                 && source ~/.profile
 test -f ~/.profile_wonolo_private  && source ~/.profile_wonolo_private
 
 # for code editors to have access to linters and autocomplete see .profile
-# launchctl setenv PATH $PATH
+# launchctl setenv PATH ${PATH}
 
-# function source_node_env() {
-  test -f $HOME/.nvm/nvm.sh && source $HOME/.nvm/nvm.sh
-# }
-
-# source_ruby_env() {
-  test -d $HOME/.rbenv/bin &&
-  export -- PATH="$HOME/.rbenv/bin:$PATH" &&
-  eval "$(rbenv init -)"
-# }
-
+source_node_env
+source_ruby_env

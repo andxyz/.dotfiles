@@ -111,7 +111,7 @@ man() {
 }
 
 # for more info on unset FPATH https://stackoverflow.com/a/71866174/684222
-alias rezsh='unset FPATH; exec zsh' # see
+alias rezsh='unset FPATH; exec zsh -il' # see
 
 ##
 # Disable for now till I figure out https://apple.stackexchange.com/questions/395341/iterm2-cmdclick-tries-to-download-url-as-it-is-a-remote-file

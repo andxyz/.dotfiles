@@ -60,7 +60,7 @@ if [ -f '/Users/andxyz/Downloads/google-cloud-sdk/path.zsh.inc' ]; then . '/User
 if [ -f '/Users/andxyz/Downloads/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/andxyz/Downloads/google-cloud-sdk/completion.zsh.inc'; fi
 
 # the following is a mac osx path fix for gifting my path env var to future apps when opening via finder or alfred or commandline
-# launchctl setenv PATH $PATH
+# launchctl setenv PATH ${PATH}
 
 # Entirety of my startup file... then
 if [[ "$PROFILE_STARTUP" == true ]]; then
@@ -71,7 +71,7 @@ fi
 ## Show me what is listed in my PATH for interactive shells
 if [[ "$PROFILE_STARTUP" == true ]]; then
   echo \
-    """export -- PATH=$PATH"""
+    """export -- PATH=${PATH}"""
 fi
 
 # Load zplug at the very end

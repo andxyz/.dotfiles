@@ -19,6 +19,8 @@ fi
 # for my code editor to have working ssh
 # and working language enviroments
 use_osx_ssh_agent_setup
-source_golang114_env
+source_golang122_env
+source_haskell_env
+source_rustup_env
 source_ruby_env
 source_node_env
