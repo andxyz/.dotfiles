@@ -5,4 +5,4 @@
 # directory autocompletes
 function cc { cd ${HOME}/code/$1; }
 
-alias rebash='reset; exec bash -c "echo $TERM";'
+alias rebash='reset; exec bash -li -c "echo $TERM";'
