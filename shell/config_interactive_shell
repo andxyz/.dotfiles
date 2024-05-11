@@ -6,13 +6,18 @@ test -f "${HOME}/.hushlogin" && touch "${HOME}/.hushlogin"
 # disable the fucking core dumps
 ulimit -S -c 0
 
-# echo 'use sublimetext3 (with '-w' wait for close of file) as default editor'
+# echo 'use sublimetext (with '-w' wait for close of file) as default editor'
 # http://unix.stackexchange.com/questions/4859/visual-vs-editor-whats-the-difference
 # http://stackoverflow.com/questions/8299610/zsh-command-not-found-for-editor
-# ~/ $ cat ~/bin/EDITOR
+#
+# $ cat ~/bin/EDITOR
 # #!/bin/sh
-# #open -Wn -- "$@"
-# subl -w -- "$@"
+
+# # open -Wn -- "$@"
+# # subl -w -n -- "$@"
+# # subl -w -n -- "${@}"
+# ${EDITOR} "$@"
+
 if [[ $(uname -s) == Darwin ]]
 then
   export -- EDITOR="subl -w -n -- ${*}"

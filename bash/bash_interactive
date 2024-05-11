@@ -11,6 +11,8 @@ if [ -f /usr/local/share/bash-completion/bash_completion ]; then
 fi
 
 # carapace-bin dance https://github.com/carapace-sh/carapace-bin?tab=readme-ov-file#getting-started
+# see https://carapace-sh.github.io/carapace-bin/setup.html#bash
+export CARAPACE_BRIDGES='zsh,fish,bash,inshellisense' # optional
 source <(carapace _carapace)
 
 ## http://git-prompt.sh/
