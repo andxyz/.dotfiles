@@ -309,8 +309,8 @@ brew install --cask 'speedcrunch'
 # cd /usr/local/Library/Taps/homebrew/homebrew-x11/
 # git remote set-url origin git@github.com:Homebrew/homebrew-x11/.git
 brew install 'homebrew/dev-tools/brew-pry'
-brew install 'gdb'
-brew install --cask 'macgdbp'
+brew install 'gdb' 'gdbm'
+brew install 'macgdbp'
 brew install 'homebrew/x11/ddd'
 brew install 'ios-webkit-debug-proxy'
 brew install 'iperf'

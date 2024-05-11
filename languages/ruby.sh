@@ -11,7 +11,7 @@ set -e
 ## see https://github.com/rbenv/rbenv/wiki/_pages
 echo '## installing rbenv'
 git clone https://github.com/rbenv/rbenv.git "${HOME}"/.rbenv
-export -- PATH="${HOME}/.rbenv/bin:$PATH" &&
+export -- PATH="${HOME}/.rbenv/bin:${PATH}" &&
 eval "$(rbenv init -)"
 
 # optional, but recommended:
