@@ -152,14 +152,6 @@ function source_haskell_env {
     export -- PATH="$HOME/.local/bin/:${PATH}"
 }
 
-# slowing me down
-function source_rustup_env {
-  ## rust uses rustup and cargo
-  # https://github.com/andxyz/.dotfiles/blob/master/languages/rust.sh
-  test -d "$HOME/.cargo/bin" &&
-    export -- PATH="${HOME}/.cargo/bin:${PATH}"
-}
-
 ## nodejs - creationix node version management (nvm)
 ## add local npm packages to path
 export -- PATH="./node_modules/.bin:${PATH}"
@@ -328,20 +320,20 @@ source_ruby_env() {
   eval "$(rbenv init -)"
 }
 
-# bun completions
-[ -s "/Users/andxyz/.bun/_bun" ] && source "/Users/andxyz/.bun/_bun"
-
-# bun
-export BUN_INSTALL="$HOME/.bun"
-export PATH="$BUN_INSTALL/bin:${PATH}"
-
-
 # slowing me down
 function source_rust_env() {
   source $HOME/.cargo/env
   ## brew info rustup
   ## rustup --help
   ## rustup update && rustup update stable && rustup default stable && rustup which cargo
+}
+
+# slowing me down
+function source_rustup_env {
+  ## rust uses rustup and cargo
+  # https://github.com/andxyz/.dotfiles/blob/master/languages/rust.sh
+  test -d "$HOME/.cargo/bin" &&
+    export -- PATH="${HOME}/.cargo/bin:${PATH}"
 }
 
 # taytayswifty
@@ -352,6 +344,7 @@ function source_swift_env() {
   eval "$(swiftenv init -)"
 }
 
+## All of them
 #source_mysql57_build_env
 #source_postgres114_build_env
 #
@@ -366,8 +359,10 @@ function source_swift_env() {
 #source_rustup_env
 #source_swift_env
 
-source_golang122_env
-source_haskell_env
-source_node_env
-source_ruby_env
-source_rustup_env
+
+## Personal
+# source_golang122_env
+# source_haskell_env
+# source_node_env
+# source_ruby_env
+# source_rustup_env

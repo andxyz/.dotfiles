@@ -7,10 +7,16 @@
 # https://kev.inburke.com/kevin/profiling-zsh-startup-time/
 # https://github.com/raboof/zshprof
 #
-# cd /Users/andxyz/code/zshprof
+## Run in 2024 on osx 14.4.1
+#
+# brew install ocamlbuild ocaml-findlib
+# cd /Users/andxyz/code/personal
+# git clone 'git@github.com:andxyz/zshprof.git'
+# cd zshprof
+#
 # ocamlfind ocamlopt -linkpkg -thread -package str Callgrind.ml ZshXtrace.ml ZshXtraceToCallgrind.ml -o zshprof.bin
 # ./zshprof.bin < /tmp/zshprof.57612.log > /tmp/zsh.57612.callgrind
-# brew install qcachegrind --with-graphviz
+# brew install qcachegrind
 # qcachegrind /tmp/zsh.*.callgrind
 #
 # a quick check
