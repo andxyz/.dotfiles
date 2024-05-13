@@ -49,8 +49,7 @@ export -- PATH=/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/opt/X11/bin
 [[ -f ~/.shell/ruby_rails_tricks.sh ]] && source ~/.shell/ruby_rails_tricks.sh
 
 ## for zsh interactive specific
-[ -n "$PS1" ] && [[ -f ~/.zsh/zsh_completion ]]      && source ~/.zsh/zsh_completion
-[ -n "$PS1" ] && [[ -f ~/.zsh/zsh_functions_private ]] && source ~/.zsh/zsh_functions_private
+[ -n "$PS1" ] && [[ -f ~/.zsh/zsh_interactive ]] && source ~/.zsh/zsh_interactive
 
 # The next line updates PATH for the Google Cloud SDK.
 if [ -f '/Users/andxyz/Downloads/google-cloud-sdk/path.zsh.inc' ]; then . '/Users/andxyz/Downloads/google-cloud-sdk/path.zsh.inc'; fi
@@ -73,8 +72,7 @@ if [[ "$PROFILE_STARTUP" == true ]]; then
     """export -- PATH=${PATH}"""
 fi
 
-# Load zinit at the very end
-[ -n "$PS1" ] && [[ -f ~/.zsh/zsh_interactive ]] && source ~/.zsh/zsh_interactive
+
 
 # https://tanguy.ortolo.eu/blog/article25/shrc
 
