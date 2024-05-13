@@ -40,8 +40,6 @@ test_osx_ssh_agent() {
   /usr/bin/ssh -Tv git@github.com
 }
 
-
-
 ## old solutions
 ## http://www.dctrwatson.com/2013/07/how-to-update-openssh-on-mac-os-x/
 ## http://superuser.com/questions/141044/sharing-the-same-ssh-agent-among-multiple-login-sessions
@@ -69,7 +67,7 @@ use_brew_ssh_agent_setup() {
   echo "SSH_AGENT_PID = ${SSH_AGENT_PID}"
 
 
-  ssh_agent_add_keys
+  # brew_ssh_agent_add_keys
 
   # /usr/local/bin/ssh-add -l
   # lunchy status 'org.homebrew.ssh-agent'
@@ -86,20 +84,17 @@ use_osx_ssh_agent_setup() {
   # echo "SSH_AUTH_SOCK = ${SSH_AUTH_SOCK}"
   # echo "SSH_AGENT_PID = ${SSH_AGENT_PID}"
 
-  ssh_agent_add_keys
+  osx_ssh_agent_add_keys
 
   ## puts more info
   # /usr/bin/ssh-add -l
   # launchctl list | grep -i 'ssh-agent'
 }
 
-ssh_agent_add_keys() {
-  /usr/bin/ssh-add ~/.ssh/andxyz-github > /dev/null 2>&1 || true
-  /usr/bin/ssh-add ~/.ssh/andxyz-gitlab > /dev/null 2>&1 || true
-  /usr/bin/ssh-add ~/.ssh/andxyz-work > /dev/null 2>&1  || true
-  /usr/bin/ssh-add ~/.ssh/github > /dev/null 2>&1 || true
-  /usr/bin/ssh-add ~/.ssh/gitlab > /dev/null 2>&1 || true
-  /usr/bin/ssh-add ~/.ssh/work > /dev/null 2>&1 || true
+osx_ssh_agent_add_keys() {
+  [[ -f ~/.ssh/andxyz-github ]] && /usr/bin/ssh-add ~/.ssh/andxyz-github > /dev/null 2>&1 || true
+  [[ -f ~/.ssh/andxyz-gitlab ]] && /usr/bin/ssh-add ~/.ssh/andxyz-gitlab > /dev/null 2>&1 || true
+  [[ -f ~/.ssh/andxyz-work ]] && /usr/bin/ssh-add ~/.ssh/andxyz-work > /dev/null 2>&1  || true
 }
 
 use_osx_ssh_agent_setup

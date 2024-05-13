@@ -22,6 +22,5 @@ test -f ~/.profile_wonolo_private  && source ~/.profile_wonolo_private
 # TODO: make it work
 # for code editors to have access to linters and autocomplete see zshenv
 # launchctl setenv PATH ${PATH}
-
-source_node_env
-source_ruby_env
+# source_node_env
+# source_ruby_env
