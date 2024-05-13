@@ -15,11 +15,11 @@ source <(carapace _carapace)
 
 ## http://git-prompt.sh/
 ## fancy git prompt on my local machine using a function
-if [[ -n $SSH_CONNECTION ]]; then
-  export -- PS1='\h \w$(__git_ps1 " (%s)")\n\$ '
-else
-  export -- PS1='\w$(__git_ps1 " (%s)")\n\$ '
-fi
+# if [[ -n $SSH_CONNECTION ]]; then
+#   export -- PS1='\h \w$(__git_ps1 " (%s)")\n\$ '
+# else
+#   export -- PS1='\w$(__git_ps1 " (%s)")\n\$ '
+# fi
 
 # pull in iterm2 shell integrations
 if [[ -e "${HOME}/.iterm2_shell_integration.bash" ]]; then
