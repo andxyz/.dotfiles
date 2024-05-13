@@ -10,6 +10,7 @@ alias time='time -p ' # -p for POSIX output
 fpath=(~/.zsh/functions $fpath)
 autoload -U ~/.zsh/functions/*(:t)
 
+eval "$(fzf --zsh)"
 ## zplug dance see https://github.com/zplug/zplug
 export ZPLUG_HOME=/usr/local/opt/zplug
 source $ZPLUG_HOME/init.zsh
