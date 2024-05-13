@@ -10,38 +10,67 @@ alias time='time -p ' # -p for POSIX output
 fpath=(~/.zsh/functions $fpath)
 autoload -U ~/.zsh/functions/*(:t)
 
-eval "$(fzf --zsh)"
-## zplug dance see https://github.com/zplug/zplug
-export ZPLUG_HOME=/usr/local/opt/zplug
-source $ZPLUG_HOME/init.zsh
-## z plugs
-# (If the defer tag is given 2 or above, run after compinit command)
-zplug "rupa/z", use:z.sh
-zplug "zsh-users/zsh-syntax-highlighting"
-zplug "romkatv/powerlevel10k", as:theme, depth:1
-# zplug "dracula/zsh", as:theme
-# brew install 'zsh-syntax-highlighting'
-zplug "zsh-users/zsh-history-substring-search", \
-    from:github, \
-    as:plugin
-zplug "changyuheng/fz", defer:1
-export -- FZ_SUBDIR_CMD=fz_zz
-zplug "jhawthorn/fzy", defer:1, as:command, \
-  rename-to:fzy, hook-build:"make && sudo make install"
-# Install plugins if there are plugins that have not been installed
-if ! zplug check --verbose; then
-    printf "Install? [y/N]: "
-    if read -q; then
-        echo; zplug install
-        zplug update
-    fi
+
+
+
+## zINIT dance see https://github.com/zdharma-continuum/zinit
+
+typeset -gA ZPLGM
+export -- ZPLGM[HOME_DIR]="${PWD}/_zinit"
+export -- ZPFX="${ZPLGM[HOME_DIR]}/polaris"
+export -- FZ_SUBDIR_CMD="fz_zz"
+
+if [[ ! -d ${ZPLGM[HOME_DIR]}/bin ]]; then
+    git clone --depth 1 "git@github.com:zdharma-continuum/zinit.git" "${ZPLGM[HOME_DIR]}/bin"
 fi
 
-# carapace-bin dance https://github.com/carapace-sh/carapace-bin?tab=readme-ov-file#getting-started
+source "${ZPLGM[HOME_DIR]}/bin/zinit.zsh"
+
+# Ensure that zinit is compiled
+if [[ ! -f ${ZPLGM[BIN_DIR]}/zinit.zsh.zwc ]]; then
+    zinit self-update
+fi
+
+
+# Load powerlevel10k theme
+zinit ice depth"1" # git clone depth
+zinit light romkatv/powerlevel10k
+# z
+zinit ice wait"1"
+zinit light "rupa/z"
+# fz
+zinit ice wait"1"
+zinit light "changyuheng/fz"
+# fzy
+zinit ice wait"1" lucid as"program" make"!PREFIX=${ZPFX} install" \
+    atclone"cp contrib/fzy-* ${ZPFX}/bin/" \
+    pick"${ZPFX}/bin/fzy*"
+zinit light "jhawthorn/fzy"
+# fast-syntax-highlighting
+zinit ice wait"1" lucid
+zinit light "zdharma-continuum/fast-syntax-highlighting"
+# history-search-multi-word
+zinit ice wait"1" lucid
+zinit load "zdharma/history-search-multi-word"
+# fzf
+zinit ice wait"2" lucid from"gh-r" as"program"
+zinit light "junegunn/fzf"
+
+# Install plugins if there are plugins that have not been installed
+if [[ -d ${ZPLGM[HOME_DIR]}/bin ]]; then
+    zinit update --all --parallel
+fi
+
+# zinit zstatus
+
+# fzf completion dance
+# eval "$(fzf --zsh)"
+
+# carapace-bin completions dance https://github.com/carapace-sh/carapace-bin?tab=readme-ov-file#getting-started
 source <(carapace _carapace)
 
 ## fancy git prompt on my local machine using a zsh function
-if [[ -n $SSH_CONNECTION ]]; then
+if [[ -n "${SSH_CONNECTION}" ]]; then
   setopt PROMPT_SUBST; export -- PS1=$'%m:%3~$(__git_ps1 " (%s)")\n$ '
 else
   setopt PROMPT_SUBST; export -- PS1=$'%3~$(__git_ps1 " (%s)")\n$ '
