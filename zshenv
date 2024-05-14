@@ -11,6 +11,7 @@
 if type launchctl &>/dev/null; then
   launchctl setenv PATH "${PATH}"
   launchctl setenv EDITOR "${EDITOR}"
+  launchctl setenv OPEN_IN_EDITOR "${OPEN_IN_EDITOR}"
   launchctl setenv JAVA_HOME "${JAVA_HOME}"
 fi
 
