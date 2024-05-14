@@ -38,10 +38,15 @@ fi
 ## Plugin setup
 ##
 zinit cdclear -q #
-# Load powerlevel10k theme
-zinit ice depth"1" # git clone depth
+## powerlevel10k prompt
+# zinit ice depth"1" # git clone depth
 # zinit light "romkatv/powerlevel10k"
+#
+## spaceship-prompt prompt
+zinit ice depth"1" # git clone depth
 zinit light "spaceship-prompt/spaceship-prompt"
+zinit ice depth"1"
+zinit light "spaceship-prompt/spaceship-vi-mode"
 # z
 zinit ice lucid wait"1"
 zinit light "rupa/z"
