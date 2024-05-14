@@ -45,7 +45,8 @@
     diffFilter = delta --color-only
 
 [delta]
-    syntax-theme = Monokai Extended
+    true-color = always
+    syntax-theme = Monokai Extended Bright
     features = line-numbers keep-plus-minus-markers decorations
     whitespace-error-style = magenta reverse
     side-by-side = false

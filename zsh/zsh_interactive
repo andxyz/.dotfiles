@@ -40,7 +40,8 @@ fi
 zinit cdclear -q #
 # Load powerlevel10k theme
 zinit ice depth"1" # git clone depth
-zinit light "romkatv/powerlevel10k"
+# zinit light "romkatv/powerlevel10k"
+zinit light "spaceship-prompt/spaceship-prompt"
 # z
 zinit ice lucid wait"1"
 zinit light "rupa/z"
@@ -64,14 +65,15 @@ zinit light "junegunn/fzf"
 
 # On OSX, you might need to install coreutils from homebrew and use the
 # g-prefix – gsed, gdircolors
-zplugin ice wait"0" lucid \
+zinit ice wait"0" lucid \
     atclone"local PFX=${${(M)OSTYPE:#*darwin*}:+g}
             git reset --hard; \${PFX}sed -i \
             '/DIR/c\DIR                   38;5;63;1' LS_COLORS; \
             \${PFX}dircolors -b LS_COLORS > c.zsh" \
             atpull'%atclone' pick"c.zsh" nocompile'!' \
             atload'zstyle ":completion:*" list-colors “${(s.:.)LS_COLORS}”'
-zplugin light "trapd00r/LS_COLORS"
+zinit light "trapd00r/LS_COLORS"
+source ~/_zinit/plugins/trapd00r---LS_COLORS/lscolors.sh
 
 zinit for atload"zicompinit; zicdreplay" \
     blockf \
@@ -203,6 +205,8 @@ alias rezsh='unset FPATH; exec zsh -il' # see
 # fi
 
 # for interactive to have access to languages
-#source_golang110_path
-# source_node_env
-# source_ruby_env
+# source_golang110_path
+# source_node_env # This takes 5+ seconds for each new shell instance 👀
+source_ruby_env
+source_haskell_env
+

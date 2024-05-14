@@ -10,6 +10,7 @@
 #
 if type launchctl &>/dev/null; then
   launchctl setenv PATH "${PATH}"
+  launchctl setenv EDITOR "${EDITOR}"
   launchctl setenv JAVA_HOME "${JAVA_HOME}"
 fi
 
@@ -20,7 +21,7 @@ fi
 # and working language enviroments
 use_osx_ssh_agent_setup
 source_golang122_env
-# source_haskell_env
+source_haskell_env
 source_rustup_env
 source_ruby_env
 # source_node_env

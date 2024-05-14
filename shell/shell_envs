@@ -10,3 +10,9 @@ export -- LC_COLLATE='C'
 export -- LC_PAPER='en_US'
 export -- LC_TIME='en_US'
 export -- TIME_STYLE='long-iso' # from exa, Option --time-style has no "posix-long-iso" setting (choices: default, long-iso, full-iso, iso)
+
+export -- XDG_CACHE_HOME="${HOME}/.cache"
+export -- XDG_CONFIG_HOME="${HOME}/.config"
+export -- XDG_DATA_HOME="${HOME}/.local/share"
+export -- XDG_STATE_HOME="${HOME}/.local/state"
+mkdir -p "${XDG_CACHE_HOME}" "${XDG_CONFIG_HOME}" "${XDG_DATA_HOME}" "${XDG_STATE_HOME}"
