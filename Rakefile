@@ -37,6 +37,7 @@ task :install do
           puts "identical ~/.#{file.sub('.erb', '')}"
         else
           print "overwrite ~/.#{file.sub('.erb', '')}? [ynaq] "
+          debugger
           case $stdin.gets.chomp
           when 'a'
             replace_all = true
