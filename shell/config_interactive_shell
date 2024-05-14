@@ -15,6 +15,7 @@ ulimit -S -c 0
 # subl -w -- "$@"
 export -- EDITOR="subl -w -n -- ${*}"
 export -- EDITOR_USING_CURRENT_PROJECT="subl -- ${*}"
+export -- OPEN_IN_EDITOR="subl -- ${*}"
 export -- PAGER="less -R"
 export -- VISUAL="${EDITOR}"
 
