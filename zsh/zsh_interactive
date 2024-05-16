@@ -10,7 +10,19 @@ skip_global_compinit=1
 disable -r time       # disable shell reserved word
 alias time='time -p ' # -p for POSIX output
 
-eval "$(fzf --zsh)"
+## zsh function nonsense
+export -- FPATH="~/.zsh/functions:${FPATH}"
+
+## zINIT dance see https://github.com/zdharma-continuum/zinit
+
+typeset -gA ZPLGM
+export -- ZPLGM[HOME_DIR]="${HOME}/_zinit"
+export -- ZPFX="${ZPLGM[HOME_DIR]}/polaris"
+export -- FZ_SUBDIR_CMD="fz_zz"
+
+if [[ ! -d ${ZPLGM[HOME_DIR]}/bin ]]; then
+    git clone --depth 1 "https://github.com/zdharma-continuum/zinit.git" "${ZPLGM[HOME_DIR]}/bin"
+fi
 
 source "${ZPLGM[HOME_DIR]}/bin/zinit.zsh"
 
@@ -23,9 +35,6 @@ fi
 ## Plugin setup
 ##
 zinit cdclear -q #
-## powerlevel10k prompt
-# zinit ice depth"1" # git clone depth
-# zinit light "romkatv/powerlevel10k"
 #
 zinit ice depth"1" # git clone depth
 # remember to install Dejavu sans nerd font mono into your shell
@@ -101,7 +110,7 @@ fi
 # chmod -R go-w '/usr/local/share/zsh'
 # rm -f ~/.zcompdump; compinit
 
-if type brew &>/dev/null; then
+if type /usr/local/bin/brew &>/dev/null; then
   export -- FPATH="$(brew --prefix)/share/zsh-completions:$FPATH"
 fi
 
@@ -111,6 +120,7 @@ autoload -U ~/.zsh/functions/*(:t)
 autoload -Uz compinit
 compinit
 
+<<<<<<< HEAD
 ## spaceship-prompt prompt
 export -- SPACESHIP_BATTERY_SHOW=false
 export -- SPACESHIP_TIME_SHOW=true
@@ -126,6 +136,9 @@ export -- SPACESHIP_PROMPT_ORDER
 # carapace-bin dance https://github.com/carapace-sh/carapace-bin?tab=readme-ov-file#getting-started
 # see https://carapace-sh.github.io/carapace-bin/setup.html#zsh
 export CARAPACE_BRIDGES='zsh,fish,bash,inshellisense' # optional
+=======
+# carapace-bin completions dance https://github.com/carapace-sh/carapace-bin?tab=readme-ov-file#getting-started
+>>>>>>> 4df21b5 (Fixup missed merge conflict)
 source <(carapace _carapace)
 
 # compaudit
