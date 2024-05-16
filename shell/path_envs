@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
 
+export -- PATH="${HOME}/.local/bin:${PATH}"
+
 ## andxyz path stuff
 export -- PATH="/usr/local/opt/coreutils/bin:${PATH}" # use g prefixed names for coreutils
 export -- PATH="/usr/local/opt/coreutils/libexec/gnubin:${PATH}" # use non g prefixed names for coreutils see "brew info coreutils"
