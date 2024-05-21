@@ -73,8 +73,11 @@ postgresql@11
 postgresql@12
 postgresql@13
 postgresql@14
+postgresql@15
+postgresql@16
 python
 python@2
+python@3
 readline
 virtualbox"
 

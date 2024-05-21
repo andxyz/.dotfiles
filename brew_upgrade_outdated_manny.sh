@@ -1,10 +1,62 @@
-#!/usr/bin/bash
+#!/usr/bin/env bash
+set -x
 
 set -eufo pipefail
 
 # May 2024
 
+brew upgrade 'ack'
+brew upgrade 'advancecomp'
+brew upgrade 'automake'
+brew upgrade 'bash-completion@2'
+brew upgrade 'clang-format'
+brew upgrade 'cmake'
+brew upgrade 'coreutils'
+brew upgrade 'cppcheck'
+brew upgrade 'diffutils'
+brew upgrade 'findutils'
+brew upgrade 'gawk'
+brew upgrade 'gem-completion'
+brew upgrade 'gh'
+brew upgrade 'gifsicle'
+brew upgrade 'git'
+brew upgrade 'git-delta'
+brew upgrade 'gnu-indent'
+brew upgrade 'gnu-sed'
+brew upgrade 'gnu-tar'
+brew upgrade 'gradle'
+brew upgrade 'grep'
+brew upgrade 'gzip'
+brew upgrade 'highlight'
+brew upgrade 'ical-buddy'
+brew upgrade 'jenv'
+brew upgrade 'jhead'
+brew upgrade 'jonof/kenutils/pngout'
+brew upgrade 'jpegoptim'
+brew upgrade 'jq'
+brew upgrade 'leiningen'
+brew upgrade 'libiconv'
+brew upgrade 'libimobiledevice'
+brew upgrade 'libmpc'
+brew upgrade 'libxslt'
+brew upgrade 'mas'
+brew upgrade 'moreutils'
+brew upgrade 'optipng'
+brew upgrade 'p7zip'
+brew upgrade 'pngquant'
+brew upgrade 'pstree'
+brew upgrade 'ripgrep'
+brew upgrade 'rs/tap/curlie'
+brew upgrade 'rsync'
+brew upgrade 'sassc'
+brew upgrade 'shellcheck'
+brew upgrade 'tree'
+brew upgrade 'z'
+brew upgrade 'zsh'
 
+brew upgrade 'htop'
+sudo chown root:wheel `which htop`
+sudo chmod u+s `which htop`
 
 
 brew cleanup -s
