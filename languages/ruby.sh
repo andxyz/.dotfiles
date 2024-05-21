@@ -19,8 +19,6 @@ eval "$(rbenv init -)"
 echo '## installing recommended homebrew dependencies'
 brew update
 
-XYZ_DEFAULT_RUBY="3.1.3"
-
 brew unlink openssl  || true
 brew unlink libffi   || true
 brew unlink libyaml  || true
@@ -153,17 +151,67 @@ brew --prefix readline
 # env -- MAKE_OPT='-j8' CFLAGS='-g3 -gdwarf-2 -O2' RUBY_CONFIGURE_OPTS="--with-openssl-dir=$(brew --prefix openssl)       --with-readline-dir=$(brew --prefix readline) --disable-install-doc --disable-install-rdoc --disable-install-capi --enable-dtrace" rbenv install --skip-existing --verbose 2.7.4
 # env -- MAKE_OPT='-j8' CFLAGS='-g3 -gdwarf-2 -O2' RUBY_CONFIGURE_OPTS="--with-openssl-dir=$(brew --prefix 'openssl@1.1') --with-readline-dir=$(brew --prefix readline) --disable-install-doc --disable-install-rdoc --disable-install-capi --enable-dtrace" rbenv install --skip-existing --verbose 2.7.5
 # env -- MAKE_OPT='-j8' CFLAGS='-g3 -gdwarf-2 -O2' RUBY_CONFIGURE_OPTS="--with-openssl-dir=$(brew --prefix 'openssl@3')   --with-readline-dir=$(brew --prefix readline) --disable-install-doc --disable-install-rdoc --disable-install-capi --enable-dtrace" rbenv install --skip-existing --verbose 2.7.6
+# env -- MAKE_OPT='-j8' CFLAGS='-g3 -gdwarf-2 -O2' RUBY_CONFIGURE_OPTS="--with-openssl-dir=$(brew --prefix 'openssl@3')   --with-readline-dir=$(brew --prefix readline) --disable-install-doc --disable-install-rdoc --disable-install-capi --enable-dtrace" rbenv install --skip-existing --verbose 2.7.7
 # env -- MAKE_OPT='-j8' CFLAGS='-g3 -gdwarf-2 -O2' RUBY_CONFIGURE_OPTS="--with-openssl-dir=$(brew --prefix 'openssl@3')   --with-readline-dir=$(brew --prefix readline) --disable-install-doc --disable-install-rdoc --disable-install-capi --enable-dtrace" rbenv install --skip-existing --verbose 3.0.2
 # env -- MAKE_OPT='-j8' CFLAGS='-g3 -gdwarf-2 -O2' RUBY_CONFIGURE_OPTS="--with-openssl-dir=$(brew --prefix 'openssl@3')   --with-readline-dir=$(brew --prefix readline) --disable-install-doc --disable-install-rdoc --disable-install-capi --enable-dtrace" rbenv install --skip-existing --verbose 3.0.5
 # env -- MAKE_OPT='-j8' CFLAGS='-g3 -gdwarf-2 -O2' RUBY_CONFIGURE_OPTS="--with-openssl-dir=$(brew --prefix 'openssl@3')   --with-readline-dir=$(brew --prefix readline) --disable-install-doc --disable-install-rdoc --disable-install-capi --enable-dtrace" rbenv install --skip-existing --verbose 3.1.3
 # env -- MAKE_OPT='-j8' CFLAGS='-g3 -gdwarf-2 -O2' RUBY_CONFIGURE_OPTS="--with-openssl-dir=$(brew --prefix 'openssl@3')   --with-readline-dir=$(brew --prefix readline) --disable-install-doc --disable-install-rdoc --disable-install-capi --enable-dtrace" rbenv install --skip-existing --verbose 3.2.2
+# env -- MAKE_OPT='-j8' CFLAGS='-g3 -gdwarf-2 -O2' RUBY_CONFIGURE_OPTS="--with-openssl-dir=$(brew --prefix 'openssl@3')   --with-readline-dir=$(brew --prefix readline) --disable-install-doc --disable-install-rdoc --disable-install-capi --enable-dtrace" rbenv install --skip-existing --verbose 3.3.1
 #
 # openssl fun
 # https://github.com/postmodern/ruby-install/issues/412
 # see also https://github.com/oracle/truffleruby/pull/2557/files
 #
-env -- MAKE_OPT='-j8' CFLAGS='-g3 -gdwarf-2 -O2' RUBY_CONFIGURE_OPTS="--with-openssl-dir=$(brew --prefix 'openssl@3')  --with-readline-dir=$(brew --prefix readline) --disable-install-doc --disable-install-rdoc --disable-install-capi --enable-dtrace" rbenv install --skip-existing --verbose 2.7.7
-env -- MAKE_OPT='-j8' CFLAGS='-g3 -gdwarf-2 -O2' RUBY_CONFIGURE_OPTS="--with-openssl-dir=$(brew --prefix 'openssl@3')  --with-readline-dir=$(brew --prefix readline) --disable-install-doc --disable-install-rdoc --disable-install-capi --enable-dtrace" rbenv install --skip-existing --verbose 3.2.2
+# brew install openssl@1.0
+#
+# ➜ ln -s /usr/local/Cellar/openssl@1.0/1.0.2t/lib/libssl.1.0.0.dylib /usr/local/opt/openssl/lib/libssl.1.0.0.dylib
+# ➜ ln -s /usr/local/Cellar/openssl@1.0/1.0.2t/lib/libcrypto.1.0.0.dylib /usr/local/opt/openssl/lib/libcrypto.1.0.0.dylib
+#
+## More details about the older openssl
+# see https://github.com/Shopify/homebrew-shopify/blob/54eb5510659b9674eed884eaa96cd332376d05b5/openssl%401.0.rb
+#
+# ➜ brew info 'openssl@1.0'
+#
+# ==> shopify/shopify/openssl@1.0: stable 1.0.2t (bottled) [keg-only]
+# SSL/TLS cryptography library
+# https://openssl.org/
+# Installed
+# /usr/local/Cellar/openssl@1.0/1.0.2t (1,788 files, 12MB)
+#   Poured from bottle on 2024-05-21 at 15:15:09
+# From: https://github.com/shopify/homebrew-shopify/blob/HEAD/openssl@1.0.rb
+# ==> Caveats
+# A CA file has been bootstrapped using certificates from the SystemRoots
+# keychain. To add additional certificates (e.g. the certificates added in
+# the System keychain), place .pem files in
+#   /usr/local/etc/openssl/certs
+
+# and run
+#   /usr/local/opt/openssl@1.0/bin/c_rehash
+
+# openssl@1.0 is keg-only, which means it was not symlinked into /usr/local,
+# because Apple has deprecated use of OpenSSL in favor of its own TLS and crypto libraries.
+
+# If you need to have openssl@1.0 first in your PATH, run:
+#   echo 'export PATH="/usr/local/opt/openssl@1.0/bin:$PATH"' >> ~/.zshrc
+
+# For compilers to find openssl@1.0 you may need to set:
+#   export LDFLAGS="-L/usr/local/opt/openssl@1.0/lib"
+#   export CPPFLAGS="-I/usr/local/opt/openssl@1.0/include"
+
+# For pkg-config to find openssl@1.0 you may need to set:
+#   export PKG_CONFIG_PATH="/usr/local/opt/openssl@1.0/lib/pkgconfig"
+#
+# ➜ brew list --formula 'openssl@1.0'
+# /usr/local/Cellar/openssl@1.0/1.0.2t/bin/c_rehash
+# /usr/local/Cellar/openssl@1.0/1.0.2t/bin/openssl
+# /usr/local/Cellar/openssl@1.0/1.0.2t/include/openssl/ (75 files)
+# /usr/local/Cellar/openssl@1.0/1.0.2t/lib/libcrypto.1.0.0.dylib
+# /usr/local/Cellar/openssl@1.0/1.0.2t/lib/libssl.1.0.0.dylib
+# /usr/local/Cellar/openssl@1.0/1.0.2t/lib/engines/ (12 files)
+# /usr/local/Cellar/openssl@1.0/1.0.2t/lib/pkgconfig/ (3 files)
+# /usr/local/Cellar/openssl@1.0/1.0.2t/lib/ (4 other files)
+# /usr/local/Cellar/openssl@1.0/1.0.2t/sbom.spdx.json
+# /usr/local/Cellar/openssl@1.0/1.0.2t/share/man/ (1683 files)
 
 # installer files cleanup
 # cd /usr/local
@@ -178,6 +226,9 @@ brew doctor
 # rbenv shell  2.3.7
 # rbenv global 2.3.7
 # rbenv global 2.5.8
+XYZ_DEFAULT_RUBY="3.3.1"
+# export -- XYZ_DEFAULT_RUBY
+#
 echo "## setting default shell ruby to ${XYZ_DEFAULT_RUBY}"
 rbenv shell  "${XYZ_DEFAULT_RUBY}"
 rbenv global "${XYZ_DEFAULT_RUBY}"
@@ -191,7 +242,7 @@ rbenv versions
 function rbenv-update_rubygems_bundler_for_rbenv_all() {
   rbenv update
   rbenv each gem update --system
-  rbenv exec gem install bundler -v '~> 1.7'
+  # rbenv exec gem install bundler -v '~> 1.7'
   rbenv exec gem install bundler -v '~> 2.0'
   rbenv each gem update bundler
 }
@@ -199,7 +250,7 @@ function rbenv-update_rubygems_bundler_for_rbenv_all() {
 
 function rbenv-update_rubygems_bundler_for_rbenv_local() {
   rbenv exec gem update --system
-  rbenv exec gem install bundler -v '~> 1.7'
+  # rbenv exec gem install bundler -v '~> 1.7'
   rbenv exec gem install bundler -v '~> 2.0'
   rbenv exec gem update bundler
   rbenv exec gem list | grep bundler
