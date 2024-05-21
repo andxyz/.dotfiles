@@ -74,53 +74,70 @@ rbenv update
 echo '## installing rubies'
 #
 # ---
-# Configuration summary for ruby version 2.4.4
+# Configuration summary for ruby version 3.3.1
 #
-#    * Installation prefix: /Users/andxyz/.rbenv/versions/2.4.4
+#    * Installation prefix: /Users/andxyz/.rbenv/versions/3.3.1
 #    * exec prefix:         ${prefix}
-#    * arch:                x86_64-darwin17
+#    * arch:                x86_64-darwin21
 #    * site arch:           ${arch}
 #    * RUBY_BASE_NAME:      ruby
+#    * enable shared:       yes
 #    * ruby lib prefix:     ${libdir}/${RUBY_BASE_NAME}
 #    * site libraries path: ${rubylibprefix}/${sitearch}
 #    * vendor path:         ${rubylibprefix}/vendor_ruby
-#    * target OS:           darwin17
+#    * target OS:           darwin21
 #    * compiler:            clang
-#    * with pthread:        yes
-#    * enable shared libs:  no
+#    * with thread:         pthread
+#    * with coroutine:      amd64
+#    * enable shared libs:  yes
 #    * dynamic library ext: bundle
-#    * CFLAGS:              ${optflags} ${debugflags} ${warnflags}
-#    * LDFLAGS:             -L. -L/Users/andxyz/.rbenv/versions/2.4.4/lib  \
-#                           -fstack-protector -L/usr/local/lib
-#    * optflags:            -O2 -fno-fast-math
+#    * CFLAGS:              -fdeclspec ${optflags} ${debugflags} ${warnflags}
+#    * LDFLAGS:             -L. -fstack-protector-strong \
+#                           -L/usr/local/opt/gmp/lib
+#    * DLDFLAGS:            -L/usr/local/opt/gmp/lib \
+#                           -Wl,-multiply_defined,suppress \
+#                           -Wl,-undefined,dynamic_lookup
+#    * optflags:            -O3 -fno-fast-math
 #    * debugflags:          -ggdb3
-#    * warnflags:           -Wall -Wextra -Wno-unused-parameter \
-#                           -Wno-parentheses -Wno-long-long \
+#    * warnflags:           -Wall -Wextra -Wextra-tokens \
+#                           -Wdeprecated-declarations -Wdivision-by-zero \
+#                           -Wdiv-by-zero -Wimplicit-function-declaration \
+#                           -Wimplicit-int -Wpointer-arith -Wshorten-64-to-32 \
+#                           -Wwrite-strings -Wold-style-definition \
+#                           -Wmissing-noreturn -Wno-cast-function-type \
+#                           -Wno-constant-logical-operand -Wno-long-long \
 #                           -Wno-missing-field-initializers \
-#                           -Wno-tautological-compare \
-#                           -Wno-parentheses-equality \
-#                           -Wno-constant-logical-operand -Wno-self-assign \
-#                           -Wunused-variable -Wimplicit-int -Wpointer-arith \
-#                           -Wwrite-strings -Wdeclaration-after-statement \
-#                           -Wshorten-64-to-32 \
-#                           -Wimplicit-function-declaration \
-#                           -Wdivision-by-zero -Wdeprecated-declarations \
-#                           -Wextra-tokens
+#                           -Wno-overlength-strings -Wno-parentheses-equality \
+#                           -Wno-self-assign -Wno-tautological-compare \
+#                           -Wno-unused-parameter -Wno-unused-value \
+#                           -Wunused-variable -Wmisleading-indentation -Wundef
 #    * strip command:       strip -A -n
 #    * install doc:         no
+#    * YJIT support:        yes
+#    * RJIT support:        yes
 #    * man page type:       doc
+#    * BASERUBY -v:         ruby 3.2.2 (2023-10-09 revision d994dcbca7) \
+#                           [x86_64-darwin21]
 #
 # ---
-#   CC = clang
-#   LD = ld
-#   LDSHARED = clang -dynamic -bundle
-#   CFLAGS = -g3 -gdwarf-2 -O2 -O2 -Wno-error=shorten-64-to-32  -pipe
-#   XCFLAGS = -D_FORTIFY_SOURCE=2 -fstack-protector -fno-strict-overflow -fvisibility=hidden -DRUBY_EXPORT -fPIE
-#   CPPFLAGS = -I/Users/andxyz/.rbenv/versions/2.4.4/include  -D_XOPEN_SOURCE -D_DARWIN_C_SOURCE -D_DARWIN_UNLIMITED_SELECT -D_REENTRANT   -I. -I.ext/include/x86_64-darwin17 -I./include -I. -I./enc/unicode/9.0.0
-#   DLDFLAGS = -L/Users/andxyz/.rbenv/versions/2.4.4/lib  -Wl,-undefined,dynamic_lookup -Wl,-multiply_defined,suppress -fstack-protector -Wl,-u,_objc_msgSend -Wl,-pie -framework Foundation
-#   SOLIBS =
-# Apple LLVM version 9.1.0 (clang-902.0.39.2)
-# Target: x86_64-apple-darwin17.5.0
+# -> make -j4
+#    BASERUBY = /Users/andxyz/.rbenv/shims/ruby --disable=gems
+#    CC = clang
+#    LD = ld
+#    LDSHARED = clang -dynamiclib
+#    CFLAGS = -g3 -gdwarf-2 -O2  -fdeclspec -O3 -fno-fast-math -ggdb3 -Wall -Wextra -Wextra-tokens -Wdeprecated-declarations -Wdivision-by-zero -Wdiv-by-zero -Wimplicit-function-declaration -Wimplicit-int -Wpointer-arith -Wshorten-64-to-32 -Wwrite-strings -Wold-style-definition -Wmissing-noreturn -Wno-cast-function-type -Wno-constant-logical-operand -Wno-long-long -Wno-missing-field-initializers -Wno-overlength-strings -Wno-parentheses-equality -Wno-self-assign -Wno-tautological-compare -Wno-unused-parameter -Wno-unused-value -Wunused-variable -Wmisleading-indentation -Wundef  -fno-common -pipe
+#    XCFLAGS = -U_FORTIFY_SOURCE -D_FORTIFY_SOURCE=2 -fstack-protector-strong -fno-strict-overflow -fvisibility=hidden -DRUBY_EXPORT -I. -I.ext/include/x86_64-darwin21 -I./include -I. -I./prism -I./enc/unicode/15.0.0 -I/usr/local/opt/gmp/include
+#    CPPFLAGS = -D_XOPEN_SOURCE -D_DARWIN_C_SOURCE -D_DARWIN_UNLIMITED_SELECT -D_REENTRANT
+#    DLDFLAGS = -L/usr/local/opt/gmp/lib -Wl,-multiply_defined,suppress -Wl,-undefined,dynamic_lookup -install_name /Users/andxyz/.rbenv/versions/3.3.1/lib/libruby.3.3.dylib -compatibility_version 3.3 -current_version 3.3.1  -fstack-protector-strong -framework CoreFoundation  -fstack-protector-strong -framework CoreFoundation
+#    SOLIBS = -lgmp -ldl -lobjc -lpthread
+#    LANG = en_US.UTF-8
+#    LC_ALL = en_US.UTF-8
+#    LC_CTYPE = en_US.UTF-8
+#    MFLAGS = - --jobserver-fds=5,6 -j
+#    RUSTC = rustc
+#    YJIT_RUSTC_ARGS = --crate-name=yjit --crate-type=staticlib --edition=2021 -g -C lto=thin -C opt-level=3 -C overflow-checks=on '--out-dir=/Users/andxyz/.rbenv/sources/3.3.1/ruby-3.3.1/yjit/target/release/' ./yjit/src/lib.rs
+# Apple clang version 13.1.6 (clang-1316.0.21.2.5)
+# Target: x86_64-apple-darwin21.6.0
 # Thread model: posix
 # InstalledDir: /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin
 
@@ -128,35 +145,54 @@ echo '## installing rubies'
 # rbenv update
 # rbenv install --list
 
+brew --prefix openssl@1.0
 brew --prefix openssl@1.1
 brew --prefix openssl@3
 brew --prefix readline
 
-# env -- MAKE_OPT='-j8' CFLAGS='-g3 -gdwarf-2 -O2' RUBY_CONFIGURE_OPTS="--with-openssl-dir=$(brew --prefix openssl)       --with-readline-dir=$(brew --prefix readline) --disable-install-doc --disable-install-rdoc --disable-install-capi" rbenv install --skip-existing --verbose 1.9.3-p551
-# env -- MAKE_OPT='-j8' CFLAGS='-g3 -gdwarf-2 -O2' RUBY_CONFIGURE_OPTS="--with-openssl-dir=$(brew --prefix openssl)       --with-readline-dir=$(brew --prefix readline) --disable-install-doc --disable-install-rdoc --disable-install-capi" rbenv install --skip-existing --verbose 2.1.5
-# env -- MAKE_OPT='-j8' CFLAGS='-g3 -gdwarf-2 -O2' RUBY_CONFIGURE_OPTS="--with-openssl-dir=$(brew --prefix openssl)       --with-readline-dir=$(brew --prefix readline) --disable-install-doc --disable-install-rdoc --disable-install-capi" rbenv install --skip-existing --verbose 2.1.10
-# env -- MAKE_OPT='-j8' CFLAGS='-g3 -gdwarf-2 -O2' RUBY_CONFIGURE_OPTS="--with-openssl-dir=$(brew --prefix openssl)       --with-readline-dir=$(brew --prefix readline) --disable-install-doc --disable-install-rdoc --disable-install-capi" rbenv install --skip-existing --verbose 2.2.10
-# env -- MAKE_OPT='-j8' CFLAGS='-g3 -gdwarf-2 -O2' RUBY_CONFIGURE_OPTS="--with-openssl-dir=$(brew --prefix openssl)       --with-readline-dir=$(brew --prefix readline) --disable-install-doc --disable-install-rdoc --disable-install-capi" rbenv install --skip-existing --verbose 2.3.1
-# env -- MAKE_OPT='-j8' CFLAGS='-g3 -gdwarf-2 -O2' RUBY_CONFIGURE_OPTS="--with-openssl-dir=$(brew --prefix openssl)       --with-readline-dir=$(brew --prefix readline) --disable-install-doc --disable-install-rdoc --disable-install-capi --enable-dtrace" rbenv install --skip-existing --verbose 2.3.7
-# env -- MAKE_OPT='-j8' CFLAGS='-g3 -gdwarf-2 -O2' RUBY_CONFIGURE_OPTS="--with-openssl-dir=$(brew --prefix openssl)       --with-readline-dir=$(brew --prefix readline) --disable-install-doc --disable-install-rdoc --disable-install-capi --enable-dtrace" rbenv install --skip-existing --verbose 2.4.4
-# env -- MAKE_OPT='-j8' CFLAGS='-g3 -gdwarf-2 -O2' RUBY_CONFIGURE_OPTS="--with-openssl-dir=$(brew --prefix openssl)       --with-readline-dir=$(brew --prefix readline) --disable-install-doc --disable-install-rdoc --disable-install-capi --enable-dtrace" rbenv install --skip-existing --verbose 2.5.1
-# env -- MAKE_OPT='-j8' CFLAGS='-g3 -gdwarf-2 -O2' RUBY_CONFIGURE_OPTS="--with-openssl-dir=$(brew --prefix openssl)       --with-readline-dir=$(brew --prefix readline) --disable-install-doc --disable-install-rdoc --disable-install-capi --enable-dtrace" rbenv install --skip-existing --verbose 2.5.8
-# env -- MAKE_OPT='-j8' CFLAGS='-g3 -gdwarf-2 -O2' RUBY_CONFIGURE_OPTS="--with-openssl-dir=$(brew --prefix openssl)       --with-readline-dir=$(brew --prefix readline) --disable-install-doc --disable-install-rdoc --disable-install-capi --enable-dtrace" rbenv install --skip-existing --verbose 2.6.1
-# env -- MAKE_OPT='-j8' CFLAGS='-g3 -gdwarf-2 -O2' RUBY_CONFIGURE_OPTS="--with-openssl-dir=$(brew --prefix openssl)       --with-readline-dir=$(brew --prefix readline) --disable-install-doc --disable-install-rdoc --disable-install-capi --enable-dtrace" rbenv install --skip-existing --verbose 2.6.3
-# env -- MAKE_OPT='-j8' CFLAGS='-g3 -gdwarf-2 -O2' RUBY_CONFIGURE_OPTS="--with-openssl-dir=$(brew --prefix openssl)       --with-readline-dir=$(brew --prefix readline) --disable-install-doc --disable-install-rdoc --disable-install-capi --enable-dtrace" rbenv install --skip-existing --verbose 2.6.5
-# env -- MAKE_OPT='-j8' CFLAGS='-g3 -gdwarf-2 -O2' RUBY_CONFIGURE_OPTS="--with-openssl-dir=$(brew --prefix openssl)       --with-readline-dir=$(brew --prefix readline) --disable-install-doc --disable-install-rdoc --disable-install-capi --enable-dtrace" rbenv install --skip-existing --verbose 2.6.6
-# env -- MAKE_OPT='-j8' CFLAGS='-g3 -gdwarf-2 -O2' RUBY_CONFIGURE_OPTS="--with-openssl-dir=$(brew --prefix openssl)       --with-readline-dir=$(brew --prefix readline) --disable-install-doc --disable-install-rdoc --disable-install-capi --enable-dtrace" rbenv install --skip-existing --verbose 2.7.0
-# env -- MAKE_OPT='-j8' CFLAGS='-g3 -gdwarf-2 -O2' RUBY_CONFIGURE_OPTS="--with-openssl-dir=$(brew --prefix openssl)       --with-readline-dir=$(brew --prefix readline) --disable-install-doc --disable-install-rdoc --disable-install-capi --enable-dtrace" rbenv install --skip-existing --verbose 2.7.2
-# env -- MAKE_OPT='-j8' CFLAGS='-g3 -gdwarf-2 -O2' RUBY_CONFIGURE_OPTS="--with-openssl-dir=$(brew --prefix openssl)       --with-readline-dir=$(brew --prefix readline) --disable-install-doc --disable-install-rdoc --disable-install-capi --enable-dtrace" rbenv install --skip-existing --verbose 2.7.3
-# env -- MAKE_OPT='-j8' CFLAGS='-g3 -gdwarf-2 -O2' RUBY_CONFIGURE_OPTS="--with-openssl-dir=$(brew --prefix openssl)       --with-readline-dir=$(brew --prefix readline) --disable-install-doc --disable-install-rdoc --disable-install-capi --enable-dtrace" rbenv install --skip-existing --verbose 2.7.4
-# env -- MAKE_OPT='-j8' CFLAGS='-g3 -gdwarf-2 -O2' RUBY_CONFIGURE_OPTS="--with-openssl-dir=$(brew --prefix 'openssl@1.1') --with-readline-dir=$(brew --prefix readline) --disable-install-doc --disable-install-rdoc --disable-install-capi --enable-dtrace" rbenv install --skip-existing --verbose 2.7.5
-# env -- MAKE_OPT='-j8' CFLAGS='-g3 -gdwarf-2 -O2' RUBY_CONFIGURE_OPTS="--with-openssl-dir=$(brew --prefix 'openssl@3')   --with-readline-dir=$(brew --prefix readline) --disable-install-doc --disable-install-rdoc --disable-install-capi --enable-dtrace" rbenv install --skip-existing --verbose 2.7.6
-# env -- MAKE_OPT='-j8' CFLAGS='-g3 -gdwarf-2 -O2' RUBY_CONFIGURE_OPTS="--with-openssl-dir=$(brew --prefix 'openssl@3')   --with-readline-dir=$(brew --prefix readline) --disable-install-doc --disable-install-rdoc --disable-install-capi --enable-dtrace" rbenv install --skip-existing --verbose 2.7.7
-# env -- MAKE_OPT='-j8' CFLAGS='-g3 -gdwarf-2 -O2' RUBY_CONFIGURE_OPTS="--with-openssl-dir=$(brew --prefix 'openssl@3')   --with-readline-dir=$(brew --prefix readline) --disable-install-doc --disable-install-rdoc --disable-install-capi --enable-dtrace" rbenv install --skip-existing --verbose 3.0.2
-# env -- MAKE_OPT='-j8' CFLAGS='-g3 -gdwarf-2 -O2' RUBY_CONFIGURE_OPTS="--with-openssl-dir=$(brew --prefix 'openssl@3')   --with-readline-dir=$(brew --prefix readline) --disable-install-doc --disable-install-rdoc --disable-install-capi --enable-dtrace" rbenv install --skip-existing --verbose 3.0.5
-# env -- MAKE_OPT='-j8' CFLAGS='-g3 -gdwarf-2 -O2' RUBY_CONFIGURE_OPTS="--with-openssl-dir=$(brew --prefix 'openssl@3')   --with-readline-dir=$(brew --prefix readline) --disable-install-doc --disable-install-rdoc --disable-install-capi --enable-dtrace" rbenv install --skip-existing --verbose 3.1.3
-# env -- MAKE_OPT='-j8' CFLAGS='-g3 -gdwarf-2 -O2' RUBY_CONFIGURE_OPTS="--with-openssl-dir=$(brew --prefix 'openssl@3')   --with-readline-dir=$(brew --prefix readline) --disable-install-doc --disable-install-rdoc --disable-install-capi --enable-dtrace" rbenv install --skip-existing --verbose 3.2.2
-# env -- MAKE_OPT='-j8' CFLAGS='-g3 -gdwarf-2 -O2' RUBY_CONFIGURE_OPTS="--with-openssl-dir=$(brew --prefix 'openssl@3')   --with-readline-dir=$(brew --prefix readline) --disable-install-doc --disable-install-rdoc --disable-install-capi --enable-dtrace" rbenv install --skip-existing --verbose 3.3.1
+# For clang, some older rubies might need this
+# RUBY_CFLAGS='-Wno-error=implicit-function-declaration'
+#
+# see https://github.com/rbenv/ruby-build/wiki/Home/
+#
+# # https://apple.stackexchange.com/questions/148901/why-does-my-brew-installation-not-work
+
+if [[ "$(uname)" == "darwin"* ]]; then
+   eval $(/usr/local/bin/brew shellenv)
+fi
+
+#
+# env -- MAKE_OPTS='-j8' CFLAGS='-g3 -gdwarf-2 -O2' RUBY_CONFIGURE_OPTS="--with-openssl-dir=$(brew --prefix openssl)       --with-readline-dir=$(brew --prefix readline) --disable-install-doc --disable-install-rdoc --disable-install-capi" rbenv install --skip-existing --verbose 1.9.3-p551
+# env -- MAKE_OPTS='-j8' CFLAGS='-g3 -gdwarf-2 -O2' RUBY_CONFIGURE_OPTS="--with-openssl-dir=$(brew --prefix openssl)       --with-readline-dir=$(brew --prefix readline) --disable-install-doc --disable-install-rdoc --disable-install-capi" rbenv install --skip-existing --verbose 2.1.5
+# env -- MAKE_OPTS='-j8' CFLAGS='-g3 -gdwarf-2 -O2' RUBY_CONFIGURE_OPTS="--with-openssl-dir=$(brew --prefix openssl)       --with-readline-dir=$(brew --prefix readline) --disable-install-doc --disable-install-rdoc --disable-install-capi" rbenv install --skip-existing --verbose 2.1.10
+# env -- MAKE_OPTS='-j8' CFLAGS='-g3 -gdwarf-2 -O2' RUBY_CONFIGURE_OPTS="--with-openssl-dir=$(brew --prefix openssl)       --with-readline-dir=$(brew --prefix readline) --disable-install-doc --disable-install-rdoc --disable-install-capi" rbenv install --skip-existing --verbose 2.2.10
+# env -- MAKE_OPTS='-j8' CFLAGS='-g3 -gdwarf-2 -O2' RUBY_CONFIGURE_OPTS="--with-openssl-dir=$(brew --prefix openssl)       --with-readline-dir=$(brew --prefix readline) --disable-install-doc --disable-install-rdoc --disable-install-capi" rbenv install --skip-existing --verbose 2.3.1
+# env -- MAKE_OPTS='-j8' CFLAGS='-g3 -gdwarf-2 -O2' RUBY_CONFIGURE_OPTS="--with-openssl-dir=$(brew --prefix openssl)       --with-readline-dir=$(brew --prefix readline) --disable-install-doc --disable-install-rdoc --disable-install-capi --enable-dtrace" rbenv install --skip-existing --verbose 2.3.7
+# env -- MAKE_OPTS='-j8' CFLAGS='-g3 -gdwarf-2 -O2' RUBY_CONFIGURE_OPTS="--with-openssl-dir=$(brew --prefix openssl)       --with-readline-dir=$(brew --prefix readline) --disable-install-doc --disable-install-rdoc --disable-install-capi --enable-dtrace" rbenv install --skip-existing --verbose 2.4.4
+# env -- MAKE_OPTS='-j8' CFLAGS='-g3 -gdwarf-2 -O2' RUBY_CONFIGURE_OPTS="--with-openssl-dir=$(brew --prefix openssl)       --with-readline-dir=$(brew --prefix readline) --disable-install-doc --disable-install-rdoc --disable-install-capi --enable-dtrace" rbenv install --skip-existing --verbose 2.5.1
+# env -- MAKE_OPTS='-j8' CFLAGS='-g3 -gdwarf-2 -O2' RUBY_CONFIGURE_OPTS="--with-openssl-dir=$(brew --prefix openssl)       --with-readline-dir=$(brew --prefix readline) --disable-install-doc --disable-install-rdoc --disable-install-capi --enable-dtrace" rbenv install --skip-existing --verbose 2.5.8
+# env -- MAKE_OPTS='-j8' CFLAGS='-g3 -gdwarf-2 -O2' RUBY_CONFIGURE_OPTS="--with-openssl-dir=$(brew --prefix openssl)       --with-readline-dir=$(brew --prefix readline) --disable-install-doc --disable-install-rdoc --disable-install-capi --enable-dtrace" rbenv install --skip-existing --verbose 2.6.1
+# env -- MAKE_OPTS='-j8' CFLAGS='-g3 -gdwarf-2 -O2' RUBY_CONFIGURE_OPTS="--with-openssl-dir=$(brew --prefix openssl)       --with-readline-dir=$(brew --prefix readline) --disable-install-doc --disable-install-rdoc --disable-install-capi --enable-dtrace" rbenv install --skip-existing --verbose 2.6.3
+# env -- MAKE_OPTS='-j8' CFLAGS='-g3 -gdwarf-2 -O2' RUBY_CONFIGURE_OPTS="--with-openssl-dir=$(brew --prefix openssl)       --with-readline-dir=$(brew --prefix readline) --disable-install-doc --disable-install-rdoc --disable-install-capi --enable-dtrace" rbenv install --skip-existing --verbose 2.6.5
+# env -- MAKE_OPTS='-j8' CFLAGS='-g3 -gdwarf-2 -O2' RUBY_CONFIGURE_OPTS="--with-openssl-dir=$(brew --prefix openssl)       --with-readline-dir=$(brew --prefix readline) --disable-install-doc --disable-install-rdoc --disable-install-capi --enable-dtrace" rbenv install --skip-existing --verbose 2.6.6
+# env -- MAKE_OPTS='-j8' CFLAGS='-g3 -gdwarf-2 -O2' RUBY_CONFIGURE_OPTS="--with-openssl-dir=$(brew --prefix openssl)       --with-readline-dir=$(brew --prefix readline) --disable-install-doc --disable-install-rdoc --disable-install-capi --enable-dtrace" rbenv install --skip-existing --verbose 2.7.0
+# env -- MAKE_OPTS='-j8' CFLAGS='-g3 -gdwarf-2 -O2' RUBY_CONFIGURE_OPTS="--with-openssl-dir=$(brew --prefix openssl)       --with-readline-dir=$(brew --prefix readline) --disable-install-doc --disable-install-rdoc --disable-install-capi --enable-dtrace" rbenv install --skip-existing --verbose 2.7.2
+# env -- MAKE_OPTS='-j8' CFLAGS='-g3 -gdwarf-2 -O2' RUBY_CONFIGURE_OPTS="--with-openssl-dir=$(brew --prefix openssl)       --with-readline-dir=$(brew --prefix readline) --disable-install-doc --disable-install-rdoc --disable-install-capi --enable-dtrace" rbenv install --skip-existing --verbose 2.7.3
+# env -- MAKE_OPTS='-j8' CFLAGS='-g3 -gdwarf-2 -O2' RUBY_CONFIGURE_OPTS="--with-openssl-dir=$(brew --prefix openssl)       --with-readline-dir=$(brew --prefix readline) --disable-install-doc --disable-install-rdoc --disable-install-capi --enable-dtrace" rbenv install --skip-existing --verbose 2.7.4
+# env -- MAKE_OPTS='-j8' CFLAGS='-g3 -gdwarf-2 -O2' RUBY_CONFIGURE_OPTS="--with-openssl-dir=$(brew --prefix 'openssl@1.1') --with-readline-dir=$(brew --prefix readline) --disable-install-doc --disable-install-rdoc --disable-install-capi --enable-dtrace" rbenv install --skip-existing --verbose 2.7.5
+# env -- MAKE_OPTS='-j8' CFLAGS='-g3 -gdwarf-2 -O2' RUBY_CONFIGURE_OPTS="--with-openssl-dir=$(brew --prefix 'openssl@3')   --with-readline-dir=$(brew --prefix readline) --disable-install-doc --disable-install-rdoc --disable-install-capi --enable-dtrace" rbenv install --skip-existing --verbose 2.7.6
+# env -- MAKE_OPTS='-j8' CFLAGS='-g3 -gdwarf-2 -O2' RUBY_CONFIGURE_OPTS="--with-openssl-dir=$(brew --prefix 'openssl@3')   --with-readline-dir=$(brew --prefix readline) --disable-install-doc --disable-install-rdoc --disable-install-capi --enable-dtrace" rbenv install --skip-existing --verbose 2.7.7
+# env -- MAKE_OPTS='-j8' CFLAGS='-g3 -gdwarf-2 -O2' RUBY_CONFIGURE_OPTS="--with-openssl-dir=$(brew --prefix 'openssl@3')   --with-readline-dir=$(brew --prefix readline) --disable-install-doc --disable-install-rdoc --disable-install-capi --enable-dtrace" rbenv install --skip-existing --verbose 3.0.2
+# env -- MAKE_OPTS='-j8' CFLAGS='-g3 -gdwarf-2 -O2' RUBY_CONFIGURE_OPTS="--with-openssl-dir=$(brew --prefix 'openssl@3')   --with-readline-dir=$(brew --prefix readline) --disable-install-doc --disable-install-rdoc --disable-install-capi --enable-dtrace" rbenv install --skip-existing --verbose 3.0.5
+# env -- MAKE_OPTS='-j8' CFLAGS='-g3 -gdwarf-2 -O2' RUBY_CONFIGURE_OPTS="--with-openssl-dir=$(brew --prefix 'openssl@3')   --with-readline-dir=$(brew --prefix readline) --disable-install-doc --disable-install-rdoc --disable-install-capi --enable-dtrace" rbenv install --skip-existing --verbose 3.1.3
+# env -- MAKE_OPTS='-j8' CFLAGS='-g3 -gdwarf-2 -O2' RUBY_CONFIGURE_OPTS="--enable-yjit --with-openssl-dir=$(brew --prefix 'openssl@3') --with-readline-dir=$(brew --prefix readline) --disable-install-doc --disable-install-rdoc --disable-install-capi --enable-dtrace" rbenv install --skip-existing --verbose 3.2.2
+#
+# see https://bugs.ruby-lang.org/issues/18912#note-6
+# The first try is failed. Because my environment mixed the homebrew binutils built by macOS 12.0(monterey).
+brew uninstall binutils
+source_rustup_env
+# env -- MAKE_OPTS='-j4' CFLAGS='-g3 -gdwarf-2 -O2' RUBY_CONFIGURE_OPTS="--enable-yjit --with-jemalloc-dir=$(brew --prefix 'jemalloc') --with-openssl-dir=$(brew --prefix 'openssl@3') --with-readline-dir=$(brew --prefix readline) --with-libyaml-dir=$(brew --prefix 'libyaml') --disable-install-doc --disable-install-rdoc --disable-install-capi --enable-dtrace" rbenv install --skip-existing --verbose 3.2.2-pshopify19
+# env -- MAKE_OPTS='-j4' CFLAGS='-g3 -gdwarf-2 -O2' RUBY_CONFIGURE_OPTS="--enable-yjit --enable-shared --with-jemalloc-dir=$(brew --prefix 'jemalloc') --with-openssl-dir=$(brew --prefix 'openssl@3') --with-readline-dir=$(brew --prefix readline) --with-libyaml-dir=$(brew --prefix 'libyaml') --disable-install-doc --disable-install-rdoc --disable-install-capi --enable-dtrace" rbenv install --verbose --keep 3.3.1 | tee ~/.rbenv/sources/ruby-3.3.1-build.log
 #
 # openssl fun
 # https://github.com/postmodern/ruby-install/issues/412
@@ -243,7 +279,7 @@ function rbenv-update_rubygems_bundler_for_rbenv_all() {
   rbenv update
   rbenv each gem update --system
   # rbenv exec gem install bundler -v '~> 1.7'
-  rbenv exec gem install bundler -v '~> 2.0'
+  rbenv each gem install bundler -v '~> 2.0'
   rbenv each gem update bundler
 }
 # rbenv-update_rubygems_bundler_for_rbenv_all;
@@ -261,8 +297,8 @@ rbenv-update_rubygems_bundler_for_rbenv_local;
 # bundle config --global build.eventmachine --with-cppflags=-I$(brew --prefix openssl)/include
 
 ### add some default gems for new ruby installs
-# gem install bundle pry pry-byebug pry-doc yard bcat
-echo "bundle" >> "${HOME}"/.rbenv/default-gems
+# gem install
+echo "debug" >> "${HOME}"/.rbenv/default-gems
 echo "pry" >> "${HOME}"/.rbenv/default-gems
 echo "pry-byebug" >> "${HOME}"/.rbenv/default-gems
 echo "pry-doc" >> "${HOME}"/.rbenv/default-gems
@@ -270,9 +306,6 @@ echo "yard" >> "${HOME}"/.rbenv/default-gems
 # echo "foreman" >> "${HOME}"/.rbenv/default-gems
 # echo "niceql" >> "${HOME}"/.rbenv/default-gems
 # echo "bcat" >> "${HOME}"/.rbenv/default-gems
-# echo "gem-browse" >> "${HOME}"/.rbenv/default-gems
-# echo "gem-ctags" >> "${HOME}"/.rbenv/default-gems
-# echo "rbenv-ctags" >> "${HOME}"/.rbenv/default-gems
 
 # echo "interactive_editor" >> "${HOME}"/.rbenv/default-gems
 # echo "awesome_print" >> "${HOME}"/.rbenv/default-gems
@@ -282,13 +315,13 @@ echo "yard" >> "${HOME}"/.rbenv/default-gems
 # echo "faraday" >> "${HOME}"/.rbenv/default-gems
 # echo "rest-client" >> "${HOME}"/.rbenv/default-gems
 
-#
 # cat "${HOME}"/.rbenv/default-gems
 
 ### check which rubies have a gem installed for it
 # rbenv whence bundle
 # rbenv exec gem uninstall bundler -v '1.15.0'
 # rbenv exec gem install bundler -v '1.14.6'
+# rbenv exec gem install bundler -v '2.5.10'
 #
 # rbenv exec gem install rubocop -v '0.54.0'
 # rbenv exec gem install rubocop -v '0.58.2'
@@ -297,7 +330,7 @@ echo "yard" >> "${HOME}"/.rbenv/default-gems
 ### reinstall pg gem
 #
 # rbenv exec gem uninstall pg
-# brew link --force --overwrite postgresql@14
+# brew link --force --overwrite postgresql@16
 # rbenv exec bundle install
 #
 
@@ -314,7 +347,7 @@ function rbenv-cleanup_gems_for_each_installed_ruby() {
   rbenv each uninstall_gems.sh
 
   # now reinstall some basics
-  rbenv each gem install 'bundler' 'pry' 'pry-byebug' 'pry-doc' 'yard' 'bcat' 'niceql' 'foreman'
+  rbenv each gem install 'bundler' 'pry' 'pry-byebug' 'pry-doc' 'yard' 'debug'
 }
 # rbenv-show_space_usage;
 # rbenv-update_rubygems_bundler_for_rbenv_all;
