@@ -1,0 +1,6 @@
+#!/usr/bin/env zsh
+
+function sset_window_title() {
+  window_title="\033]0;$@\007"
+  echo -ne "$window_title"
+}

@@ -10,9 +10,6 @@ skip_global_compinit=1
 disable -r time       # disable shell reserved word
 alias time='time -p ' # -p for POSIX output
 
-## zsh function nonsense
-export -- FPATH="~/.zsh/functions:${FPATH}"
-
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f "${HOME}/.p10k.zsh" ]] || source "${HOME}/.p10k.zsh"
 
@@ -107,6 +104,8 @@ if type brew &>/dev/null; then
   export -- FPATH="$(brew --prefix)/share/zsh-completions:$FPATH"
 fi
 
+## personal zsh functions
+export -- FPATH="${HOME}/.zsh/functions:${FPATH}"
 autoload -U ~/.zsh/functions/*(:t)
 autoload -Uz compinit
 compinit
@@ -214,4 +213,3 @@ alias rezsh='unset FPATH; exec zsh -il' # see
 # source_node_env # This takes 5+ seconds for each new shell instance 👀
 source_ruby_env
 source_haskell_env
-

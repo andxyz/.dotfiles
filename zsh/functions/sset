@@ -1,6 +1,6 @@
 #!/usr/bin/env zsh
 
 function sset() {
-  window_title="\033]0;$@\007"
-  echo -ne "$window_title"
+  local usable_name="${$(basename "$(git rev-parse --show-toplevel 2> /dev/null)"):-$PWD}"
+  sset_window_title "$(basename ${usable_name})";
 }
