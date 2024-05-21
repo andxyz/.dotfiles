@@ -3,6 +3,26 @@ set -x
 
 set -eufo pipefail
 
+# ➜ neofetch
+#                     'c.          andxyz@Manny
+#                  ,xNMM.          --------------------------------------
+#                .OMMMMo           OS: macOS 12.7.5 21H1222 x86_64
+#                OMMM0,            Host: MacBookAir7,2
+#      .;loddo:' loolloddol;.      Kernel: 21.6.0
+#    cKMMMMMMMMMMNWMMMMMMMMMM0:    Uptime: 58 mins
+#  .KMMMMMMMMMMMMMMMMMMMMMMMWd.    Packages: 258 (brew)
+#  XMMMMMMMMMMMMMMMMMMMMMMMX.      Shell: zsh 5.9
+# ;MMMMMMMMMMMMMMMMMMMMMMMM:       Resolution: 1440x900
+# :MMMMMMMMMMMMMMMMMMMMMMMM:       DE: Aqua
+# .MMMMMMMMMMMMMMMMMMMMMMMMX.      WM: Quartz Compositor
+#  kMMMMMMMMMMMMMMMMMMMMMMMMWd.    WM Theme: Graphite (Dark)
+#  .XMMMMMMMMMMMMMMMMMMMMMMMMMMk   Terminal: iTerm2
+#   .XMMMMMMMMMMMMMMMMMMMMMMMMK.   Terminal Font: DejaVuSansMNFM 16
+#     kMMMMMMMMMMMMMMMMMMMMMMd     CPU: Intel i5-5350U (4) @ 1.80GHz
+#      ;KMMMMMMMWXXWMMMMMMMk.      GPU: Intel HD Graphics 6000
+#        .cooc,.    .,coo:.        Memory: 5266MiB / 8192MiB
+# ~ took 4.8s …
+
 # May 2024
 
 brew upgrade 'ack'
