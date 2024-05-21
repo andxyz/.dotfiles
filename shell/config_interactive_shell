@@ -29,6 +29,7 @@ export -- REPORTTIME=10
 
 export -- LESSSECURE=1 # seems legit
 export -- HOMEBREW_NO_AUTO_UPDATE=1 # sounds good to me
+# export -- HOMEBREW_NO_INSTALL_CLEANU=1 # meh
 
 # ruby hacks, https://github.com/rails/rails/issues/38560
 export -- OBJC_DISABLE_INITIALIZE_FORK_SAFETY=YES

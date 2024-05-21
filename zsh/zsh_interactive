@@ -41,6 +41,8 @@ zinit cdclear -q #
 #
 ## spaceship-prompt prompt
 zinit ice depth"1" # git clone depth
+# remember to install Dejavu sans nerd font mono into your shell
+# see https://www.nerdfonts.com/font-downloads
 zinit light "spaceship-prompt/spaceship-prompt"
 zinit ice depth"1"
 zinit light "spaceship-prompt/spaceship-vi-mode"

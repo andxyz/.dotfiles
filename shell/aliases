@@ -53,7 +53,7 @@ alias be='bundle exec'
 alias wwebserve="ruby -run -e httpd -- -p 8000 ."
 
 ### ruby rails zsh settings
-if which noglob >>/dev/null; then
+if which noglob >/dev/null; then
   : # This is the shell equivalent of a "NOP"
   # alias bundle='nocorrect bundle'
   # alias rake='nocorrect rake' # allows square brackets for rake task invocation
@@ -73,7 +73,7 @@ alias yi='yarn check || yarn install'
 # fi
 
 ### tools
-alias mmitmproxy='mitmproxy --palette solarized_light'
+alias mmitmproxy='mitmproxy --set console_palette=solarized_light'
 
 ### zsh correction headaches
 if which noglob >/dev/null; then
