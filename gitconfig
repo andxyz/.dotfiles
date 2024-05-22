@@ -96,12 +96,11 @@
     f  = fetch --all
     fs = fetch origin staging:staging
     fm = fetch origin main:main
-    fp = fetch origin production:production
+    fmm = fetch origin master:master
     # pushf_new failed me, reverting for now
-    # pushf_new = "!git push --force-with-lease origin \"$(git rev-parse --abbrev-ref HEAD)\""
-    pushf = push --force-with-lease
+    pushf = "!gitpushf() { git push --force-with-lease origin \"$(git rev-parse --abbrev-ref HEAD)\"; }; gitpushf"
     fetch-and-prune  = fetch --all --prune
-    # runs my $HOME/bin/git-branch-list.sh shell script
+    # runs my ${HOME}/bin/git-branch-list.sh shell script
     b = branch-list.sh
     ls = ls-files
     ls-ignored = !git ls-files -v | grep "^[[:lower:]]"
@@ -210,7 +209,7 @@
     diffd-p4 = difftool --tool=p4merge_diff
     mergemkaleidoscope = mergetool --tool=kaleidoscope_merge
     # https://github.com/scottgonzalez/pretty-diff
-    # diffd-pretty = !$HOME/bin/pretty-diff/pretty-diff.js
+    # diffd-pretty = !${HOME}/bin/pretty-diff/pretty-diff.js
 
     # ctags
     # http://tbaggery.com/2011/08/08/effortless-ctags-with-git.html
@@ -389,7 +388,7 @@
     path = ~/.gitconfig-private
 
 # how to setup the helper https://help.github.com/articles/caching-your-github-password-in-git/
-# see $HOME/bin/git-credential-helper-setup.sh
+# see ${HOME}/bin/git-credential-helper-setup.sh
 [credential]
     helper = osxkeychain
 
