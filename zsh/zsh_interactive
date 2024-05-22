@@ -39,9 +39,9 @@ zinit cdclear -q #
 # zinit ice depth"1" # git clone depth
 # zinit light "romkatv/powerlevel10k"
 #
-## spaceship-prompt prompt
 zinit ice depth"1" # git clone depth
 zinit light "spaceship-prompt/spaceship-prompt"
+
 zinit ice depth"1"
 zinit light "spaceship-prompt/spaceship-vi-mode"
 # z
@@ -92,7 +92,18 @@ fi
 # zinit zstatus
 
 # fzf completion dance
-# eval "$(fzf --zsh)"
+eval "$(fzf --zsh)"
+# fzf
+if type fzf &> /dev/null && type rg &> /dev/null; then
+  export -- FZF_DEFAULT_COMMAND='rg --files --hidden --follow --glob "!.git/*" --glob "!vendor/*"'
+  export -- FZF_CTRL_T_COMMAND='rg --files --hidden --follow --glob "!.git/*" --glob "!vendor/*"'
+  # Preview file content using bat (https://github.com/sharkdp/bat)
+  export -- FZF_CTRL_T_OPTS="
+    --walker-skip .git,node_modules,target
+    --preview 'bat -n --color=always {}'
+    --bind 'ctrl-/:change-preview-window(down|hidden|)'"
+  export -- FZF_ALT_C_COMMAND="$FZF_DEFAULT_COMMAND"
+fi
 
 # brew info zsh-completions
 #
@@ -109,6 +120,18 @@ export -- FPATH="${HOME}/.zsh/functions:${FPATH}"
 autoload -U ~/.zsh/functions/*(:t)
 autoload -Uz compinit
 compinit
+
+## spaceship-prompt prompt
+export -- SPACESHIP_BATTERY_SHOW=false
+export -- SPACESHIP_TIME_SHOW=true
+export -- SPACESHIP_TIME_FORMAT="%D{%I:%M %p}"
+export -- SPACESHIP_TIME_COLOR=cyan
+export -- SPACESHIP_RPROMPT_ORDER=(
+  time
+)
+SPACESHIP_PROMPT_ORDER=("${(@)SPACESHIP_PROMPT_ORDER:|SPACESHIP_RPROMPT_ORDER}")
+typeset -p SPACESHIP_PROMPT_ORDER 2>&1 > /dev/null
+export -- SPACESHIP_PROMPT_ORDER
 
 # carapace-bin completions dance https://github.com/carapace-sh/carapace-bin?tab=readme-ov-file#getting-started
 source <(carapace _carapace)
