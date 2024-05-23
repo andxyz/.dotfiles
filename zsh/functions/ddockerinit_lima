@@ -1,0 +1,8 @@
+#!/usr/bin/env zsh
+
+function ddockerinit_lima {
+  set -x
+  [[ -L /var/run/docker.sock ]] || sudo ln -s /Users/andxyz/.lima/docker/sock/docker.sock /var/run/docker.sock
+  limactl start --foreground docker
+  set +x
+}
