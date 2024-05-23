@@ -1,18 +1,35 @@
 #!/usr/bin/env bash
 
-# set some langs http://unix.stackexchange.com/questions/149111/what-should-i-set-my-locale-to-and-what-are-the-implications-of-doing-so
+# locale environment variables
+#
+# Set some locale stuff http://unix.stackexchange.com/questions/149111/what-should-i-set-my-locale-to-and-what-are-the-implications-of-doing-so
+#
+# LC_COLLATE and the POSIX Locale
+# LC_COLLATE can have nasty side effects
+# The POSIX locale can be specified by assigning to the appropriate environment variables the values "C" or "POSIX".
+#
 export -- LANG='en_US.UTF-8'
 export -- LANGUAGE='en_US.UTF-8'
 export -- LC_MESSAGES='en_US.UTF-8'
 export -- LC_ALL='en_US.UTF-8'
 export -- LC_CTYPE='en_US.UTF-8'
-export -- LC_COLLATE='C'
+export -- LC_COLLATE=C
 export -- LC_PAPER='en_US'
 export -- LC_TIME='en_US'
 export -- TIME_STYLE='long-iso' # from exa, Option --time-style has no "posix-long-iso" setting (choices: default, long-iso, full-iso, iso)
 
-export -- XDG_CACHE_HOME="${HOME}/.cache"
+# The XDG Spec
+#
+# see https://specifications.freedesktop.org/basedir-spec/basedir-spec-latest.html
+#
+# The XDG Base Directory Specification is based on the following concepts:
+# 1. There is a single base directory relative to which user-specific data files should be written.
+# This directory is defined by the environment variable $XDG_DATA_HOME.
+# 2. ...
 export -- XDG_CONFIG_HOME="${HOME}/.config"
 export -- XDG_DATA_HOME="${HOME}/.local/share"
+#
+export -- XDG_CACHE_HOME="${HOME}/.cache"
 export -- XDG_STATE_HOME="${HOME}/.local/state"
+#
 mkdir -p "${XDG_CACHE_HOME}" "${XDG_CONFIG_HOME}" "${XDG_DATA_HOME}" "${XDG_STATE_HOME}"
