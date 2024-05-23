@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'rubygems'
 require 'bundler/setup'
 require 'rails/all'
@@ -13,7 +15,7 @@ if ::ActiveRecord
   require 'logger'
 
   def enable_logger!
-    ::ActiveRecord::Base.logger = Logger.new(STDOUT)
+    ::ActiveRecord::Base.logger = Logger.new($stdout)
 
     if Rails.respond_to?(:gem_version) && Rails.gem_version >= Gem::Version.new('6.0.0')
       ::ActiveRecord::Base.connection_handler.clear_active_connections!
@@ -44,7 +46,7 @@ if ::ActiveRecord
 
       begin
         puts t.singularize.classify.constantize.pretty_print_inspect
-      rescue StandardError => _exception
+      rescue StandardError => _e
         puts "skipping #{t}"
       end
     end
@@ -56,10 +58,8 @@ if ::ActiveRecord
   # show_tables
 end
 
-=begin
-env RUBYOPT="-I$HOME/code/personal/andxyz-dotfiles/ -renable_db_debug_logger.rb" bundle exec rails console
-
-cd $HOME/thescore/sports/thescore-pulse/pulse &&
-(bundle check || bundle install) &&
-env RUBYOPT="-I$HOME/code/andxyz-dotfiles/ -renable_db_debug_logger.rb" bundle exec ./bin/console
-=end
+# env RUBYOPT="-I$HOME/code/personal/andxyz-dotfiles/ -renable_db_debug_logger.rb" bundle exec rails console
+#
+# cd $HOME/thescore/sports/thescore-pulse/pulse &&
+# (bundle check || bundle install) &&
+# env RUBYOPT="-I$HOME/code/andxyz-dotfiles/ -renable_db_debug_logger.rb" bundle exec ./bin/console

@@ -1,17 +1,19 @@
 #!/usr/bin/ruby
-#require 'rubygems'
+# frozen_string_literal: true
+
+# require 'rubygems'
 # require 'irb/completion'
 # require 'irb/ext/save-history'
 # require 'interactive_editor'
-ARGV.concat ["--readline", "--prompt-mode", "simple"]
+ARGV.push('--readline', '--prompt-mode', 'simple')
 
 IRB.conf[:USE_READLINE] = true
 IRB.conf[:SAVE_HISTORY] = 9999
-IRB.conf[:HISTORY_FILE] = "#{ENV['HOME']}/.irb_history"
+IRB.conf[:HISTORY_FILE] = "#{ENV["HOME"]}/.irb_history"
 IRB.conf[:PROMPT_MODE] = :SIMPLE
 IRB.conf[:AUTO_INDENT] = true
 
-puts "Loaded irbrc"
+puts 'Loaded irbrc'
 
 ##
 # With bootsnap being prevalent everywhere

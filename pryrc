@@ -34,15 +34,15 @@ def pp_json(object)
   else
     puts JSON.pretty_generate(JSON.parse(object.to_json))
   end
-rescue StandardError => exception
-  puts exception.to_s
+rescue StandardError => e
+  puts e
 end
 
 begin
   extra_gem_locations = []
   require 'bundler'
   Bundler.with_unbundled_env do
-    extra_gem_locations << %x{ dirname `gem which 'niceql'` }
+    extra_gem_locations << %x{dirname `gem which 'niceql'`}
   end
   # puts extra_gem_locations
   extra_gem_locations.to_s.split("\n").each do |gem_location|
@@ -75,7 +75,7 @@ if Kernel.const_defined?(:Rails) && ::Rails.env
     require File.join(Rails.root, 'config', 'environment')
     require 'rails/console/app'
     require 'rails/console/helpers'
-    extend Rails::ConsoleMethods
+    extend(Rails::ConsoleMethods)
     puts 'Rails Console Helpers loaded'
   rescue LoadError => e
     # older rails < 4
@@ -95,7 +95,7 @@ if Kernel.const_defined?(:Rails) && ::Rails.env
 
   if defined?(::ActiveRecord)
     def pry_enable_logger
-      ::ActiveRecord::Base.logger = Logger.new(STDOUT)
+      ::ActiveRecord::Base.logger = Logger.new($stdout)
       ::ActiveRecord::Base.clear_active_connections!
       nil
     end
@@ -109,14 +109,14 @@ if Kernel.const_defined?(:Rails) && ::Rails.env
     # prints nice information about a model
     def pry_show_model(object)
       if object.class == Class
-        y object.column_names.sort
+        y(object.column_names.sort)
       else
-        y object.class.column_names.sort
+        y(object.class.column_names.sort)
       end
     end
 
     def pry_show_tables
-      y ::ActiveRecord::Base.connection.tables
+      y(::ActiveRecord::Base.connection.tables)
     end
 
     # I use this one to dig into Rails core_ext
@@ -136,10 +136,10 @@ if Kernel.const_defined?(:Rails) && ::Rails.env
     def pry_enable_autocomplete
       ApplicationRecord.descendants.each do |klass|
         klass.name.constantize.column_names
-      rescue ActiveRecord::StatementInvalid => e
+      rescue ActiveRecord::StatementInvalid
         # do nothing, rails is having trouble loading
       rescue StandardError => e
-        puts "oh, okay then"
+        puts 'oh, okay then'
         puts e.class if e.class
         puts e.message if e.message
         puts e.cause if e.cause
@@ -213,16 +213,23 @@ if ENV['RAILS_USE_HIRB_GEM'] == 'true' && defined?(::Rails) && Rails.env
             output:
               ActiveRecord::Base.descendants.reject do |klass_name|
                 klass_name.to_s == 'ActiveRecord::SchemaMigration'
-              end.
-              each_with_object({}) do |klass_name, tmp_hash|
-                tmp_hash[klass_name.to_s] = \
-                  {
-                    options: {
-                      fields: klass_name.column_names.take(ENV.fetch('RAILS_PRINT_X_COLUMNS', 6).to_i) | %w[created_at updated_at]
-                    }
-                  } rescue next
               end
-          }
+              .each_with_object({}) do |klass_name, tmp_hash|
+                tmp_hash[klass_name.to_s] =
+                  begin
+                    {
+                      options: {
+                        fields: klass_name.column_names.take(ENV.fetch(
+                          'RAILS_PRINT_X_COLUMNS',
+                          6,
+                        ).to_i) | ['created_at', 'updated_at'],
+                      },
+                    }
+                  rescue
+                    next
+                  end
+              end,
+          },
         )
 
         nil
