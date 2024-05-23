@@ -1,0 +1,48 @@
+inherit_gem:
+  rubocop-shopify: rubocop.yml
+
+require:
+  - rubocop-performance
+
+AllCops:
+  TargetRubyVersion: 3.3
+  NewCops: disable
+  UseCache: true
+  SuggestExtensions: false
+  CacheRootDirectory: tmp
+  Exclude:
+    - 'tmp/**/*'
+
+# These are non-standard Rubocop settings that we choose to override.
+
+Style/StringLiterals:
+  EnforcedStyle: single_quotes
+
+# Require a space in lambda notation `-> (...)` instead of `->(...)`
+# The space notation is much more common
+Layout/SpaceInLambdaLiteral:
+  EnforcedStyle: require_space
+
+# Permit empty case statements
+Style/EmptyCaseCondition:
+  Enabled: false
+
+# Do not enforce alphabetized Gemfile. We need gems with hooks loaded in a particular order (e.g. Instana, Sentry, Bugsnag etc etc)
+Bundler/OrderedGems:
+  Enabled: false
+
+# Permit double negation (!!)
+Style/DoubleNegation:
+  Enabled: false
+
+# Name the exception var
+Naming/RescuedExceptionsVariableName:
+  Enabled: true
+
+# Prefer alias_method over alias, see https://github.com/rubocop/ruby-style-guide/issues/821 and https://www.bigbinary.com/blog/alias-vs-alias-method
+Style/Alias:
+  Enabled: true
+  EnforcedStyle: prefer_alias_method
+
+Style/RedundantConstantBase:
+  Enabled: false
