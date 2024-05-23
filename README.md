@@ -18,7 +18,7 @@ bash -x brew_install_stuff.sh
 
 ### install my dotfiles (via symlinking)
 ### (this should work cleanly now that the homebrew stuff is installed)
-rake install --trace
+ruby -I./ -rdot_installer.rb --verbose
 
 ### change my shell to zsh
 ### (we need to become root for a second, to add an extra shell)

@@ -1,6 +1,6 @@
 require 'erb'
 
-DotInstaller
+class DotInstaller
   class << self
     def install!
       replace_all = false
@@ -17,6 +17,7 @@ DotInstaller
       ignore_these_dirs = %w[
         bin
         languages
+        tmp
       ]
       exclude_list = shell_scripts +
                      ruby_scripts +
@@ -76,4 +77,3 @@ DotInstaller
   end
 end
 
-DotInstaller.install!
