@@ -36,6 +36,8 @@ fi
 ##
 zinit cdclear -q #
 #
+## spaceship-prompt prompt
+export -- SPACESHIP_CHAR_SYMBOL="➜  "
 zinit ice depth"1" # git clone depth
 # remember to install Dejavu sans nerd font mono into your shell
 # see https://www.nerdfonts.com/font-downloads
