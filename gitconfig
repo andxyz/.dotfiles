@@ -195,6 +195,7 @@ version = 2
     delete-remote-branch = push origin --delete
     delete-local-branch = branch -D
     submodule-update-oneliner = submodule update --init --recursive
+    submodule-bump-shas-oneliner = submodule update --recursive --remote --force
 
     # git formatting tips
     # http://stackoverflow.com/questions/16286517/how-to-toggle-the-date-format-of-git-log-how-to-display-both-relative-and-abs
