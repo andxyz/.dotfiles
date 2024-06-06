@@ -330,43 +330,26 @@ version = 2
 	trustExitCode = true
 
 [diff]
-    tool = kaleidoscope_diff
-    keepBackup = false
-    keepTemporaries = false
+    tool = meld
+    trustExitCode = false
     algorithm = patience
     compactionHeuristic = true
 
 [merge]
-    tool = kaleidoscope_diff
-    keepBackup = false
-    keepTemporaries = false
+    tool = meld
     trustExitCode = false
     strategy = recursive
     algorithm = patience
     compactionHeuristic = true
 
 [mergetool]
-    tool = kaleidoscope_diff
-    keepBackup = false
-    keepTemporaries = false
+    tool = meld
     trustExitCode = false
-    prompt = false
     strategy = recursive
     algorithm = patience
     compactionHeuristic = true
 
-[merge "ours"]
-    driver = true
-
 # yoinked from https://github.com/exterm/dotfiles/blob/dd2dad77ef8d63273eb2b599ddca5b140ec4e509/.gitconfig#L28
-[mergetool "labeled-meld"]
-    cmd = `which meld` --output=$MERGED \
-          $LOCAL  --label 'current branch' \
-          $BASE   --label 'common base (and result file)' \
-          $REMOTE --label 'to be merged' \
-          2>/dev/null
-    trustExitCode = false
-
 #
 # ctags are kind of a pain when they run wild
 #
