@@ -384,8 +384,6 @@ version = 2
 
 # how to setup the helper https://help.github.com/articles/caching-your-github-password-in-git/
 # see $HOME/bin/git-credential-helper-setup.sh
-[credential]
-    helper = osxkeychain
 
 [init]
     # templatedir = ~/.git-template
