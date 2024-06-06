@@ -337,7 +337,7 @@ version = 2
     compactionHeuristic = true
 
 [merge]
-    tool = kaleidoscope_merge
+    tool = kaleidoscope_diff
     keepBackup = false
     keepTemporaries = false
     trustExitCode = false
@@ -346,7 +346,7 @@ version = 2
     compactionHeuristic = true
 
 [mergetool]
-    tool = kaleidoscope_merge
+    tool = kaleidoscope_diff
     keepBackup = false
     keepTemporaries = false
     trustExitCode = false
