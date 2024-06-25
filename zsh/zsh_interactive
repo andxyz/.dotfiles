@@ -1,5 +1,7 @@
 #!/usr/bin/env zsh
 
+# set -x
+
 setopt INTERACTIVECOMMENTS # allow bash style comments
 
 # Disabling System-Wide compinit Call (Ubuntu)
@@ -10,8 +12,13 @@ skip_global_compinit=1
 disable -r time       # disable shell reserved word
 alias time='time -p ' # -p for POSIX output
 
-## zsh function nonsense
-export -- FPATH="~/.zsh/functions:${FPATH}"
+## hooray for colors https://carapace-sh.github.io/carapace-bin/style.html#file
+export -- LS_COLORS=$(vivid generate dracula)
+
+## Load up zsh functions
+export -- FPATH="${HOME}/.zsh/functions:${FPATH}"
+autoload -U ~/.zsh/functions/*(:t)
+autoload -Uz compinit
 
 ## zINIT dance see https://github.com/zdharma-continuum/zinit
 
@@ -94,6 +101,7 @@ fi
 
 # fzf
 if type fzf &> /dev/null && type rg &> /dev/null; then
+  source <(fzf --zsh)
   export -- FZF_DEFAULT_COMMAND='rg --files --hidden --follow --glob "!.git/*" --glob "!vendor/*"'
   export -- FZF_CTRL_T_COMMAND='rg --files --hidden --follow --glob "!.git/*" --glob "!vendor/*"'
   # Preview file content using bat (https://github.com/sharkdp/bat)
@@ -114,12 +122,6 @@ if type /usr/local/bin/brew &>/dev/null; then
   export -- FPATH="$(brew --prefix)/share/zsh-completions:$FPATH"
 fi
 
-## personal zsh functions
-export -- FPATH="${HOME}/.zsh/functions:${FPATH}"
-autoload -U ~/.zsh/functions/*(:t)
-autoload -Uz compinit
-compinit
-
 ## spaceship-prompt prompt
 export -- SPACESHIP_BATTERY_SHOW=false
 export -- SPACESHIP_TIME_SHOW=true
@@ -132,19 +134,23 @@ SPACESHIP_PROMPT_ORDER=("${(@)SPACESHIP_PROMPT_ORDER:|SPACESHIP_RPROMPT_ORDER}")
 typeset -p SPACESHIP_PROMPT_ORDER 2>&1 > /dev/null
 export -- SPACESHIP_PROMPT_ORDER
 
+# run compinit before carapace
+compinit
+
 # carapace-bin dance https://github.com/carapace-sh/carapace-bin?tab=readme-ov-file#getting-started
 # see https://carapace-sh.github.io/carapace-bin/setup.html#zsh
 export CARAPACE_BRIDGES='zsh,fish,bash,inshellisense' # optional
+zstyle ':completion:*' format $'\e[2;37mCompleting %d\e[m'
 source <(carapace _carapace)
+zstyle ':completion:*:git:*' group-order 'main commands' 'alias commands' 'external commands'
 
 # compaudit
 #
-# sudo chmod -R g-w /usr/local/share/zsh/site-functions
-# sudo chmod -R g-w /usr/local/share/zsh
-# sudo chmod -R g-w /usr/local/share/
+## lazy osx fix for compinit issues with the zsh site-functions permissions
+# sudo chown -R ${USER}:staff /usr/local/share/zsh
 #
-#
-#
+
+# zsh completion styles
 zstyle ':completion:*' menu select # Style of completion
 zstyle ':completion:*' matcher-list 'm:{a-z}={A-Z}' # matches case insensitive for lowercase
 zstyle ':completion:*' insert-tab pending # pasting with tabs doesn't perform completion

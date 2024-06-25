@@ -3,9 +3,11 @@
 
 ### ls
 ### Colorize the ls output
-alias ls="ls -F -h --group-directories-first --color=auto"
-alias ll="ls -l -h --group-directories-first --color=auto"
-alias la="ls -A -h --group-directories-first --color=auto"
+if [[ "$(uname)" == "darwin"* ]]; then
+  alias ls="gls -F -h --group-directories-first --color=auto"
+  alias ll="gls -l -h --group-directories-first --color=auto"
+  alias la="gls -A -h --group-directories-first --color=auto"
+fi;
 
 ### send to the trashbin not into the ether
 # alias rm='rmtrash'
