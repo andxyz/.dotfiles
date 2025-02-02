@@ -67,6 +67,10 @@ cd -
 ## make sure rbenv is uptodate
 rbenv update
 
+## make sure rustc is uptodate for yjit
+source_rustup_env
+rustup update
+
 # required for building Ruby <= 1.9.3-p0:
 # brew tap 'homebrew/dupes' && brew install 'apple-gcc42'
 
