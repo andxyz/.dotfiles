@@ -70,6 +70,11 @@ rbenv update
 ## make sure rustc is uptodate for yjit
 source_rustup_env
 rustup update
+# see https://bugs.ruby-lang.org/issues/18912#note-6
+# The first try is failed. Because my environment mixed the homebrew binutils built by macOS 12.0(monterey).
+brew uninstall binutils
+brew install jemalloc
+brew install 'openssl@3'
 
 # required for building Ruby <= 1.9.3-p0:
 # brew tap 'homebrew/dupes' && brew install 'apple-gcc42'
@@ -191,12 +196,16 @@ fi
 # env -- MAKE_OPTS='-j8' CFLAGS='-g3 -gdwarf-2 -O2' RUBY_CONFIGURE_OPTS="--with-openssl-dir=$(brew --prefix 'openssl@3')   --with-readline-dir=$(brew --prefix readline) --disable-install-doc --disable-install-rdoc --disable-install-capi --enable-dtrace" rbenv install --skip-existing --verbose 3.1.3
 # env -- MAKE_OPTS='-j8' CFLAGS='-g3 -gdwarf-2 -O2' RUBY_CONFIGURE_OPTS="--enable-yjit --with-openssl-dir=$(brew --prefix 'openssl@3') --with-readline-dir=$(brew --prefix readline) --disable-install-doc --disable-install-rdoc --disable-install-capi --enable-dtrace" rbenv install --skip-existing --verbose 3.2.2
 #
-# see https://bugs.ruby-lang.org/issues/18912#note-6
-# The first try is failed. Because my environment mixed the homebrew binutils built by macOS 12.0(monterey).
-brew uninstall binutils
-source_rustup_env
 # env -- MAKE_OPTS='-j4' CFLAGS='-g3 -gdwarf-2 -O2' RUBY_CONFIGURE_OPTS="--enable-yjit --with-jemalloc-dir=$(brew --prefix 'jemalloc') --with-openssl-dir=$(brew --prefix 'openssl@3') --with-readline-dir=$(brew --prefix readline) --with-libyaml-dir=$(brew --prefix 'libyaml') --disable-install-doc --disable-install-rdoc --disable-install-capi --enable-dtrace" rbenv install --skip-existing --verbose 3.2.2-pshopify19
 # env -- MAKE_OPTS='-j4' CFLAGS='-g3 -gdwarf-2 -O2' RUBY_CONFIGURE_OPTS="--enable-yjit --enable-shared --with-jemalloc-dir=$(brew --prefix 'jemalloc') --with-openssl-dir=$(brew --prefix 'openssl@3') --with-readline-dir=$(brew --prefix readline) --with-libyaml-dir=$(brew --prefix 'libyaml') --disable-install-doc --disable-install-rdoc --disable-install-capi --enable-dtrace" rbenv install --verbose --keep 3.3.1 | tee ~/.rbenv/sources/ruby-3.3.1-build.log
+#
+#
+# https://github.com/Shopify/ruby-definitions
+cd ~/code/personal/shopify-ruby && bundle install
+eval `rbenv exec bundle exec shopify-ruby env`
+rbenv install --list-all | grep -i shopify
+env -- MAKE_OPTS='-j4' CFLAGS='-g3 -gdwarf-2 -O2' RUBY_CONFIGURE_OPTS="--enable-yjit --with-jemalloc-dir=$(brew --prefix 'jemalloc') --with-openssl-dir=$(brew --prefix 'openssl@3') --with-readline-dir=$(brew --prefix readline) --with-libyaml-dir=$(brew --prefix 'libyaml') --disable-install-doc --disable-install-rdoc --disable-install-capi --enable-dtrace" rbenv install --skip-existing --verbose v3.4.1-pshopify1
+
 #
 # openssl fun
 # https://github.com/postmodern/ruby-install/issues/412
