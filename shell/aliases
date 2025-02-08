@@ -3,9 +3,11 @@
 
 ### ls
 ### Colorize the ls output
-alias ls="ls -F -h --group-directories-first --color=auto"
-alias ll="ls -l -h --group-directories-first --color=auto"
-alias la="ls -A -h --group-directories-first --color=auto"
+if [[ "$(uname)" == "darwin"* ]]; then
+  alias ls="gls -F -h --group-directories-first --color=auto"
+  alias ll="gls -l -h --group-directories-first --color=auto"
+  alias la="gls -A -h --group-directories-first --color=auto"
+fi;
 
 ### send to the trashbin not into the ether
 # alias rm='rmtrash'
@@ -62,15 +64,13 @@ fi
 ### node
 # alias ni='npm install --silent >> /dev/null 2>&1'
 alias yi='yarn check || yarn install'
-### node zsh nocorrect headaches
-# if which noglob >/dev/null; then
-#   alias bower='yarn run bower'
-#   alias ember='nocorrect ember'
-#   alias grunt='yarn run grunt'
-#   alias gulp='yarn run gulp'
-#   alias npm='nocorrect npm'
-#   alias node='nocorrect node'
-# fi
+### zsh nocorrect headaches
+if which noglob >/dev/null; then
+  alias ember='nocorrect ember'
+  alias npm='nocorrect npm'
+  alias node='nocorrect node'
+  alias nvim='nocorrect nvim'
+fi
 
 ### tools
 alias mmitmproxy='mitmproxy --set console_palette=solarized_light'
