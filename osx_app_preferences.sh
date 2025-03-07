@@ -3,8 +3,12 @@
 set -x
 set -e
 
+# UTI setHandler
+# https://daringfireball.net/linked/2011/08/05/markdown-uti
+# See https://developer.apple.com/library/archive/documentation/Miscellaneous/Reference/UTIRef/Articles/System-DeclaredUniformTypeIdentifiers.html
+
 # LSTOOL_HOME='/Users/andrew/Library/PreferencePanes/RCDefaultApp.prefPane/Contents/Resources/'
-EDITOR_PATH='/Applications/Sublime Text.app' #Sublimetext3
+EDITOR_PATH='/Applications/Sublime Text.app' #Sublimetext3 #Sublimetext4
 # LSREG_HOME="/Users/andrew/Library/Developer/Xcode/DerivedData/SwiftDefaultApps-akayzniwfxeojlczrbiwbzphucas/Build/Products/Release"
 LSREG_HOME=${HOME}/bin
 LSREG_TOOL="${LSREG_HOME}/swda"

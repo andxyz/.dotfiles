@@ -22,6 +22,7 @@ if [[ $(uname -s) == Darwin ]]
 then
   export -- EDITOR="subl -w -n -- ${*}"
   export -- EDITOR_USING_CURRENT_PROJECT="subl -- ${*}"
+  export -- OPEN_IN_EDITOR="/Applications/Sublime Text.app/Contents/SharedSupport/bin/subl"
   export -- PAGER="less -R"
   export -- VISUAL="${EDITOR}"
 else # linux
