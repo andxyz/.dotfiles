@@ -148,6 +148,7 @@ version = 2
 
     # git log commands used on a github flow feature branch PR
     logpr       = "!fgitlogpr0() { git log --topo-order --graph --decorate --boundary ${1:-origin/$(git main-branch)}... --pretty=format:'%Cred %h %Creset%Cgreen[%ai]%C(bold blue)[%aN]%Creset %s%C(yellow)%d%Creset' $@; }; fgitlogpr0"
+    logp        = logpr
     logprfull   = "!fgitlogpr1() { git log --topo-order --decorate --boundary ${1:-origin/$(git main-branch)}... $@; }; fgitlogpr1"
     logprpatch  = "!fgitlogpr2() { git log --topo-order --decorate=full --no-merges --boundary ${1:-origin/$(git main-branch)}... --patch $@; }; fgitlogpr2"
     logprstat   = "!fgitlogpr3() { git log --topo-order --boundary ${1:-origin/$(git main-branch)}... --stat --oneline $@; }; fgitlogpr3"
