@@ -21,7 +21,10 @@
 [delta]
     dark = true
     syntax-theme = Monokai Extended
+    hyperlinks = true # see git delta hyperlinks-commit-link-format
     features = dark line-numbers keep-plus-minus-markers decorations
+    hyperlinks-file-link-format = "subl://open?url=file://{path}&line={line}&column=0"
+    # note I installed the subl handler for osx at https://github.com/inopinatus/sublime_url/releases/tag/v1.0
     whitespace-error-style = magenta reverse
     side-by-side = false
 
