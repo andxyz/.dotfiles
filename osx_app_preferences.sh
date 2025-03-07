@@ -3,6 +3,15 @@
 set -x
 set -e
 
+# ## Used some crazy apps and danced the dance
+#
+# This got me started down the rabbit hole of making urls work in git-delta in iterm2
+# https://github.com/dandavison/delta?tab=readme-ov-file#get-started
+#
+# worked for me: https://github.com/inopinatus/sublime_url/releases/tag/v1.0
+# good notes here: https://dandavison.github.io/delta/hyperlinks.html
+# btw, this didnt work for me: https://github.com/dandavison/open-in-editor?tab=readme-ov-file#macos
+
 # UTI setHandler
 # https://daringfireball.net/linked/2011/08/05/markdown-uti
 # See https://developer.apple.com/library/archive/documentation/Miscellaneous/Reference/UTIRef/Articles/System-DeclaredUniformTypeIdentifiers.html
