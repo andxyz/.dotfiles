@@ -145,6 +145,24 @@ function source_golang122_env {
   export -- PATH=${PATH}:${GOPATH}/bin
 }
 
+function source_golang123_env {
+  export -- GOPATH=${HOME}/code/gowork
+  export -- PATH=${PATH}:/usr/local/opt/go@1.23/bin
+  export -- PATH=${PATH}:${GOPATH}/bin
+}
+
+function source_golang124_env {
+  export -- GOPATH=${HOME}/code/gowork
+  export -- PATH=${PATH}:/usr/local/opt/go@1.24/bin
+  export -- PATH=${PATH}:${GOPATH}/bin
+}
+
+function source_golang_latest_env {
+  export -- GOPATH=${HOME}/code/gowork
+  export -- PATH=${PATH}:/usr/local/opt/go@1.24/bin
+  export -- PATH=${PATH}:${GOPATH}/bin
+}
+
 # slowing me down
 function source_haskell_env {
   ## haskell uses ghcup with cabal
@@ -351,7 +369,7 @@ function source_swift_env() {
 #source_mysql57_build_env
 #source_postgres114_build_env
 #
-#source_golang122_env
+#source_golang_latest_env
 #source_haskell_env
 #source_node_env
 #source_ocaml_env
@@ -364,7 +382,7 @@ function source_swift_env() {
 
 
 ## Personal
-# source_golang122_env
+# source_golang_latest_env
 # source_haskell_env
 # source_node_env
 # source_ruby_env
