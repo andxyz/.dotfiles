@@ -98,7 +98,7 @@ version = 2
     p  = pull
     f  = fetch --all
     fs = "!fgitfs(){ git fetch origin staging:staging $@; }; fgitfs"
-    fm = "!fgitfm(){ git fetch origin $(git main-branch):$(git main-branch) $@; }; fgitfm"
+    fm = "!fgitfm(){ git fetch origin "$(git main-branch)":"$(git main-branch)" $@; }; fgitfm"
     fp = "!fgitfp(){ git fetch origin production:production $@; }; fgitfp"
     # pushf_new failed me, reverting for now
     # pushf_new = "!git push --force-with-lease origin \"$(git rev-parse --abbrev-ref HEAD)\""
@@ -147,11 +147,11 @@ version = 2
     logpgraphoneliner = log --topo-order --graph --color --all --pretty='format: %Cgreen%h%Creset %s%Cred%d%Creset%n'
 
     # git log commands used on a github flow feature branch PR
-    logpr       = "!fgitlogpr0() { git log --topo-order --graph --decorate --boundary ${1:-origin/$(git main-branch)}... --pretty=format:'%Cred %h %Creset%Cgreen[%ai]%C(bold blue)[%aN]%Creset %s%C(yellow)%d%Creset' $@; }; fgitlogpr0"
+    logpr       = "!fgitlogpr0() { git log --topo-order --graph --decorate --boundary ${1:-origin/"$(git main-branch)"}... --pretty=format:'%Cred %h %Creset%Cgreen[%ai]%C(bold blue)[%aN]%Creset %s%C(yellow)%d%Creset' $@; }; fgitlogpr0"
     logp        = logpr
-    logprfull   = "!fgitlogpr1() { git log --topo-order --decorate --boundary ${1:-origin/$(git main-branch)}... $@; }; fgitlogpr1"
-    logprpatch  = "!fgitlogpr2() { git log --topo-order --decorate=full --no-merges --boundary ${1:-origin/$(git main-branch)}... --patch $@; }; fgitlogpr2"
-    logprstat   = "!fgitlogpr3() { git log --topo-order --boundary ${1:-origin/$(git main-branch)}... --stat --oneline $@; }; fgitlogpr3"
+    logprfull   = "!fgitlogpr1() { git log --topo-order --decorate --boundary ${1:-origin/"$(git main-branch)"}... $@; }; fgitlogpr1"
+    logprpatch  = "!fgitlogpr2() { git log --topo-order --decorate=full --no-merges --boundary ${1:-origin/"$(git main-branch)"}... --patch $@; }; fgitlogpr2"
+    logprstat   = "!fgitlogpr3() { git log --topo-order --boundary ${1:-origin/"$(git main-branch)"}... --stat --oneline $@; }; fgitlogpr3"
 
     # git "pad the stats"
     logpstats = "!git shortlog -sne"
