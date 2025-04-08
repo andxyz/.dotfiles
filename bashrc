@@ -16,6 +16,7 @@ export -- PATH=/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/opt/X11/bin
 [[ -f ~/.shell/functions ]]         && source ~/.shell/functions
 [[ -f ~/.shell/functions_private ]] && source ~/.shell/functions_private
 [[ -f ~/.shell/ruby_rails_tricks.sh ]] && source ~/.shell/ruby_rails_tricks.sh
+[ -n "${GHOSTTY_RESOURCES_DIR}" ] && [[ -f "${GHOSTTY_RESOURCES_DIR}/shell-integration/bash/ghostty.bash" ]] && builtin source "${GHOSTTY_RESOURCES_DIR}/shell-integration/bash/ghostty.bash"
 
 ## for bash interactive specific
 [ -n "$PS1" ] && [[ -f ~/.bash/bash_aliases ]]           && source ~/.bash/bash_aliases
