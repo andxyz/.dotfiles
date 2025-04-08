@@ -147,6 +147,7 @@ zstyle ':completion:*:git:*' group-order 'main commands' 'alias commands' 'exter
 # compaudit
 #
 ## lazy osx fix for compinit issues with the zsh site-functions permissions
+# sudo ls -la /usr/local/share/zsh
 # sudo chown -R ${USER}:staff /usr/local/share/zsh
 #
 
