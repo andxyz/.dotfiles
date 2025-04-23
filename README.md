@@ -71,3 +71,17 @@ git checkout --force master
 - https://github.com/mbadolato/iTerm2-Color-Schemes#installation-instructions for importing color schemes
 - https://github.com/sonph/onehalf
 - `/Users/andxyz/code/andxyz-dotfiles/inputrc`
+
+### Ghostty
+
+```shell
+ghostty +list-themes
+ghostty +list-fonts
+
+
+# /Users/andxyz/Library/Application Support/com.mitchellh.ghostty/config
+font-family = DejaVuSansM Nerd Font Mono
+font-size = 16.5
+window-padding-x = 2
+theme = OneHalfDark
+```
