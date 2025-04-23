@@ -57,12 +57,6 @@ export -- PATH=/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/opt/X11/bin
 ## for zsh interactive specific
 [ -n "$PS1" ] && [[ -f ~/.zsh/zsh_interactive ]] && source ~/.zsh/zsh_interactive
 
-# The next line updates PATH for the Google Cloud SDK.
-if [ -f '/Users/andxyz/Downloads/google-cloud-sdk/path.zsh.inc' ]; then . '/Users/andxyz/Downloads/google-cloud-sdk/path.zsh.inc'; fi
-
-# The next line enables shell command completion for gcloud.
-if [ -f '/Users/andxyz/Downloads/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/andxyz/Downloads/google-cloud-sdk/completion.zsh.inc'; fi
-
 # the following is a mac osx path fix for gifting my path env var to future apps when opening via finder or alfred or commandline
 # launchctl setenv PATH ${PATH}
 
@@ -105,3 +99,9 @@ fi
 # then the system-wide one,
 # constituting a chiasmus with the zlogin files.
 #
+
+# The next line updates PATH for the Google Cloud SDK.
+if [ -f "${HOME}/gcloud_sdk/path.zsh.inc" ]; then . "${HOME}/gcloud_sdk/path.zsh.inc"; fi
+
+# The next line enables shell command completion for gcloud.
+if [ -f "${HOME}/gcloud_sdk/completion.zsh.inc" ]; then . "${HOME}/gcloud_sdk/completion.zsh.inc"; fi
