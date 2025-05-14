@@ -46,6 +46,10 @@ zinit cdclear -q #
 ## spaceship-prompt prompt
 export -- SPACESHIP_CHAR_SYMBOL="➜  "
 zinit ice depth"1" # git clone depth
+
+## fzf for zsh tab completion https://github.com/Aloxaf/fzf-tab
+# zinit light 'Aloxaf/fzf-tab' #turn off for now
+
 # remember to install Dejavu sans nerd font mono into your shell
 # see https://www.nerdfonts.com/font-downloads
 zinit light "spaceship-prompt/spaceship-prompt"
@@ -113,10 +117,10 @@ fi
 #
 # ls /usr/local/share/zsh-completions
 # chmod -R go-w '/usr/local/share/zsh'
-# rm -f ~/.zcompdump; compinit
-
 if type /usr/local/bin/brew &>/dev/null; then
   export -- FPATH="$(brew --prefix)/share/zsh-completions:$FPATH"
+
+  autoload -Uz compinit
 fi
 
 ## spaceship-prompt prompt
@@ -124,6 +128,7 @@ export -- SPACESHIP_BATTERY_SHOW=false
 export -- SPACESHIP_TIME_SHOW=true
 export -- SPACESHIP_TIME_FORMAT="%D{%I:%M %p}"
 export -- SPACESHIP_TIME_COLOR=cyan
+export -- SPACESHIP_GCLOUD_SHOW=false
 export -- SPACESHIP_RPROMPT_ORDER=(
   time
 )
@@ -131,8 +136,8 @@ SPACESHIP_PROMPT_ORDER=("${(@)SPACESHIP_PROMPT_ORDER:|SPACESHIP_RPROMPT_ORDER}")
 typeset -p SPACESHIP_PROMPT_ORDER 2>&1 > /dev/null
 export -- SPACESHIP_PROMPT_ORDER
 
-# run compinit before carapace
-compinit
+# cleanup and run compinit before carapace
+rm -f ~/.zcompdump; compinit
 
 # carapace-bin dance https://github.com/carapace-sh/carapace-bin?tab=readme-ov-file#getting-started
 # see https://carapace-sh.github.io/carapace-bin/setup.html#zsh
@@ -149,9 +154,31 @@ zstyle ':completion:*:git:*' group-order 'main commands' 'alias commands' 'exter
 #
 
 # zsh completion styles
+## OLD native zsh styles
 zstyle ':completion:*' menu select # Style of completion
 zstyle ':completion:*' matcher-list 'm:{a-z}={A-Z}' # matches case insensitive for lowercase
 zstyle ':completion:*' insert-tab pending # pasting with tabs doesn't perform completion
+
+###   ## NEW zsh-tab styles
+###   # disable sort when completing `git checkout`
+###   zstyle ':completion:*:git-checkout:*' sort false
+###   # set descriptions format to enable group support
+###   # NOTE: don't use escape sequences (like '%F{red}%d%f') here, fzf-tab will ignore them
+###   zstyle ':completion:*:descriptions' format '[%d]'
+###   # set list-colors to enable filename colorizing
+###   zstyle ':completion:*' list-colors ${(s.:.)LS_COLORS}
+###   # force zsh not to show completion menu, which allows fzf-tab to capture the unambiguous prefix
+###   zstyle ':completion:*' menu no
+###   # preview directory's content with eza when completing cd
+###   zstyle ':fzf-tab:complete:cd:*' fzf-preview 'eza -1 --color=always $realpath'
+###   # custom fzf flags
+###   # NOTE: fzf-tab does not follow FZF_DEFAULT_OPTS by default
+###   zstyle ':fzf-tab:*' fzf-flags --color=fg:1,fg+:2 --bind=tab:accept
+###   # To make fzf-tab follow FZF_DEFAULT_OPTS.
+###   # NOTE: This may lead to unexpected behavior since some flags break this plugin. See Aloxaf/fzf-tab#455.
+###   zstyle ':fzf-tab:*' use-fzf-default-opts yes
+###   # switch group using `<` and `>`
+###   zstyle ':fzf-tab:*' switch-group '<' '>'
 
 
 ## fancy git prompt on my local machine using a zsh function
@@ -237,7 +264,8 @@ alias rezsh='unset FPATH; exec zsh -il' # see
 # fi
 
 # for interactive to have access to languages
-# source_golang110_path
+# source_golang_env
 # source_node_env # This takes 5+ seconds for each new shell instance 👀
+# source_rust_env
 source_ruby_env
 source_haskell_env
