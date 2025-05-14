@@ -53,10 +53,10 @@ zinit light "spaceship-prompt/spaceship-prompt"
 zinit ice depth"1"
 zinit light "spaceship-prompt/spaceship-vi-mode"
 # z
-zinit ice lucid wait"1"
+zinit ice wait"1" lucid
 zinit light "rupa/z"
 # fz
-zinit ice lucid wait"1"
+zinit ice wait"1" lucid
 zinit light "changyuheng/fz"
 # fzy
 zinit ice wait"1" lucid as"program" make"!PREFIX=${ZPFX} install" \
@@ -69,9 +69,6 @@ zinit light "zdharma-continuum/fast-syntax-highlighting"
 # history-search-multi-word
 zinit ice wait"1" lucid
 zinit light "zdharma/history-search-multi-word"
-# fzf
-zinit ice wait"2" lucid from"gh-r" as"program"
-zinit light "junegunn/fzf"
 
 # On OSX, you might need to install coreutils from homebrew and use the
 # g-prefix – gsed, gdircolors
