@@ -5,15 +5,21 @@
 # require 'irb/completion'
 # require 'irb/ext/save-history'
 # require 'interactive_editor'
-ARGV.push('--readline', '--prompt-mode', 'simple')
+# ARGV.push('--readline', '--prompt-mode', 'simple')
 
-IRB.conf[:USE_READLINE] = true
+# open 'https://railsatscale.com/2023-12-19-irb-for-ruby-3-3/'
+# IRB.conf[:USE_READLINE] = true
 IRB.conf[:SAVE_HISTORY] = 9999
 IRB.conf[:HISTORY_FILE] = "#{ENV["HOME"]}/.irb_history"
-IRB.conf[:PROMPT_MODE] = :SIMPLE
+# IRB.conf[:PROMPT_MODE] = :SIMPLE
 IRB.conf[:AUTO_INDENT] = true
 
+puts $LOAD_PATH
 puts 'Loaded irbrc'
+
+if defined?(Rails::VERSION::STRING)
+  puts "RAILS VERSION: #{Rails::VERSION::STRING}"
+end
 
 ##
 # With bootsnap being prevalent everywhere
