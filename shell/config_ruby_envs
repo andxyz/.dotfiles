@@ -23,17 +23,17 @@ export -- DISABLE_SPRING=true
 # ruby 2.6 -- https://github.com/ruby/ruby/blob/e68627da985d118be573cd9f7e30617cb2bd76fc/gc.c#L7685
 # ruby 3.1 -- https://github.com/ruby/ruby/blob/e54d1e99e96fd2bbf6154f7eb2928b1e2d63596e/gc.c#L10920
 # confirm version via RUBY_API_VERSION_MAJOR https://github.com/ruby/ruby/blob/e54d1e99e96fd2bbf6154f7eb2928b1e2d63596e/include/ruby/version.h#L64
-export -- RUBY_GC_HEAP_INIT_SLOTS=680000
-export -- RUBY_GC_HEAP_FREE_SLOTS=680000
+# export -- RUBY_GC_HEAP_INIT_SLOTS=680000
+# export -- RUBY_GC_HEAP_FREE_SLOTS=680000
 # - Prepare at least this amount of slots after GC.
 # - Allocate slots if there are not enough slots.
-export -- RUBY_GC_HEAP_GROWTH_FACTOR=1.25 # (new from 2.1)
+# export -- RUBY_GC_HEAP_GROWTH_FACTOR=1.25 # (new from 2.1)
 # - Allocate slots by this factor.
 # - (next slots number) = (current slots number) * (this factor)
-export -- RUBY_GC_HEAP_GROWTH_MAX_SLOTS=10000000 # 10M
-export -- RUBY_GC_MALLOC_LIMIT=64000000
-export -- RUBY_GC_MALLOC_LIMIT_GROWTH_FACTOR=1.4 # (new from 2.1)
-export -- RUBY_GC_MALLOC_LIMIT_MAX=1000000000    # 1G (new from 2.1)
+# export -- RUBY_GC_HEAP_GROWTH_MAX_SLOTS=10000000 # 10M
+# export -- RUBY_GC_MALLOC_LIMIT=64000000
+# export -- RUBY_GC_MALLOC_LIMIT_GROWTH_FACTOR=1.4 # (new from 2.1)
+# export -- RUBY_GC_MALLOC_LIMIT_MAX=1000000000    # 1G (new from 2.1)
 # export RUBY_GC_OLDMALLOC_LIMIT=500000000      # 500M
 # export RUBY_GC_OLDMALLOC_LIMIT_MAX=1000000000 # 1G
 # export RUBY_GC_OLDMALLOC_LIMIT_GROWTH_FACTOR=1.1
