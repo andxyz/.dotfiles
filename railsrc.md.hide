@@ -7,15 +7,14 @@ first of all, don't use a `.railsrc` (it has caused me pain in the past)
 
 bundle init
 bundle exec ruby --version
-echo -n "gem 'rails', '~> 6.0.3.1'" >> Gemfile
+echo -n "gem 'rails', '~> 8.0.2'" >> Gemfile
 bundle install
 bundle exec rails --version
 bundle exec rails help
-bundle exec rails new puzzle_shelf ./ \
+bundle exec rails new 802 ./ \
 --skip-action-cable \
 --skip-action-mailbox \
 --skip-action-mailer \
---skip-active-record \
 --skip-listen \
 --no-rc \
 --skip-spring \
