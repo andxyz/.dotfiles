@@ -124,6 +124,7 @@ if type /usr/local/bin/brew &>/dev/null; then
 fi
 
 ## spaceship-prompt prompt
+export -- SPACESHIP_CONFIG=~/.config/spaceship.zsh
 export -- SPACESHIP_BATTERY_SHOW=false
 export -- SPACESHIP_TIME_SHOW=true
 export -- SPACESHIP_TIME_FORMAT="%D{%I:%M %p}"
