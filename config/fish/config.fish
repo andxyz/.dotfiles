@@ -12,5 +12,5 @@ if status is-interactive
     # fisher install tyler-stefani/starship
     # fisher install carapace-sh/carapace-bin
 
-    # cargo install --locked zellij carapace starship
+    # cargo install --locked zellij carapace starship git-delta
 end
