@@ -15,13 +15,16 @@ cd ~/.nvm
 git pull
 git fetch --tags
 git tag --list
-git checkout v0.39.7
+git checkout v0.40.3
+# git checkout v0.39.7
 # git checkout v0.37.2
 # git checkout v0.35.3
 # git checkout v0.33.6
 
 nvm ls-remote
 PATH='/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/opt/X11/bin'
+nvm list
+nvm install v22.17.0
 nvm install v20.12.1
 # nvm install v18.12.1
 # nvm install v18.12.1
@@ -51,9 +54,9 @@ nvm install v20.12.1
 
 ## set our dev machine defaults
 ### for future shells
-nvm alias default v20.12.1
+nvm alias default v22.17.0
 ### for this shell right now. now now? like now? yes, right now now.
-nvm use v20.12.1
+nvm use v22.17.0
 
 ## update npm
 npm update -g --silent npm
