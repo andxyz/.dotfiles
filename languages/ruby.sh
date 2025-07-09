@@ -30,8 +30,12 @@ brew unlink readline || true
 (brew install readline && brew upgrade readline) || true
 (brew install libxml2  && brew upgrade libxml2)  || true
 (brew install libxslt  && brew upgrade libxslt)  || true
-(brew install postgresql@10  && brew upgrade postgresql@10)  || true
-(brew install postgresql@11  && brew upgrade postgresql@11)  || true
+(brew install jemalloc  && brew upgrade libxslt)  || true
+(brew install 'openssl@3'  && brew upgrade 'openssl@3')  || true
+(brew install 'postgresql@10'  && brew upgrade 'postgresql@10')  || true
+(brew install 'postgresql@11'  && brew upgrade 'postgresql@11')  || true
+(brew install 'postgresql@13'  && brew upgrade 'postgresql@13')  || true
+(brew install 'postgresql@14'  && brew upgrade 'postgresql@14')  || true
 
 brew link openssl --force || true
 brew link libffi --force || true
@@ -73,8 +77,6 @@ rustup update
 # see https://bugs.ruby-lang.org/issues/18912#note-6
 # The first try is failed. Because my environment mixed the homebrew binutils built by macOS 12.0(monterey).
 brew uninstall binutils
-brew install jemalloc
-brew install 'openssl@3'
 
 # required for building Ruby <= 1.9.3-p0:
 # brew tap 'homebrew/dupes' && brew install 'apple-gcc42'
