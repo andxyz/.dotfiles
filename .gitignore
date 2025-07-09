@@ -1,3 +1,4 @@
 bundle/config
 *_private
 !/bin
+config/gh

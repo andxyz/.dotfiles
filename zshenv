@@ -25,4 +25,4 @@ source_golang_latest_env
 source_haskell_env
 source_rustup_env
 source_ruby_env
-# source_node_env
+# source_node_env # takes 5 seconds!
