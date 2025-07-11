@@ -247,13 +247,18 @@ source_php_env() {
 source_python27_env() {
   export -- PATH="/usr/local/opt/python/libexec/bin:${PATH}"
   # They will install into the site-package directory
-  #   /usr/local/lib/python2.7/site-packages
   export -- PYTHONPATH=`brew --prefix`/lib/python2.7/site-packages:$PYTHONPATH
 
   ## python anaconda os-agnostic, system-level binary package manager and ecosystem
   ## see http://conda.pydata.org
   test -d "$HOME/anaconda3/bin" &&
   export -- PATH="${PATH}:$HOME/anaconda3/bin"
+}
+
+source_python313_env() {
+  export -- PATH="/usr/local/opt/python@3.13/libexec/bin:${PATH}"
+  # Sometimes they will install into the site-package directory
+  export -- PYTHONPATH=`brew --prefix`/lib/python3.13/site-packages:$PYTHONPATH
 }
 
 # slowing me down
@@ -375,6 +380,7 @@ function source_swift_env() {
 #source_ocaml_env
 #source_php_env
 #source_python27_env
+#source_python313_env
 #source_ruby_env
 #source_rust_env
 #source_rustup_env
