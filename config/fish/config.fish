@@ -23,5 +23,5 @@ if status is-interactive
     # https://github.com/junegunn/fzf?tab=readme-ov-file#setting-up-shell-integration
     fzf --fish | source # note: needed fzf --version 0.64
 
-    # cargo install --locked zellij carapace starship git-delta
+    # cargo install --locked zellij carapace starship git-delta eza
 end
