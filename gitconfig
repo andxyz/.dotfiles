@@ -48,7 +48,7 @@
     path = "${HOME}/code/git/delta/themes.gitconfig"
 
 [commit]
-  # template = ~/.gitmessage # turn this off for now, for Jorges work to take over
+  template = ~/.gitmessage
 
 [push]
     default = simple
