@@ -41,7 +41,7 @@ alias hhtopmem="htop --sort-key PERCENT_MEM"
 alias hhtoppid="htop --sort-key PID"
 
 ## git aliases
-alias gs='git status --short --branch' # fucking ghostscript
+alias gs='git status --short --branch' # ghostscript gs is the worst name for me
 alias gss='git status --branch --find-renames'
 alias gco='git checkout'
 
