@@ -2,3 +2,4 @@ bundle/config
 *_private
 !/bin
 config/gh
+config/spaceship.zsh.zwc
