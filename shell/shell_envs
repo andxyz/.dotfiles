@@ -8,7 +8,7 @@
 # LC_COLLATE can have nasty side effects
 # The POSIX locale can be specified by assigning to the appropriate environment variables the values "C" or "POSIX".
 #
-## sometimes you need 
+## sometimes you need
 ## sudo locale-gen en_US.UTF-8
 #
 export -- LANG='en_US.UTF-8'

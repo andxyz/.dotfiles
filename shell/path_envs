@@ -348,16 +348,16 @@ source_ruby_env() {
 
 # slowing me down
 function source_rust_env() {
-  source $HOME/.cargo/env
-  ## brew info rustup
-  ## rustup --help
-  ## rustup update && rustup update stable && rustup default stable && rustup which cargo
+  source_rustup_env
 }
 
 # slowing me down
 function source_rustup_env {
   ## rust uses rustup and cargo
   # https://github.com/andxyz/.dotfiles/blob/master/languages/rust.sh
+  # brew info rustup
+  # rustup --help
+  # rustup update && rustup update stable && rustup default stable && rustup which cargo
   test -d "$HOME/.cargo/bin" &&
     export -- PATH="${HOME}/.cargo/bin:${PATH}"
 }

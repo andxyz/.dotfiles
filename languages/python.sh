@@ -10,23 +10,17 @@ echo "install python stuff goes here"
 # pip2 install --no-cache-dir --no-binary --upgrade pip
 # pip2 install --no-cache-dir --no-binary --upgrade setuptools
 
+brew install python@3 && brew upgrade python@3
+brew link python@3 --force
+brew link --overwrite python@3
+brew install uv && brew upgrade uv
 
-
-brew install python@3.13
-
-brew link python@3.13 --force brew link --overwrite python@3.13
-
-python3 -m pip install --upgrade virtualenv
-python3 -m pip install --upgrade pip
-python3 -m pip install --upgrade setuptools
-
-brew install pipenv
+brew install virtualenv && brew upgrade virtualenv
+brew install pipx && brew upgrade pipx
 
 # some tools
 # uhhhhh sure I guess
 brew install httpie pgcli mycli
-# python3 -m pip install --upgrade paramiko
-# python3 -m pip install --upgrade machobot https://github.com/rodionovd/machobot
 # python3 -m pip install --upgrade mitmproxy
 
 exit 0
