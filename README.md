@@ -1,3 +1,4 @@
+
 # andxyz .dotfiles
 
 the pronunciation of .dotfiles is not lost on me
@@ -78,8 +79,7 @@ git checkout --force master
 ghostty +list-themes
 ghostty +list-fonts
 
-
-# /Users/andxyz/Library/Application Support/com.mitchellh.ghostty/config
+# cat ~/Library/Application\ Support/com.mitchellh.ghostty/config
 font-family = DejaVuSansM Nerd Font Mono
 font-size = 16.5
 window-padding-x = 2
