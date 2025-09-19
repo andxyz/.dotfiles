@@ -278,10 +278,10 @@ brew doctor
 # rbenv shell  2.3.7
 # rbenv global 2.3.7
 #
-XYZ_DEFAULT_RUBY="3.4.6"
-echo "## setting default shell ruby to ${XYZ_DEFAULT_RUBY}"
-rbenv shell  "${XYZ_DEFAULT_RUBY}"
-rbenv global "${XYZ_DEFAULT_RUBY}"
+export XYZ_DEFAULT_RUBY="3.4.6"
+echo "## setting default shell ruby to $XYZ_DEFAULT_RUBY"
+rbenv shell  "$XYZ_DEFAULT_RUBY"
+rbenv global "$XYZ_DEFAULT_RUBY"
 
 ## show off my new whiz bangs! you guys! We gots whiz-bangs!
 rbenv rehash
