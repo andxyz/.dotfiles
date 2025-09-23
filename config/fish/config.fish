@@ -4,7 +4,7 @@ if status is-login
     # set PATH '/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/opt/X11/bin'
 
     # # # env shell configs
-    # bass source ~/.shell/shell_envs
+    source ~/.shell/shell_envs
     # test -f ~/.shell/path_envs         && bass source ~/.shell/path_envs
     # test -f ~/.shell/path_envs_private && bass source ~/.shell/path_envs_private
     # test -f ~/.shell/config_ruby_envs  && bass source ~/.shell/config_ruby_envs
