@@ -79,7 +79,7 @@ git checkout --force master
 ghostty +list-themes
 ghostty +list-fonts
 
-# cat ~/Library/Application\ Support/com.mitchellh.ghostty/config
+# bat -l hcl ~/.config/ghostty/config
 font-family = DejaVuSansM Nerd Font Mono
 font-size = 16.5
 window-padding-x = 2
