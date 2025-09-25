@@ -53,7 +53,7 @@ if status is-interactive
     #-----------
     # Do not show any greeting
     set --universal --erase fish_greeting
-    function fish_greeting; end
+    function fish_greeting;end
     funcsave --quiet fish_greeting
 
     #-----------
@@ -78,12 +78,17 @@ if status is-interactive
     # `fnix -p go` to get an environment with Go but use the fish shell along
     # with it.
     abbr -a -- fnix nix-shell --run fish
-    abbr -a -- refish 'exec env -i -- TERM=xterm-ghostty /usr/local/bin/fish -li'
-    set -gx TERM_DIRS "/opt/local/share/terminfo:/usr/share/terminfo:/$HOME/.terminfo:/Applications/Ghostty.app/Contents/Resources/terminfo"
+    set -gx TERM_DIRS "$HOME/.terminfo:/opt/local/share/terminfo:/usr/share/terminfo"
     # brew install ncurses
     # cd /usr/local/opt/ncurses/bin
-    # ➜  sudo ./infocmp -x | ./tic -x -
+    # mkdir -p ~/.terminfo/
+    # cd ~/.terminfo/
+    # sudo /usr/local/opt/ncurses/bin/infocmp -x | /usr/local/opt/ncurses/bin/tic -x - > xterm-ghostty.terminfo
 
-    # rbenv setup see ~/.rbenv/bin/rbenv init --help
+    # rbenv setup
+    # ~/.rbenv/bin/rbenv init --help
     ~/.rbenv/bin/rbenv init - --no-rehash fish | source
+
+    # For codde editors to have access to linters and autocomplete
+    launchctl setenv PATH "$PATH"
 end
