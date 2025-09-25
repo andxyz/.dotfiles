@@ -83,5 +83,5 @@ ghostty +list-fonts
 font-family = DejaVuSansM Nerd Font Mono
 font-size = 16.5
 window-padding-x = 2
-theme = OneHalfDark
+theme = One Half Dark
 ```
