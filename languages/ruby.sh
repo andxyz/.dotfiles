@@ -200,7 +200,8 @@ fi
 #
 # env -- MAKE_OPTS='-j4' CFLAGS='-g3 -gdwarf-2 -O2' RUBY_CONFIGURE_OPTS="--enable-yjit --with-jemalloc-dir=$(brew --prefix 'jemalloc') --with-openssl-dir=$(brew --prefix 'openssl@3') --with-readline-dir=$(brew --prefix readline) --with-libyaml-dir=$(brew --prefix 'libyaml') --disable-install-doc --disable-install-rdoc --disable-install-capi --enable-dtrace" rbenv install --skip-existing --verbose 3.2.2-pshopify19
 # env -- MAKE_OPTS='-j4' CFLAGS='-g3 -gdwarf-2 -O2' RUBY_CONFIGURE_OPTS="--enable-yjit --enable-shared --with-jemalloc-dir=$(brew --prefix 'jemalloc') --with-openssl-dir=$(brew --prefix 'openssl@3') --with-readline-dir=$(brew --prefix readline) --with-libyaml-dir=$(brew --prefix 'libyaml') --disable-install-doc --disable-install-rdoc --disable-install-capi --enable-dtrace" rbenv install --verbose --keep 3.3.1 | tee ~/.rbenv/sources/ruby-3.3.1-build.log
-touch ~/.rbenv/sources/ruby-3.4.6-build.log && env -- MAKE_OPTS='-j4' CFLAGS='-g -g3 -ggdb -gdwarf-4 -O2' RUBY_CONFIGURE_OPTS="--enable-yjit --enable-shared --with-jemalloc-dir=$(brew --prefix 'jemalloc') --with-openssl-dir=$(brew --prefix 'openssl@3') --with-readline-dir=$(brew --prefix readline) --with-libyaml-dir=$(brew --prefix 'libyaml') --disable-install-doc --disable-install-rdoc --disable-install-capi --enable-dtrace" rbenv install --verbose --keep 3.4.6 | tee ~/.rbenv/sources/ruby-3.4.6-build.log
+sudo xcodebuild -license accept
+touch ~/.rbenv/sources/ruby-3.4.7-build.log && env -- MAKE_OPTS='-j6' CFLAGS='-g -g3 -ggdb -gdwarf-4 -O2' RUBY_CONFIGURE_OPTS="--enable-yjit --enable-shared --with-jemalloc-dir=$(brew --prefix 'jemalloc') --with-openssl-dir=$(brew --prefix 'openssl@3') --with-readline-dir=$(brew --prefix readline) --with-libyaml-dir=$(brew --prefix 'libyaml') --disable-install-doc --disable-install-rdoc --disable-install-capi --enable-dtrace" rbenv install --verbose --keep 3.4.7 | tee ~/.rbenv/sources/ruby-3.4.7-build.log
 #
 #
 # https://github.com/Shopify/ruby-definitions
@@ -270,7 +271,7 @@ env -- MAKE_OPTS='-j4' CFLAGS='-g3 -gdwarf-2 -O2' RUBY_CONFIGURE_OPTS="--enable-
 # git checkout master
 # git fetch origin
 # git reset --hard origin/master
-brew cleanup && brew prune
+brew cleanup # && brew prune
 brew doctor
 
 ## set my default rubies for new shells
@@ -278,7 +279,7 @@ brew doctor
 # rbenv shell  2.3.7
 # rbenv global 2.3.7
 #
-export XYZ_DEFAULT_RUBY="3.4.6"
+export XYZ_DEFAULT_RUBY="3.4.7"
 echo "## setting default shell ruby to $XYZ_DEFAULT_RUBY"
 rbenv shell  "$XYZ_DEFAULT_RUBY"
 rbenv global "$XYZ_DEFAULT_RUBY"
