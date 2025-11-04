@@ -87,8 +87,15 @@ if status is-interactive
 
     # rbenv setup
     # ~/.rbenv/bin/rbenv init --help
-    ~/.rbenv/bin/rbenv init - --no-rehash fish | source
+    if command -q rbenv
+        ~/.rbenv/bin/rbenv init - --no-rehash fish | source
+    end
 
-    # For codde editors to have access to linters and autocomplete
-    launchctl setenv PATH "$PATH"
+    #--------------
+    # OSX app shell fix
+    #--------------
+    # For code editors to have access to linters and autocomplete
+    if command -q launchctl
+        launchctl setenv PATH "$PATH"
+    end
 end
