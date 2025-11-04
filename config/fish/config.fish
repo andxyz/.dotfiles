@@ -46,7 +46,7 @@ if status is-interactive
 
     # setup fzf key bindings
     # https://github.com/junegunn/fzf?tab=readme-ov-file#setting-up-shell-integration
-    fzf --fish | source # note: needed fzf --version 0.64
+    # fzf --fish | source # note: needed fzf --version 0.64
 
     #-----------
     # Prompt
