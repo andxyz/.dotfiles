@@ -1,0 +1,73 @@
+# config options
+# https://alacritty.org/config-alacritty.html
+
+# themes from
+# https://github.com/alacritty/alacritty-theme
+
+import = ["C:/Users/andxy/.config/alacritty/themes/themes/gruvbox_dark.toml"] # Windows
+# import = ["~/.config/alacritty/themes/themes/gruvbox_dark.toml"] # Linux
+ 
+[font]
+size = 14
+
+[font.normal]
+family = "DejaVuSansM Nerd Font Mono"
+
+[window]
+decorations = "none"
+startup_mode = "Maximized"
+
+[window.padding]
+x = 14
+y = 0
+
+[shell]
+program = "wsl"
+args = ["--cd ~/code/"]
+
+[env]
+TERM = "xterm-256color"
+LC_CTYPE = "en_US.UTF-8"
+
+[terminal]
+# Controls the OSC 52 behavior for clipboard interactions
+osc52 = "CopyPaste"  # Default: "OnlyCopy"
+
+[selection]
+
+# Characters that are used as separators for "semantic words" in Alacritty
+semantic_escape_chars = ",│`|:\"' ()[]{}<>\\t"  # Default: ",│`|:\"' ()[]{}<>\\t"
+
+# When set to true, selected text will be copied to the primary clipboard
+save_to_clipboard = true  # Default: false
+
+[keyboard]
+bindings = [
+  { key = "V", mods = "Shift|Control", action = "Paste" },
+  { key = "C", mods = "Shift|Control", action = "Copy" },
+]
+
+# Colors (One Half Dark)
+[colors.primary]
+background = "0x282c34"
+foreground = "0xdcdfe4"
+
+[colors.normal]
+black = "0x282c34"
+red = "0xe06c75"
+green = "0x98c379"
+yellow = "0xe5c07b"
+blue = "0x61afef"
+magenta = "0xc678dd"
+cyan = "0x56b6c2"
+white = "0xdcdfe4"
+
+[colors.bright]
+black = "0x282c34"
+red = "0xe06c75"
+green = "0x98c379"
+yellow = "0xe5c07b"
+blue = "0x61afef"
+magenta = "0xc678dd"
+cyan = "0x56b6c2"
+white = "0xdcdfe4"
