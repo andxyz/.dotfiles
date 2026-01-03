@@ -3,3 +3,4 @@ bundle/config
 !/bin
 config/gh
 config/spaceship.zsh.zwc
+config/iterm2/
