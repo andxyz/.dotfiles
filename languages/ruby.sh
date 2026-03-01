@@ -19,7 +19,7 @@ eval "$(rbenv init -)"
 echo '## installing recommended homebrew dependencies'
 brew update
 
-brew unlink openssl  || true
+brew unlink openssl@3  || true
 brew unlink libffi   || true
 brew unlink libyaml  || true
 brew unlink readline || true
@@ -36,8 +36,9 @@ brew unlink readline || true
 (brew install 'postgresql@11'  && brew upgrade 'postgresql@11')  || true
 (brew install 'postgresql@13'  && brew upgrade 'postgresql@13')  || true
 (brew install 'postgresql@14'  && brew upgrade 'postgresql@14')  || true
+(brew install 'postgresql@18'  && brew upgrade 'postgresql@14')  || true
 
-brew link openssl --force || true
+brew link openssl@3 --force || true
 brew link libffi --force || true
 brew link libyaml --force || true
 brew link readline --force || true
@@ -201,14 +202,15 @@ fi
 # env -- MAKE_OPTS='-j4' CFLAGS='-g3 -gdwarf-2 -O2' RUBY_CONFIGURE_OPTS="--enable-yjit --with-jemalloc-dir=$(brew --prefix 'jemalloc') --with-openssl-dir=$(brew --prefix 'openssl@3') --with-readline-dir=$(brew --prefix readline) --with-libyaml-dir=$(brew --prefix 'libyaml') --disable-install-doc --disable-install-rdoc --disable-install-capi --enable-dtrace" rbenv install --skip-existing --verbose 3.2.2-pshopify19
 # env -- MAKE_OPTS='-j4' CFLAGS='-g3 -gdwarf-2 -O2' RUBY_CONFIGURE_OPTS="--enable-yjit --enable-shared --with-jemalloc-dir=$(brew --prefix 'jemalloc') --with-openssl-dir=$(brew --prefix 'openssl@3') --with-readline-dir=$(brew --prefix readline) --with-libyaml-dir=$(brew --prefix 'libyaml') --disable-install-doc --disable-install-rdoc --disable-install-capi --enable-dtrace" rbenv install --verbose --keep 3.3.1 | tee ~/.rbenv/sources/ruby-3.3.1-build.log
 sudo xcodebuild -license accept
-touch ~/.rbenv/sources/ruby-3.4.7-build.log && env -- MAKE_OPTS='-j6' CFLAGS='-g -g3 -ggdb -gdwarf-4 -O2' RUBY_CONFIGURE_OPTS="--enable-yjit --enable-shared --with-jemalloc-dir=$(brew --prefix 'jemalloc') --with-openssl-dir=$(brew --prefix 'openssl@3') --with-readline-dir=$(brew --prefix readline) --with-libyaml-dir=$(brew --prefix 'libyaml') --disable-install-doc --disable-install-rdoc --disable-install-capi --enable-dtrace" rbenv install --verbose --keep 3.4.7 | tee ~/.rbenv/sources/ruby-3.4.7-build.log
+# touch ~/.rbenv/sources/ruby-3.4.7-build.log && env -- MAKE_OPTS='-j6' CFLAGS='-g -g3 -ggdb -gdwarf-4 -O2' RUBY_CONFIGURE_OPTS="--enable-yjit --enable-shared --with-jemalloc-dir=$(brew --prefix 'jemalloc') --with-openssl-dir=$(brew --prefix 'openssl@3') --with-readline-dir=$(brew --prefix readline) --with-libyaml-dir=$(brew --prefix 'libyaml') --disable-install-doc --disable-install-rdoc --disable-install-capi --enable-dtrace" rbenv install --verbose --keep 3.4.7 | tee ~/.rbenv/sources/ruby-3.4.7-build.log
+touch ~/.rbenv/sources/ruby-4.0.1-build.log && env -- MAKE_OPTS='-j8' CFLAGS='-g -g3 -ggdb -gdwarf-4 -O2' RUBY_CONFIGURE_OPTS="--enable-yjit --enable-shared --with-jemalloc-dir=$(brew --prefix 'jemalloc') --with-openssl-dir=$(brew --prefix 'openssl@3') --with-readline-dir=$(brew --prefix readline) --with-libyaml-dir=$(brew --prefix 'libyaml') --disable-install-doc --disable-install-rdoc --disable-install-capi --enable-dtrace" rbenv install --verbose --keep 4.0.1 | tee ~/.rbenv/sources/ruby-4.0.1-build.log
 #
 #
 # https://github.com/Shopify/ruby-definitions
-cd ~/code/personal/shopify-ruby && bundle install
-eval `rbenv exec bundle exec shopify-ruby env`
-rbenv install --list-all | grep -i shopify
-env -- MAKE_OPTS='-j4' CFLAGS='-g3 -gdwarf-2 -O2' RUBY_CONFIGURE_OPTS="--enable-yjit --with-jemalloc-dir=$(brew --prefix 'jemalloc') --with-openssl-dir=$(brew --prefix 'openssl@3') --with-readline-dir=$(brew --prefix readline) --with-libyaml-dir=$(brew --prefix 'libyaml') --disable-install-doc --disable-install-rdoc --disable-install-capi --enable-dtrace" rbenv install --skip-existing --verbose v3.4.1-pshopify1
+# cd ~/code/personal/shopify-ruby && bundle install
+# eval `rbenv exec bundle exec shopify-ruby env`
+# rbenv install --list-all | grep -i shopify
+# env -- MAKE_OPTS='-j4' CFLAGS='-g3 -gdwarf-2 -O2' RUBY_CONFIGURE_OPTS="--enable-yjit --with-jemalloc-dir=$(brew --prefix 'jemalloc') --with-openssl-dir=$(brew --prefix 'openssl@3') --with-readline-dir=$(brew --prefix readline) --with-libyaml-dir=$(brew --prefix 'libyaml') --disable-install-doc --disable-install-rdoc --disable-install-capi --enable-dtrace" rbenv install --skip-existing --verbose v3.4.1-pshopify1
 
 #
 # openssl fun

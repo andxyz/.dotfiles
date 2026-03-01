@@ -75,6 +75,8 @@ postgresql@13
 postgresql@14
 postgresql@15
 postgresql@16
+postgresql@17
+postgresql@18
 python
 python@2
 python@3
