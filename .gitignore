@@ -4,3 +4,5 @@ bundle/config
 config/gh
 config/spaceship.zsh.zwc
 config/iterm2/
+config/zed/prompts/
+config/github-copilot/versions.json

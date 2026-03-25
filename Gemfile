@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-ruby('3.4.7')
+ruby('4.0.1')
 source('https://rubygems.org')
 
 # Linting

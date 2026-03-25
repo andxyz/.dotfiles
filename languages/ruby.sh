@@ -204,6 +204,7 @@ fi
 sudo xcodebuild -license accept
 # touch ~/.rbenv/sources/ruby-3.4.7-build.log && env -- MAKE_OPTS='-j6' CFLAGS='-g -g3 -ggdb -gdwarf-4 -O2' RUBY_CONFIGURE_OPTS="--enable-yjit --enable-shared --with-jemalloc-dir=$(brew --prefix 'jemalloc') --with-openssl-dir=$(brew --prefix 'openssl@3') --with-readline-dir=$(brew --prefix readline) --with-libyaml-dir=$(brew --prefix 'libyaml') --disable-install-doc --disable-install-rdoc --disable-install-capi --enable-dtrace" rbenv install --verbose --keep 3.4.7 | tee ~/.rbenv/sources/ruby-3.4.7-build.log
 touch ~/.rbenv/sources/ruby-4.0.1-build.log && env -- MAKE_OPTS='-j8' CFLAGS='-g -g3 -ggdb -gdwarf-4 -O2' RUBY_CONFIGURE_OPTS="--enable-yjit --enable-shared --with-jemalloc-dir=$(brew --prefix 'jemalloc') --with-openssl-dir=$(brew --prefix 'openssl@3') --with-readline-dir=$(brew --prefix readline) --with-libyaml-dir=$(brew --prefix 'libyaml') --disable-install-doc --disable-install-rdoc --disable-install-capi --enable-dtrace" rbenv install --verbose --keep 4.0.1 | tee ~/.rbenv/sources/ruby-4.0.1-build.log
+
 #
 #
 # https://github.com/Shopify/ruby-definitions
