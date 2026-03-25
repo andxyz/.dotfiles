@@ -214,7 +214,7 @@ if ENV['RAILS_USE_HIRB_GEM'] == 'true' && defined?(::Rails) && Rails.env
               ActiveRecord::Base.descendants.reject do |klass_name|
                 klass_name.to_s == 'ActiveRecord::SchemaMigration'
               end
-              .each_with_object({}) do |klass_name, tmp_hash|
+                .each_with_object({}) do |klass_name, tmp_hash|
                 tmp_hash[klass_name.to_s] =
                   begin
                     {

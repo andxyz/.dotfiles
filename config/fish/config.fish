@@ -87,9 +87,7 @@ if status is-interactive
 
     # rbenv setup
     # ~/.rbenv/bin/rbenv init --help
-    if command -q rbenv
-        ~/.rbenv/bin/rbenv init fish | source
-    end
+    ~/.rbenv/bin/rbenv init - | source
 
     #--------------
     # OSX app shell fix
