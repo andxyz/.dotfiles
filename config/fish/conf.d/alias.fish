@@ -14,7 +14,7 @@ alias ls='eza -g --group-directories-first --color=auto --icons'
 alias ll='eza -l --group-directories-first --color=auto --icons'
 alias la='eza -g -a --group-directories-first --icons'
 
-alias refish='exec env -i -- TERM=xterm-ghostty /usr/local/bin/fish --login --interactive'
+alias refish='exec env -i -- TERM=xterm-256color /usr/local/bin/fish --login --interactive'
 
 ## ctags
 alias cctags='cctags.sh &'

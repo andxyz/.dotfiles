@@ -88,7 +88,7 @@ if status is-interactive
     # rbenv setup
     # ~/.rbenv/bin/rbenv init --help
     if command -q rbenv
-        ~/.rbenv/bin/rbenv init - --no-rehash fish | source
+        ~/.rbenv/bin/rbenv init fish | source
     end
 
     #--------------
